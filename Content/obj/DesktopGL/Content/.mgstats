@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/lukes/source/repos/Sprint0/Sprint0/Content/ball.png","C:/Users/lukes/source/repos/Sprint0/Sprint0/Content/bin/DesktopGL/Content/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1518129
+"C:/Users/lukes/source/repos/Sprint0/Sprint0/Content/creditsEdited.png","C:/Users/lukes/source/repos/Sprint0/Sprint0/Content/bin/DesktopGL/Content/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.3731234
+"C:/Users/lukes/source/repos/Sprint0/Sprint0/Content/zelda.png","C:/Users/lukes/source/repos/Sprint0/Sprint0/Content/bin/DesktopGL/Content/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.3192466
