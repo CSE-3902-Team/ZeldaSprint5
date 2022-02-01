@@ -12,8 +12,9 @@ namespace Sprint0
         private ISprite text;
         private Texture2D spriteTexture;
         private Texture2D textTexture;
-        private IController kController;
         private IController mController;
+        private IController kController;
+        
 
         public Game1()
         {
