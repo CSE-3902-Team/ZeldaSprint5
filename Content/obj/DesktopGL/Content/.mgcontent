@@ -4,10 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/ball.png</File>
-    <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/creditsEdited.png</File>
-    <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/NES - The Legend of Zelda - Items &amp; Weapons.png</File>
-    <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/zelda.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGame/Content/ball.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGame/Content/creditsEdited.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGame/Content/NES - The Legend of Zelda - Items &amp; Weapons.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGame/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
