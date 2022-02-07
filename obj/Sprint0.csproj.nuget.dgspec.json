@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\Sprint0.csproj": {}
+    "C:\\Users\\tingy\\source\\repos\\ZeldaGame\\Sprint0.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\Sprint0.csproj": {
+    "C:\\Users\\tingy\\source\\repos\\ZeldaGame\\Sprint0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\Sprint0.csproj",
+        "projectUniqueName": "C:\\Users\\tingy\\source\\repos\\ZeldaGame\\Sprint0.csproj",
         "projectName": "Sprint0",
-        "projectPath": "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\Sprint0.csproj",
-        "packagesPath": "C:\\Users\\cirino.25\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\obj\\",
+        "projectPath": "C:\\Users\\tingy\\source\\repos\\ZeldaGame\\Sprint0.csproj",
+        "packagesPath": "C:\\Users\\tingy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tingy\\source\\repos\\ZeldaGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\cirino.25\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tingy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.206\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
