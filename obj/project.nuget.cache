@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LwQzL94ZJMixM3JL4gUzKGzUyRJm6HB/kym8ilm3u7ACqCyFWNTD0yhVm8FhUvc0OGpaweF8wFOP+vSMO9mwAg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\Sprint0.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cirino.25\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\cirino.25\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+  ],
+  "logs": []
+}

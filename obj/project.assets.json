@@ -174,25 +174,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lukes\\.nuget\\packages\\": {},
+    "C:\\Users\\cirino.25\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lukes\\source\\repos\\Sprint0\\Sprint0\\Sprint0.csproj",
+      "projectUniqueName": "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\Sprint0.csproj",
       "projectName": "Sprint0",
-      "projectPath": "C:\\Users\\lukes\\source\\repos\\Sprint0\\Sprint0\\Sprint0.csproj",
-      "packagesPath": "C:\\Users\\lukes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lukes\\source\\repos\\Sprint0\\Sprint0\\obj\\",
+      "projectPath": "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\Sprint0.csproj",
+      "packagesPath": "C:\\Users\\cirino.25\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cirino.25\\source\\GameRepos\\ZeldaGame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\lukes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cirino.25\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -244,7 +244,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.206\\RuntimeIdentifierGraph.json"
       }
     }
   }
