@@ -24,18 +24,28 @@ namespace Sprint0 {
 			}
 			if (kstate.IsKeyDown(Keys.D1) || kstate.IsKeyDown(Keys.NumPad1))
 			{
-				myGame.CurrentSprite = new IdleNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch,center, 1.0f);
-			} else if (kstate.IsKeyDown(Keys.D2) || kstate.IsKeyDown(Keys.NumPad2)){
+				myGame.CurrentSprite = new IdleNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1.0f);
+			} else if (kstate.IsKeyDown(Keys.D2) || kstate.IsKeyDown(Keys.NumPad2)) {
 				//animated sprite, static 
 				myGame.CurrentSprite = new IdleAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1.0f);
 			} else if (kstate.IsKeyDown(Keys.D3) || kstate.IsKeyDown(Keys.NumPad3)) {
-				myGame.CurrentSprite = new movingNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch,center, 1f);
+				myGame.CurrentSprite = new movingNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1f);
 			} else if (kstate.IsKeyDown(Keys.D4) || kstate.IsKeyDown(Keys.NumPad4)) {
 				//animated, moving
 				myGame.CurrentSprite = new movingAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1f);
 			}
 
+			//An instance in player will be inside the game class
+			//myGame.player.ChangeDirection();
 
+			//Call the move method and you can give it it's own while loop
+			//myGame.player.Move();
+
+			if (kstate.IsKeyDown(Keys.N) || kstate.IsKeyDown(Keys.Z)) {
+				//myGame.player.Attack();
+			}
+
+			
 		}
 	}
 }

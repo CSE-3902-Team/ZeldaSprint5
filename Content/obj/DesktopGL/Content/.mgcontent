@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/austi/source/repos/ZeldaGame/Content/ball.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGame/Content/creditsEdited.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGame/Content/zelda.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/ball.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/creditsEdited.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
