@@ -13,7 +13,6 @@ namespace Sprint0
         private Texture2D spriteTexture;
         private Texture2D textTexture;
         private IController kController;
-        private IController mController;
 
         public Game1()
         {
@@ -25,8 +24,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            mController = new MouseController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
+            kController = new KeyboardController(this) ;
             
             base.Initialize();
         }
@@ -47,7 +45,6 @@ namespace Sprint0
 
             // TODO: Add your update logic here
             kController.handleInput();
-            mController.handleInput();
 
             base.Update(gameTime);
         }
