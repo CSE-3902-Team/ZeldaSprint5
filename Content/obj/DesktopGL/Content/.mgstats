@@ -1,4 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/ball.png","C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/bin/DesktopGL/Content/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,1.0206562
-"C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/creditsEdited.png","C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/bin/DesktopGL/Content/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.1439026
-"C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/zelda.png","C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/bin/DesktopGL/Content/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0602413
+"C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/ball.png","C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/bin/DesktopGL/Content/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1589066
+"C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/creditsEdited.png","C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/bin/DesktopGL/Content/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0238476
+"C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/zelda.png","C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/bin/DesktopGL/Content/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.002586

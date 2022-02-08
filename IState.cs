@@ -1,6 +1,6 @@
 ﻿using System;
 
-public interface IMoveState 
+public interface IState 
 {
 		void ChangeDirection();
 		void Update();

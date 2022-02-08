@@ -5,8 +5,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Sprint0 {
 
-	public class MouseController : IController
+	public class MouseController // : IController
 	{
+		/*
 		Game1 myGame;
 		Vector2 center;
 		public MouseController(Game1 g, Vector2 center)
@@ -14,7 +15,6 @@ namespace Sprint0 {
 			myGame = g;
 			this.center = center;
 		}
-
 		public void handleInput() {
 			MouseState mstate = Mouse.GetState();
 			//top right
@@ -46,5 +46,6 @@ namespace Sprint0 {
 
 
 			}
+		*/
 	}
 }

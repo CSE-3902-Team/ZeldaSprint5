@@ -8,11 +8,8 @@ namespace Sprint0
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private ISprite sprite;
-        private ISprite text;
-        private Texture2D spriteTexture;
-        private Texture2D textTexture;
-        private IController mController;
+        private Texture2D _playerTexture;
+        private Player _player;
         private IController kController;
         
 
@@ -27,7 +24,6 @@ namespace Sprint0
         {
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            mController = new MouseController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             
             base.Initialize();
         }
@@ -35,10 +31,8 @@ namespace Sprint0
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            spriteTexture = Content.Load<Texture2D>("zelda");
-            textTexture = Content.Load<Texture2D>("creditsEdited");
-            text = new TextSprite(textTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2 - 100), 0f);
-            sprite = new IdleNonAnimatedSprite(spriteTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), 0f);
+            _playerTexture = Content.Load<Texture2D>("zelda");
+            _player = new Player(_playerTexture, _spriteBatch);
         }
 
         protected override void Update(GameTime gameTime)
@@ -48,7 +42,6 @@ namespace Sprint0
 
             // TODO: Add your update logic here
             kController.handleInput();
-            mController.handleInput();
 
             base.Update(gameTime);
         }
@@ -57,30 +50,23 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            _player.Update();
+            //SpriteBatch.Draw(_playerTexture, new Vector2(20, 20), Color.White);
             // TODO: Add your drawing code here
-            sprite.draw();
-            text.draw();
-            
-
-
             base.Draw(gameTime);
         }
 
-        public Texture2D SpriteTexture
-        {
-            get { return spriteTexture; } 
-        }
+        
 
         public SpriteBatch SpriteBatch
         {
             get { return _spriteBatch; } 
         }
         
-        public ISprite CurrentSprite
-        {
-            get { return sprite; }
-            set { sprite = value; }
+        public Player Player {
+            get { return _player; }
         }
+       
 
     }
 }
