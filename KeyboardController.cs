@@ -34,8 +34,6 @@ namespace Sprint0 {
 				//animated, moving
 				myGame.CurrentSprite = new movingAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1f);
 			}
-
-
 		}
 	}
 }
