@@ -15,6 +15,10 @@ namespace Sprint0
         private IController kController;
         private IController mController;
 
+        private IProjectile projectile;
+        private Texture2D items;
+        private Vector2 bombPos;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -27,7 +31,8 @@ namespace Sprint0
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            
+
+            bombPos = new Vector2(500, 300);
             base.Initialize();
         }
 
@@ -36,8 +41,10 @@ namespace Sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             spriteTexture = Content.Load<Texture2D>("zelda");
             textTexture = Content.Load<Texture2D>("creditsEdited");
+            items = Content.Load<Texture2D>("itemsAndWeapons1");
             text = new TextSprite(textTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2 - 100), 0f);
             sprite = new IdleNonAnimatedSprite(spriteTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), 0f);
+            projectile = new BombProjectile(items, _spriteBatch, bombPos, 1f);
         }
 
         protected override void Update(GameTime gameTime)
@@ -59,6 +66,8 @@ namespace Sprint0
             // TODO: Add your drawing code here
             sprite.draw();
             text.draw();
+            projectile.draw(bombPos, 0, 0);
+
             
 
 

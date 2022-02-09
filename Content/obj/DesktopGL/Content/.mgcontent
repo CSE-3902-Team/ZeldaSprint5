@@ -6,13 +6,13 @@
   <SourceFiles>
     <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/ball.png</File>
     <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/creditsEdited.png</File>
-    <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/NES - The Legend of Zelda - Items &amp; Weapons.png</File>
+    <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/itemsAndWeapons1.png</File>
     <File>C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File>Items &amp; Weapons.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

@@ -22,20 +22,22 @@ namespace Sprint0
             this.position = position;
             this.speed = speed;
             this.frame = 1;
-            sourceRect = new Rectangle(542, 0, 34, 56);
+            sourceRect = new Rectangle(192, 276, 14, 25);
         }
 
-        public void draw()
+        public void draw(Vector2 position, int x, int y)
         {
-            Rectangle destinationRectangle = new Rectangle((int)position.X, (int)position.Y, 34, 56);
+            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 26, 41);
             frame++;
             if (frame <= 40)
             {
-                sourceRect = new Rectangle(542, 0, 34, 56);
+                sourceRect = new Rectangle(192, 276, 14, 25);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 25);
             }
-            else if (frame > 40)
+            else if (frame <= 80)
             {
-                sourceRect = new Rectangle(542, 0, 34, 56);
+                sourceRect = new Rectangle(287, 276, 22, 26);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 22, 26);
             }
             else if (frame > 80)
             {
@@ -44,17 +46,18 @@ namespace Sprint0
 
             batch.Begin();
             batch.Draw(
-                 texture,
-                 destinationRectangle,
-                 sourceRect,
+                 texture,  
+                 destinationRect,
+                 sourceRect, 
                 Color.White,
-                0f,
-                new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
+                (float)Math.PI,
+                new Vector2(sourceRect.Width, sourceRect.Height),
                 SpriteEffects.None,
                 0f
                 );
             batch.End();
         }
+
 
         public float Speed
         {
