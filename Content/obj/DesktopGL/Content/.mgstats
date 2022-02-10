@@ -1,5 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/ball.png","C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/bin/DesktopGL/Content/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1360353
 "C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/creditsEdited.png","C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/bin/DesktopGL/Content/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0198016
-"C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/itemsAndWeapons1.png","C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/bin/DesktopGL/Content/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",19462,460125,0.1662127
+"C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/itemsAndWeapons1.png","C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/bin/DesktopGL/Content/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",204156,1034245,0.1582319
 "C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/zelda.png","C:/Users/cirino.25/source/GameRepos/ZeldaGame/Content/bin/DesktopGL/Content/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0028073

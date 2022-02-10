@@ -1,6 +1,7 @@
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\ball.xnb
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\creditsEdited.xnb
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\Items & Weapons.xnb
+C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\itemsAndWeapons1.xnb
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\zelda.xnb
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Sprint0.exe
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Sprint0.deps.json
@@ -24,5 +25,3 @@ C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.cs
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
-C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.csprojAssemblyReference.cache
-C:\Users\cirino.25\source\GameRepos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\itemsAndWeapons1.xnb
