@@ -7,7 +7,10 @@ public class Player
 	private Texture2D texture;
 	private Vector2 position;
 	private float speed;
+	private int attackFrames;
+	private float scale;
 	private SpriteBatch _spriteBatch;
+	bool damaged;
 	public Player(Texture2D texture, SpriteBatch batch)
 	{
 		_state = new PlayerRightIdle(this);
@@ -15,6 +18,9 @@ public class Player
 		this.texture = texture;
 		position = new Vector2(100, 100);
 		speed = 3;
+		attackFrames = 30;
+		damaged = false;
+		scale = 0.38f;
 	}
 
 	public void ChangeDirection() {
@@ -30,6 +36,10 @@ public class Player
 		_state.Attack();	
 	}
 
+	public void DamageLink() {
+		damaged = true;
+	}
+
 	public void Move(int x, int y) {
 		//x and y are directional vectors and should only be 0, 1, or -1
 		position.X += x * speed;
@@ -37,10 +47,24 @@ public class Player
 	}
 
 	public void Draw(Rectangle src) {
-		//TODO: implement draw in every state instead. This allows animations and deal situations where the width of src is huge
-        Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width*0.5), (int)(src.Height*0.5));
+		//generic draw method
+		Color col = Color.White;
+		if (damaged) {
+			col = Color.MediumVioletRed;	
+		}
+        Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width*scale), (int)(src.Height*scale));
 		_spriteBatch.Begin();
-		_spriteBatch.Draw(texture, destRect, src, Color.White, 0f, new Vector2(src.Width / 2, src.Height / 2), SpriteEffects.None, 0f);
+		_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2, src.Height / 2), SpriteEffects.None, 0f);
+		_spriteBatch.End();
+	}
+	public void Draw(Rectangle src, int xOffset, int yOffset, Color col) {
+		//When link attacks with his sword his width is twice as big, we need to change center
+		if (damaged) {
+			col = Color.MediumVioletRed;	
+		}
+        Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width*scale), (int)(src.Height*scale));
+		_spriteBatch.Begin();
+		_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 -xOffset, src.Height / 2 -yOffset), SpriteEffects.None, 0f);
 		_spriteBatch.End();
 	}
 
@@ -48,5 +72,7 @@ public class Player
 		get { return _state; }
 		set { _state = value; }
 	} 
+	
+	public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 
 }

@@ -25,10 +25,11 @@ namespace Sprint0 {
 			
 			//An instance in player will be inside the game class
 			myGame.Player.ChangeDirection();
-
-
-				myGame.Player.Attack();
+            myGame.Player.Attack();
+			if (kstate.IsKeyDown(Keys.E)) {
+				myGame.Player.DamageLink();
 			}
+		}
 
 			
 		}

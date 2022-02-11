@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-	public class PlayerRightAttack : IState
+	public class PlayerUpAttack : IState
 	{
 		private Player player;
         private int currentFrame;
 
-		public PlayerRightAttack(Player instance)
+		public PlayerUpAttack(Player instance)
 		{
 			player = instance;
 			currentFrame = 1;
@@ -21,14 +21,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 		public void Update()
 		{
-			//TODO:get rid of green hilt in this texture
 			if (currentFrame <= player.AttackFrames)
 			{
-				//Fully extended sword
-				player.Draw(new Rectangle(168, 689, 239, 139),62,0,Color.White);
+				//TODO: get rid of the extra green on link's cap
+				player.Draw(new Rectangle(331,879,111,247),-1,-53,Color.White);
 			}
 			else {
-				player.State = new PlayerRightIdle(player);
+				player.State = new PlayerUpIdle(player);
 			}
 				currentFrame++;
 			}

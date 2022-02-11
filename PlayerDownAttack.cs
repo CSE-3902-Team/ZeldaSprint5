@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-	public class PlayerRightAttack : IState
+	public class PlayerDownAttack : IState
 	{
 		private Player player;
         private int currentFrame;
 
-		public PlayerRightAttack(Player instance)
+		public PlayerDownAttack(Player instance)
 		{
 			player = instance;
 			currentFrame = 1;
@@ -25,10 +25,10 @@ using Microsoft.Xna.Framework.Graphics;
 			if (currentFrame <= player.AttackFrames)
 			{
 				//Fully extended sword
-				player.Draw(new Rectangle(168, 689, 239, 139),62,0,Color.White);
+				player.Draw(new Rectangle(157,420,141,248),-1,52,Color.White);
 			}
 			else {
-				player.State = new PlayerRightIdle(player);
+				player.State = new PlayerDownIdle(player);
 			}
 				currentFrame++;
 			}

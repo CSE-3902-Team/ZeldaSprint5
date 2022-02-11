@@ -13,19 +13,19 @@ public class PlayerDownIdle : IState
 
 	public void ChangeDirection() {
 		KeyboardState kstate = Keyboard.GetState();
-		if (kstate.IsKeyDown(Keys.W))
+		if (kstate.IsKeyDown(Keys.W) || kstate.IsKeyDown(Keys.Up))
 		{
 			player.State = new PlayerUpMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.A))
+		else if (kstate.IsKeyDown(Keys.A)|| kstate.IsKeyDown(Keys.Left))
 		{
 			player.State = new PlayerLeftMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.S))
+		else if (kstate.IsKeyDown(Keys.S)|| kstate.IsKeyDown(Keys.Down))
 		{
 			player.State = new PlayerDownMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.D)) { 
+		else if (kstate.IsKeyDown(Keys.D)|| kstate.IsKeyDown(Keys.Right)) { 
 			player.State = new PlayerRightMove(player);
 		}
 	}
@@ -41,7 +41,7 @@ public class PlayerDownIdle : IState
 		KeyboardState kstate = Keyboard.GetState();
 		if (kstate.IsKeyDown(Keys.N) || kstate.IsKeyDown(Keys.Z))
 		{
-	//		player.State = new PlayerRightAttack(player);
+			player.State = new PlayerDownAttack(player);
 		}
 
 	}
