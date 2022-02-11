@@ -5,17 +5,37 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/tingy/source/repos/zeldagame3/Content/ball.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/bricks.png</File>
     <File>C:/Users/tingy/source/repos/zeldagame3/Content/creditsEdited.png</File>
     <File>C:/Users/tingy/source/repos/zeldagame3/Content/NES - The Legend of Zelda - Dungeon Tileset.png</File>
     <File>C:/Users/tingy/source/repos/zeldagame3/Content/NES - The Legend of Zelda - Items &amp; Weapons.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/sandtile.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/silver lines.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/solid black tile.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/solid blue tile.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/solid navy tile.png</File>
     <File>C:/Users/tingy/source/repos/zeldagame3/Content/Sprint 2 Tiles.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/square in center tile.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/stairs.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/statue1.png</File>
+    <File>C:/Users/tingy/source/repos/zeldagame3/Content/statue2.png</File>
     <File>C:/Users/tingy/source/repos/zeldagame3/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File>Items &amp; Weapons.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
