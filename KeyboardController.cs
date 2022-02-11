@@ -9,14 +9,22 @@ namespace Sprint0 {
 	{
 		Game1 myGame;
 		Vector2 center;
+		private KeyboardState kstate;
+		private KeyboardState previousState;
 		public KeyboardController(Game1 g, Vector2 center)
 		{
 			myGame = g;
 			this.center = center;
 		}
 
+		private bool HasBeenPressed(Keys key)
+		{
+			return kstate.IsKeyDown(key) && !previousState.IsKeyDown(key);
+		}
+
 		public void handleInput() {
-			KeyboardState kstate = Keyboard.GetState();
+			previousState = kstate;
+			kstate = Keyboard.GetState();
 
 			if (kstate.IsKeyDown(Keys.D0) || kstate.IsKeyDown(Keys.NumPad0)) {
 				//return val of 0, exit the game
@@ -24,15 +32,40 @@ namespace Sprint0 {
 			}
 			if (kstate.IsKeyDown(Keys.D1) || kstate.IsKeyDown(Keys.NumPad1))
 			{
-				myGame.CurrentSprite = new IdleNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch,center, 1.0f);
-			} else if (kstate.IsKeyDown(Keys.D2) || kstate.IsKeyDown(Keys.NumPad2)){
+				myGame.CurrentSprite = new IdleNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1.0f);
+			}
+			else if (kstate.IsKeyDown(Keys.D2) || kstate.IsKeyDown(Keys.NumPad2))
+			{
 				//animated sprite, static 
 				myGame.CurrentSprite = new IdleAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1.0f);
-			} else if (kstate.IsKeyDown(Keys.D3) || kstate.IsKeyDown(Keys.NumPad3)) {
-				myGame.CurrentSprite = new movingNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch,center, 1f);
-			} else if (kstate.IsKeyDown(Keys.D4) || kstate.IsKeyDown(Keys.NumPad4)) {
+			}
+			else if (kstate.IsKeyDown(Keys.D3) || kstate.IsKeyDown(Keys.NumPad3))
+			{
+				myGame.CurrentSprite = new movingNonAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1f);
+			}
+			else if (kstate.IsKeyDown(Keys.D4) || kstate.IsKeyDown(Keys.NumPad4))
+			{
 				//animated, moving
 				myGame.CurrentSprite = new movingAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1f);
+			}
+
+			//item keys
+			if (HasBeenPressed(Keys.U)) {
+				myGame.shownItem = myGame.itemFactoryPublic.previousItem();
+			}
+			else if (HasBeenPressed(Keys.I))
+			{
+				myGame.shownItem = myGame.itemFactoryPublic.nextItem();
+			}
+
+			if (HasBeenPressed(Keys.Q))
+			{
+				//return val of 0, exit the game
+				myGame.Exit();
+			}
+			else if (HasBeenPressed(Keys.R))
+			{
+				myGame.reset();
 			}
 		}
 	}

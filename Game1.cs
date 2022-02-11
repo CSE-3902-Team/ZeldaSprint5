@@ -14,6 +14,9 @@ namespace Sprint0
         private Texture2D textTexture;
         private IController kController;
         private IController mController;
+        private ItemSpriteFactory itemFactory;
+        private AItem item;
+        
 
         public Game1()
         {
@@ -27,7 +30,8 @@ namespace Sprint0
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            
+            itemFactory = ItemSpriteFactory.Instance;
+
             base.Initialize();
         }
 
@@ -38,6 +42,12 @@ namespace Sprint0
             textTexture = Content.Load<Texture2D>("creditsEdited");
             text = new TextSprite(textTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2 - 100), 0f);
             sprite = new IdleNonAnimatedSprite(spriteTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), 0f);
+
+            //load everything with the items shown on screen
+            itemFactory.LoadAllTextures(Content);
+            itemFactory.setBatchPosition(_spriteBatch, new Vector2(100, 100));
+            item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -59,6 +69,7 @@ namespace Sprint0
             // TODO: Add your drawing code here
             sprite.draw();
             text.draw();
+            shownItem.draw();
             
 
 
@@ -79,6 +90,22 @@ namespace Sprint0
         {
             get { return sprite; }
             set { sprite = value; }
+        }
+
+        public AItem shownItem
+        {
+            get { return item; }
+            set { item = value; }
+        }
+
+        public ItemSpriteFactory itemFactoryPublic
+        {
+            get { return itemFactory; }
+            set { itemFactory = value; }
+        }
+
+        public void reset() {
+            LoadContent();
         }
 
     }
