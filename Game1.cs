@@ -17,7 +17,7 @@ namespace Sprint0
 
         private IProjectile projectile;
         private Texture2D items;
-        private Vector2 arrowPos;
+
 
         public Game1()
         {
@@ -32,7 +32,6 @@ namespace Sprint0
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
-            arrowPos = new Vector2(500, 300);
             base.Initialize();
         }
 
@@ -44,7 +43,6 @@ namespace Sprint0
             items = Content.Load<Texture2D>("itemsAndWeapons1");
             text = new TextSprite(textTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2 - 100), 0f);
             sprite = new IdleNonAnimatedSprite(spriteTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), 0f);
-            projectile = new ProjectileSpecialBoomerang(items, _spriteBatch, arrowPos);
         }
 
         protected override void Update(GameTime gameTime)
@@ -66,10 +64,6 @@ namespace Sprint0
             // TODO: Add your drawing code here
             sprite.draw();
             text.draw();
-            projectile.draw(1, 0);
-
-            
-
 
             base.Draw(gameTime);
         }
