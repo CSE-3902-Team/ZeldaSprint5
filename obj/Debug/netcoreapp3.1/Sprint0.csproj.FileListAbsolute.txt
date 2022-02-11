@@ -66,13 +66,6 @@ C:\Users\tingy\source\repos\zeldagame3\obj\Debug\netcoreapp3.1\Sprint0.csproj.Co
 C:\Users\tingy\source\repos\zeldagame3\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\tingy\source\repos\zeldagame3\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\tingy\source\repos\zeldagame3\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\DungeonEnemy.xnb
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\ball.xnb
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\creditsEdited.xnb
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\Items & Weapons.xnb
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\NES - The Legend of Zelda - Dungeon Tileset.xnb
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\Sprint 2 Tiles.xnb
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\zelda.xnb
 C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Sprint0.exe
 C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Sprint0.deps.json
 C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Sprint0.runtimeconfig.json
@@ -88,7 +81,6 @@ C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x64\n
 C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\soft_oal.dll
 C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SDL2.dll
 C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\soft_oal.dll
-C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache
 C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfoInputs.cache
 C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfo.cs
@@ -97,4 +89,3 @@ C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.csproj.Cop
 C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\austi\source\repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
-C:\Users\austi\source\repos\ZeldaGame\bin\Debug\netcoreapp3.1\Content\sprint-2-items.xnb

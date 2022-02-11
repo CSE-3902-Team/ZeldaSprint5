@@ -66,7 +66,7 @@ namespace Sprint0
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
-            itemFactory.setBatchPosition(_spriteBatch, new Vector2(100, 100));
+            itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
             item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
 
         }
