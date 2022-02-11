@@ -44,7 +44,7 @@ namespace Sprint0
             items = Content.Load<Texture2D>("itemsAndWeapons1");
             text = new TextSprite(textTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2 - 100), 0f);
             sprite = new IdleNonAnimatedSprite(spriteTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), 0f);
-            projectile = new ProjectileNormalArrow(items, _spriteBatch, arrowPos);
+            projectile = new ProjectileSpecialBoomerang(items, _spriteBatch, arrowPos);
         }
 
         protected override void Update(GameTime gameTime)
@@ -66,7 +66,7 @@ namespace Sprint0
             // TODO: Add your drawing code here
             sprite.draw();
             text.draw();
-            projectile.draw(arrowPos, 0, 1);
+            projectile.draw(1, 0);
 
             
 

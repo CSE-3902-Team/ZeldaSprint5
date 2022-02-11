@@ -7,7 +7,7 @@ namespace Sprint0
 {
     public interface IProjectile
     {
-        public void draw(Vector2 location, int x, int y);
+        public void draw(int x, int y);
         
     }
 }

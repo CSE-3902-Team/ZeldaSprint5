@@ -25,7 +25,7 @@ namespace Sprint0
             sourceRect = new Rectangle(276, 192, 14, 25);
         }
 
-        public void draw(Vector2 position, int x, int y)
+        public void draw(int x, int y)
         {
             Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 25);
             frame++;
