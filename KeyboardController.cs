@@ -3,12 +3,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace Sprint0 {
 
 	public class KeyboardController : IController
 	{
 		Game1 myGame;
 		Vector2 center;
+		int count = 0;
+		bool keyPressed = false; // TODO: remove
+		bool keyPressed2 = false; // TODO: remove
 		private KeyboardState kstate;
 		private KeyboardState previousState;
 		public KeyboardController(Game1 g, Vector2 center)
@@ -47,6 +51,38 @@ namespace Sprint0 {
 			{
 				//animated, moving
 				myGame.CurrentSprite = new movingAnimatedSprite(myGame.SpriteTexture, myGame.SpriteBatch, center, 1f);
+			}
+
+			//tile controls
+			else if (kstate.IsKeyDown(Keys.T) || keyPressed)
+			{
+				keyPressed = true;
+				if (keyPressed && kstate.IsKeyUp(Keys.T))
+				{
+					if (count == -1)
+					{
+						count = myGame.TileList.Length - 1;
+					}
+					myGame.CurrentTile = myGame.TileList[count];
+					count--;
+					keyPressed = false;
+
+				}
+			}
+			else if (kstate.IsKeyDown(Keys.Y) || keyPressed2)
+			{
+				keyPressed2 = true;
+				if (keyPressed2 && kstate.IsKeyUp(Keys.Y))
+				{
+					if (count == myGame.TileList.Length)
+					{
+						count = 0;
+					}
+					myGame.CurrentTile = myGame.TileList[count];
+					count++;
+					keyPressed2 = false;
+				}
+
 			}
 
 			//item keys

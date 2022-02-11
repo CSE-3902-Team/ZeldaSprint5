@@ -4,25 +4,26 @@ using System;
 
 namespace Sprint0
 {
-	public class TileSprite : ITile
+	public class BrickTile : ITile
 	{
         private Vector2 myPos;
-		private Texture2D mySheet;
+		private Texture2D myTile;
 		private SpriteBatch myBatch;
         private Rectangle sourceRect;
 
-		public TileSprite(Texture2D tileSheet, SpriteBatch batch, Vector2 position)
+		public BrickTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
-			mySheet = tileSheet;
+			myTile = tile;
 			myBatch = batch;
             myPos = position;
+            sourceRect = new Rectangle(0, 0, 32, 32);
         }
 		public void draw()
 		{
             Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 90, 90);
             myBatch.Begin();
             myBatch.Draw(
-                 mySheet,
+                 myTile,
                  destinationRectangle,
                  sourceRect,
                 Color.White,
@@ -36,8 +37,8 @@ namespace Sprint0
 
         public Texture2D Texture
         {
-            get { return this.mySheet; }
-            set { mySheet = value; }
+            get { return this.myTile; }
+            set { myTile = value; }
         }
 
         public float Speed
