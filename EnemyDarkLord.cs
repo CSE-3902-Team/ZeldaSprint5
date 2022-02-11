@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Sprint0
 {
-   public class EnemyDarkLord:IEnemySprite
+    public class EnemyDarkLord : IEnemySprite
     {
         public Texture2D Texture;
 
@@ -16,10 +16,12 @@ namespace Sprint0
         private SpriteBatch batch;
         Random temp = new Random();
         Random temp1 = new Random();
-        private int currentX=400;
+        Random temp2 = new Random();
+        private int currentX = 400;
         private int currentY = 200;
         private int randomNum;
         private int direction;
+        private int flip;
         int x = 400;
         int y = 200;
         public EnemyDarkLord(Texture2D texture, SpriteBatch batch)
@@ -27,9 +29,9 @@ namespace Sprint0
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
-            total = 2;
-       
-           
+
+
+
         }
 
         public void Update()
@@ -40,17 +42,19 @@ namespace Sprint0
                 case 0:
                     if (currentY < y)
                     {
-                        currentY++;
-                       
+
+
+                        total = 2;
                         currentFrame++;
                         if (currentFrame >= total)
                             currentFrame = 0;
-
+                        currentY++;
                     }
                     if (currentY > y)
                     {
-                        currentY--;
+
                         currentFrame = 2;
+                        currentY--;
                     }
                     break;
                 case 1:
@@ -72,28 +76,35 @@ namespace Sprint0
                     }
                     break;
             }
-            if (currentX == x||currentY==y)
+            if (currentX == x || currentY == y)
             {
-                randomNum = temp.Next(-60, 80);
+                randomNum = temp.Next(50, 100);
                 direction = temp1.Next(0, 2);
+                flip = temp2.Next(0, 2);
+
                 switch (direction)
                 {
 
                     case 0:
-                        x += randomNum;
+                        if (flip == 0)
+                            x = currentX + randomNum;
+                        else
+                            x = currentX - randomNum;
                         break;
                     case 1:
-                        y += randomNum;
+                        if (flip == 1)
+                            y = currentY + randomNum;
+                        else
+                            y = currentY - randomNum;
                         break;
                 }
 
             }
 
 
-          
+
         }
 
-      
 
         public void draw()
         {

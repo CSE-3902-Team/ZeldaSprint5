@@ -20,7 +20,8 @@ namespace Sprint0
         private IController kController;
         private IController mController;
         private ITile[] tileList;
-
+        private Texture2D enemyTexture;
+        private IEnemySprite enemySprite;
         private ItemSpriteFactory itemFactory;
         private AItem item;
         
@@ -44,6 +45,7 @@ namespace Sprint0
 
         protected override void LoadContent()
         {
+        
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             spriteTexture = Content.Load<Texture2D>("zelda");
             textTexture = Content.Load<Texture2D>("creditsEdited");
@@ -68,7 +70,8 @@ namespace Sprint0
             itemFactory.LoadAllTextures(Content);
             itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
             item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
-
+            enemyTexture = Content.Load<Texture2D>("DungeonEnemy");
+            enemySprite = new EnemyDarkLord(enemyTexture, _spriteBatch);
         }
 
         protected override void Update(GameTime gameTime)
@@ -79,7 +82,7 @@ namespace Sprint0
             // TODO: Add your update logic here
             kController.handleInput();
             mController.handleInput();
-
+            enemySprite.Update();
             base.Update(gameTime);
         }
 
@@ -91,8 +94,8 @@ namespace Sprint0
             sprite.draw();
             text.draw();
             shownItem.draw();
-            
 
+            enemySprite.draw();
             tile.draw();
             
 
