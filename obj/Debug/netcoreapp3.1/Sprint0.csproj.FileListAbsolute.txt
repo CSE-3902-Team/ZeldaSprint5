@@ -25,3 +25,4 @@ C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.cs
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
+C:\Users\cirino.25\source\GameRepos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.csprojAssemblyReference.cache

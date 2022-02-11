@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class BombProjectile : IProjectile
+    public class ProjectileBomb : IProjectile
     {
         private Vector2 position;
         private Texture2D texture;
@@ -15,7 +15,7 @@ namespace Sprint0
         private Rectangle sourceRect;
         private float rotation;
 
-        public BombProjectile(Texture2D texture, SpriteBatch batch, Vector2 position)
+        public ProjectileBomb(Texture2D texture, SpriteBatch batch, Vector2 position)
         {
             this.texture = texture;
             this.batch = batch;
