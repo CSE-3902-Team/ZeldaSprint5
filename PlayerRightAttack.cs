@@ -2,42 +2,53 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-public class PlayerRightAttack : IState 
-{
-	private Player player;
 
-	public PlayerRightAttack(Player instance)
+	public class PlayerRightAttack : IState
 	{
-		player = instance;
-	}
+		private Player player;
+        private int currentFrame;
 
-	public void ChangeDirection() {
-		KeyboardState kstate = Keyboard.GetState();
-		if (kstate.IsKeyDown(Keys.W))
+		public PlayerRightAttack(Player instance)
 		{
-			//player.State = new PlayerUpMove(player);
+			player = instance;
+			currentFrame = 1;
 		}
-		else if (kstate.IsKeyDown(Keys.A))
+
+		public void ChangeDirection()
 		{
-			//player.State = new PlayerLeftMove(player);
+            return;
 		}
-		else if (kstate.IsKeyDown(Keys.S))
+
+		public void Update()
 		{
-			//player.State = new PlayerDownMove(player);
-		}
-		else if(kstate.IsKeyUp(Keys.D)) { 
-			player.State = new PlayerRightIdle(player);
-		}
-	}
+			int maxFrames = 20;
+			if (currentFrame <= 5)
+			{
+				//Fully extended sword
+				player.Draw(new Rectangle(168, 689, 239, 139));
+			}
+			else if (currentFrame <= 10)
+			{
+				player.Draw(new Rectangle(411, 699, 213, 139));
+			}
+			else if (currentFrame <= 15)
+			{
+				player.Draw(new Rectangle(618, 689, 175, 147));
+			}
+			else if (currentFrame <= maxFrames)
+			{
+				player.Draw(new Rectangle(6, 703, 140, 138));
+			}
+			else {
+				player.State = new PlayerRightIdle(player);
+			}
+				currentFrame++;
+			}
 
-	public void Update() {
-		//update the sprite
-		player.Draw(new Rectangle(56, 0, 24, 16));
 
-	}
-
-	public void Attack() {
+		public void Attack()
+		{
 		//Input checking was done in controller
-
+			return;	
+		}
 	}
-}

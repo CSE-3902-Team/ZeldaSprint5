@@ -15,15 +15,15 @@ public class PlayerRightIdle : IState
 		KeyboardState kstate = Keyboard.GetState();
 		if (kstate.IsKeyDown(Keys.W))
 		{
-			//player.State = new PlayerUpMove(player);
+			player.State = new PlayerUpMove(player);
 		}
 		else if (kstate.IsKeyDown(Keys.A))
 		{
-			//player.State = new PlayerLeftMove(player);
+			player.State = new PlayerLeftMove(player);
 		}
 		else if (kstate.IsKeyDown(Keys.S))
 		{
-			//player.State = new PlayerDownMove(player);
+			player.State = new PlayerDownMove(player);
 		}
 		else if (kstate.IsKeyDown(Keys.D)) { 
 			player.State = new PlayerRightMove(player);
@@ -32,7 +32,7 @@ public class PlayerRightIdle : IState
 
 	public void Update() {
 		//update the sprite
-		player.Draw(new Rectangle(6, 0, 14, 16));
+		player.Draw(new Rectangle(312,95,140,152));
 
 	}
 

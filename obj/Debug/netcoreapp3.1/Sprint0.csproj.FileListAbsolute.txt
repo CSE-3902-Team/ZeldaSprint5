@@ -52,3 +52,5 @@ C:\Users\lukes\OneDrive\Desktop\Repositories\Sprint1\obj\Debug\netcoreapp3.1\Spr
 C:\Users\lukes\OneDrive\Desktop\Repositories\Sprint1\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\lukes\OneDrive\Desktop\Repositories\Sprint1\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\lukes\OneDrive\Desktop\Repositories\Sprint1\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
+C:\Users\lukes\OneDrive\Desktop\Repositories\Sprint1\bin\Debug\netcoreapp3.1\Content\linkSheet.xnb
+C:\Users\lukes\OneDrive\Desktop\Repositories\Sprint1\bin\Debug\netcoreapp3.1\Content\playerSheet.xnb

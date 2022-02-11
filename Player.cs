@@ -26,6 +26,7 @@ public class Player
 	}
 
 	public void Attack() {
+		//TODO: make attack happen for a set amount of time after a button press
 		_state.Attack();	
 	}
 
@@ -33,12 +34,11 @@ public class Player
 		//x and y are directional vectors and should only be 0, 1, or -1
 		position.X += x * speed;
 		position.Y += y * speed;
-		Console.WriteLine("Position = " + position.X);
 	}
 
 	public void Draw(Rectangle src) {
 		//TODO: implement draw in every state instead. This allows animations and deal situations where the width of src is huge
-        Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, src.Width*6, src.Height*6);
+        Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width*0.5), (int)(src.Height*0.5));
 		_spriteBatch.Begin();
 		_spriteBatch.Draw(texture, destRect, src, Color.White, 0f, new Vector2(src.Width / 2, src.Height / 2), SpriteEffects.None, 0f);
 		_spriteBatch.End();

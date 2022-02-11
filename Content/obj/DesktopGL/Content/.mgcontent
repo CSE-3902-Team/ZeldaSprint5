@@ -6,9 +6,13 @@
   <SourceFiles>
     <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/ball.png</File>
     <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/creditsEdited.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/linkSheet.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/playerSheet.png</File>
     <File>C:/Users/lukes/OneDrive/Desktop/Repositories/Sprint1/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

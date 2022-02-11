@@ -31,7 +31,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _playerTexture = Content.Load<Texture2D>("zelda");
+            _playerTexture = Content.Load<Texture2D>("playerSheet");
             _player = new Player(_playerTexture, _spriteBatch);
         }
 
