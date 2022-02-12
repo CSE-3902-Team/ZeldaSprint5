@@ -5,4 +5,5 @@ public interface IState
 		void ChangeDirection();
 		void Update();
 		void Attack();
+		void UseItem() { return; }
 }

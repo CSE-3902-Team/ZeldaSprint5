@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Sprint0;
 using Microsoft.Xna.Framework.Graphics;
 public class Player 
 {
@@ -10,6 +11,7 @@ public class Player
 	private int attackFrames;
 	private float scale;
 	private SpriteBatch _spriteBatch;
+	private IProjectile projectile;
 	bool damaged;
 	public Player(Texture2D texture, SpriteBatch batch)
 	{
@@ -74,5 +76,10 @@ public class Player
 	} 
 	
 	public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
-
+	
+	public IProjectile Projectile
+	{
+		get { return projectile; }
+		set { projectile = value; }
+	}
 }

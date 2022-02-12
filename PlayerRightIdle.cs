@@ -42,6 +42,11 @@ public class PlayerRightIdle : IState
 		{
 			player.State = new PlayerRightAttack(player);
 		}
+	}
 
+	public void useItem() {
+		//caled in Icontroller
+		player.Projectile.draw();
+		
 	}
 }
