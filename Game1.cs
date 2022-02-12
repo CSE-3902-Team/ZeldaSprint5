@@ -11,19 +11,16 @@ namespace Sprint0
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private ISprite sprite;
-        private ISprite text;
         private ITile tile;
-        private Texture2D spriteTexture;
-        private Texture2D textTexture;
         private Texture2D tileTexture;
+        private Texture2D playerTexture;
         private IController kController;
-        private IController mController;
         private ITile[] tileList;
         private Texture2D enemyTexture;
         private IEnemySprite enemySprite;
         private ItemSpriteFactory itemFactory;
         private AItem item;
+        private Player _player;
         
 
         public Game1()
@@ -37,7 +34,6 @@ namespace Sprint0
         {
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            mController = new MouseController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             itemFactory = ItemSpriteFactory.Instance;
 
             base.Initialize();
@@ -47,11 +43,8 @@ namespace Sprint0
         {
         
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            spriteTexture = Content.Load<Texture2D>("zelda");
-            textTexture = Content.Load<Texture2D>("creditsEdited");
             tileTexture = Content.Load<Texture2D>("bricks");
-            text = new TextSprite(textTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2 - 100), 0f);
-            sprite = new IdleNonAnimatedSprite(spriteTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), 0f);
+            playerTexture = Content.Load<Texture2D>("playerSheet");
             tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(100, 100));
             tileList = new ITile[]
             {
@@ -65,6 +58,7 @@ namespace Sprint0
                 new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(100, 100)),
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(100, 100)),
             };
+            _player = new Player(playerTexture, _spriteBatch);
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
@@ -81,7 +75,6 @@ namespace Sprint0
 
             // TODO: Add your update logic here
             kController.handleInput();
-            mController.handleInput();
             enemySprite.Update();
             base.Update(gameTime);
         }
@@ -91,10 +84,8 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            sprite.draw();
-            text.draw();
+            _player.Update();
             shownItem.draw();
-
             enemySprite.draw();
             tile.draw();
             
@@ -102,21 +93,11 @@ namespace Sprint0
             base.Draw(gameTime);
         }
 
-        public Texture2D SpriteTexture
-        {
-            get { return spriteTexture; } 
-        }
-
         public SpriteBatch SpriteBatch
         {
             get { return _spriteBatch; } 
         }
         
-        public ISprite CurrentSprite
-        {
-            get { return sprite; }
-            set { sprite = value; }
-        }
 
         public ITile CurrentTile
         {
@@ -139,6 +120,11 @@ namespace Sprint0
         {
             get { return itemFactory; }
             set { itemFactory = value; }
+        }
+
+        public Player Player
+        {
+            get { return _player; }
         }
 
         public void reset() {

@@ -16,7 +16,7 @@ public class Player
 		_state = new PlayerRightIdle(this);
 		_spriteBatch = batch;
 		this.texture = texture;
-		position = new Vector2(100, 100);
+		position = new Vector2(100, 200);
 		speed = 3;
 		attackFrames = 30;
 		damaged = false;
