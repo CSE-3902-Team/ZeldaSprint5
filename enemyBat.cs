@@ -7,8 +7,9 @@ using System.Threading;
 
 namespace Sprint0
 {
-    public class EnemyDarkLord : IEnemySprite
+    public class enemyBat : IEnemySprite
     {
+
         public Texture2D Texture;
 
         private int currentFrame;
@@ -24,15 +25,13 @@ namespace Sprint0
         private int flip;
         int x = 400;
         int y = 200;
-        public EnemyDarkLord(Texture2D texture, SpriteBatch batch, Vector2 location)
+        public enemyBat(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
             currentX = (int)location.X;
             currentY = (int)location.Y;
-
-
 
 
         }
@@ -56,25 +55,28 @@ namespace Sprint0
                     if (currentY > y)
                     {
 
-                        currentFrame = 2;
+                        total = 2;
+                        currentFrame++;
+                        if (currentFrame >= total)
+                            currentFrame = 0;
                         currentY--;
                     }
                     break;
                 case 1:
                     if (currentX < x)
                     {
-                        total = 5;
+                        total = 2;
                         currentFrame++;
                         if (currentFrame >= total)
-                            currentFrame = 3;
+                            currentFrame = 0;
                         currentX++;
                     }
                     if (currentX > x)
                     {
-                        total = 5;
+                        total = 2;
                         currentFrame++;
                         if (currentFrame >= total)
-                            currentFrame = 3;
+                            currentFrame = 0;
                         currentX--;
                     }
                     break;
@@ -111,22 +113,23 @@ namespace Sprint0
 
         public Vector2 draw()
         {
-            Vector2 temp = new Vector2();
 
+            Vector2 temp = new Vector2();
             int row = currentFrame;
 
-            Rectangle sourceRectangle = new Rectangle(16 * row+2, 90, 16, 16);
-            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40,40);
+            Rectangle sourceRectangle = new Rectangle(16 * row + 183, 11,16, 16);
+            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40, 40);
 
-           batch.Begin();
-           batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            batch.Begin();
+            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             Thread.Sleep(90);
+
             batch.End();
             temp.X = currentX;
             temp.Y = currentY;
             return temp;
         }
 
-       
+
     }
 }
