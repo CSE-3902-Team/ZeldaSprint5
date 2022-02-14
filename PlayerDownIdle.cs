@@ -37,7 +37,6 @@ public class PlayerDownIdle : IState
 	}
 
 	public void Attack() {
-		//Input checking was done in controller
 		KeyboardState kstate = Keyboard.GetState();
 		if (kstate.IsKeyDown(Keys.N) || kstate.IsKeyDown(Keys.Z))
 		{

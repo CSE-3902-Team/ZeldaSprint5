@@ -11,31 +11,33 @@ public class Player
 	private int attackFrames;
 	private float scale;
 	private SpriteBatch _spriteBatch;
-	private ITestProjectile projectile;
+	private IProjectile projectile;
 	bool damaged;
-	public Player(Texture2D texture, SpriteBatch batch, ITestProjectile projectile)
+	public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile)
 	{
 		_state = new PlayerRightIdle(this);
 		_spriteBatch = batch;
 		this.texture = texture;
 		position = new Vector2(100, 200);
-		speed = 3;
-		attackFrames = 30;
+		speed = 5;
+		attackFrames = 15;
 		damaged = false;
 		scale = 0.38f;
 		this.projectile = projectile;
 	}
 
 	public void ChangeDirection() {
+		//Checks movement state transitions
 		_state.ChangeDirection();
 	}
 
 	public void Update() {
+		//Calls the draw method in player class, moves if neccessary
 		_state.Update();
 	}
 
 	public void Attack() {
-		//TODO: make attack happen for a set amount of time after a button press
+		//Makes player attack
 		_state.Attack();	
 	}
 

@@ -36,7 +36,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 		public void Attack()
 		{
-		//Input checking was done in controller
+            //Can't input another attack when we are already attacking 
 			return;	
 		}
 	}
