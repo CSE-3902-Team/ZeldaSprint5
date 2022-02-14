@@ -11,9 +11,9 @@ public class Player
 	private int attackFrames;
 	private float scale;
 	private SpriteBatch _spriteBatch;
-	private ITestProjectile projectile;
+	private IProjectile projectile;
 	bool damaged;
-	public Player(Texture2D texture, SpriteBatch batch, ITestProjectile projectile)
+	public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile)
 	{
 		_state = new PlayerRightIdle(this);
 		_spriteBatch = batch;

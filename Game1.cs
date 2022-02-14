@@ -14,6 +14,7 @@ namespace Sprint0
         private ITile tile;
         private Texture2D tileTexture;
         private Texture2D playerTexture;
+        private Texture2D projectileTexture;
         private IController kController;
         private ITile[] tileList;
         private Texture2D enemyTexture;
@@ -23,7 +24,6 @@ namespace Sprint0
         private Player _player;
         
 
-        private IProjectile projectile;
         private Texture2D items;
 
 
@@ -49,6 +49,7 @@ namespace Sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             tileTexture = Content.Load<Texture2D>("bricks");
             playerTexture = Content.Load<Texture2D>("playerSheet");
+            projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
             tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(100, 100));
             tileList = new ITile[]
             {
@@ -62,7 +63,8 @@ namespace Sprint0
                 new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(100, 100)),
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(100, 100)),
             };
-            _player = new Player(playerTexture, _spriteBatch);
+            
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileFireball(projectileTexture,_spriteBatch,new Vector2(140,200)));
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
@@ -70,11 +72,7 @@ namespace Sprint0
             item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
             enemyTexture = Content.Load<Texture2D>("DungeonEnemy");
             enemySprite = new EnemyDarkLord(enemyTexture, _spriteBatch);
-            spriteTexture = Content.Load<Texture2D>("zelda");
-            textTexture = Content.Load<Texture2D>("creditsEdited");
             items = Content.Load<Texture2D>("itemsAndWeapons1");
-            text = new TextSprite(textTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2 - 100), 0f);
-            sprite = new IdleNonAnimatedSprite(spriteTexture, _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2), 0f);
         }
 
         protected override void Update(GameTime gameTime)
