@@ -92,7 +92,7 @@ namespace Sprint0
 
             // TODO: Add your update logic here
             kController.handleInput();
-            enemySprite.Update();
+          
             base.Update(gameTime);
         }
 
