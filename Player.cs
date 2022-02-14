@@ -11,9 +11,9 @@ public class Player
 	private int attackFrames;
 	private float scale;
 	private SpriteBatch _spriteBatch;
-	private IProjectile projectile;
+	private ITestProjectile projectile;
 	bool damaged;
-	public Player(Texture2D texture, SpriteBatch batch)
+	public Player(Texture2D texture, SpriteBatch batch, ITestProjectile projectile)
 	{
 		_state = new PlayerRightIdle(this);
 		_spriteBatch = batch;
@@ -23,6 +23,7 @@ public class Player
 		attackFrames = 30;
 		damaged = false;
 		scale = 0.38f;
+		this.projectile = projectile;
 	}
 
 	public void ChangeDirection() {
