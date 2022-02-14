@@ -11,7 +11,7 @@ namespace Sprint0
     public interface IEnemySprite 
     {
   
-        void draw();
+        Vector2 draw();
         void Update();
 
     }

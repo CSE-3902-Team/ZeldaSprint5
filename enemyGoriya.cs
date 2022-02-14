@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Sprint0
 {
-    public class EnemyDarkLord : IEnemySprite
+    public class enemyGoriya : IEnemySprite
     {
         public Texture2D Texture;
 
@@ -17,22 +17,20 @@ namespace Sprint0
         Random temp = new Random();
         Random temp1 = new Random();
         Random temp2 = new Random();
-        private int currentX = 400;
-        private int currentY = 200;
+        private int currentX;
+        private int currentY;
         private int randomNum;
         private int direction;
         private int flip;
         int x = 400;
         int y = 200;
-        public EnemyDarkLord(Texture2D texture, SpriteBatch batch, Vector2 location)
+        public enemyGoriya(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
             currentX = (int)location.X;
             currentY = (int)location.Y;
-
-
 
 
         }
@@ -47,34 +45,32 @@ namespace Sprint0
                     {
 
 
-                        total = 2;
-                        currentFrame++;
-                        if (currentFrame >= total)
+                    
                             currentFrame = 0;
                         currentY++;
                     }
                     if (currentY > y)
                     {
 
-                        currentFrame = 2;
+                        currentFrame = 1;
                         currentY--;
                     }
                     break;
                 case 1:
                     if (currentX < x)
                     {
-                        total = 5;
+                        total = 4;
                         currentFrame++;
                         if (currentFrame >= total)
-                            currentFrame = 3;
+                            currentFrame = 2;
                         currentX++;
                     }
                     if (currentX > x)
                     {
-                        total = 5;
+                        total = 4;
                         currentFrame++;
                         if (currentFrame >= total)
-                            currentFrame = 3;
+                            currentFrame = 2;
                         currentX--;
                     }
                     break;
@@ -115,18 +111,21 @@ namespace Sprint0
 
             int row = currentFrame;
 
-            Rectangle sourceRectangle = new Rectangle(16 * row+2, 90, 16, 16);
-            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40,40);
+            Rectangle sourceRectangle = new Rectangle(16 * row + 222, 11, 16, 16);
+            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40, 40);
 
-           batch.Begin();
-           batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+
+
+            batch.Begin();
+            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             Thread.Sleep(90);
+
             batch.End();
             temp.X = currentX;
             temp.Y = currentY;
             return temp;
         }
 
-       
+
     }
 }

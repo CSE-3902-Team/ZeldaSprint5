@@ -19,11 +19,13 @@ namespace Sprint0
         private ITile[] tileList;
         private Texture2D enemyTexture;
         private IEnemySprite enemySprite;
+        private IEnemySprite[] EnemyList;
         private ItemSpriteFactory itemFactory;
         private AItem item;
         private Player _player;
-        
 
+        private Vector2 temp;
+        private IProjectile projectile;
         private Texture2D items;
 
 
@@ -45,7 +47,8 @@ namespace Sprint0
 
         protected override void LoadContent()
         {
-        
+            temp.X = 400;
+            temp.Y = 200;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             tileTexture = Content.Load<Texture2D>("bricks");
             playerTexture = Content.Load<Texture2D>("playerSheet");
@@ -71,7 +74,14 @@ namespace Sprint0
             itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
             item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
             enemyTexture = Content.Load<Texture2D>("DungeonEnemy");
-            enemySprite = new EnemyDarkLord(enemyTexture, _spriteBatch);
+            enemyTexture = Content.Load<Texture2D>("DungeonEnemy");
+            enemySprite = new EnemyDarkLord(enemyTexture, _spriteBatch, temp);
+            EnemyList = new IEnemySprite[] {
+            new EnemyDarkLord(enemyTexture, _spriteBatch, temp),
+            new enemyGel(enemyTexture, _spriteBatch, temp),
+            new enemyGoriya(enemyTexture, _spriteBatch,temp),
+            new enemyBat(enemyTexture, _spriteBatch,temp)
+            };
             items = Content.Load<Texture2D>("itemsAndWeapons1");
         }
 
@@ -95,7 +105,13 @@ namespace Sprint0
             shownItem.draw();
             enemySprite.draw();
             tile.draw();
-            
+            EnemyList = new IEnemySprite[]
+            {
+          new EnemyDarkLord(enemyTexture, _spriteBatch,temp),
+          new enemyGel(enemyTexture, _spriteBatch,temp),
+          new enemyGoriya(enemyTexture, _spriteBatch,temp),
+          new enemyBat(enemyTexture, _spriteBatch,temp)
+};
 
             base.Draw(gameTime);
         }
@@ -122,7 +138,16 @@ namespace Sprint0
             get { return item; }
             set { item = value; }
         }
-
+        public IEnemySprite currentEnemy
+        {
+            get { return enemySprite; }
+            set { enemySprite = value; }
+        }
+        public IEnemySprite[] enemyList
+        {
+            get { return EnemyList; }
+            set { EnemyList = value; }
+        }
         public ItemSpriteFactory itemFactoryPublic
         {
             get { return itemFactory; }
