@@ -24,11 +24,14 @@ namespace Sprint0
         private int flip;
         int x = 400;
         int y = 200;
-        public EnemyDarkLord(Texture2D texture, SpriteBatch batch)
+        public EnemyDarkLord(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
+            currentX = (int)location.X;
+            currentY = (int)location.Y;
+
 
 
 
@@ -106,9 +109,9 @@ namespace Sprint0
         }
 
 
-        public void draw()
+        public Vector2 draw()
         {
-
+            Vector2 temp = new Vector2();
 
             int row = currentFrame;
 
@@ -119,6 +122,9 @@ namespace Sprint0
            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             Thread.Sleep(90);
             batch.End();
+            temp.X = currentX;
+            temp.Y = currentY;
+            return temp;
         }
 
        
