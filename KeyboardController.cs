@@ -11,6 +11,7 @@ namespace Sprint0 {
 		Game1 myGame;
 		Vector2 center;
 		int count = 0;
+		int enemyCount = 3;
 		bool keyPressed = false; // TODO: remove
 		bool keyPressed2 = false; // TODO: remove
 		private KeyboardState kstate;
@@ -29,7 +30,39 @@ namespace Sprint0 {
 		public void handleInput() {
 			previousState = kstate;
 			kstate = Keyboard.GetState();
+			if (kstate.IsKeyDown(Keys.O))
+			{
 
+
+				if (enemyCount == -1)
+				{
+					enemyCount = 3;
+				}
+				myGame.currentEnemy = myGame.enemyList[enemyCount];
+
+
+				enemyCount--;
+
+
+
+			}
+			else if (kstate.IsKeyDown(Keys.P))
+			{
+
+
+				if (enemyCount == 4)
+				{
+					enemyCount = 0;
+				}
+				myGame.currentEnemy = myGame.enemyList[enemyCount];
+
+
+				enemyCount++;
+
+
+
+			}
+			myGame.currentEnemy.Update();
 			if (kstate.IsKeyDown(Keys.D0) || kstate.IsKeyDown(Keys.NumPad0)) {
 				//return val of 0, exit the game
 				myGame.Exit();
