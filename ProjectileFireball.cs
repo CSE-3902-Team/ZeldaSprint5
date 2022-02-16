@@ -48,62 +48,19 @@ namespace Sprint0
                 direction = -1f;
             }
 
-            if (y == 0)
+            if(frame < 60)
             {
-                if (frame < 10)
+                if(y == 0)
                 {
                     position.X += direction * 1f;
-                }
-                else if (frame >= 10 && frame < 20)
+                }else if (x == 0)
                 {
-                    position.X += direction * 1f;
+                    position.Y += direction * 1f;
                 }
-                else if (frame >= 20 && frame < 30)
-                {
-                    position.X += direction * 1f;
-                }
-                else if (frame >= 30 && frame < 40)
-                {
-                    position.X += direction * 1f;
-                }
-                else if (frame >= 40 && frame < 50)
-                {
-                    position.X += direction * 1f;
-                }
-                else
-                {
-                    sourceRect = new Rectangle(400, 400, 0, 0);
-                }
-
             }
-
-            if (x == 0)
+            else
             {
-                if (frame < 10)
-                {
-                    position.Y += direction * 1f;
-                }
-                else if (frame >= 10 && frame < 20)
-                {
-                    position.Y += direction * 1f;
-                }
-                else if (frame >= 20 && frame < 30)
-                {
-                    position.Y += direction * 1f;
-                }
-                else if (frame >= 30 && frame < 40)
-                {
-                    position.Y += direction * 1f;
-                }
-                else if (frame >= 40 && frame < 50)
-                {
-                    position.Y += direction * 1f;
-                }
-                else
-                {
-                    sourceRect = new Rectangle(400, 400, 0, 0);
-                }
-
+                sourceRect = new Rectangle(400, 400, 0, 0);
             }
 
             batch.Begin();

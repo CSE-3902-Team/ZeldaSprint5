@@ -83,6 +83,7 @@ namespace Sprint0
             new enemyBat(enemyTexture, _spriteBatch,temp)
             };
             items = Content.Load<Texture2D>("itemsAndWeapons1");
+            projectile = new ProjectileFireball(items, _spriteBatch, temp);
         }
 
         protected override void Update(GameTime gameTime)
@@ -111,8 +112,8 @@ namespace Sprint0
           new enemyGel(enemyTexture, _spriteBatch,temp),
           new enemyGoriya(enemyTexture, _spriteBatch,temp),
           new enemyBat(enemyTexture, _spriteBatch,temp)
-};
-
+            };
+            projectile.draw(0, -1);
             base.Draw(gameTime);
         }
 
