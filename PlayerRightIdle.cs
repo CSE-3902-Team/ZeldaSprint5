@@ -33,7 +33,7 @@ public class PlayerRightIdle : IState
 	public void Update() {
 		//update the sprite
 		player.Draw(new Rectangle(312,95,140,152));
-		player.Projectile.draw(1,0);
+		player.Projectile.Draw(1,0);
 
 	}
 

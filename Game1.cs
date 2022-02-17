@@ -118,7 +118,7 @@ namespace Sprint0
           new enemyGoriya(enemyTexture, _spriteBatch,temp),
           new enemyBat(enemyTexture, _spriteBatch,temp)
             };
-            projectile.draw(0, -1);
+            projectile.Draw(0, -1);
             base.Draw(gameTime);
         }
 

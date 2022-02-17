@@ -24,11 +24,8 @@ namespace Sprint0
             rotation = 0f;
             sourceRect = new Rectangle(287, 276, 22, 26);
         }
-
-        public void draw(int x, int y)
+        public float GetDirection(int x, int y)
         {
-            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 22, 26);
-            frame++;
             float direction = 1f;
 
             if (x == 0 && y > 0)
@@ -48,15 +45,28 @@ namespace Sprint0
                 direction = -1f;
             }
 
-            if(frame < 60)
+            return direction;
+        }
+        public void Draw(int x, int y)
+        {
+            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 22, 26);
+            float direction = GetDirection(x, y);
+            frame++;
+            
+
+            if(frame < 30)
             {
                 if(y == 0)
                 {
-                    position.X += direction * 1f;
+                    position.X += direction * 3f; 
                 }else if (x == 0)
                 {
-                    position.Y += direction * 1f;
+                    position.Y += direction * 3f;
                 }
+            }
+            else if(frame >= 30 && frame < 40)
+            {
+
             }
             else
             {

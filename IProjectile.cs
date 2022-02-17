@@ -7,7 +7,8 @@ namespace Sprint0
 {
     public interface IProjectile
     {
-        public void draw(int x, int y);
+        public void Draw(int x, int y);
+        public float GetDirection(int x, int y);
         
     }
 }

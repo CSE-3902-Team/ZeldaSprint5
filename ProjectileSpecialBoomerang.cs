@@ -13,7 +13,6 @@ namespace Sprint0
         private SpriteBatch batch;
         private int frame;
         private Rectangle sourceRect;
-        private float rotation;
 
         public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position)
         {
@@ -21,14 +20,10 @@ namespace Sprint0
             this.batch = batch;
             this.position = position;
             frame = 1;
-            rotation = 0f;
             sourceRect = new Rectangle(137, 280, 14, 20);
         }
-
-        public void draw(int x, int y)
+        public float GetDirection(int x, int y)
         {
-            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 20);
-            frame++;
             float direction = 1f;
 
             if (x == 0 && y > 0)
@@ -48,73 +43,47 @@ namespace Sprint0
                 direction = -1f;
             }
 
+            return direction;
+        }
+
+        public void Draw(int x, int y)
+        {
+            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 20);
+            float direction = GetDirection(x, y);
+            float rotation = 0f;
+            frame++;
+
             if (y == 0)
             {
-                if (frame < 10)
+                if (frame < 30)
                 {
-                    position.X += direction * 4f;
-                    rotation = 0f;
+                    position.X += direction * 5f;
+                    rotation += (float)Math.PI / 4f;
                 }
-                else if (frame >= 10 && frame < 20)
+                else if (frame >= 30 && frame < 40)
                 {
                     position.X += direction * 2f;
-                    rotation = (float)Math.PI / 2f;
+                    rotation += (float)Math.PI / 4f;
                 }
-                else if (frame >= 20 && frame < 30)
+                else if (frame >= 40 && frame < 45)
                 {
                     position.X += direction * 0f;
-                    rotation = (float)Math.PI;
+                    rotation += (float)Math.PI / 4f;
                 }
-                else if (frame >= 30 && frame < 40)
+                else if (frame >= 45 && frame < 55)
                 {
                     position.X += direction * -2f;
-                    rotation = (float)Math.PI * 3f / 2f; ;
+                    rotation += (float)Math.PI / 4f;
                 }
-                else if (frame >= 40 && frame < 50)
+                else if (frame >= 55 && frame < 85)
                 {
-                    position.X += direction * -4f;
+                    position.X += direction * -5f;
                     rotation = 0f;
                 }
                 else
                 {
                     sourceRect = new Rectangle(400, 400, 0, 0);
                 }
-
-            }
-
-            if (x == 0)
-            {
-                if (frame < 10)
-                {
-                    position.Y += direction * 4f;
-                    rotation = 0f;
-
-                }
-                else if (frame >= 10 && frame < 20)
-                {
-                    position.Y += direction * 2f;
-                    rotation = (float)Math.PI / 2f;
-                }
-                else if (frame >= 20 && frame < 30)
-                {
-                    position.Y += direction * 0f;
-                    rotation = (float)Math.PI;
-                }
-                else if (frame >= 30 && frame < 40)
-                {
-                    position.Y += direction * -2f;
-                    rotation = (float)Math.PI * 3f / 2f;
-                }
-                else if (frame >= 40 && frame < 50)
-                {
-                    position.Y += direction * -4f;
-                    rotation = 0f;
-                }
-                else
-                {
-                    sourceRect = new Rectangle(400, 400, 0, 0);
-                }
-
             }
 
             batch.Begin();
@@ -130,7 +99,6 @@ namespace Sprint0
                 );
             batch.End();
         }
-
         public Vector2 Position
         {
             get;
