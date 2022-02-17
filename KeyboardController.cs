@@ -12,8 +12,6 @@ namespace Sprint0 {
 		Vector2 center;
 		int count = 0;
 		int enemyCount = 3;
-		bool keyPressed = false; // TODO: remove
-		bool keyPressed2 = false; // TODO: remove
 		private KeyboardState kstate;
 		private KeyboardState previousState;
 		public KeyboardController(Game1 g, Vector2 center)
@@ -67,39 +65,29 @@ namespace Sprint0 {
 				//return val of 0, exit the game
 				myGame.Exit();
 			}
-			
+
 			//tile controls
-			else if (kstate.IsKeyDown(Keys.T) || keyPressed)
+			if (HasBeenPressed(Keys.T))
 			{
-				keyPressed = true;
-				if (keyPressed && kstate.IsKeyUp(Keys.T))
+				count--;
+				if (count == -1)
 				{
-					if (count == -1)
-					{
-						count = myGame.TileList.Length - 1;
-					}
-					myGame.CurrentTile = myGame.TileList[count];
-					count--;
-					keyPressed = false;
-
+					count = myGame.TileList.Length - 1;
 				}
-			}
-			else if (kstate.IsKeyDown(Keys.Y) || keyPressed2)
-			{
-				keyPressed2 = true;
-				if (keyPressed2 && kstate.IsKeyUp(Keys.Y))
-				{
-					if (count == myGame.TileList.Length)
-					{
-						count = 0;
-					}
-					myGame.CurrentTile = myGame.TileList[count];
-					count++;
-					keyPressed2 = false;
-				}
+				myGame.CurrentTile = myGame.TileList[count];
 
 			}
+			if (HasBeenPressed(Keys.Y))
+			{
+				count++;
+				if (count == myGame.TileList.Length || count == -1)
+				{
+					count = 0;
+				}
+				myGame.CurrentTile = myGame.TileList[count];
+	
 
+			}
 			//item keys
 			if (HasBeenPressed(Keys.U)) {
 				myGame.shownItem = myGame.itemFactoryPublic.previousItem();

@@ -11,15 +11,20 @@ namespace Sprint0
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        private IController kController;
+
         private ITile tile;
         private Texture2D tileTexture;
+        private ITile[] tileList;
+
         private Texture2D playerTexture;
         private Texture2D projectileTexture;
-        private IController kController;
-        private ITile[] tileList;
+        
         private Texture2D enemyTexture;
         private IEnemySprite enemySprite;
         private IEnemySprite[] EnemyList;
+
         private ItemSpriteFactory itemFactory;
         private AItem item;
         private Player _player;
