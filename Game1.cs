@@ -30,7 +30,6 @@ namespace Sprint0
         private Player _player;
 
         private Vector2 temp;
-        private IProjectile projectile;
         private Texture2D items;
 
 
@@ -71,8 +70,8 @@ namespace Sprint0
                 new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(100, 100)),
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(100, 100)),
             };
-            
-            _player = new Player(playerTexture, _spriteBatch, new ProjectileFireball(projectileTexture,_spriteBatch,new Vector2(140,200)));
+
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileFireball(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)));
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
@@ -88,7 +87,6 @@ namespace Sprint0
             new enemyBat(enemyTexture, _spriteBatch,temp)
             };
             items = Content.Load<Texture2D>("itemsAndWeapons1");
-            projectile = new ProjectileFireball(items, _spriteBatch, temp);
         }
 
         protected override void Update(GameTime gameTime)
@@ -118,7 +116,6 @@ namespace Sprint0
           new enemyGoriya(enemyTexture, _spriteBatch,temp),
           new enemyBat(enemyTexture, _spriteBatch,temp)
             };
-            projectile.Draw(0, -1);
             base.Draw(gameTime);
         }
 

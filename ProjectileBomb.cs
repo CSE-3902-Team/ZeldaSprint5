@@ -9,12 +9,14 @@ namespace Sprint0
     public class ProjectileBomb : IProjectile
     {
         private Vector2 position;
+        private Vector2 direction;
+
+        private Rectangle sourceRect;
+        private Rectangle destinationRect;
         private Texture2D texture;
         private SpriteBatch batch;
+
         private int frame;
-        private int x;
-        private int y;
-        private Rectangle sourceRect;
         private float rotation;
         private Boolean isRunning;
 
@@ -30,32 +32,29 @@ namespace Sprint0
             set;
         }
 
-        public ProjectileBomb(Texture2D texture, SpriteBatch batch, Vector2 position, int x, int y)
+        public ProjectileBomb(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
-            this.frame = 1;
-            this.x = x;
-            this.y = y;
+            this.direction = direction;
+
+            sourceRect = new Rectangle(276, 192, 14, 25);
+
+            frame = 0;
             isRunning = false;
             rotation = 0f;
-            sourceRect = new Rectangle(276, 192, 14, 25);
         }
 
-        public float GetDirection(int x, int y)
+        public void Update()
         {
-            return 0f;
-        }
-        public void Draw()
-        {
-            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 25);
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 25);
             frame++;
             if (frame < 40)
             {
                 IsRunning = true;
-                sourceRect = new Rectangle(193, 276, 14, 25);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 25);
+                sourceRect = new Rectangle(193, 276, 24, 24);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 24);
             }
             else if (frame >= 40 && frame < 50)
             {
@@ -77,7 +76,9 @@ namespace Sprint0
                 IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
-
+        }
+        public void Draw()
+        {
             batch.Begin();
             batch.Draw(
                  texture,  
@@ -85,7 +86,7 @@ namespace Sprint0
                  sourceRect, 
                 Color.White,
                 rotation,
-                new Vector2(sourceRect.Width, sourceRect.Height),
+                new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
                 SpriteEffects.None,
                 0f
                 );

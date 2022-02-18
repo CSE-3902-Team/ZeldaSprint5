@@ -8,7 +8,7 @@ namespace Sprint0
     public interface IProjectile
     {
         public void Draw();
-        public float GetDirection(int x, int y);
+        public void Update();
 
         public Boolean IsRunning { get; set; }
         

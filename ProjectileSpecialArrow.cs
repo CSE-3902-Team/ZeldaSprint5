@@ -9,12 +9,15 @@ namespace Sprint0
     public class ProjectileSpecialArrow : IProjectile
     {
         private Vector2 position;
+        private Vector2 direction;
+
         private Texture2D texture;
         private SpriteBatch batch;
-        private int frame;
-        private int x;
-        private int y;
         private Rectangle sourceRect;
+        private Rectangle destinationRect;
+
+        private int frame;
+        private float rotation;
         private Boolean isRunning;
 
         public Boolean IsRunning
@@ -29,81 +32,53 @@ namespace Sprint0
             set;
         }
 
-        public ProjectileSpecialArrow(Texture2D texture, SpriteBatch batch, Vector2 position, int x, int y)
+        //Vector direction should only use 0, 1, -1
+        public ProjectileSpecialArrow(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
-            this.x = x;
-            this.y = y;
-            frame = 1;
+            this.direction = direction;
+
             sourceRect = new Rectangle(53, 280, 26, 14);
+
+            rotation = 0f;
+            frame = 1;
             isRunning = false;
         }
-        public float GetDirection(int x, int y)
+
+        public void GetRotation(Vector2 direction)
         {
-            float direction = 1f;
-
-            if (x == 0 && y > 0)
-            {
-                direction = -1f;
-            }
-            else if (x == 0 && y < 0)
-            {
-                direction = 1f;
-            }
-            else if (x > 0 && y == 0)
-            {
-                direction = 1f;
-            }
-            else if (x < 0 && y == 0)
-            {
-                direction = -1f;
-            }
-
-            return direction;
-        }
-
-        public float GetRotation(int x, int y)
-        {
-            float rotation = 0f;
-
-            if (x == 0 && y > 0)
+            if (direction.X == 0 && direction.Y > 0)
             {
                 rotation = (float)Math.PI * 3f / 2f;
             }
-            else if (x == 0 && y < 0)
+            else if (direction.X == 0 && direction.Y < 0)
             {
                 rotation = (float)Math.PI / 2f;
             }
-            else if (x > 0 && y == 0)
+            else if (direction.X > 0 && direction.Y == 0)
             {
                 rotation = 0f;
             }
-            else if (x < 0 && y == 0)
+            else if (direction.X < 0 && direction.Y == 0)
             {
                 rotation = (float)Math.PI;
             }
-
-            return rotation;
         }
-        public void Draw()
+
+        public void Update()
         {
-            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 26, 14);
-            float direction = GetDirection(x, y);
-            float rotation = GetRotation(x, y);
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 26, 14);
+            GetRotation(direction);
             frame++;
 
-            if (frame < 60)
+            if (frame < 50)
             {
                 IsRunning = true;
-                if (y == 0)
-                {
-                    position.X += direction * 5f;
-                }else if (x == 0)
-                {
-                    position.Y += direction * 5f;
-                }
+                position.X += direction.X * 5f;
+                position.Y += direction.Y * 5f;
+
             }
             else if (frame >= 50 && frame < 60)
             {
@@ -115,7 +90,9 @@ namespace Sprint0
                 IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
-
+        }
+        public void Draw()
+        {
             batch.Begin();
             batch.Draw(
                  texture,
@@ -123,7 +100,7 @@ namespace Sprint0
                  sourceRect,
                 Color.White,
                 rotation,
-                new Vector2(sourceRect.Width, sourceRect.Height),
+                new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
                 SpriteEffects.None,
                 0f
                 );

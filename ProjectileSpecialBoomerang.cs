@@ -9,12 +9,15 @@ namespace Sprint0
     public class ProjectileSpecialBoomerang : IProjectile
     {
         private Vector2 position;
+        private Vector2 direction;
+
+        private Rectangle sourceRect;
+        private Rectangle destinationRect;
         private Texture2D texture;
         private SpriteBatch batch;
+
         private int frame;
-        private int x;
-        private int y;
-        private Rectangle sourceRect;
+        private float rotation;
         private Boolean isRunning;
 
         public Boolean IsRunning
@@ -29,83 +32,85 @@ namespace Sprint0
             set;
         }
 
-        public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, int x, int y)
+        public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
-            this.x = x;
-            this.y = y;
-            frame = 1;
+            this.direction = direction;
+
             sourceRect = new Rectangle(137, 280, 14, 20);
+
+            frame = 0;
             isRunning = false;
+            rotation = 0f;
         }
-        public float GetDirection(int x, int y)
+
+        public void GetRotation(Vector2 direction)
         {
-            float direction = 1f;
+            if (direction.X == 0 && direction.Y > 0)
+            {
+                rotation = (float)Math.PI * 3f / 2f;
+            }
+            else if (direction.X == 0 && direction.Y < 0)
+            {
+                rotation = (float)Math.PI / 2f;
+            }
+            else if (direction.X > 0 && direction.Y == 0)
+            {
+                rotation = 0f;
+            }
+            else if (direction.X < 0 && direction.Y == 0)
+            {
+                rotation = (float)Math.PI;
+            }
+        }
+        public void Update()
+        {
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 20);
+            GetRotation(direction);
+            frame++;
 
-            if (x == 0 && y > 0)
+            if (frame < 30)
             {
-                direction = -1f;
+                IsRunning = true;
+                position.X += direction.X * 3f;
+                position.Y += direction.Y * 3f;
+                rotation += (float)Math.PI / 4f;
             }
-            else if (x == 0 && y < 0)
+            else if (frame >= 30 && frame < 40)
             {
-                direction = 1f;
+                position.X += direction.X;
+                position.Y += direction.Y;
+                rotation += (float)Math.PI / 4f;
             }
-            else if (x > 0 && y == 0)
+            else if (frame >= 40 && frame < 45)
             {
-                direction = 1f;
+                position.X += direction.X * 0f;
+                position.Y += direction.Y * 0f;
+                rotation += (float)Math.PI / 4f;
             }
-            else if (x < 0 && y == 0)
+            else if (frame >= 45 && frame < 55)
             {
-                direction = -1f;
+                position.X += direction.X * -1f;
+                position.Y += direction.Y * -1f;
+                rotation += (float)Math.PI / 4f;
             }
-
-            return direction;
+            else if (frame >= 55 && frame < 85)
+            {
+                position.X += direction.X * -3f;
+                position.Y += direction.Y * -3f;
+                rotation += (float)Math.PI / 4f;
+            }
+            else
+            {
+                IsRunning = false;
+                sourceRect = new Rectangle(400, 400, 0, 0);
+            }
         }
 
         public void Draw()
         {
-            Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 20);
-            float direction = GetDirection(x, y);
-            float rotation = 0f;
-            frame++;
-
-            if (y == 0)
-            {
-                if (frame < 30)
-                {
-                    IsRunning = true;
-                    position.X += direction * 5f;
-                    rotation += (float)Math.PI / 4f;
-                }
-                else if (frame >= 30 && frame < 40)
-                {
-                    position.X += direction * 2f;
-                    rotation += (float)Math.PI / 4f;
-                }
-                else if (frame >= 40 && frame < 45)
-                {
-                    position.X += direction * 0f;
-                    rotation += (float)Math.PI / 4f;
-                }
-                else if (frame >= 45 && frame < 55)
-                {
-                    position.X += direction * -2f;
-                    rotation += (float)Math.PI / 4f;
-                }
-                else if (frame >= 55 && frame < 85)
-                {
-                    position.X += direction * -5f;
-                    rotation = 0f;
-                }
-                else
-                {
-                    IsRunning = false;
-                    sourceRect = new Rectangle(400, 400, 0, 0);
-                }
-            }
-
             batch.Begin();
             batch.Draw(
                  texture,
@@ -113,7 +118,7 @@ namespace Sprint0
                  sourceRect,
                 Color.White,
                 rotation,
-                new Vector2(sourceRect.Width, sourceRect.Height),
+                new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
                 SpriteEffects.None,
                 0f
                 );
