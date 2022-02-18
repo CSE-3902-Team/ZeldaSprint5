@@ -71,7 +71,7 @@ namespace Sprint0
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(100, 100)),
             };
 
-            _player = new Player(playerTexture, _spriteBatch, new ProjectileFireball(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)));
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)));
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);

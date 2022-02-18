@@ -76,8 +76,8 @@ namespace Sprint0
             if (frame < 50)
             {
                 IsRunning = true;
-                position.X += direction.X * 5f;
-                position.Y += direction.Y * 5f;
+                position.X += direction.X * 10f;
+                position.Y += direction.Y * 10f;
 
             }
             else if (frame >= 50 && frame < 60)

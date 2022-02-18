@@ -54,14 +54,14 @@ namespace Sprint0
             destinationRect = new Rectangle((int)position.X, (int)position.Y, 22, 26);
             frame++;
 
-            if (frame < 30)
+            if (frame < 20)
             {
                 IsRunning = true;
-                position.X += direction.X * 3f;
-                position.Y += direction.Y * 3f;
+                position.X += direction.X * 5f;
+                position.Y += direction.Y * 5f;
                 
             }
-            else if (frame >= 30 && frame < 40)
+            else if (frame >= 20 && frame < 40)
             {
                 //This is when the fireball sits in place 
             }

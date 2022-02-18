@@ -74,14 +74,14 @@ namespace Sprint0
             if (frame < 30)
             {
                 IsRunning = true;
-                position.X += direction.X * 3f;
-                position.Y += direction.Y * 3f;
+                position.X += direction.X * 10f;
+                position.Y += direction.Y * 10f;
                 rotation += (float)Math.PI / 4f;
             }
             else if (frame >= 30 && frame < 40)
             {
-                position.X += direction.X;
-                position.Y += direction.Y;
+                position.X += direction.X * 5f;
+                position.Y += direction.Y * 5f;
                 rotation += (float)Math.PI / 4f;
             }
             else if (frame >= 40 && frame < 45)
@@ -92,14 +92,14 @@ namespace Sprint0
             }
             else if (frame >= 45 && frame < 55)
             {
-                position.X += direction.X * -1f;
-                position.Y += direction.Y * -1f;
+                position.X += direction.X * -5f;
+                position.Y += direction.Y * -5f;
                 rotation += (float)Math.PI / 4f;
             }
             else if (frame >= 55 && frame < 85)
             {
-                position.X += direction.X * -3f;
-                position.Y += direction.Y * -3f;
+                position.X += direction.X * -10f;
+                position.Y += direction.Y * -10f;
                 rotation += (float)Math.PI / 4f;
             }
             else
