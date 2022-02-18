@@ -12,13 +12,31 @@ namespace Sprint0
         private Texture2D texture;
         private SpriteBatch batch;
         private int frame;
+        private int x;
+        private int y;
         private Rectangle sourceRect;
+        private Boolean isRunning;
 
-        public ProjectileNormalArrow(Texture2D texture, SpriteBatch batch, Vector2 position)
+        public Boolean IsRunning
+        {
+            get { return isRunning; }
+            set { isRunning = value; }
+        }
+
+        public Vector2 Position
+        {
+            get;
+            set;
+        }
+
+        public ProjectileNormalArrow(Texture2D texture, SpriteBatch batch, Vector2 position, int x, int y)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
+            this.x = x;
+            this.y = y;
+            isRunning = false;
             frame = 1;
             sourceRect = new Rectangle(14, 282, 26, 14);
         }
@@ -70,15 +88,16 @@ namespace Sprint0
 
             return rotation;
         }
-        public void Draw(int x, int y)
+        public void Draw()
         {
             Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 26, 14);
-            float direction = GetDirection(x,y);
-            float rotation = GetRotation(x, y);
+            float direction = GetDirection(x , y);
+            float rotation = GetRotation(x , y);
             frame++;
             
             if (frame < 50)
             {
+                IsRunning = true;
                 if (y==0)
                 {
                     position.X += direction * 3f;
@@ -94,6 +113,7 @@ namespace Sprint0
             }
             else
             {
+                IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
 
@@ -111,12 +131,6 @@ namespace Sprint0
                 0f
                 );
             batch.End();
-        }
-
-        public Vector2 Position
-        {
-            get;
-            set;
         }
 
     }

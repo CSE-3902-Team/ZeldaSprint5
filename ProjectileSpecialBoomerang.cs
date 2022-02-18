@@ -12,15 +12,33 @@ namespace Sprint0
         private Texture2D texture;
         private SpriteBatch batch;
         private int frame;
+        private int x;
+        private int y;
         private Rectangle sourceRect;
+        private Boolean isRunning;
 
-        public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position)
+        public Boolean IsRunning
+        {
+            get { return isRunning; }
+            set { isRunning = value; }
+        }
+
+        public Vector2 Position
+        {
+            get;
+            set;
+        }
+
+        public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, int x, int y)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
+            this.x = x;
+            this.y = y;
             frame = 1;
             sourceRect = new Rectangle(137, 280, 14, 20);
+            isRunning = false;
         }
         public float GetDirection(int x, int y)
         {
@@ -46,7 +64,7 @@ namespace Sprint0
             return direction;
         }
 
-        public void Draw(int x, int y)
+        public void Draw()
         {
             Rectangle destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 20);
             float direction = GetDirection(x, y);
@@ -57,6 +75,7 @@ namespace Sprint0
             {
                 if (frame < 30)
                 {
+                    IsRunning = true;
                     position.X += direction * 5f;
                     rotation += (float)Math.PI / 4f;
                 }
@@ -82,6 +101,7 @@ namespace Sprint0
                 }
                 else
                 {
+                    IsRunning = false;
                     sourceRect = new Rectangle(400, 400, 0, 0);
                 }
             }
@@ -98,11 +118,6 @@ namespace Sprint0
                 0f
                 );
             batch.End();
-        }
-        public Vector2 Position
-        {
-            get;
-            set;
         }
 
     }
