@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0;
 public class PlayerRightIdle : IState 
 {
 	private Player player;
@@ -33,9 +34,6 @@ public class PlayerRightIdle : IState
 	public void Update() {
 		//update the sprite
 		player.Draw(new Rectangle(312,95,140,152));
-		player.Projectile.Update();
-		player.Projectile.Draw();
-
 	}
 
 	public void Attack() {
@@ -46,9 +44,10 @@ public class PlayerRightIdle : IState
 		}
 	}
 
-	public void useItem() {
-		//caled in Icontroller
-
+	public void UseItem(IProjectile proj) {
+		proj.Direction = new Vector2(1, 0);
+		proj.Position = new Vector2(player.Position.X + 40, player.Position.Y);
+		player.Projectiles.Enqueue(proj);
 		
 	}
 }

@@ -25,12 +25,17 @@ namespace Sprint0
             get { return isRunning; }
             set { isRunning = value; }
         }
-
         public Vector2 Position
         {
-            get;
-            set;
+            get { return position; }
+            set { position = value; }
         }
+        public Vector2 Direction
+        {
+            get { return direction; }
+            set { direction = value; }
+        }
+       
         
         //Vector direction should only use 0, 1, -1
         public ProjectileFireball(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
@@ -42,7 +47,7 @@ namespace Sprint0
 
             sourceRect = new Rectangle(287, 276, 22, 26);
 
-            isRunning = false;
+            isRunning = true;
             frame = 0;
             rotation = 0f;
 
@@ -56,7 +61,6 @@ namespace Sprint0
 
             if (frame < 20)
             {
-                IsRunning = true;
                 position.X += direction.X * 5f;
                 position.Y += direction.Y * 5f;
                 

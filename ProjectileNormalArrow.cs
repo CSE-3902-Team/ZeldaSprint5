@@ -25,13 +25,16 @@ namespace Sprint0
             get { return isRunning; }
             set { isRunning = value; }
         }
-
         public Vector2 Position
         {
-            get;
-            set;
+            get { return position; }
+            set { position = value; }
         }
-
+        public Vector2 Direction
+        {
+            get { return direction; }
+            set { direction = value; }
+        }
         //Vector direction should only use 0, 1, -1
         public ProjectileNormalArrow(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
@@ -43,7 +46,7 @@ namespace Sprint0
             sourceRect = new Rectangle(14, 282, 26, 14);
 
             rotation = 0f;
-            isRunning = false;
+            isRunning = true;
             frame = 1;
             
         }

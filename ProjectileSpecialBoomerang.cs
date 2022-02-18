@@ -25,11 +25,15 @@ namespace Sprint0
             get { return isRunning; }
             set { isRunning = value; }
         }
-
         public Vector2 Position
         {
-            get;
-            set;
+            get { return position; }
+            set { position = value; }
+        }
+        public Vector2 Direction
+        {
+            get { return direction; }
+            set { direction = value; }
         }
 
         public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
@@ -42,7 +46,7 @@ namespace Sprint0
             sourceRect = new Rectangle(137, 280, 14, 20);
 
             frame = 0;
-            isRunning = false;
+            isRunning = true;
             rotation = 0f;
         }
 

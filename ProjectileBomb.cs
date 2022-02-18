@@ -20,16 +20,20 @@ namespace Sprint0
         private float rotation;
         private Boolean isRunning;
 
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+        public Vector2 Direction
+        {
+            get { return direction; }
+            set { direction = value; }
+        }
         public Boolean IsRunning
         {
             get { return isRunning; }
             set { isRunning = value; }
-        }
-
-        public Vector2 Position
-        {
-            get;
-            set;
         }
 
         public ProjectileBomb(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
@@ -42,7 +46,7 @@ namespace Sprint0
             sourceRect = new Rectangle(276, 192, 14, 25);
 
             frame = 0;
-            isRunning = false;
+            isRunning = true;
             rotation = 0f;
         }
 

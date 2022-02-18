@@ -30,8 +30,6 @@ namespace Sprint0 {
 			kstate = Keyboard.GetState();
 			if (kstate.IsKeyDown(Keys.O))
 			{
-
-
 				if (enemyCount == -1)
 				{
 					enemyCount = 3;
@@ -110,6 +108,27 @@ namespace Sprint0 {
 			myGame.Player.Attack();
 			if(kstate.IsKeyDown(Keys.E)){
 				myGame.Player.DamageLink();		
+			}
+
+			//player projectile controls
+			if (HasBeenPressed(Keys.D1))
+			{
+				myGame.Player.UseItem(new ProjectileFireball(myGame.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+			}
+			else if(HasBeenPressed(Keys.D2)) {
+				myGame.Player.UseItem(new ProjectileBomb(myGame.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+			}
+			else if(HasBeenPressed(Keys.D3)) {
+				myGame.Player.UseItem(new ProjectileNormalArrow(myGame.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+			}
+			else if(HasBeenPressed(Keys.D4)) {
+				myGame.Player.UseItem(new ProjectileNormalBoomerang(myGame.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+			}
+			else if(HasBeenPressed(Keys.D5)) {
+				myGame.Player.UseItem(new ProjectileSpecialArrow(myGame.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+			}		
+			else if(HasBeenPressed(Keys.D6)) {
+				myGame.Player.UseItem(new ProjectileSpecialBoomerang(myGame.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 			}
 		}
 

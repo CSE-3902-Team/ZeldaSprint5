@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Sprint0;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 public class Player 
 {
 	private IState _state;
@@ -11,8 +12,11 @@ public class Player
 	private int attackFrames;
 	private float scale;
 	private SpriteBatch _spriteBatch;
-	private IProjectile projectile;
 	bool damaged;
+	Queue<IProjectile> projectiles;
+	public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
+	public Vector2 Position { get { return position; } }
+	public Queue<IProjectile> Projectiles { get { return projectiles; } }
 	public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile)
 	{
 		_state = new PlayerRightIdle(this);
@@ -23,7 +27,7 @@ public class Player
 		attackFrames = 15;
 		damaged = false;
 		scale = 0.38f;
-		this.projectile = projectile;
+		projectiles = new Queue<IProjectile>();
 	}
 
 	public void ChangeDirection() {
@@ -45,10 +49,30 @@ public class Player
 		damaged = true;
 	}
 
+	public void UseItem(IProjectile proj) {
+		_state.UseItem(proj);
+				
+	}
+
 	public void Move(int x, int y) {
 		//x and y are directional vectors and should only be 0, 1, or -1
 		position.X += x * speed;
 		position.Y += y * speed;
+	}
+
+	public void DrawItems() {
+		Console.WriteLine(projectiles.ToString());
+		int size = projectiles.Count;
+		for (int x = 0; x < size; x++)
+		{
+			IProjectile projectile = projectiles.Dequeue();
+			if (projectile.IsRunning) {
+				Console.WriteLine("If entered");
+				projectile.Update();
+				projectile.Draw();
+				projectiles.Enqueue(projectile);
+			}
+		}
 	}
 
 	public void Draw(Rectangle src) {
@@ -61,6 +85,7 @@ public class Player
 		_spriteBatch.Begin();
 		_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2, src.Height / 2), SpriteEffects.None, 0f);
 		_spriteBatch.End();
+		DrawItems();
 	}
 	public void Draw(Rectangle src, int xOffset, int yOffset, Color col) {
 		//When link attacks with his sword his width is twice as big, we need to change center
@@ -71,6 +96,7 @@ public class Player
 		_spriteBatch.Begin();
 		_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 -xOffset, src.Height / 2 -yOffset), SpriteEffects.None, 0f);
 		_spriteBatch.End();
+		DrawItems();
 	}
 
 	public IState State {
@@ -78,11 +104,6 @@ public class Player
 		set { _state = value; }
 	} 
 	
-	public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 	
-	public IProjectile Projectile
-	{
-		get { return projectile; }
-		set { projectile = value; }
-	}
+	
 }

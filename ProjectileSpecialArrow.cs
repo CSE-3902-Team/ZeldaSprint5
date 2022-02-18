@@ -25,11 +25,15 @@ namespace Sprint0
             get { return isRunning; }
             set { isRunning = value; }
         }
-
         public Vector2 Position
         {
-            get;
-            set;
+            get { return position; }
+            set { position = value; }
+        }
+        public Vector2 Direction
+        {
+            get { return direction; }
+            set { direction = value; }
         }
 
         //Vector direction should only use 0, 1, -1
@@ -44,7 +48,7 @@ namespace Sprint0
 
             rotation = 0f;
             frame = 1;
-            isRunning = false;
+            isRunning = true;
         }
 
         public void GetRotation(Vector2 direction)

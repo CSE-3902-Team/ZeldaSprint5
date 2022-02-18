@@ -162,6 +162,8 @@ namespace Sprint0
             get { return _player; }
         }
 
+        public Texture2D ProjectileTexture { get {return projectileTexture; } }
+
         public void reset() {
             LoadContent();
         }

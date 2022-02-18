@@ -11,6 +11,8 @@ namespace Sprint0
         public void Update();
 
         public Boolean IsRunning { get; set; }
+        public Vector2 Direction { get; set; }
+        public Vector2 Position { get; set; }
         
     }
 }

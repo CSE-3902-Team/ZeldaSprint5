@@ -1,9 +1,10 @@
 ﻿using System;
+using Sprint0;
 
 public interface IState 
 {
 		void ChangeDirection();
 		void Update();
 		void Attack();
-		void UseItem() { return; }
+		void UseItem(IProjectile proj) { return; }
 }
