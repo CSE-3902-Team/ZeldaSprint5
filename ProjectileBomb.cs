@@ -52,28 +52,27 @@ namespace Sprint0
 
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 24);
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 20, 30);
             frame++;
             if (frame < 20)
             {
                 IsRunning = true;
                 sourceRect = new Rectangle(193, 276, 14, 24);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 24);
             }
             else if (frame >= 20 && frame < 22)
             {
                 sourceRect = new Rectangle(206, 277, 24, 24);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 24);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 40);
             }
             else if (frame >= 22 && frame < 24)
             {
                 sourceRect = new Rectangle(232, 276, 24, 24);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 24);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 40);
             }
             else if (frame >= 24 && frame < 26)
             {
                 sourceRect = new Rectangle(259, 276, 24, 24);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 24);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 40);
             }
             else
             {

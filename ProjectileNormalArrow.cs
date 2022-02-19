@@ -53,7 +53,7 @@ namespace Sprint0
 
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 26, 14);
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
             GetRotation(direction);
             frame++;
 
