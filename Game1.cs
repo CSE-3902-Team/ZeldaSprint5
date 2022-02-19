@@ -56,7 +56,7 @@ namespace Sprint0
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             tileTexture = Content.Load<Texture2D>("bricks");
             playerTexture = Content.Load<Texture2D>("playerSheet");
-            projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
+            projectileTexture = Content.Load<Texture2D>("ItemsAndWeapons1");
             tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(100, 100));
             tileList = new ITile[]
             {
