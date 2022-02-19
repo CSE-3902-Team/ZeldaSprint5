@@ -43,7 +43,7 @@ namespace Sprint0
             this.position = position;
             this.direction = direction;
             
-            sourceRect = new Rectangle(95, 280, 14, 17);
+            sourceRect = new Rectangle(95, 280, 12, 19);
             
             isRunning = true;
             rotation = 0f;
@@ -54,11 +54,11 @@ namespace Sprint0
         {
             if (direction.X == 0 && direction.Y > 0)
             {
-                rotation = (float)Math.PI * 3f / 2f;
+                rotation = (float)Math.PI  / 2f;
             }
             else if (direction.X == 0 && direction.Y < 0)
             {
-                rotation = (float)Math.PI / 2f;
+                rotation = (float)Math.PI * 3f / 2f;
             }
             else if (direction.X > 0 && direction.Y == 0)
             {
@@ -72,40 +72,51 @@ namespace Sprint0
 
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 14, 17);
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
             GetRotation(direction);
             frame++;
 
-            if (frame < 30)
+            if (frame < 10)
             {
                 IsRunning = true;
                 position.X += direction.X * 5f;
                 position.Y += direction.Y * 5f;
-                rotation += (float)Math.PI / 4f;
             }
-            else if (frame >= 30 && frame < 40)
+            else if (frame >= 10 && frame < 20)
+            {
+                position.X += direction.X * 5f;
+                position.Y += direction.Y * 5f;
+                sourceRect = new Rectangle(107, 280, 12, 19);
+            }
+            else if (frame >= 20 && frame < 30)
             {
                 position.X += direction.X * 3f;
                 position.Y += direction.Y * 3f;
-                rotation += (float)Math.PI / 4f;
+                sourceRect = new Rectangle(122, 280, 17, 19);
             }
-            else if (frame >= 40 && frame < 45)
+            else if (frame >= 30 && frame < 35)
             {
                 position.X += direction.X * 0f;
                 position.Y += direction.Y * 0f;
-                rotation += (float)Math.PI / 4f;
+                sourceRect = new Rectangle(95, 280, 12, 19);
             }
-            else if (frame >= 45 && frame < 55)
+            else if (frame >= 35 && frame < 45)
             {
                 position.X += direction.X * -3f;
                 position.Y += direction.Y * -3f;
-                rotation += (float)Math.PI / 4f;
+                sourceRect = new Rectangle(107, 280, 12, 19);
             }
-            else if (frame >= 55 && frame < 85)
+            else if (frame >= 45 && frame < 55)
             {
                 position.X += direction.X * -5f;
                 position.Y += direction.Y * -5f;
-                rotation += (float)Math.PI / 4f;
+                sourceRect = new Rectangle(122, 280, 12, 19);
+            }
+            else if (frame >= 55 && frame < 65)
+            {
+                position.X += direction.X * -5f;
+                position.Y += direction.Y * -5f;
+                sourceRect = new Rectangle(95, 280, 12, 19);
             }
             else
             {
