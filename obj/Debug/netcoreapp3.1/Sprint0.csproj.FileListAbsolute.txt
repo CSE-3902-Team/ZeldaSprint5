@@ -176,7 +176,6 @@ C:\Users\cciri\Source\Repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x64\n
 C:\Users\cciri\Source\Repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\soft_oal.dll
 C:\Users\cciri\Source\Repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SDL2.dll
 C:\Users\cciri\Source\Repos\ZeldaGame\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\soft_oal.dll
-C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache
 C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfoInputs.cache
 C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.AssemblyInfo.cs
