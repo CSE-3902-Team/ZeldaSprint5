@@ -184,4 +184,3 @@ C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.csproj.Cop
 C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
-C:\Users\cciri\Source\Repos\ZeldaGame\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache
