@@ -107,7 +107,7 @@ namespace Sprint0
             // TODO: Add your drawing code here
             _player.Update();
             shownItem.draw();
-            enemySprite.draw();
+            //enemySprite.draw();
             tile.draw();
             EnemyList = new IEnemySprite[]
             {

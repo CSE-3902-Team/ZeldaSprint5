@@ -6,5 +6,5 @@ public interface IState
 		void ChangeDirection();
 		void Update();
 		void Attack();
-		void UseItem(IProjectile proj) { return; }
+        void UseItem(IProjectile proj) { return; }
 }

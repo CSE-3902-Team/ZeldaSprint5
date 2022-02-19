@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0;
 public class PlayerUpIdle : IState 
 {
 	private Player player;
@@ -45,5 +46,13 @@ public class PlayerUpIdle : IState
 		}
 
 	}
+	public void UseItem(IProjectile proj)
+	{
+		proj.Direction = new Vector2(0, -1);
+		proj.Position = new Vector2(player.Position.X, player.Position.Y - 40);
+		player.Projectiles.Enqueue(proj);
+		player.State = new PlayerUpUseItem(player);
+	}	
+
 }
 

@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0;
 
-	public class PlayerDownAttack : IState
+	public class PlayerUpUseItem : IState
 	{
 		private Player player;
         private int currentFrame;
 
-		public PlayerDownAttack(Player instance)
+		public PlayerUpUseItem(Player instance)
 		{
 			player = instance;
 			currentFrame = 1;
@@ -22,14 +22,12 @@ using Sprint0;
 
 		public void Update()
 		{
-			//TODO:get rid of green hilt in this texture
 			if (currentFrame <= player.AttackFrames)
 			{
-				//Fully extended sword
-				player.Draw(new Rectangle(157,420,141,248),-1,52,Color.White);
+				player.Draw(new Rectangle(1267,97,147,147),0,0,Color.White);
 			}
 			else {
-				player.State = new PlayerDownIdle(player);
+				player.State = new PlayerUpIdle(player);
 			}
 				currentFrame++;
 			}
@@ -37,7 +35,11 @@ using Sprint0;
 
 		public void Attack()
 		{
-            //Can't input another attack when we are already attacking 
 			return;	
 		}
+
+        public void UseItem(IProjectile proj)
+        {
+            return;	
+        }
 	}

@@ -46,8 +46,8 @@ public class PlayerRightIdle : IState
 
 	public void UseItem(IProjectile proj) {
 		proj.Direction = new Vector2(1, 0);
-		proj.Position = new Vector2(player.Position.X + 40, player.Position.Y);
+		proj.Position = new Vector2(player.Position.X+40, player.Position.Y);
 		player.Projectiles.Enqueue(proj);
-		
+		player.State = new PlayerRightUseItem(player);
 	}
 }

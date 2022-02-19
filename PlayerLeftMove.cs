@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0;
 public class PlayerLeftMove : IState 
 {
 	private Player player;
@@ -53,5 +54,13 @@ public class PlayerLeftMove : IState
 		if (kstate.IsKeyDown(Keys.N) || kstate.IsKeyDown(Keys.Z)) { 
 			player.State = new PlayerLeftAttack(player);
 		}
+	}
+
+	public void UseItem(IProjectile proj)
+	{
+		proj.Direction = new Vector2(-1, 0);
+		proj.Position = new Vector2(player.Position.X - 40, player.Position.Y);
+		player.Projectiles.Enqueue(proj);
+		player.State = new PlayerLeftUseItem(player);
 	}
 }
