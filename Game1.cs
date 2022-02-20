@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Sprint0.Tiles;
+using Sprint0.TileClass;
+using Sprint0.ItemClass;
+using Sprint0.PlayerClass;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
