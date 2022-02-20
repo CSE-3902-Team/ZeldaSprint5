@@ -15,8 +15,8 @@ using Sprint0;
 			currentFrame = 1;
 		}
 
-		public void ChangeDirection()
-		{
+		public void ChangeDirection(Player.Directions dir)
+	{
             return;
 		}
 
@@ -24,7 +24,6 @@ using Sprint0;
 		{
 			if (currentFrame <= player.AttackFrames)
 			{
-				//TODO: get rid of the extra green on link's cap
 				player.Draw(new Rectangle(960,97,140,139),0,0,Color.White);
 			}
 			else {
@@ -36,7 +35,6 @@ using Sprint0;
 
 		public void Attack()
 		{
-		//Input checking was done in controller
 			return;	
 		}
 

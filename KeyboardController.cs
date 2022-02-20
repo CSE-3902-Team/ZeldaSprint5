@@ -25,6 +25,18 @@ namespace Sprint0 {
 			return kstate.IsKeyDown(key) && !previousState.IsKeyDown(key);
 		}
 
+		public bool AllMovementKeysUp() {
+			bool rval = true;
+			Keys[] moveKeys = { Keys.A, Keys.D, Keys.W, Keys.S, Keys.Up, Keys.Down, Keys.Left, Keys.Right };
+			foreach (Keys k in moveKeys) {
+				if (kstate.IsKeyDown(k))
+				{
+					rval = false;
+				}
+			}
+			return rval;
+		}
+
 		public void handleInput() {
 			previousState = kstate;
 			kstate = Keyboard.GetState();
@@ -83,7 +95,7 @@ namespace Sprint0 {
 					count = 0;
 				}
 				myGame.CurrentTile = myGame.TileList[count];
-	
+
 
 			}
 			//item keys
@@ -104,10 +116,33 @@ namespace Sprint0 {
 			{
 				myGame.reset();
 			}
-			myGame.Player.ChangeDirection();
-			myGame.Player.Attack();
-			if(kstate.IsKeyDown(Keys.E)){
-				myGame.Player.DamageLink();		
+			if (kstate.IsKeyDown(Keys.E)) {
+				myGame.Player.DamageLink();
+			}
+
+			if (kstate.IsKeyDown(Keys.W) || kstate.IsKeyDown(Keys.Up))
+			{
+				myGame.Player.ChangeDirection(Player.Directions.Up);
+			}
+			else if (kstate.IsKeyDown(Keys.A) || kstate.IsKeyDown(Keys.Left))
+			{
+				myGame.Player.ChangeDirection(Player.Directions.Left);
+			}
+			else if (kstate.IsKeyDown(Keys.S) || kstate.IsKeyDown(Keys.Down))
+			{
+				myGame.Player.ChangeDirection(Player.Directions.Down);
+			}
+			else if (kstate.IsKeyDown(Keys.D) || kstate.IsKeyDown(Keys.Right))
+			{
+				myGame.Player.ChangeDirection(Player.Directions.Right);
+			}
+			else if (AllMovementKeysUp()) {
+				myGame.Player.ChangeDirection(Player.Directions.Idle);
+			}
+
+			if (kstate.IsKeyDown(Keys.Z) || kstate.IsKeyDown(Keys.N))
+			{
+				myGame.Player.Attack();
 			}
 
 			//player projectile controls

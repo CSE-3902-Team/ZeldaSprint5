@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Graphics;
 			currentFrame = 1;
 		}
 
-		public void ChangeDirection()
+		public void ChangeDirection(Player.Directions dir)
 		{
             return;
 		}
@@ -23,7 +23,6 @@ using Microsoft.Xna.Framework.Graphics;
 		{
 			if (currentFrame <= player.AttackFrames)
 			{
-				//TODO: get rid of the extra green on link's cap
 				player.Draw(new Rectangle(331,879,111,247),-1,-53,Color.White);
 			}
 			else {
@@ -35,7 +34,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 		public void Attack()
 		{
-		//Input checking was done in controller
 			return;	
 		}
 	}

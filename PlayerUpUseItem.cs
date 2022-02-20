@@ -15,8 +15,8 @@ using Sprint0;
 			currentFrame = 1;
 		}
 
-		public void ChangeDirection()
-		{
+		public void ChangeDirection(Player.Directions dir)
+	{
             return;
 		}
 

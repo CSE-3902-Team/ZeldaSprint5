@@ -14,17 +14,15 @@ using Microsoft.Xna.Framework.Graphics;
 			currentFrame = 1;
 		}
 
-		public void ChangeDirection()
-		{
+        public void ChangeDirection(Player.Directions dir)
+        {
             return;
 		}
 
 		public void Update()
 		{
-			//TODO:get rid of green hilt in this texture
 			if (currentFrame <= player.AttackFrames)
 			{
-				//Fully extended sword
 				player.Draw(new Rectangle(168, 689, 239, 139),62,0,Color.White);
 			}
 			else {
@@ -36,7 +34,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 		public void Attack()
 		{
-		//Input checking was done in controller
 			return;	
 		}
 	}

@@ -12,36 +12,31 @@ public class PlayerRightIdle : IState
 		player = instance;
 	}
 
-	public void ChangeDirection() {
-		KeyboardState kstate = Keyboard.GetState();
-		if (kstate.IsKeyDown(Keys.W) || kstate.IsKeyDown(Keys.Up))
+	public void ChangeDirection(Player.Directions dir) {
+		if (dir == Player.Directions.Up)
 		{
 			player.State = new PlayerUpMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.A)|| kstate.IsKeyDown(Keys.Left))
+		else if (dir == Player.Directions.Left)
 		{
 			player.State = new PlayerLeftMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.S)|| kstate.IsKeyDown(Keys.Down))
+		else if (dir == Player.Directions.Down)
 		{
 			player.State = new PlayerDownMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.D)|| kstate.IsKeyDown(Keys.Right)) { 
+		else if (dir == Player.Directions.Right)
+		{
 			player.State = new PlayerRightMove(player);
 		}
 	}
 
 	public void Update() {
-		//update the sprite
-		player.Draw(new Rectangle(312,95,140,152));
+		player.Draw(new Rectangle(312,95,140,152), 0, 0, Color.White);
 	}
 
 	public void Attack() {
-		KeyboardState kstate = Keyboard.GetState();
-		if (kstate.IsKeyDown(Keys.N) || kstate.IsKeyDown(Keys.Z))
-		{
-			player.State = new PlayerRightAttack(player);
-		}
+        player.State = new PlayerRightAttack(player);
 	}
 
 	public void UseItem(IProjectile proj) {

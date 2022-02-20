@@ -15,17 +15,15 @@ using Sprint0;
 			currentFrame = 1;
 		}
 
-		public void ChangeDirection()
-		{
+		public void ChangeDirection(Player.Directions dir)
+        {
             return;
 		}
 
 		public void Update()
 		{
-			//TODO:get rid of green hilt in this texture
 			if (currentFrame <= player.AttackFrames)
 			{
-				//Fully extended sword
 				player.Draw(new Rectangle(157,420,141,248),-1,52,Color.White);
 			}
 			else {
@@ -37,7 +35,6 @@ using Sprint0;
 
 		public void Attack()
 		{
-            //Can't input another attack when we are already attacking 
 			return;	
 		}
 	}

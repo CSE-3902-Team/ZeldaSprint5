@@ -14,34 +14,32 @@ public class PlayerRightMove : IState
 		moveFrame = 1;
 	}
 
-	public void ChangeDirection() {
-		KeyboardState kstate = Keyboard.GetState();
-		if (kstate.IsKeyDown(Keys.W) || kstate.IsKeyDown(Keys.Up))
+	public void ChangeDirection(Player.Directions dir) {
+		if (dir == Player.Directions.Up)
 		{
 			player.State = new PlayerUpMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.A) || kstate.IsKeyDown(Keys.Left))
+		else if (dir == Player.Directions.Left)
 		{
 			player.State = new PlayerLeftMove(player);
 		}
-		else if (kstate.IsKeyDown(Keys.S) || kstate.IsKeyDown(Keys.Down))
+		else if (dir == Player.Directions.Down)
 		{
 			player.State = new PlayerDownMove(player);
 		}
-		else if(kstate.IsKeyUp(Keys.D) && kstate.IsKeyUp(Keys.Right)) { 
+		else if(dir == Player.Directions.Idle) { 
 			player.State = new PlayerRightIdle(player);
 		}
 	}
 
 	public void Update() {
-		//update the sprite
 		player.Move(1, 0);
 		if (moveFrame <= 15)
 		{
-			player.Draw(new Rectangle(466,105,131,142));
+			player.Draw(new Rectangle(466,105,131,142), 0, 0, Color.White);
 		}
 		else {
-			player.Draw(new Rectangle(312,95,140,152));
+			player.Draw(new Rectangle(312,95,140,152), 0, 0, Color.White);
 		}
 		moveFrame++;
 		if (moveFrame > 30) {
@@ -50,11 +48,7 @@ public class PlayerRightMove : IState
 	}
 
 	public void Attack() {
-		KeyboardState kstate = Keyboard.GetState();
-		if (kstate.IsKeyDown(Keys.N) || kstate.IsKeyDown(Keys.Z))
-		{
 			player.State = new PlayerRightAttack(player);
-		}
 	}
 
 	public void UseItem(IProjectile proj)
