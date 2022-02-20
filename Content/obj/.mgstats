@@ -1,21 +1,22 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/cciri/source/repos/ZeldaGame/Content/ball.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1271145
-"C:/Users/cciri/source/repos/ZeldaGame/Content/bricks.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",498,4181,0.0025776
-"C:/Users/cciri/source/repos/ZeldaGame/Content/creditsEdited.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0184552
-"C:/Users/cciri/source/repos/ZeldaGame/Content/DungeonEnemy.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/DungeonEnemy.xnb","TextureProcessor","Texture2DContent",18943,416869,0.0128045
-"C:/Users/cciri/source/repos/ZeldaGame/Content/itemsAndWeapons.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0722125
-"C:/Users/cciri/source/repos/ZeldaGame/Content/linkSheet.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/linkSheet.xnb","TextureProcessor","Texture2DContent",45726,4140445,0.1480121
-"C:/Users/cciri/source/repos/ZeldaGame/Content/NES - The Legend of Zelda - Dungeon Tileset.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/NES - The Legend of Zelda - Dungeon Tileset.xnb","TextureProcessor","Texture2DContent",74652,5826381,0.1852265
-"C:/Users/cciri/source/repos/ZeldaGame/Content/playerSheet.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/playerSheet.xnb","TextureProcessor","Texture2DContent",355686,37263325,0.9883418
-"C:/Users/cciri/source/repos/ZeldaGame/Content/sandtile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/sandtile.xnb","TextureProcessor","Texture2DContent",465,4181,0.0151221
-"C:/Users/cciri/source/repos/ZeldaGame/Content/silver lines.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/silver lines.xnb","TextureProcessor","Texture2DContent",280,4181,0.0054557
-"C:/Users/cciri/source/repos/ZeldaGame/Content/solid black tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/solid black tile.xnb","TextureProcessor","Texture2DContent",158,4181,0.0025126
-"C:/Users/cciri/source/repos/ZeldaGame/Content/solid blue tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/solid blue tile.xnb","TextureProcessor","Texture2DContent",296,4181,0.001949
-"C:/Users/cciri/source/repos/ZeldaGame/Content/solid navy tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/solid navy tile.xnb","TextureProcessor","Texture2DContent",171,4181,0.0028941
-"C:/Users/cciri/source/repos/ZeldaGame/Content/Sprint 2 Tiles.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/Sprint 2 Tiles.xnb","TextureProcessor","Texture2DContent",45523,478485,0.0277575
-"C:/Users/cciri/source/repos/ZeldaGame/Content/sprint-2-items.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/sprint-2-items.xnb","TextureProcessor","Texture2DContent",10540,13397,0.0028245
-"C:/Users/cciri/source/repos/ZeldaGame/Content/square in center tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/square in center tile.xnb","TextureProcessor","Texture2DContent",565,4181,0.0023853
-"C:/Users/cciri/source/repos/ZeldaGame/Content/stairs.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/stairs.xnb","TextureProcessor","Texture2DContent",504,4181,0.0024744
-"C:/Users/cciri/source/repos/ZeldaGame/Content/statue1.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/statue1.xnb","TextureProcessor","Texture2DContent",1681,4181,0.0026886
-"C:/Users/cciri/source/repos/ZeldaGame/Content/statue2.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",1495,4181,0.0026827
-"C:/Users/cciri/source/repos/ZeldaGame/Content/zelda.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0020925
+"C:/Users/cciri/source/repos/ZeldaGame/Content/ball.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1663517
+"C:/Users/cciri/source/repos/ZeldaGame/Content/bricks.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",498,4181,0.0034374
+"C:/Users/cciri/source/repos/ZeldaGame/Content/creditsEdited.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0205403
+"C:/Users/cciri/source/repos/ZeldaGame/Content/DungeonEnemy.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/DungeonEnemy.xnb","TextureProcessor","Texture2DContent",18943,416869,0.013719
+"C:/Users/cciri/source/repos/ZeldaGame/Content/itemsAndWeapons.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0818094
+"C:/Users/cciri/source/repos/ZeldaGame/Content/itemsAndWeapons1.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.0471999
+"C:/Users/cciri/source/repos/ZeldaGame/Content/linkSheet.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/linkSheet.xnb","TextureProcessor","Texture2DContent",45726,4140445,0.1518424
+"C:/Users/cciri/source/repos/ZeldaGame/Content/NES - The Legend of Zelda - Dungeon Tileset.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/NES - The Legend of Zelda - Dungeon Tileset.xnb","TextureProcessor","Texture2DContent",74652,5826381,0.1641082
+"C:/Users/cciri/source/repos/ZeldaGame/Content/playerSheet.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/playerSheet.xnb","TextureProcessor","Texture2DContent",355686,37263325,0.9100279
+"C:/Users/cciri/source/repos/ZeldaGame/Content/sandtile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/sandtile.xnb","TextureProcessor","Texture2DContent",465,4181,0.0061202
+"C:/Users/cciri/source/repos/ZeldaGame/Content/silver lines.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/silver lines.xnb","TextureProcessor","Texture2DContent",280,4181,0.0096673
+"C:/Users/cciri/source/repos/ZeldaGame/Content/solid black tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/solid black tile.xnb","TextureProcessor","Texture2DContent",158,4181,0.0062623
+"C:/Users/cciri/source/repos/ZeldaGame/Content/solid blue tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/solid blue tile.xnb","TextureProcessor","Texture2DContent",296,4181,0.0045431
+"C:/Users/cciri/source/repos/ZeldaGame/Content/solid navy tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/solid navy tile.xnb","TextureProcessor","Texture2DContent",171,4181,0.0071826
+"C:/Users/cciri/source/repos/ZeldaGame/Content/Sprint 2 Tiles.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/Sprint 2 Tiles.xnb","TextureProcessor","Texture2DContent",45523,478485,0.0186974
+"C:/Users/cciri/source/repos/ZeldaGame/Content/sprint-2-items.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/sprint-2-items.xnb","TextureProcessor","Texture2DContent",10540,13397,0.0032956
+"C:/Users/cciri/source/repos/ZeldaGame/Content/square in center tile.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/square in center tile.xnb","TextureProcessor","Texture2DContent",565,4181,0.0035473
+"C:/Users/cciri/source/repos/ZeldaGame/Content/stairs.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/stairs.xnb","TextureProcessor","Texture2DContent",504,4181,0.0023029
+"C:/Users/cciri/source/repos/ZeldaGame/Content/statue1.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/statue1.xnb","TextureProcessor","Texture2DContent",1681,4181,0.0042811
+"C:/Users/cciri/source/repos/ZeldaGame/Content/statue2.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",1495,4181,0.0024906
+"C:/Users/cciri/source/repos/ZeldaGame/Content/zelda.png","C:/Users/cciri/source/repos/ZeldaGame/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0025216
