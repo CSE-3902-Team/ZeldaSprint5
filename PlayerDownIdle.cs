@@ -46,7 +46,7 @@ public class PlayerDownIdle : IState
 
 	}
     public void UseItem(IProjectile proj) {
-		proj.Direction = new Vector2(1, 1);
+		proj.Direction = new Vector2(0, 1);
 		proj.Position = new Vector2(player.Position.X, player.Position.Y + 40);
 		player.Projectiles.Enqueue(proj);
 		player.State = new PlayerDownUseItem(player);		
