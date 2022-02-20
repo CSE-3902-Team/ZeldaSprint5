@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Sprint0
+namespace Sprint0.Tiles
 {
 	public class StairsTile : ITile
 	{

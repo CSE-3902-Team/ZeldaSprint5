@@ -2,16 +2,16 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 
-namespace Sprint0
+namespace Sprint0.Tiles
 {
-	public class SilverLinesTile : ITile
+	public class SolidBlackTile : ITile
 	{
         private Vector2 myPos;
 		private Texture2D myTile;
 		private SpriteBatch myBatch;
         private Rectangle sourceRect;
 
-		public SilverLinesTile(Texture2D tile, SpriteBatch batch, Vector2 position)
+		public SolidBlackTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
 			myTile = tile;
 			myBatch = batch;
