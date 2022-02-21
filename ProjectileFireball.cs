@@ -65,25 +65,16 @@ namespace Sprint0
                 position.Y += direction.Y * 5f;
                 
             }
-            else if (frame >= 10 && frame < 12)
+            else if (frame >= 10 && frame < 30)
             {
-                sourceRect = new Rectangle(283, 304, 27, 27);
-            }
-            else if (frame >= 12 && frame < 14)
-            {
-                sourceRect = new Rectangle(287, 276, 22, 26);
-            }
-            else if (frame >= 14 && frame < 16)
-            {
-                sourceRect = new Rectangle(283, 304, 27, 27);
-            }
-            else if (frame >= 16 && frame < 18)
-            {
-                sourceRect = new Rectangle(287, 276, 22, 26);
-            }
-            else if (frame >= 18 && frame < 20)
-            {
-                sourceRect = new Rectangle(283, 304, 27, 27);
+                if(frame % 10 < 5)
+                {
+                    sourceRect = new Rectangle(287, 276, 22, 27);
+                }
+                else
+                {
+                    sourceRect = new Rectangle(287, 304, 22, 27);
+                }
             }
             else
             {

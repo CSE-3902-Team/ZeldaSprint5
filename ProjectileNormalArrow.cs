@@ -67,7 +67,7 @@ namespace Sprint0
             else if (frame >= 50 && frame < 60)
             {
                 sourceRect = new Rectangle(176, 280, 15, 20);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 15, 20);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 20, 25);
             }
             else
             {

@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Content"
+    "\\Content",
+    "\\obj"
   ],
-  "SelectedNode": "\\Game1.cs",
+  "SelectedNode": "\\ProjectileBomb.cs",
   "PreviewInSolutionExplorer": false
 }
