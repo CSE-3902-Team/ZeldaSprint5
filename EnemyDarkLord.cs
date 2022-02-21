@@ -156,7 +156,7 @@ namespace Sprint0
 
             Rectangle sourceRectangle = new Rectangle(16 * row+2, 90, 16, 16);
             Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40,40);
-            Console.WriteLine(direction + " " + flip);
+       
            batch.Begin();
          if(flipHorizontal)
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
