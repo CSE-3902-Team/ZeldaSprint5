@@ -46,7 +46,7 @@ namespace Sprint0
 
         public void Update()
         {
-            if (frame1 == 400)
+            if (frame1 == 210)
             {
                 fire = true;
                 pCurrentX = currentX;
@@ -121,7 +121,9 @@ namespace Sprint0
                             flipHorizontal = true;
                         }
                         break;
+
                 }
+                frame1++;
             }
             else
             {
@@ -218,7 +220,7 @@ namespace Sprint0
          
 
             frame++;
-            frame1++;
+          
             }
 
 
