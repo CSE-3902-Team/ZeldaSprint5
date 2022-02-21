@@ -1,0 +1,5 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/dragon.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",24373,584981,0.1129486
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/Enemy.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/Enemy.xnb","TextureProcessor","Texture2DContent",19899,416869,0.1232804
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/oldman.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.2864885
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/oldman1.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.1135103

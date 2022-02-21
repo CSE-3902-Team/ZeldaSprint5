@@ -25,6 +25,7 @@ namespace Sprint0
         private int flip;
         int x = 400;
         int y = 200;
+        private int frame;
         public enemyBat(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
@@ -38,75 +39,98 @@ namespace Sprint0
 
         public void Update()
         {
-            switch (direction)
-            {//make the enemies move in a random route.
-
-                case 0:
-                    if (currentY < y)
-                    {
-
-
-                        total = 2;
-                        currentFrame++;
-                        if (currentFrame >= total)
-                            currentFrame = 0;
-                        currentY++;
-                    }
-                    if (currentY > y)
-                    {
-
-                        total = 2;
-                        currentFrame++;
-                        if (currentFrame >= total)
-                            currentFrame = 0;
-                        currentY--;
-                    }
-                    break;
-                case 1:
-                    if (currentX < x)
-                    {
-                        total = 2;
-                        currentFrame++;
-                        if (currentFrame >= total)
-                            currentFrame = 0;
-                        currentX++;
-                    }
-                    if (currentX > x)
-                    {
-                        total = 2;
-                        currentFrame++;
-                        if (currentFrame >= total)
-                            currentFrame = 0;
-                        currentX--;
-                    }
-                    break;
-            }
-            if (currentX == x || currentY == y)
+            if (frame ==5)
             {
-                randomNum = temp.Next(50, 100);
-                direction = temp1.Next(0, 2);
-                flip = temp2.Next(0, 2);
+                switch (direction)
+                {//make the enemies move in a random route.
 
+                    case 0:
+                        if (currentY < y)
+                        {
+
+
+                            total = 2;
+                            currentFrame++;
+                            if (currentFrame >= total)
+                                currentFrame = 0;
+                       
+                        }
+                        if (currentY > y)
+                        {
+
+                            total = 2;
+                            currentFrame++;
+                            if (currentFrame >= total)
+                                currentFrame = 0;
+                      
+                        }
+                        break;
+                    case 1:
+                        if (currentX < x)
+                        {
+                            total = 2;
+                            currentFrame++;
+                            if (currentFrame >= total)
+                                currentFrame = 0;
+                           
+                        }
+                        if (currentX > x)
+                        {
+                            total = 2;
+                            currentFrame++;
+                            if (currentFrame >= total)
+                                currentFrame = 0;
+                            
+                        }
+                        break;
+                }
+                frame = 0;
+            }
                 switch (direction)
                 {
 
                     case 0:
-                        if (flip == 0)
-                            x = currentX + randomNum;
-                        else
-                            x = currentX - randomNum;
+                        if (currentY < y)
+
+                            currentY++;
+                        else if (currentY > y)
+                            currentY--;
+
                         break;
                     case 1:
-                        if (flip == 1)
-                            y = currentY + randomNum;
-                        else
-                            y = currentY - randomNum;
+                        if (currentX < x)
+                            currentX++;
+                        else if (currentX > x)
+                            currentX--;
                         break;
                 }
+                if (currentX == x || currentY == y)
+                {
+                    randomNum = temp.Next(50, 100);
+                    direction = temp1.Next(0, 2);
+                    flip = temp2.Next(0, 2);
 
+                    switch (direction)
+                    {
+
+                        case 0:
+                            if (flip == 0)
+                                x = currentX + randomNum;
+                            else
+                                x = currentX - randomNum;
+                            break;
+                        case 1:
+                            if (flip == 1)
+                                y = currentY + randomNum;
+                            else
+                                y = currentY - randomNum;
+                            break;
+                    }
+
+                
+         
             }
-
-
+            frame++;
 
         }
 
@@ -122,7 +146,7 @@ namespace Sprint0
 
             batch.Begin();
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            Thread.Sleep(90);
+      
 
             batch.End();
             temp.X = currentX;

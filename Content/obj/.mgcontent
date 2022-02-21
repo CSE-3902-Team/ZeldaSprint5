@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/oldman1.png</File>
+    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/dragon.png</File>
+    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/oldman.png</File>
+    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/Enemy.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

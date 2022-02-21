@@ -22,6 +22,9 @@ namespace Sprint0
         private Texture2D projectileTexture;
         
         private Texture2D enemyTexture;
+        private Texture2D dragonTexture;
+        private Texture2D npcTexture;
+
         private IEnemySprite enemySprite;
         private IEnemySprite[] EnemyList;
 
@@ -71,20 +74,27 @@ namespace Sprint0
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(100, 100)),
             };
 
+
             _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)));
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
             itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
             item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
-            enemyTexture = Content.Load<Texture2D>("DungeonEnemy");
-            enemyTexture = Content.Load<Texture2D>("DungeonEnemy");
+   
+            enemyTexture = Content.Load<Texture2D>("Enemy");
+            npcTexture= Content.Load<Texture2D>("oldman1");
+            dragonTexture= Content.Load<Texture2D>("dragon");
             enemySprite = new EnemyDarkLord(enemyTexture, _spriteBatch, temp);
             EnemyList = new IEnemySprite[] {
             new EnemyDarkLord(enemyTexture, _spriteBatch, temp),
             new enemyGel(enemyTexture, _spriteBatch, temp),
             new enemyGoriya(enemyTexture, _spriteBatch,temp),
-            new enemyBat(enemyTexture, _spriteBatch,temp)
+            new enemyBat(enemyTexture, _spriteBatch,temp),
+            new enemyHand(enemyTexture, _spriteBatch,temp),
+            new enemySkeleton(enemyTexture, _spriteBatch,temp),
+             new oldMan(npcTexture, _spriteBatch,temp),
+             new bossDragon(dragonTexture, _spriteBatch,temp)
             };
             items = Content.Load<Texture2D>("itemsAndWeapons1");
         }
@@ -109,12 +119,17 @@ namespace Sprint0
             shownItem.draw();
             //enemySprite.draw();
             tile.draw();
-            EnemyList = new IEnemySprite[]
-            {
-          new EnemyDarkLord(enemyTexture, _spriteBatch,temp),
-          new enemyGel(enemyTexture, _spriteBatch,temp),
-          new enemyGoriya(enemyTexture, _spriteBatch,temp),
-          new enemyBat(enemyTexture, _spriteBatch,temp)
+         
+            enemySprite.draw();
+            EnemyList = new IEnemySprite[] {
+            new EnemyDarkLord(enemyTexture, _spriteBatch, temp),
+            new enemyGel(enemyTexture, _spriteBatch, temp),
+            new enemyGoriya(enemyTexture, _spriteBatch,temp),
+            new enemyBat(enemyTexture, _spriteBatch,temp),
+            new enemyHand(enemyTexture, _spriteBatch,temp),
+            new enemySkeleton(enemyTexture, _spriteBatch,temp),
+            new oldMan(npcTexture, _spriteBatch,temp),
+               new bossDragon(dragonTexture, _spriteBatch,temp)
             };
             base.Draw(gameTime);
         }
