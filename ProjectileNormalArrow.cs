@@ -18,6 +18,8 @@ namespace Sprint0
 
         private int frame;
         private float rotation;
+
+        // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
 
         public Boolean IsRunning
