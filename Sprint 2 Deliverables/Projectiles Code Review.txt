@@ -1,0 +1,33 @@
+﻿-Author of the code review
+	Ting Feng
+
+-Date of the code review
+	Feb 21, 2021
+
+-Sprint number
+	Sprint 2
+
+-Name of the .cs file being reviewed
+	Reviewing ProjectileNormalBoomerang.cs
+
+-Author of the .cs file being reviewed
+	Craig Cirino
+
+-Number of minutes taken to complete the review
+	15 minutes
+
+-Specific comments on what is readable and what is not
+	The readability is overall fine. 
+	I am not sure what some variables do, like the isRunning boolean. Maybe put a comment on that.
+	The if statements are very easy to read and understand.
+
+-Specific comments on code quality
+	Overall the code quality is good.
+	I think cohesion is good.
+	Great use of a helper method with the boomerangs rotation.
+	I think couppling a bit tight, there are seven different types being used, which could probably be improved on with more development.
+
+-A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
+	One change that could be made is to create an abstract class with the draw method, to stop the repeated code in all the draw methods of every class.
+	I don't know if its good or bad, but making just one individual file for each projectile may be better so you don't have to hard code the source rectangle everytime, but
+	if they are in an atlas they should be the same distance/increments.
