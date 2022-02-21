@@ -87,7 +87,7 @@ namespace Sprint0
             {
                 fire = true;
                 frame1 = 0;
-                FireBallCurrentX = currentX-50;
+                FireBallCurrentX = currentX-15;
             }
             if (fire)
             {
@@ -106,7 +106,7 @@ namespace Sprint0
     }
             frame++;
             frame1++;
-            Console.WriteLine(fire);
+
         }
 
         
@@ -117,7 +117,7 @@ namespace Sprint0
             int row = currentFrame;
             int rowFireBall = FireBallCurrentFrame;
 
-            Rectangle sourceRectangle = new Rectangle(25 * row , 11, 25, 32);
+            Rectangle sourceRectangle = new Rectangle(25 * row , 11, 24, 32);
             Rectangle FireballSourceRectangle = new Rectangle(9* rowFireBall+100, 11,8, 15);
 
             Rectangle destinationRectangle = new Rectangle(currentX, currentY, 80,100);
