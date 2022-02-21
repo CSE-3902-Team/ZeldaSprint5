@@ -56,18 +56,34 @@ namespace Sprint0
 
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 22, 26);
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 30, 40);
             frame++;
 
-            if (frame < 20)
+            if (frame < 10)
             {
                 position.X += direction.X * 5f;
                 position.Y += direction.Y * 5f;
                 
             }
-            else if (frame >= 20 && frame < 40)
+            else if (frame >= 10 && frame < 12)
             {
-                //This is when the fireball sits in place 
+                sourceRect = new Rectangle(283, 304, 27, 27);
+            }
+            else if (frame >= 12 && frame < 14)
+            {
+                sourceRect = new Rectangle(287, 276, 22, 26);
+            }
+            else if (frame >= 14 && frame < 16)
+            {
+                sourceRect = new Rectangle(283, 304, 27, 27);
+            }
+            else if (frame >= 16 && frame < 18)
+            {
+                sourceRect = new Rectangle(287, 276, 22, 26);
+            }
+            else if (frame >= 18 && frame < 20)
+            {
+                sourceRect = new Rectangle(283, 304, 27, 27);
             }
             else
             {

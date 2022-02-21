@@ -55,11 +55,11 @@ namespace Sprint0
         {
             if (direction.X == 0 && direction.Y > 0)
             {
-                rotation = (float)Math.PI * 3f / 2f;
+                rotation = (float)Math.PI / 2f;
             }
             else if (direction.X == 0 && direction.Y < 0)
             {
-                rotation = (float)Math.PI / 2f;
+                rotation = (float)Math.PI * 3f / 2f;
             }
             else if (direction.X > 0 && direction.Y == 0)
             {
@@ -73,7 +73,7 @@ namespace Sprint0
 
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 26, 14);
+            destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
             GetRotation(direction);
             frame++;
 
