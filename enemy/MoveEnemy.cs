@@ -42,5 +42,9 @@ namespace Sprint0.enemy
             }
             return Pos;
         }
+        public Vector2 GoriyaMove()
+        {
+            return Pos;
+        }
     }
 }

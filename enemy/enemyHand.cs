@@ -41,7 +41,7 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            FrameChaningforFrameEnemy action = new FrameChaningforFrameEnemy(currentPos, direction, destination, currentFrame);
+            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
             MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
 

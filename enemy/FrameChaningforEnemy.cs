@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sprint0.enemy
 {
-    class FrameChaningforFrameEnemy
+    class FrameChaningforEnemy
     {
         private Vector2 movement;
         private Vector2 Pos;
@@ -13,7 +13,7 @@ namespace Sprint0.enemy
         int destinationY;
         int currentFrame;
         int total;
-        public FrameChaningforFrameEnemy(Vector2 currentPos,Vector2 direction,Vector2 destination,int frame)
+        public FrameChaningforEnemy(Vector2 currentPos,Vector2 direction,Vector2 destination,int frame)
         {
             this.destinationX = (int)destination.X;
             this.destinationY = (int)destination.Y;
