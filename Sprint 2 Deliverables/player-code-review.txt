@@ -1,0 +1,19 @@
+﻿Author: Austin Motz
+Date of review: 2/21/2022
+Sprint #: 2
+File under review: player.cs
+Author of code: Luke Wingert
+
+Time to review: 10 minutes
+
+Comments on what is readable and what is not:
+The file has good comments throughout to explain what is happening. I think the variables that are instantiated in the constructor may be useful to just 
+instantiate in the definitions to make it obvious they are just constants being used.
+
+In terms of quality:
+This code is organized well and seems to use all required patterns. The enum for directions is a nice touch.
+
+Proposed hypothetical change and its ease of implementation:
+-Move() make the function not change functionality if the wrong incorrect values are passed 
+into it. ie if x is not 0 then position.X += x/x*speed. This would be very easy to 
+implement and would make it slightly more robust.
