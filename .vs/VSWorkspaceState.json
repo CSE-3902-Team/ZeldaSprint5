@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
     "\\Content",
     "\\obj"
   ],
-  "SelectedNode": "\\ProjectileBomb.cs",
+  "SelectedNode": "\\ProjectileSpecialArrow.cs",
   "PreviewInSolutionExplorer": false
 }

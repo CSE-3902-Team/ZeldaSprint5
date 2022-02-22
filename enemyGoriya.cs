@@ -46,6 +46,7 @@ namespace Sprint0
 
         public void Update()
         {
+            // the goriya will fire every 210 frames, and reset frame counts
             if (frame1 == 210)
             {
                 fire = true;
@@ -54,6 +55,7 @@ namespace Sprint0
                 frame1 = 0;
                 frame2 = 0;
             }
+            //every 5 frames, display next pos instead of every frame
             if (frame == 5)
             {
                 switch (Axis)
@@ -75,6 +77,7 @@ namespace Sprint0
 
                         }
                         break;
+                        //moving to up down left and right
                     case 1:
                         if (currentX < x)
                         {
@@ -125,6 +128,7 @@ namespace Sprint0
                 }
                 frame1++;
             }
+            // fire projectile here, this is for the forward part of projectile, since it's boomerang, it will fly back.
             else
             {
                 frame2++;
@@ -159,6 +163,7 @@ namespace Sprint0
                             break;
                     }
                 }
+                //after the boomerang reaches the destination, it will fly back, similar logic as above, but the projectile's y and x are decreasing this time
                 if (frame2 >= 100)
                 {
                     switch (Axis)
@@ -189,7 +194,7 @@ namespace Sprint0
 
             }
 
-           
+           //when it reaches the destination set from previous random call, call random for next movement
                 if (currentX == x || currentY == y)
                 {
                    

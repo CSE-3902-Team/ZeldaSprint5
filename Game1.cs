@@ -36,7 +36,6 @@ namespace Sprint0
         private Player _player;
 
         private Vector2 temp;
-        private Texture2D items;
 
 
         public Game1()
@@ -99,7 +98,6 @@ namespace Sprint0
              new oldMan(npcTexture, _spriteBatch,temp),
              new bossDragon(dragonTexture, _spriteBatch,temp)
             };
-            items = Content.Load<Texture2D>("itemsAndWeapons1");
         }
 
         protected override void Update(GameTime gameTime)
