@@ -1,0 +1,24 @@
+Author of the code review:
+Zening Teng
+Date of the code review:
+21/02/2022
+Sprint number:
+#2
+Name of the .cs file being reviewed:
+SolidBlackTile.cs
+BrickTile.cs
+StatueTile2.cs
+Number of minutes taken to complete the review:
+20 minutes
+Specific comments on what is readable and what is not:
+Overall, it's perfect, work is clean, and I can easily understand every line of code, and I haven't see cohesion issues.
+
+
+Specific comments on code quality:
+code quality seems good, and with high maintainbility, only few variables are used, so it's easy to read.
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change:
+Currently, I believe the code will interact perfectly with other class. The only thing I'm worrying is if we need to change color or status of some tiles(like statue got break apart, or it's ignited )
+, you can add more tile files for different situation, or modify draw method.
+
+
