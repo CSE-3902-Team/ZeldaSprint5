@@ -1,0 +1,16 @@
+Author: Luke Wingert
+Date of review: 2/21/2022
+Sprint #: 2
+File under review: enemyBat.cs
+Author of code: Zening Teng
+
+Time to review: 6:22
+
+Comments on what is readable and what is not:
+I think this source file would benefit from better variable names or more comments. I found the switches difficult to understand. Each switch could've been condensed into an if-else since alot of the cases are doing mostly the samething. I know the end result is making an enemy move in a random directions but it's very difficult for me to understand how the code creates that result.
+
+In terms of quality:
+I suppose you can say that this class how a low amount of coupling. Cohesion is ok but I think it would be better to use a sprite factory for drawing enemies.
+
+Proposed hypothetical change and its ease of implementation:
+-Refactor variable names, condense switches into if-else's. Maybe use a helper method to help with readability. These changes wouldn't affect any other class and would increase long term readability.
