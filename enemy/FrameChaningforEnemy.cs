@@ -68,5 +68,39 @@ namespace Sprint0.enemy
             }
             return currentFrame;
         }
+        public int dragon()
+        {
+            if (Pos.X < destinationX)
+            {
+
+                total = 4;
+                currentFrame++;
+
+                if (currentFrame >= total)
+                    currentFrame = 0;
+
+            }
+            if (Pos.X >= destinationX)
+            {
+
+                total = 4;
+                currentFrame++;
+
+                if (currentFrame >= 4)
+                    currentFrame = 0;
+
+            }
+            return currentFrame;
+        }
+        public int fireBall()
+        {
+            total = 5;
+            currentFrame++;
+
+            if (currentFrame >= 5)
+                currentFrame = 0;
+            return currentFrame;
+        }
+        
     }
 }
