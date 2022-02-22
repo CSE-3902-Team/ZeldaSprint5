@@ -5,11 +5,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace Sprint0
+namespace Sprint0.enemy
 {
-    public class enemySkeleton : IEnemySprite
+    public class EnemyDarkLord : IEnemySprite
     {
-
         public Texture2D Texture;
 
         private int currentFrame;
@@ -26,8 +25,8 @@ namespace Sprint0
         int x = 400;
         int y = 200;
         private int frame;
-        int flipHorizontal;
-        public enemySkeleton(Texture2D texture, SpriteBatch batch, Vector2 location)
+        bool flipHorizontal = false;
+        public EnemyDarkLord(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
             this.batch = batch;
@@ -36,14 +35,14 @@ namespace Sprint0
             currentY = (int)location.Y;
 
 
+
+
         }
 
         public void Update()
         {
-           
             if (frame == 5)
             {
-                flipHorizontal++;
                 switch (direction)
                 {//make the enemies move in a random route.
 
@@ -56,37 +55,36 @@ namespace Sprint0
                             currentFrame++;
                             if (currentFrame >= total)
                                 currentFrame = 0;
-
+                           
                         }
                         if (currentY > y)
                         {
 
-                            total = 2;
-                            currentFrame++;
-                            if (currentFrame >= total)
-                                currentFrame = 0;
-
+                            currentFrame = 2;
+                          
                         }
                         break;
                     case 1:
                         if (currentX < x)
                         {
-                            total = 2;
+                            total = 5;
                             currentFrame++;
                             if (currentFrame >= total)
-                                currentFrame = 0;
-
+                                currentFrame = 3;
+                            
                         }
                         if (currentX > x)
                         {
-                            total = 2;
+                            total = 5;
                             currentFrame++;
                             if (currentFrame >= total)
-                                currentFrame = 0;
-
+                                currentFrame = 3;
+                          
                         }
+
                         break;
                 }
+
                 frame = 0;
             }
             switch (direction)
@@ -102,12 +100,19 @@ namespace Sprint0
                     break;
                 case 1:
                     if (currentX < x)
+                    {
+                        flipHorizontal = false;
+
                         currentX++;
+                    }
                     else if (currentX > x)
+                    {
+
+                        flipHorizontal = true;
                         currentX--;
+                    }
                     break;
             }
-
             if (currentX == x || currentY == y)
             {
                 randomNum = temp.Next(50, 100);
@@ -122,6 +127,7 @@ namespace Sprint0
                             x = currentX + randomNum;
                         else
                             x = currentX - randomNum;
+
                         break;
                     case 1:
                         if (flip == 1)
@@ -132,11 +138,13 @@ namespace Sprint0
                 }
 
             }
-            frame++;
-   
+              
+        
+      
+        frame++;
+
 
         }
-      
 
 
         public Vector2 draw()
@@ -146,20 +154,21 @@ namespace Sprint0
             Vector2 location = new Vector2(currentX, currentY);
             int row = currentFrame;
 
-            Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
-            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40, 40);
-          
-            batch.Begin();
-            if (flipHorizontal%2==0)
+            Rectangle sourceRectangle = new Rectangle(16 * row+2, 90, 16, 16);
+            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40,40);
+       
+           batch.Begin();
+         if(flipHorizontal)
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
-        
 
-            else
+            else         
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
             batch.End();
             temp.X = currentX;
             temp.Y = currentY;
             return temp;
         }
+
+       
     }
 }

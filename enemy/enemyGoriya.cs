@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace Sprint0
+namespace Sprint0.enemy
 {
     public class enemyGoriya : IEnemySprite
     {
