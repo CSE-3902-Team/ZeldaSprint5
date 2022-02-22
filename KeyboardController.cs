@@ -47,9 +47,9 @@ namespace Sprint0 {
 				enemyCount--;
 				if (enemyCount == -1)
 				{
-					enemyCount = 7;
+					enemyCount = 6;
 				}
-				else if (enemyCount == 8)
+				else if (enemyCount == 7)
 					enemyCount = 2;
 				myGame.currentEnemy = myGame.enemyList[enemyCount];
 
@@ -64,7 +64,7 @@ namespace Sprint0 {
 				{
 
 				enemyCount++;
-				if (enemyCount == 8)
+				if (enemyCount == 7)
 				{
 					enemyCount = 0;
 				}

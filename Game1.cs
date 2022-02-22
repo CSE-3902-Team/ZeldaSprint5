@@ -88,9 +88,9 @@ namespace Sprint0
             enemyTexture = Content.Load<Texture2D>("Enemy");
             npcTexture= Content.Load<Texture2D>("oldman1");
             dragonTexture= Content.Load<Texture2D>("dragon");
-            enemySprite = new EnemyDarkLord(enemyTexture, _spriteBatch, temp);
+            enemySprite = new enemySkeleton(enemyTexture, _spriteBatch, temp);
             EnemyList = new IEnemySprite[] {
-            new EnemyDarkLord(enemyTexture, _spriteBatch, temp),
+         
             new enemyGel(enemyTexture, _spriteBatch, temp),
             new enemyGoriya(enemyTexture, _spriteBatch,temp),
             new enemyBat(enemyTexture, _spriteBatch,temp),
@@ -124,7 +124,7 @@ namespace Sprint0
          
             enemySprite.draw();
             EnemyList = new IEnemySprite[] {
-            new EnemyDarkLord(enemyTexture, _spriteBatch, temp),
+           
             new enemyGel(enemyTexture, _spriteBatch, temp),
             new enemyGoriya(enemyTexture, _spriteBatch,temp),
             new enemyBat(enemyTexture, _spriteBatch,temp),

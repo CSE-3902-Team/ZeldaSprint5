@@ -24,8 +24,11 @@ namespace Sprint0.enemy
         private int FireBallCurrentY1 = 200;
         private int FireBallCurrentY2 = 200;
 
+        private Vector2 direction;
+        private Vector2 currentPos;
+        private Vector2 destination;
         int x =600;
-        int y = 200;
+
         private int frame;
         private int frame1;
         public bossDragon(Texture2D texture, SpriteBatch batch, Vector2 location)
@@ -33,61 +36,38 @@ namespace Sprint0.enemy
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
-            currentX = (int)location.X;
-            currentY = (int)location.Y;
+            currentPos.Y = 200;
+            currentPos.X = 400;
+            destination.X = 400;
+            destination.Y = 200;
+
 
 
         }
 
         public void Update()
         {
-            
+            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+            FrameChaningforEnemy dragonBreath = new FrameChaningforEnemy(currentPos, direction, destination, FireBallCurrentFrame);
+            MoveEnemy dragonMove = new MoveEnemy(direction, currentPos, destination);
+            Vector2 result = dragonMove.DragonMove();
             if (frame == 5)
             {
-                if (currentX < x)
-                {
-
-                    total = 4;
-                    currentFrame++;
-            
-                    if (currentFrame >= total)
-                        currentFrame = 0;
-
-                }
-                if (currentX >= x)
-                {
-                  
-                    total = 4;
-                    currentFrame++;
-                  
-                    if (currentFrame >= 4)
-                        currentFrame = 0;
-
-                }
-             
-                    total = 5;
-                    FireBallCurrentFrame++;
-
-                    if (FireBallCurrentFrame >=5)
-                        FireBallCurrentFrame = 0;
+          
+                currentFrame = action.dragon();
+                FireBallCurrentFrame = dragonBreath.fireBall();
+               
                 
                 frame = 0;
             }
-            if (currentX < x)
-            {
-                x = 600;
-                currentX++;
-            }
-            if (currentX >= x)
-            {
-                x = 400;
-                currentX--;
-            }
+         
+            currentPos.X = result.Y;
+            destination.X = result.X;
             if (frame1==200 )
             {
                 fire = true;
                 frame1 = 0;
-                FireBallCurrentX = currentX-15;
+                FireBallCurrentX = (int)currentPos.X - 15;
             }
             if (fire)
             {
@@ -120,7 +100,7 @@ namespace Sprint0.enemy
             Rectangle sourceRectangle = new Rectangle(25 * row , 11, 24, 32);
             Rectangle FireballSourceRectangle = new Rectangle(9* rowFireBall+100, 11,8, 15);
 
-            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 80,100);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 80,100);
             Rectangle FireBallDestinationRectangle = new Rectangle(FireBallCurrentX, FireBallCurrentY, 20, 20);
             Rectangle FireBallDestinationRectangle1 = new Rectangle(FireBallCurrentX, FireBallCurrentY1, 20, 20);
             Rectangle FireBallDestinationRectangle2= new Rectangle(FireBallCurrentX, FireBallCurrentY2, 20, 20);

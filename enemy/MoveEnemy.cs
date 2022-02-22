@@ -46,5 +46,22 @@ namespace Sprint0.enemy
         {
             return Pos;
         }
+        public Vector2 DragonMove()
+        {
+            Vector2 result;
+            if (Pos.X < destinationX)
+            {
+                destinationX = 600;
+               Pos.X++;
+            }
+            if (Pos.X >= destinationX)
+            {
+                destinationX = 400;
+               Pos.X--;
+            }
+            result.X = destinationX;
+            result.Y = Pos.X;
+            return result;
+        }
     }
 }
