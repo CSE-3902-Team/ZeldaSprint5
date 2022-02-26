@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Sprint0;
 
-	public class Player
+	public class Player : IBoxCollider
 	{
 		private IState _state;
 		private Texture2D texture;
@@ -26,6 +26,7 @@ using Sprint0;
 		public Rectangle CollisionBox 
 		{ 
 			get { return collisionBox; }
+            set { collisionBox = value; }
 		}
 		public Queue<IProjectile> Projectiles { get { return projectiles; } }
 		public IState State
