@@ -108,19 +108,19 @@ namespace Sprint0
 
             // TODO: Add your update logic here
             kController.handleInput();
-          
+            _player.Update();
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            Player.Draw();
             // TODO: Add your drawing code here
-            _player.Update();
             shownItem.draw();
             //enemySprite.draw();
             tile.draw();
+            
          
             enemySprite.draw();
             EnemyList = new IEnemySprite[] {

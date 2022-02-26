@@ -12,19 +12,27 @@ using Sprint0;
 		private Vector2 position;
 		private float speed;
 		private int attackFrames;
+        private Rectangle collisionBox;
+		private Rectangle src;
+        private Vector2 drawOffset;
 		private float scale;
 		private SpriteBatch _spriteBatch;
 		bool damaged;
 		Queue<IProjectile> projectiles;
+		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
+		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 		public Vector2 Position { get { return position; } }
+		public Rectangle CollisionBox 
+		{ 
+			get { return collisionBox; }
+		}
 		public Queue<IProjectile> Projectiles { get { return projectiles; } }
 		public IState State
 		{
 			get { return _state; }
 			set { _state = value; }
 		}
-
 		public enum Directions
 		{
 			Up,
@@ -74,6 +82,9 @@ using Sprint0;
 
 		}
 
+		private void updateCollisionBox() {
+			//collisionBox = new Rectangle(position.X,position.Y,)
+		}
 		public void Move(int x, int y)
 		{
 			//x and y are directional vectors and should only be 0, 1, or -1
@@ -97,9 +108,11 @@ using Sprint0;
 		}
 
 
-		public void Draw(Rectangle src, int xOffset, int yOffset, Color col)
+		public void Draw()
 		{
-			//When link attacks with his sword his width is twice as big, we need to change center
+            float xOffset = drawOffset.X;
+            float yOffset = drawOffset.Y;
+            Color col = Color.White;
 			if (damaged)
 			{
 				col = Color.MediumVioletRed;

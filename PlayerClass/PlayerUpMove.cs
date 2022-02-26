@@ -42,11 +42,13 @@ namespace Sprint0.PlayerClass
 			player.Move(0, -1);
 			if (moveFrame <= 15)
 			{
-				player.Draw(new Rectangle(789, 93, 113, 150), 0, 0, Color.White);
+				player.SourceRectangle = new Rectangle(789, 93, 113, 150);
+				player.DrawOffset = new Vector2(0, 0);
 			}
 			else
 			{
-				player.Draw(new Rectangle(637, 93, 133, 161), 0, 0, Color.White);
+				player.SourceRectangle = new Rectangle(637, 93, 133, 161);
+				player.DrawOffset = new Vector2(0, 0);
 			}
 			moveFrame++;
 			if (moveFrame > 30)

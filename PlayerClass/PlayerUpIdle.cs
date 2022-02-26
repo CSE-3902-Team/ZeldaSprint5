@@ -37,7 +37,8 @@ namespace Sprint0.PlayerClass
 
 		public void Update()
 		{
-			player.Draw(new Rectangle(637, 93, 113, 161), 0, 0, Color.White);
+			player.SourceRectangle = new Rectangle(637, 93, 113, 161);
+			player.DrawOffset = new Vector2(0, 0);
 		}
 
 		public void Attack()

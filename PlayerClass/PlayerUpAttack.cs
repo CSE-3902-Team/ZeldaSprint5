@@ -25,7 +25,8 @@ namespace Sprint0.PlayerClass
 		{
 			if (currentFrame <= player.AttackFrames)
 			{
-				player.Draw(new Rectangle(331, 879, 111, 247), -1, -53, Color.White);
+				player.SourceRectangle = new Rectangle(331, 879, 111, 247);
+				player.DrawOffset = new Vector2(-1, -53);
 			}
 			else
 			{
