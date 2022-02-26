@@ -79,11 +79,6 @@ namespace Sprint0 {
 
 			}
 		
-			if (kstate.IsKeyDown(Keys.D0) || kstate.IsKeyDown(Keys.NumPad0)) {
-				//return val of 0, exit the game
-				myGame.Exit();
-			}
-
 			//tile controls
 			if (HasBeenPressed(Keys.T))
 			{
