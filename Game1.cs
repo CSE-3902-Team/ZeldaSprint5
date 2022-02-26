@@ -109,6 +109,7 @@ namespace Sprint0
             // TODO: Add your update logic here
             kController.handleInput();
             _player.Update();
+			currentEnemy.Update();
             base.Update(gameTime);
         }
 

@@ -79,7 +79,6 @@ namespace Sprint0 {
 
 			}
 		
-			myGame.currentEnemy.Update();
 			if (kstate.IsKeyDown(Keys.D0) || kstate.IsKeyDown(Keys.NumPad0)) {
 				//return val of 0, exit the game
 				myGame.Exit();
