@@ -10,6 +10,7 @@ namespace Sprint0.TileClass
 		private Texture2D myTile;
 		private SpriteBatch myBatch;
         private Rectangle sourceRect;
+        private Rectangle collisionBox;
 
 		public SandTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
