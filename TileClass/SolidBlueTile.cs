@@ -20,7 +20,7 @@ namespace Sprint0.TileClass
         }
 		public void draw()
 		{
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 90, 90);
+            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 32, 32);
             myBatch.Begin();
             myBatch.Draw(
                  myTile,
