@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\enemy"
   ],
-  "SelectedNode": "\\weirdZeldaSave.sln",
+  "SelectedNode": "\\enemy\\enemyBat.cs",
   "PreviewInSolutionExplorer": false
 }
