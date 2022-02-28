@@ -15,6 +15,7 @@ namespace Sprint0
         private SpriteBatch batch;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
+        private Rectangle collisionBox;
 
         private int frame;
         private float rotation;
@@ -37,8 +38,12 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
-       
-        
+        public Rectangle CollisionBox
+        {
+            get { return collisionBox; }
+            set { collisionBox = value; }
+        }
+
         //Vector direction should only use 0, 1, -1
         public ProjectileFireball(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
@@ -48,7 +53,7 @@ namespace Sprint0
             this.direction = direction;
 
             sourceRect = new Rectangle(287, 276, 22, 26);
-
+            collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, 30, 40);
             isRunning = true;
             frame = 0;
             rotation = 0f;

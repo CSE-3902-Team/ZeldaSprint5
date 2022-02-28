@@ -15,6 +15,7 @@ namespace Sprint0
         private SpriteBatch batch;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
+        private Rectangle collisionBox;
 
         private int frame;
         private float rotation;
@@ -37,6 +38,11 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
+        public Rectangle CollisionBox
+        {
+            get { return collisionBox; }
+            set { collisionBox = value; }
+        }
         //Vector direction should only use 0, 1, -1
         public ProjectileNormalArrow(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
@@ -46,13 +52,32 @@ namespace Sprint0
             this.direction = direction;
 
             sourceRect = new Rectangle(14, 282, 26, 14);
+            collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, 40, 20);
 
             rotation = 0f;
             isRunning = true;
             frame = 1;
             
         }
-
+        public void GetRotation(Vector2 direction)
+        {
+            if (direction.X == 0 && direction.Y > 0)
+            {
+                rotation = (float)Math.PI / 2f;
+            }
+            else if (direction.X == 0 && direction.Y < 0)
+            {
+                rotation = (float)Math.PI * 3f / 2f;
+            }
+            else if (direction.X > 0 && direction.Y == 0)
+            {
+                rotation = 0f;
+            }
+            else if (direction.X < 0 && direction.Y == 0)
+            {
+                rotation = (float)Math.PI;
+            }
+        }
         public void Update()
         {
             destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
@@ -78,25 +103,6 @@ namespace Sprint0
             }
         }
 
-        public void GetRotation(Vector2 direction)
-        {
-            if (direction.X == 0 && direction.Y > 0)
-            {
-                rotation = (float)Math.PI / 2f;
-            }
-            else if (direction.X == 0 && direction.Y < 0)
-            {
-                rotation = (float)Math.PI * 3f / 2f;
-            }
-            else if (direction.X > 0 && direction.Y == 0)
-            {
-                rotation = 0f;
-            }
-            else if (direction.X < 0 && direction.Y == 0)
-            {
-                rotation = (float)Math.PI;
-            }
-        }
         public void Draw()
         { 
             batch.Begin();

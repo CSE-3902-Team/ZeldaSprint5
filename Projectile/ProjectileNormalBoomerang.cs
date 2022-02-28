@@ -44,7 +44,7 @@ namespace Sprint0
             this.position = position;
             this.direction = direction;
             
-            sourceRect = new Rectangle(95, 280, 12, 19);
+            sourceRect = new Rectangle(97, 280, 12, 19);
             
             isRunning = true;
             rotation = 0f;
@@ -93,13 +93,13 @@ namespace Sprint0
             {
                 position.X += direction.X * 3f;
                 position.Y += direction.Y * 3f;
-                sourceRect = new Rectangle(122, 280, 17, 19);
+                sourceRect = new Rectangle(124, 280, 12, 19);
             }
             else if (frame >= 30 && frame < 35)
             {
                 position.X += direction.X * 0f;
                 position.Y += direction.Y * 0f;
-                sourceRect = new Rectangle(95, 280, 12, 19);
+                sourceRect = new Rectangle(97, 280, 12, 19);
             }
             else if (frame >= 35 && frame < 45)
             {
@@ -117,7 +117,7 @@ namespace Sprint0
             {
                 position.X += direction.X * -5f;
                 position.Y += direction.Y * -5f;
-                sourceRect = new Rectangle(95, 280, 12, 19);
+                sourceRect = new Rectangle(97, 280, 12, 19);
             }
             else
             {
