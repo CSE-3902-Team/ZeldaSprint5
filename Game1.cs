@@ -42,12 +42,17 @@ namespace Sprint0
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
+            
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
+            _graphics.PreferredBackBufferWidth = 1280;
+            _graphics.PreferredBackBufferHeight = 720; 
+            _graphics.IsFullScreen = true;
+            _graphics.ApplyChanges();
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             itemFactory = ItemSpriteFactory.Instance;
@@ -116,11 +121,12 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            tile.draw();
             Player.Draw();
             // TODO: Add your drawing code here
             shownItem.draw();
             //enemySprite.draw();
-            tile.draw();
+         
             
          
             enemySprite.draw();
