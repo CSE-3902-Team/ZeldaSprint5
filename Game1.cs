@@ -29,6 +29,7 @@ namespace Sprint0
         private Texture2D dragonTexture;
         private Texture2D npcTexture;
 
+        private ICollision colliderDector;
         private IEnemySprite enemySprite;
         private IEnemySprite[] EnemyList;
 
@@ -51,6 +52,7 @@ namespace Sprint0
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             itemFactory = ItemSpriteFactory.Instance;
+            colliderDector = new SortSweep(this);
 
             base.Initialize();
         }

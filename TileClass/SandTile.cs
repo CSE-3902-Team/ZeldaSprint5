@@ -4,7 +4,7 @@ using System;
 
 namespace Sprint0.TileClass
 {
-	public class SandTile : ITile
+	public class SandTile : ITile, IBoxCollider
 	{
         private Vector2 myPos;
 		private Texture2D myTile;
@@ -12,12 +12,14 @@ namespace Sprint0.TileClass
         private Rectangle sourceRect;
         private Rectangle collisionBox;
 
+        public Rectangle CollisionBox { get { return collisionBox; } set { collisionBox = value; } }
 		public SandTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
 			myTile = tile;
 			myBatch = batch;
             myPos = position;
             sourceRect = new Rectangle(0, 0, 32, 32);
+            collisionBox = sourceRect;
         }
 		public void draw()
 		{
