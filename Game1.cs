@@ -121,11 +121,12 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            tile.draw();
             Player.Draw();
             // TODO: Add your drawing code here
             shownItem.draw();
             //enemySprite.draw();
-            tile.draw();
+         
             
          
             enemySprite.draw();
