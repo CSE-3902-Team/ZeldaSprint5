@@ -55,7 +55,7 @@ using Sprint0;
 			speed = 5;
 			attackFrames = 15;
 			damaged = false;
-			scale = 0.38f;
+			scale = 0.41f;
 			projectiles = new Queue<IProjectile>();
             topLeft = new TopLeft((int)position.X, (int)position.Y);
             bottomRight = new BottomRight((int)(position.X+(src.Width * scale)), (int)(position.Y+(src.Height * scale)));
