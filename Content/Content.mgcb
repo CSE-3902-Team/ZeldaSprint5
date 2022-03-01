@@ -49,7 +49,7 @@
 /processorParam:TextureFormat=Color
 /build:creditsEdited.png
 
-#begin Doors.png.png
+#begin doors.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -59,7 +59,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Doors.png.png
+/build:doors.png
 
 #begin dragon.png
 /importer:TextureImporter
@@ -181,7 +181,7 @@
 /processorParam:TextureFormat=Color
 /build:playerSheet.png
 
-#begin roomwalls-1.png.png
+#begin roomwalls original.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -191,7 +191,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:roomwalls-1.png.png
+/build:roomwalls original.png
+
+#begin roomwalls.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:roomwalls.png
 
 #begin sandtile.png
 /importer:TextureImporter
@@ -205,7 +217,7 @@
 /processorParam:TextureFormat=Color
 /build:sandtile.png
 
-#begin silver lines.png
+#begin silverlines.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -215,7 +227,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:silver lines.png
+/build:silverlines.png
 
 #begin solid black tile.png
 /importer:TextureImporter
@@ -277,18 +289,6 @@
 /processorParam:TextureFormat=Color
 /build:sprint-2-items.png
 
-#begin square in center tile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:square in center tile.png
-
 #begin stairs.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -324,6 +324,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:statue2.png
+
+#begin tile with square in middle.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:tile with square in middle.png
 
 #begin zelda.png
 /importer:TextureImporter

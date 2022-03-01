@@ -1,5 +1,29 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/dragon.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",24373,584981,0.1129486
-"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/Enemy.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/Enemy.xnb","TextureProcessor","Texture2DContent",19899,416869,0.1232804
-"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/oldman.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.2864885
-"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/oldman1.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGame1/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.1135103
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/ball.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.3381612
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/bricks.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",392,16469,0.0038269
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/creditsEdited.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0213737
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/doors.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/doors.xnb","TextureProcessor","Texture2DContent",24583,1375061,0.041003
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/dragon.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",24022,584981,0.0288736
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/DungeonEnemy.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/DungeonEnemy.xnb","TextureProcessor","Texture2DContent",19899,416869,0.0154111
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/Enemy.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/Enemy.xnb","TextureProcessor","Texture2DContent",19594,416869,0.0151139
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/itemsAndWeapons.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0736918
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/itemsAndWeapons1.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.0400776
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/linkSheet.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/linkSheet.xnb","TextureProcessor","Texture2DContent",45726,4140445,0.0984692
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/NES - The Legend of Zelda - Dungeon Tileset.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/NES - The Legend of Zelda - Dungeon Tileset.xnb","TextureProcessor","Texture2DContent",74652,5826381,0.1377104
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/oldman.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.0183706
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/oldman1.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.0248715
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/playerSheet.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/playerSheet.xnb","TextureProcessor","Texture2DContent",355686,37263325,0.7844088
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/roomwalls original.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/roomwalls original.xnb","TextureProcessor","Texture2DContent",4950,198913,0.0453647
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/roomwalls.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/roomwalls.xnb","TextureProcessor","Texture2DContent",31226,2883669,0.0870153
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/sandtile.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/sandtile.xnb","TextureProcessor","Texture2DContent",490,16469,0.0023524
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/silverlines.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/silverlines.xnb","TextureProcessor","Texture2DContent",253,16469,0.0025202
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/solid black tile.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/solid black tile.xnb","TextureProcessor","Texture2DContent",219,16469,0.0063116
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/solid blue tile.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/solid blue tile.xnb","TextureProcessor","Texture2DContent",325,16469,0.0020593
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/solid navy tile.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/solid navy tile.xnb","TextureProcessor","Texture2DContent",224,16469,0.0029497
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/Sprint 2 Tiles.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/Sprint 2 Tiles.xnb","TextureProcessor","Texture2DContent",45523,478485,0.01762
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/sprint-2-items.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/sprint-2-items.xnb","TextureProcessor","Texture2DContent",10540,13397,0.0078398
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/stairs.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/stairs.xnb","TextureProcessor","Texture2DContent",397,16469,0.0022474
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/statue1.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/statue1.xnb","TextureProcessor","Texture2DContent",695,16469,0.0024993
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/statue2.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",660,16469,0.0023326
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/tile with square in middle.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/tile with square in middle.xnb","TextureProcessor","Texture2DContent",450,16469,0.0026858
+"C:/Users/tingy/source/repos/ZeldaGame9/Content/zelda.png","C:/Users/tingy/source/repos/ZeldaGame9/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0069844

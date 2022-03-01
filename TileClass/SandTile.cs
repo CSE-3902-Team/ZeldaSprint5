@@ -4,26 +4,23 @@ using System;
 
 namespace Sprint0.TileClass
 {
-	public class SandTile : ITile, IBoxCollider
+	public class SandTile : ITile
 	{
         private Vector2 myPos;
 		private Texture2D myTile;
 		private SpriteBatch myBatch;
         private Rectangle sourceRect;
-        private Rectangle collisionBox;
 
-        public Rectangle CollisionBox { get { return collisionBox; } set { collisionBox = value; } }
 		public SandTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
 			myTile = tile;
 			myBatch = batch;
             myPos = position;
-            sourceRect = new Rectangle(0, 0, 32, 32);
+            sourceRect = new Rectangle(0, 0, 64, 64);
         }
 		public void draw()
 		{
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 32, 32);
-            collisionBox = destinationRectangle; 
+            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 64, 64);
             myBatch.Begin();
             myBatch.Draw(
                  myTile,
@@ -31,7 +28,7 @@ namespace Sprint0.TileClass
                  sourceRect,
                 Color.White,
                 0f,
-                new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
+                new Vector2(0, 0),
                 SpriteEffects.None,
                 0f
                 );
@@ -52,8 +49,8 @@ namespace Sprint0.TileClass
 
         public Vector2 Position
         {
-            get;
-            set;
+            get { return myPos; }
+            set { myPos = value; }
         }
     }
 

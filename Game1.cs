@@ -17,6 +17,8 @@ namespace Sprint0
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private ITile roomWalls;
+
         private IController kController;
 
         private ITile tile;
@@ -53,9 +55,9 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            _graphics.PreferredBackBufferWidth = 1280;
-            _graphics.PreferredBackBufferHeight = 720; 
-            //_graphics.IsFullScreen = true;
+            _graphics.PreferredBackBufferWidth = 1024;
+            _graphics.PreferredBackBufferHeight = 704; 
+            _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
@@ -73,22 +75,24 @@ namespace Sprint0
             tileTexture = Content.Load<Texture2D>("bricks");
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
-            tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(100, 100));
+            tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(128, 128));
             tileList = new ITile[]
             {
-                new BrickTile(Content.Load<Texture2D>("bricks"), _spriteBatch, new Vector2(100, 100)),
-                new SandTile(Content.Load<Texture2D>("sandtile"), _spriteBatch, new Vector2(100, 100)),
-                new SilverLinesTile(Content.Load<Texture2D>("silver lines"), _spriteBatch, new Vector2(100, 100)),
-                new SolidBlackTile(Content.Load<Texture2D>("solid black tile"), _spriteBatch, new Vector2(100, 100)),
-                new SolidBlueTile(Content.Load<Texture2D>("solid blue tile"), _spriteBatch, new Vector2(100, 100)),
-                new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(100, 100)),
-                new StairsTile(Content.Load<Texture2D>("stairs"), _spriteBatch, new Vector2(100, 100)),
-                new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(100, 100)),
-                new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(100, 100)),
+                new BrickTile(Content.Load<Texture2D>("bricks"), _spriteBatch, new Vector2(128, 128)),
+                new SandTile(Content.Load<Texture2D>("sandtile"), _spriteBatch, new Vector2(128, 128)),
+                new SilverLinesTile(Content.Load<Texture2D>("silverlines"), _spriteBatch, new Vector2(128, 128)),
+                new SolidBlackTile(Content.Load<Texture2D>("solid black tile"), _spriteBatch, new Vector2(128, 128)),
+                new SolidBlueTile(Content.Load<Texture2D>("solid blue tile"), _spriteBatch, new Vector2(128, 128)),
+                new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(128, 128)),
+                new StairsTile(Content.Load<Texture2D>("stairs"), _spriteBatch, new Vector2(128, 128)),
+                new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(128, 128)),
+                new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(128, 128)),
+                new StatueTile2(Content.Load<Texture2D>("tile with square in middle"), _spriteBatch, new Vector2(128, 128))
             };
+            roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
 
-            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)));
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)),new Vector2(100,200));
 
             
             
@@ -135,6 +139,7 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            roomWalls.draw();
             tile.draw();
             Player.Draw();
             // TODO: Add your drawing code here
