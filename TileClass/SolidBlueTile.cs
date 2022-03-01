@@ -16,11 +16,11 @@ namespace Sprint0.TileClass
 			myTile = tile;
 			myBatch = batch;
             myPos = position;
-            sourceRect = new Rectangle(0, 0, 32, 32);
+            sourceRect = new Rectangle(0, 0, 64, 64);
         }
 		public void draw()
 		{
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 32, 32);
+            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 64, 64);
             myBatch.Begin();
             myBatch.Draw(
                  myTile,
