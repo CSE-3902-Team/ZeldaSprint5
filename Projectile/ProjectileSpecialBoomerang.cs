@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialBoomerang : IProjectile
+    public class ProjectileSpecialBoomerang : IProjectile, IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;

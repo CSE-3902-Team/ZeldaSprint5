@@ -65,6 +65,7 @@ using Sprint0;
 		{
 			//Updates relevant variables in player class, calls draw in player
 			_state.Update();
+			collisionBox = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width * scale), (int)(src.Height * scale));
 		}
 
 		public void Attack()

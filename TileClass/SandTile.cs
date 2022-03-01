@@ -19,11 +19,11 @@ namespace Sprint0.TileClass
 			myBatch = batch;
             myPos = position;
             sourceRect = new Rectangle(0, 0, 32, 32);
-            collisionBox = sourceRect;
         }
 		public void draw()
 		{
             Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 32, 32);
+            collisionBox = destinationRectangle; 
             myBatch.Begin();
             myBatch.Draw(
                  myTile,

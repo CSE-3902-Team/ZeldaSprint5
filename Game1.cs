@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.TileClass;
 using Sprint0.ItemClass;
+using Sprint0.Collision;
 using Sprint0.PlayerClass;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,8 @@ namespace Sprint0
         private ItemSpriteFactory itemFactory;
         private AItem item;
         private Player _player;
+        private ITile tile1; 
+        private ITile tile2; 
 
         private Vector2 temp;
 
@@ -52,7 +55,7 @@ namespace Sprint0
         {
             _graphics.PreferredBackBufferWidth = 1280;
             _graphics.PreferredBackBufferHeight = 720; 
-            _graphics.IsFullScreen = true;
+            //_graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
@@ -87,6 +90,8 @@ namespace Sprint0
 
             _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)));
 
+            
+            
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
             itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
@@ -106,6 +111,12 @@ namespace Sprint0
              new oldMan(npcTexture, _spriteBatch,temp),
              new bossDragon(dragonTexture, _spriteBatch,temp)
             };
+            tile1 = new SandTile(Content.Load<Texture2D>("sandtile"), _spriteBatch, new Vector2(140, 100));
+            tile2 = new SandTile(Content.Load<Texture2D>("sandtile"), _spriteBatch, new Vector2(240, 100));
+            colliderDector.BoxColliders.Add(tile1 as IBoxCollider);
+            colliderDector.BoxColliders.Add(tile2 as IBoxCollider);
+            colliderDector.BoxColliders.Add(_player as IBoxCollider);
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -117,6 +128,7 @@ namespace Sprint0
             kController.handleInput();
             _player.Update();
 			currentEnemy.Update();
+            colliderDector.HandleCollisions();
             base.Update(gameTime);
         }
 
@@ -128,12 +140,12 @@ namespace Sprint0
             // TODO: Add your drawing code here
             shownItem.draw();
             //enemySprite.draw();
-         
-            
-         
+
+
+            tile1.draw();
+            tile2.draw();
             enemySprite.draw();
             EnemyList = new IEnemySprite[] {
-           
             new enemyGel(enemyTexture, _spriteBatch, temp),
             new enemyGoriya(enemyTexture, _spriteBatch,temp),
             new enemyBat(enemyTexture, _spriteBatch,temp),
