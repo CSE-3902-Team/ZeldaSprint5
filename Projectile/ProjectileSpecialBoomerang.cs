@@ -13,6 +13,7 @@ namespace Sprint0
 
         private Rectangle sourceRect;
         private Rectangle destinationRect;
+        private Rectangle collisionBox;
         private Texture2D texture;
         private SpriteBatch batch;
 
@@ -37,7 +38,11 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
-
+        public Rectangle CollisionBox
+        {
+            get { return collisionBox; }
+            set { collisionBox = value; }
+        }
         public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
@@ -46,6 +51,7 @@ namespace Sprint0
             this.direction = direction;
 
             sourceRect = new Rectangle(137, 280, 12, 19);
+            collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, 24, 38);
 
             frame = 0;
             isRunning = true;
