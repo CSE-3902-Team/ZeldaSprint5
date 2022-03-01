@@ -28,7 +28,7 @@ namespace Sprint0.TileClass
                  sourceRect,
                 Color.White,
                 0f,
-                new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
+                new Vector2(0, 0),
                 SpriteEffects.None,
                 0f
                 );
@@ -49,8 +49,8 @@ namespace Sprint0.TileClass
 
         public Vector2 Position
         {
-            get;
-            set;
+            get { return myPos; }
+            set { myPos = value; }
         }
     }
 
