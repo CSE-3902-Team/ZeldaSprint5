@@ -87,7 +87,7 @@ namespace Sprint0
             roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
 
-            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)));
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)),new Vector2(100,200));
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);

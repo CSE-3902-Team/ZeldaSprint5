@@ -12,23 +12,27 @@ using Sprint0;
 		private Vector2 position;
 		private float speed;
 		private int attackFrames;
-        private Rectangle collisionBox;
 		private Rectangle src;
         private Vector2 drawOffset;
 		private float scale;
 		private SpriteBatch _spriteBatch;
-		bool damaged;
-		Queue<IProjectile> projectiles;
+		private bool damaged;
+		private Queue<IProjectile> projectiles;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
 		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 		public Vector2 Position { get { return position; } }
-		public Rectangle CollisionBox 
+		public TopLeft TopLeft 
 		{ 
-			get { return collisionBox; }
-            set { collisionBox = value; }
+			get { return topLeft; }
 		}
-		public Queue<IProjectile> Projectiles { get { return projectiles; } }
+        public BottomRight BottomRight 
+        {
+            get { return bottomRight; }
+        }
+	public Queue<IProjectile> Projectiles { get { return projectiles; } }
 		public IState State
 		{
 			get { return _state; }
@@ -42,17 +46,19 @@ using Sprint0;
 			Right,
 			Idle,
 		}
-		public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile)
+		public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile, Vector2 p)
 		{
 			_state = new PlayerRightIdle(this);
 			_spriteBatch = batch;
 			this.texture = texture;
-			position = new Vector2(100, 200);
+			position = p;
 			speed = 5;
 			attackFrames = 15;
 			damaged = false;
 			scale = 0.38f;
 			projectiles = new Queue<IProjectile>();
+            topLeft = new TopLeft((int)position.X, (int)position.Y);
+            bottomRight = new BottomRight((int)(position.X+(src.Width * scale)), (int)(position.Y+(src.Height * scale)));
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -65,7 +71,11 @@ using Sprint0;
 		{
 			//Updates relevant variables in player class, calls draw in player
 			_state.Update();
-		}
+		topLeft.X = (int)position.X;
+		topLeft.Y = (int)position.Y;
+		bottomRight.X = (int)(position.X + (src.Width * scale)); 
+		bottomRight.Y = (int)(position.Y + (src.Height * scale));
+	}
 
 		public void Attack()
 		{
