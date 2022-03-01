@@ -57,8 +57,8 @@ using Sprint0;
 			damaged = false;
 			scale = 0.41f;
 			projectiles = new Queue<IProjectile>();
-            topLeft = new TopLeft((int)position.X, (int)position.Y);
-            bottomRight = new BottomRight((int)(position.X+(src.Width * scale)), (int)(position.Y+(src.Height * scale)));
+            topLeft = new TopLeft((int)position.X, (int)position.Y,this);
+            bottomRight = new BottomRight((int)(position.X+(src.Width * scale)), (int)(position.Y+(src.Height * scale)), this);
 		}
 
 		public void ChangeDirection(Directions dir)
