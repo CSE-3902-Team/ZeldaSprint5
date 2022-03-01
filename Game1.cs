@@ -75,14 +75,14 @@ namespace Sprint0
             {
                 new BrickTile(Content.Load<Texture2D>("bricks"), _spriteBatch, new Vector2(128, 128)),
                 new SandTile(Content.Load<Texture2D>("sandtile"), _spriteBatch, new Vector2(128, 128)),
-                new SilverLinesTile(Content.Load<Texture2D>("silver lines"), _spriteBatch, new Vector2(128, 128)),
+                new SilverLinesTile(Content.Load<Texture2D>("silverlines"), _spriteBatch, new Vector2(128, 128)),
                 new SolidBlackTile(Content.Load<Texture2D>("solid black tile"), _spriteBatch, new Vector2(128, 128)),
                 new SolidBlueTile(Content.Load<Texture2D>("solid blue tile"), _spriteBatch, new Vector2(128, 128)),
                 new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(128, 128)),
                 new StairsTile(Content.Load<Texture2D>("stairs"), _spriteBatch, new Vector2(128, 128)),
                 new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(128, 128)),
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(128, 128)),
-                new StatueTile2(Content.Load<Texture2D>("square in center tile"), _spriteBatch, new Vector2(128, 128))
+                new StatueTile2(Content.Load<Texture2D>("tile with square in middle"), _spriteBatch, new Vector2(128, 128))
             };
             roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
