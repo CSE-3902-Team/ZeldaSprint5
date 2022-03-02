@@ -115,11 +115,14 @@ namespace Sprint0
              new oldMan(npcTexture, _spriteBatch,temp),
              new bossDragon(dragonTexture, _spriteBatch,temp)
             };
-            tile1 = new SandTile(Content.Load<Texture2D>("sandtile"), _spriteBatch, new Vector2(140, 100));
-            tile2 = new SandTile(Content.Load<Texture2D>("sandtile"), _spriteBatch, new Vector2(240, 100));
-            colliderDector.BoxColliders.Add(tile1 as IBoxCollider);
-            colliderDector.BoxColliders.Add(tile2 as IBoxCollider);
-            colliderDector.BoxColliders.Add(_player as IBoxCollider);
+            tile1 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(140, 100));
+            tile2 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(240, 100));
+            colliderDector.AddToList(tile1 as IBoxCollider);
+            colliderDector.AddToList(tile2 as IBoxCollider);
+            colliderDector.AddToList(_player);
+
+
+
 
         }
 

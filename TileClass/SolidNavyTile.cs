@@ -4,19 +4,33 @@ using System;
 
 namespace Sprint0.TileClass
 {
-	public class SolidNavyTile : ITile
+	public class SolidNavyTile : ITile,IBoxCollider
 	{
         private Vector2 myPos;
 		private Texture2D myTile;
 		private SpriteBatch myBatch;
         private Rectangle sourceRect;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
 
-		public SolidNavyTile(Texture2D tile, SpriteBatch batch, Vector2 position)
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
+        }
+        public SolidNavyTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
 			myTile = tile;
 			myBatch = batch;
             myPos = position;
             sourceRect = new Rectangle(0, 0, 64, 64);
+            topLeft = new TopLeft((int)position.X, (int)Position.Y, this);
+            bottomRight = new BottomRight((int)position.X + 64, (int)position.Y,this);
+
+
         }
 		public void draw()
 		{
