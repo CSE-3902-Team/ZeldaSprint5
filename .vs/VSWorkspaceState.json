@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CollisionHandlers",
+    "\\enemy",
+    "\\Projectile"
   ],
-  "SelectedNode": "\\Sprint0.sln",
+  "SelectedNode": "\\CollisionHandlers\\CollisionHandlerPlayerBlock.cs",
   "PreviewInSolutionExplorer": false
 }
