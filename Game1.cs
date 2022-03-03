@@ -90,7 +90,10 @@ namespace Sprint0
                 new StairsTile(Content.Load<Texture2D>("stairs"), _spriteBatch, new Vector2(128, 128)),
                 new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(128, 128)),
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(128, 128)),
-                new StatueTile2(Content.Load<Texture2D>("tile with square in middle"), _spriteBatch, new Vector2(128, 128))
+                new StatueTile2(Content.Load<Texture2D>("tile with square in middle"), _spriteBatch, new Vector2(128, 128)),
+                new LeftFire(Content.Load<Texture2D>("LeftFire"), _spriteBatch, new Vector2(128, 128)),
+                new RightFire(Content.Load<Texture2D>("RightFire"), _spriteBatch, new Vector2(128, 128)),
+                new Text(Content.Load<Texture2D>("textsprite"), _spriteBatch, new Vector2(128, 128))
             };
             roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
