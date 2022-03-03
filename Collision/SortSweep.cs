@@ -74,7 +74,7 @@ namespace Sprint0.Collision
                 //TODO: resolve collisions between more than 2 objects
                 if (ListItem.Count > 2)
                 {
-                    throw new ArgumentException("n-ary collusions are unspecified");
+                    Console.Write("Warning collisions for 3 or more objects aren't defined");
                 }
                 else if (ListItem.Count > 1) {
                     if (ListItem[0].GetType() == typeof(Player))
