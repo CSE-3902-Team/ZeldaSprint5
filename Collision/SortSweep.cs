@@ -60,89 +60,95 @@ namespace Sprint0.Collision
             Console.WriteLine();
             //PrintList();
             //PrintCollisions();
-            AssignHandlers();
+            ProcessCollisions();
             targets.Clear();
         }
 
 
-        private CollisionDirections GetCollisionDirection(IBoxCollider origin, IBoxCollider agiator )
-        {
-            int magX = 0;
-            CollisionDirections xDir = CollisionDirections.None;
-            //check x's, we can assume that agiator is colliding on some xDirection
-            if (agiator.BottomRight.X > origin.TopLeft.X)
-            {
-                xDir = CollisionDirections.West;
-                magX = agiator.BottomRight.X - origin.BottomRight.X;
-            }
-            else if(agiator.TopLeft.X < origin.BottomRight.X){
-                xDir = CollisionDirections.East;
-                magX = origin.BottomRight.X - agiator.TopLeft.X;
-            }
-
-            //check y's
-            int magY = 0;
-            CollisionDirections yDir = CollisionDirections.None;
-            if (agiator.BottomRight.Y > origin.TopLeft.Y)
-            {
-                //Up
-                magY = agiator.BottomRight.Y - origin.TopLeft.Y;
-                yDir = CollisionDirections.North;
-            }
-            else if (origin.BottomRight.Y > agiator.TopLeft.Y)
-            {
-                //Down
-                magY = origin.BottomRight.Y - agiator.TopLeft.Y;
-                yDir = CollisionDirections.South;
-            }
-
-            if (magY > magX)
-            {
-                return yDir;
-            }
-            else 
-            {
-                return xDir; 
-            }
-        }
-
-
-               
-
-       
-        private void FindCollisionsY()
-        { 
-            /*See if the collision is inside the x collision list
-            //if it is inside the list add y to the final list probably
-            want to the clear the x list afterwards.This is really goofy
-            with nested lists though
-            */
         
-        }
 
-        private void AssignHandlers()
+        private void ProcessCollisions()
         {
             foreach (List<Object> ListItem in targets)
             {
-                //Let's just assume that every collusion is just two objects
+                //TODO: resolve collisions between more than 2 objects
                 if (ListItem.Count > 2)
                 {
-                    throw new ArgumentException("n-way collusions are unspecified");
+                    throw new ArgumentException("n-ary collusions are unspecified");
                 }
                 else if (ListItem.Count > 1) {
                     if (ListItem[0].GetType() == typeof(Player))
                     {
-                        CollisionDirections dir = GetCollisionDirection(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
-                        Console.WriteLine("Player is Colliding from the "+ dir.ToString() +" direction");
+
+                        List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
+
+                        Console.WriteLine("Player is Colliding from the "+ result[0] +" direction with a magnitude of "+result[1]);
 
                     }
                     else if(ListItem[1].GetType() == typeof(Player))
                     {
-                        CollisionDirections dir = GetCollisionDirection(ListItem[1] as IBoxCollider, ListItem[0] as IBoxCollider);
-                        Console.WriteLine("Player is Colliding from the ", dir.ToString(), " direction");
+                        List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
+                        Console.WriteLine("Player is Colliding from the "+ result[0] + " direction with a magnitude of "+result[1]);
                     }
                 }
             }
+        }
+
+        //Returns the magnitude and direction of a collision between two objects
+        //The first item in the list is direction, the second item is magnitude
+        private List<Object> InspectCollision(IBoxCollider origin, IBoxCollider agiator)
+        {
+            //check y's, we can assume that these objects are colliding on x-axis
+            Console.WriteLine("agiator botR:" + agiator.BottomRight.X + "agiator TL" +agiator.TopLeft.X+  " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
+
+            int magY = 0;
+            CollisionDirections yDir = CollisionDirections.None;
+            if (agiator.BottomRight.Y > origin.TopLeft.Y && agiator.BottomRight.Y < origin.BottomRight.Y)
+            {
+                //North
+                magY = agiator.BottomRight.Y - origin.TopLeft.Y;
+                yDir = CollisionDirections.North;
+            }
+            else if (agiator.TopLeft.Y < origin.BottomRight.Y && agiator.TopLeft.Y > origin.TopLeft.Y)
+            {
+                //South
+                magY = origin.BottomRight.Y - agiator.TopLeft.Y;
+                yDir = CollisionDirections.South;
+            }
+
+
+
+            int magX = 0;
+            CollisionDirections xDir = CollisionDirections.None;
+            //Find out what direction + magnitude x is colliding on. There must be a collision on the y-axis
+            if (agiator.BottomRight.X > origin.TopLeft.X && agiator.BottomRight.X < origin.BottomRight.X && yDir != CollisionDirections.None)
+            {
+                //West
+                xDir = CollisionDirections.West;
+                magX = agiator.BottomRight.X - origin.TopLeft.X;
+            }
+            else if (agiator.TopLeft.X < origin.BottomRight.X && agiator.TopLeft.X > origin.TopLeft.X && yDir != CollisionDirections.None)
+            {
+                //East
+                xDir = CollisionDirections.East;
+                magX = origin.BottomRight.X - agiator.TopLeft.X;
+            }
+
+            if (magY <= magX)
+            {
+                Console.WriteLine("D = " + yDir.ToString() + " magY = " + magY + " magX =" + magX);
+                return new List<Object> { yDir, magY };
+            }
+            else
+            {
+                Console.WriteLine("D = " + xDir.ToString() + " magY = " + magY + " magX =" + magX);
+                return new List<Object> { xDir, magX };
+            }
+        }
+
+        public void AssignHandler(CollisionDirections dir, int magnitude)
+        {
+            return;
         }
 
         public void AddToList(IBoxCollider box) 

@@ -27,9 +27,8 @@ namespace Sprint0.TileClass
 			myBatch = batch;
             myPos = position;
             sourceRect = new Rectangle(0, 0, 64, 64);
-            topLeft = new TopLeft((int)position.X, (int)Position.Y, this);
-            bottomRight = new BottomRight((int)position.X + 64, (int)position.Y,this);
-
+            topLeft = new TopLeft((int)Position.X, (int)Position.Y, this);
+            bottomRight = new BottomRight((int)Position.X + 64, (int)Position.Y+64,this);
 
         }
 		public void draw()

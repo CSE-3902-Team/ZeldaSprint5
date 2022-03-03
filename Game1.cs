@@ -31,6 +31,7 @@ namespace Sprint0
         private Texture2D enemyTexture;
         private Texture2D dragonTexture;
         private Texture2D npcTexture;
+        private Texture2D whiteRectangle;
 
         private ICollision colliderDector;
         private IEnemySprite enemySprite;
@@ -75,6 +76,8 @@ namespace Sprint0
             tileTexture = Content.Load<Texture2D>("bricks");
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
+            whiteRectangle = new Texture2D(GraphicsDevice, 1, 1);
+            whiteRectangle.SetData(new[] { Color.Black }); 
             tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(128, 128));
             tileList = new ITile[]
             {
@@ -115,10 +118,8 @@ namespace Sprint0
              new oldMan(npcTexture, _spriteBatch,temp),
              new bossDragon(dragonTexture, _spriteBatch,temp)
             };
-            tile1 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(140, 100));
-            tile2 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(240, 100));
+            tile1 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(340, 100));
             colliderDector.AddToList(tile1 as IBoxCollider);
-            colliderDector.AddToList(tile2 as IBoxCollider);
             colliderDector.AddToList(_player);
 
 
@@ -151,7 +152,6 @@ namespace Sprint0
 
 
             tile1.draw();
-            tile2.draw();
             enemySprite.draw();
             EnemyList = new IEnemySprite[] {
             new enemyGel(enemyTexture, _spriteBatch, temp),
@@ -163,6 +163,7 @@ namespace Sprint0
                new bossDragon(dragonTexture, _spriteBatch,temp)
             };
             base.Draw(gameTime);
+
         }
 
         public SpriteBatch SpriteBatch
