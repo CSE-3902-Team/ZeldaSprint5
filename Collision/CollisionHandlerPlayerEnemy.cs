@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint0.CollisionHandlers
+namespace Sprint0.Collision
 {
-    class CollisionHandlerProjectileEnemy : ICollisionHandler
+    public class CollisionHandlerPlayerEnemy : ICollisionHandler
     {
         public void HandleCollision()
         {

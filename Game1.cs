@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.TileClass;
 using Sprint0.ItemClass;
+using Sprint0.Collision;
 using Sprint0.PlayerClass;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +31,17 @@ namespace Sprint0
         private Texture2D enemyTexture;
         private Texture2D dragonTexture;
         private Texture2D npcTexture;
+        private Texture2D whiteRectangle;
 
+        private ICollision colliderDector;
         private IEnemySprite enemySprite;
         private IEnemySprite[] EnemyList;
 
         private ItemSpriteFactory itemFactory;
         private AItem item;
         private Player _player;
+        private ITile tile1; 
+        private ITile tile2; 
 
         private Vector2 temp;
 
@@ -58,6 +63,7 @@ namespace Sprint0
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             itemFactory = ItemSpriteFactory.Instance;
+            colliderDector = new SortSweep(this);
 
             base.Initialize();
         }
@@ -70,6 +76,8 @@ namespace Sprint0
             tileTexture = Content.Load<Texture2D>("bricks");
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
+            whiteRectangle = new Texture2D(GraphicsDevice, 1, 1);
+            whiteRectangle.SetData(new[] { Color.Black }); 
             tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(128, 128));
             tileList = new ITile[]
             {
@@ -82,13 +90,18 @@ namespace Sprint0
                 new StairsTile(Content.Load<Texture2D>("stairs"), _spriteBatch, new Vector2(128, 128)),
                 new StatueTile1(Content.Load<Texture2D>("statue1"), _spriteBatch, new Vector2(128, 128)),
                 new StatueTile2(Content.Load<Texture2D>("statue2"), _spriteBatch, new Vector2(128, 128)),
-                new StatueTile2(Content.Load<Texture2D>("tile with square in middle"), _spriteBatch, new Vector2(128, 128))
+                new StatueTile2(Content.Load<Texture2D>("tile with square in middle"), _spriteBatch, new Vector2(128, 128)),
+                new LeftFire(Content.Load<Texture2D>("LeftFire"), _spriteBatch, new Vector2(128, 128)),
+                new RightFire(Content.Load<Texture2D>("RightFire"), _spriteBatch, new Vector2(128, 128)),
+                new Text(Content.Load<Texture2D>("textsprite"), _spriteBatch, new Vector2(128, 128))
             };
             roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
 
-            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)),new Vector2(100,200));
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)),new Vector2(100,200), Content.Load<Texture2D>("solid navy tile"));
 
+            
+            
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
             itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
@@ -108,6 +121,17 @@ namespace Sprint0
              new oldMan(npcTexture, _spriteBatch,temp),
              new bossDragon(dragonTexture, _spriteBatch,temp)
             };
+            tile1 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(440, 400));
+
+            tile2 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(300, 400));
+            colliderDector.AddToList(tile1 as IBoxCollider);
+            colliderDector.AddToList(tile2 as IBoxCollider);
+
+            colliderDector.AddToList(_player);
+
+
+
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -119,6 +143,7 @@ namespace Sprint0
             kController.handleInput();
             _player.Update();
 			currentEnemy.Update();
+            colliderDector.HandleCollisions();
             base.Update(gameTime);
         }
 
@@ -131,12 +156,13 @@ namespace Sprint0
             // TODO: Add your drawing code here
             shownItem.draw();
             //enemySprite.draw();
-         
-            
-         
+
+
+            tile1.draw();
+
+            tile2.draw();
             enemySprite.draw();
             EnemyList = new IEnemySprite[] {
-           
             new enemyGel(enemyTexture, _spriteBatch, temp),
             new enemyGoriya(enemyTexture, _spriteBatch,temp),
             new enemyBat(enemyTexture, _spriteBatch,temp),
@@ -146,6 +172,7 @@ namespace Sprint0
                new bossDragon(dragonTexture, _spriteBatch,temp)
             };
             base.Draw(gameTime);
+
         }
 
         public SpriteBatch SpriteBatch
