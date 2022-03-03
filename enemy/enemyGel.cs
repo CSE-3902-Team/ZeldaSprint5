@@ -68,7 +68,7 @@ namespace Sprint0.enemy
         int row = currentFrame;
 
         Rectangle sourceRectangle = new Rectangle(8 * row +2, 11, 8, 16);
-        Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 40, 40);
+        Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
 
         batch.Begin();
         batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);

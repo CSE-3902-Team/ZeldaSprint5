@@ -68,15 +68,15 @@ namespace Sprint0.enemy
    
 
             Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 40, 40);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 164,164);
           
             batch.Begin();
             if (flipHorizontally%2==0)
-                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
+                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.FlipHorizontally, 1);
         
 
             else
-                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
+                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.None, 1);
             batch.End();
      
             return temp;
