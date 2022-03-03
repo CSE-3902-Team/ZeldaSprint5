@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/playerSheet.png</SourceFile>
-  <SourceTime>2022-03-02T20:29:51.4703846-05:00</SourceTime>
-  <DestFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/bin/playerSheet.xnb</DestFile>
-  <DestTime>2022-03-02T20:31:27.5680065-05:00</DestTime>
+  <SourceFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/RightFire.png</SourceFile>
+  <SourceTime>2022-03-02T19:05:01.668203-05:00</SourceTime>
+  <DestFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/bin/RightFire.xnb</DestFile>
+  <DestTime>2022-03-02T20:31:27.5719968-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
