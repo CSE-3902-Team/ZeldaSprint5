@@ -9,6 +9,7 @@ namespace Sprint0.TileClass
 {
     class RoomWalls : ITile
     {
+       
         private Vector2 myPos;
         private Texture2D myTile;
         private SpriteBatch myBatch;
@@ -20,6 +21,7 @@ namespace Sprint0.TileClass
             myBatch = batch;
             myPos = position;
             sourceRect = new Rectangle(0, 0, 1024, 704);
+
         }
         public void draw()
         {
@@ -55,6 +57,8 @@ namespace Sprint0.TileClass
             get { return myPos; }
             set { myPos = value; }
         }
+
+        
     }
 }
 
