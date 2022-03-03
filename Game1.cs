@@ -98,7 +98,7 @@ namespace Sprint0
             roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
 
-            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)),new Vector2(100,200));
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)),new Vector2(100,200), Content.Load<Texture2D>("solid navy tile"));
 
             
             
@@ -121,8 +121,12 @@ namespace Sprint0
              new oldMan(npcTexture, _spriteBatch,temp),
              new bossDragon(dragonTexture, _spriteBatch,temp)
             };
-            tile1 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(340, 100));
+            tile1 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(440, 400));
+
+            tile2 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), _spriteBatch, new Vector2(300, 400));
             colliderDector.AddToList(tile1 as IBoxCollider);
+            colliderDector.AddToList(tile2 as IBoxCollider);
+
             colliderDector.AddToList(_player);
 
 
@@ -155,6 +159,8 @@ namespace Sprint0
 
 
             tile1.draw();
+
+            tile2.draw();
             enemySprite.draw();
             EnemyList = new IEnemySprite[] {
             new enemyGel(enemyTexture, _spriteBatch, temp),

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint0.CollisionHandlers
+namespace Sprint0.Collision
 {
     public class CollisionHandlerPlayerEnemy : ICollisionHandler
     {

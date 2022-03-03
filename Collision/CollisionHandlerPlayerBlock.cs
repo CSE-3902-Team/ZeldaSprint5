@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint0.CollisionHandlers
+namespace Sprint0.Collision
 {
     public class CollisionHandlerPlayerBlock : ICollisionHandler
     {
@@ -15,13 +15,6 @@ namespace Sprint0.CollisionHandlers
         private int currentDirection;
         private CollisionDirections collisionDirections;
 
-        public enum CollisionDirections
-        {
-            North,
-            South,
-            East,
-            West
-        }
         
         public CollisionHandlerPlayerBlock(Player player, ITile block, CollisionDirections collisionDirections, int overlap)
         {
@@ -36,28 +29,32 @@ namespace Sprint0.CollisionHandlers
         }
         public void HandleCollision()
         {
-            currentDirection = (int)collisionDirections;
-            /*switch ((CollisionDirections)currentDirection)
+            switch (collisionDirections)
             {
                 case CollisionDirections.North:
                     yDirection = -1;
                     xDirection = 0;
+                    break;
                 case CollisionDirections.East:
                     yDirection = 0;
                     xDirection = 1;
+                    break;
                 case CollisionDirections.South:
                     yDirection = 1;
                     xDirection = 0;
+                    break;
                 case CollisionDirections.West:
                     yDirection = 0;
                     xDirection = -1;
+                    break;
                 default:
                     yDirection = 0;
                     xDirection = 0;
+                    break;
             }
-            */
-            
-            //player.Position = new Vector2(player.Position.X + (xDirection * (float)overlap), player.Position.Y + xDirection * (float)overlap);
+
+            Console.WriteLine("yDirection=" + yDirection);
+            player.Position = new Vector2(player.Position.X + (xDirection * (float)overlap), player.Position.Y + yDirection * (float)overlap);
         }
     }
 }

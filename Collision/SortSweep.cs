@@ -80,7 +80,11 @@ namespace Sprint0.Collision
                     if (ListItem[0].GetType() == typeof(Player))
                     {
 
-                        List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
+                        List<Object> result = InspectCollision( ListItem[1] as IBoxCollider, ListItem[0] as IBoxCollider);
+                        CollisionDirections col = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                        CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(ListItem[0] as Player, ListItem[1] as ITile, col,(int)result[1]);
+                        handler.HandleCollision();
+
 
                         Console.WriteLine("Player is Colliding from the "+ result[0] +" direction with a magnitude of "+result[1]);
 
@@ -88,6 +92,9 @@ namespace Sprint0.Collision
                     else if(ListItem[1].GetType() == typeof(Player))
                     {
                         List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
+                        CollisionDirections col = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                        CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(ListItem[1] as Player, ListItem[0] as ITile, col, (int)result[1]);
+                        handler.HandleCollision();
                         Console.WriteLine("Player is Colliding from the "+ result[0] + " direction with a magnitude of "+result[1]);
                     }
                 }
@@ -99,7 +106,7 @@ namespace Sprint0.Collision
         private List<Object> InspectCollision(IBoxCollider origin, IBoxCollider agiator)
         {
             //check y's, we can assume that these objects are colliding on x-axis
-            Console.WriteLine("agiator botR:" + agiator.BottomRight.X + "agiator TL" +agiator.TopLeft.X+  " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
+            Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " +agiator.TopLeft.X+  " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
 
             int magY = 0;
             CollisionDirections yDir = CollisionDirections.None;
@@ -115,8 +122,6 @@ namespace Sprint0.Collision
                 magY = origin.BottomRight.Y - agiator.TopLeft.Y;
                 yDir = CollisionDirections.South;
             }
-
-
 
             int magX = 0;
             CollisionDirections xDir = CollisionDirections.None;
