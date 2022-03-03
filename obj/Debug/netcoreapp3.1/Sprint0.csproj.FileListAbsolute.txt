@@ -376,3 +376,4 @@ C:\Users\tingy\source\repos\ZeldaGame11\obj\Debug\netcoreapp3.1\Sprint0.csproj.C
 C:\Users\tingy\source\repos\ZeldaGame11\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\tingy\source\repos\ZeldaGame11\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\tingy\source\repos\ZeldaGame11\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
+C:\Users\cciri\source\repos\ZeldaGameS3\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache

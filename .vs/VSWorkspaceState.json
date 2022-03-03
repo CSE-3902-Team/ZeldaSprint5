@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\enemy",
+    "\\Projectile"
   ],
-  "SelectedNode": "\\Sprint0.sln",
+  "SelectedNode": "\\Projectile\\ProjectileSpecialBoomerang.cs",
   "PreviewInSolutionExplorer": false
 }

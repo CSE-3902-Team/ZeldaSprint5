@@ -81,27 +81,36 @@ namespace Sprint0
 
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
             GetRotation(direction);
-            frame++;
 
-            if (frame < 50)
+            if (IsRunning == true)
             {
-                IsRunning = true;
-                position.X += direction.X * 10f;
-                position.Y += direction.Y * 10f;
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
+                frame++;
 
-            }
-            else if (frame >= 50 && frame < 60)
-            {
-                sourceRect = new Rectangle(176, 280, 15, 20);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 20, 25);
+                if (frame < 50)
+                {
+                    IsRunning = true;
+                    position.X += direction.X * 10f;
+                    position.Y += direction.Y * 10f;
+
+                }
+                else if (frame >= 50 && frame < 60)
+                {
+                    sourceRect = new Rectangle(176, 280, 15, 20);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 20, 25);
+                }
+                else
+                {
+                    IsRunning = false;
+                    sourceRect = new Rectangle(400, 400, 0, 0);
+                }
             }
             else
             {
-                IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+
         }
         public void Draw()
         {

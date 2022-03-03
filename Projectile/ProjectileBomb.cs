@@ -59,33 +59,41 @@ namespace Sprint0
 
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 30, 40);
-            frame++;
-            if (frame < 25)
+            if(IsRunning == true)
             {
-                IsRunning = true;
-                sourceRect = new Rectangle(193, 276, 14, 24);
-            }
-            else if (frame >= 25 && frame < 30)
-            {
-                sourceRect = new Rectangle(206, 277, 24, 24);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
-            }
-            else if (frame >= 30 && frame < 32)
-            {
-                sourceRect = new Rectangle(232, 276, 24, 24);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
-            }
-            else if (frame >= 32 && frame < 34)
-            {
-                sourceRect = new Rectangle(259, 276, 24, 24);
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 30, 40);
+                frame++;
+                if (frame < 25)
+                {
+                    IsRunning = true;
+                    sourceRect = new Rectangle(193, 276, 14, 24);
+                }
+                else if (frame >= 25 && frame < 30)
+                {
+                    sourceRect = new Rectangle(206, 277, 24, 24);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
+                }
+                else if (frame >= 30 && frame < 32)
+                {
+                    sourceRect = new Rectangle(232, 276, 24, 24);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
+                }
+                else if (frame >= 32 && frame < 34)
+                {
+                    sourceRect = new Rectangle(259, 276, 24, 24);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
+                }
+                else
+                {
+                    IsRunning = false;
+                    sourceRect = new Rectangle(400, 400, 0, 0);
+                }
             }
             else
             {
-                IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+
         }
         public void Draw()
         {

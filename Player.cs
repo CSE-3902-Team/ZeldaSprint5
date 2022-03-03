@@ -23,7 +23,7 @@ using Sprint0;
 		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
-		public Vector2 Position { get { return position; } }
+		public Vector2 Position { get { return position; } set { position = value; } }
 		public TopLeft TopLeft 
 		{ 
 			get { return topLeft; }
