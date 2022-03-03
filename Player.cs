@@ -57,8 +57,8 @@ using Sprint0;
 			damaged = false;
 			scale = 0.41f;
 			projectiles = new Queue<IProjectile>();
-            topLeft = new TopLeft((int)position.X, (int)position.Y,this);
-            bottomRight = new BottomRight((int)(position.X+(src.Width * scale)), (int)(position.Y+(src.Height * scale)), this);
+            topLeft = new TopLeft((int)(position.X - (src.Width * scale)/2), (int)((position.Y - (src.Height * scale)/2)), this);
+            bottomRight = new BottomRight(((int)(position.X+(src.Width * scale)/2)), (int)((position.Y+(src.Height * scale)/2)), this);
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -71,11 +71,13 @@ using Sprint0;
 		{
 			//Updates relevant variables in player class, calls draw in player
 			_state.Update();
-		topLeft.X = (int)position.X;
-		topLeft.Y = (int)position.Y;
-		bottomRight.X = (int)(position.X + (src.Width * scale)); 
-		bottomRight.Y = (int)(position.Y + (src.Height * scale));
-	}
+			topLeft.X = ((int)(position.X - (src.Width * scale) / 2));
+			topLeft.Y = (int)((position.Y - (src.Height * scale) / 2));
+
+			bottomRight.X = (int)(position.X + (src.Width * scale) / 2); 
+            bottomRight.Y = (int)((position.Y + (src.Height * scale) / 2));
+		Console.WriteLine("Current width is " + SourceRectangle.Width * scale);
+		}
 
 		public void Attack()
 		{
@@ -118,9 +120,11 @@ using Sprint0;
 			}
 		}
 
-
+       
 		public void Draw()
 		{
+		Rectangle CollisionRect = new Rectangle(new Point(TopLeft.X, topLeft.Y), new Point(BottomRight.X - TopLeft.X, bottomRight.Y - topLeft.Y));
+		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
             Color col = Color.White;
@@ -131,7 +135,9 @@ using Sprint0;
 			Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width * scale), (int)(src.Height * scale));
 			_spriteBatch.Begin();
 			_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 - xOffset, src.Height / 2 - yOffset), SpriteEffects.None, 0f);
+			_spriteBatch.Draw(texture, CollisionRect, CollisionSrc, col);
 			_spriteBatch.End();
+
 			DrawItems();
 		}
 
