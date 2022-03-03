@@ -9,7 +9,6 @@ namespace Sprint0.Collision
     {
         private Player player;
         private IProjectile projectile;
-        private int currentDirection;
         private CollisionDirections collisionDirections;
         public CollisionHandlerPlayerProjectile(Player player, IProjectile projectile, CollisionDirections collisionDirections)
         {
