@@ -31,9 +31,8 @@ namespace Sprint0.ItemClass
 
 		private static ItemSpriteFactory instance = new ItemSpriteFactory();
 
-		public void setBatchPosition(SpriteBatch aBatch, Vector2 aPosition) {
+		public void setBatch(SpriteBatch aBatch) {
 			batch = aBatch;
-			position = aPosition;
 		}
 
 		public static ItemSpriteFactory Instance
@@ -54,33 +53,9 @@ namespace Sprint0.ItemClass
 
 		}
 
-		public AItem nextItem() {
-			if (currentItem < Enum.GetValues(typeof(Item)).Cast<int>().Max())
-			{
-				currentItem++;
-			}
-			else 
-			{
-				currentItem = 0;
-			}
-			return CreateItemSprite((Item)currentItem);
-		}
-
-		public AItem previousItem()
+		public AItem CreateItemSprite(Item itemNum, Vector2 pos)
 		{
-			if (currentItem > 0)
-			{
-				currentItem--;
-			}
-			else
-			{
-				currentItem = Enum.GetValues(typeof(Item)).Cast<int>().Max();
-			}
-			return CreateItemSprite((Item)currentItem);
-		}
-
-		public AItem CreateItemSprite(Item itemNum)
-		{
+			position = pos;
 			currentItem = (int)itemNum;
 			switch ((Item)currentItem)
             {
