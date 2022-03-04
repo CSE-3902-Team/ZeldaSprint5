@@ -19,8 +19,13 @@ namespace Sprint0.enemy
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
         private int flipHorizontally;
-        private Vector2 direction;
+        public  Vector2 direction;
         private Vector2 currentPos;
+        public Vector2 CurrentPos
+        {
+            get { return currentPos; }
+            set { currentPos = value; }
+        }
         private Vector2 destination;
         int x = 400;
         int y = 200;
@@ -44,6 +49,7 @@ namespace Sprint0.enemy
             FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
             MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
+            CollisionHandlerEnemyBlock temp = new CollisionHandlerEnemyBlock(direction, currentPos, destination);
 
             if (frame == 5)
             {
@@ -52,10 +58,13 @@ namespace Sprint0.enemy
                 frame = 0;
             }
 
-            currentPos = move.Move();
-            direction = makeNextMove.RollingDice1();
-            destination = makeNextMove.RollingDice();
-
+           
+                currentPos = move.Move();
+            
+                direction = makeNextMove.RollingDice1();
+                destination = makeNextMove.RollingDice();
+            
+     
             frame++;
 
         }
