@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace Sprint0.enemy
 {
@@ -27,7 +23,7 @@ namespace Sprint0.enemy
         private Vector2 direction;
         private Vector2 currentPos;
         private Vector2 destination;
-        int x =600;
+        int x = 600;
 
         private int frame;
         private int frame1;
@@ -53,17 +49,17 @@ namespace Sprint0.enemy
             Vector2 result = dragonMove.DragonMove();
             if (frame == 5)
             {
-          
+
                 currentFrame = action.dragon();
                 FireBallCurrentFrame = dragonBreath.fireBall();
-               
-                
+
+
                 frame = 0;
             }
-         
+
             currentPos.X = result.Y;
             destination.X = result.X;
-            if (frame1==200 )
+            if (frame1 == 200)
             {
                 fire = true;
                 frame1 = 0;
@@ -71,25 +67,25 @@ namespace Sprint0.enemy
             }
             if (fire)
             {
-           
-                FireBallCurrentX-=3;
+
+                FireBallCurrentX -= 3;
                 FireBallCurrentY1--;
-         FireBallCurrentY2 ++;
+                FireBallCurrentY2++;
                 if (FireBallCurrentY1 <= 0)
                 {
-             
+
                     fire = false;
-                 FireBallCurrentY = 200;
-        FireBallCurrentY1 = 200;
-         FireBallCurrentY2 = 200;
-    }
-    }
+                    FireBallCurrentY = 200;
+                    FireBallCurrentY1 = 200;
+                    FireBallCurrentY2 = 200;
+                }
+            }
             frame++;
             frame1++;
 
         }
 
-        
+
         public Vector2 draw()
         {
 
@@ -97,13 +93,13 @@ namespace Sprint0.enemy
             int row = currentFrame;
             int rowFireBall = FireBallCurrentFrame;
 
-            Rectangle sourceRectangle = new Rectangle(25 * row , 11, 24, 32);
-            Rectangle FireballSourceRectangle = new Rectangle(9* rowFireBall+100, 11,8, 15);
+            Rectangle sourceRectangle = new Rectangle(25 * row, 11, 24, 32);
+            Rectangle FireballSourceRectangle = new Rectangle(9 * rowFireBall + 100, 11, 8, 15);
 
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 80,100);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 80, 100);
             Rectangle FireBallDestinationRectangle = new Rectangle(FireBallCurrentX, FireBallCurrentY, 20, 20);
             Rectangle FireBallDestinationRectangle1 = new Rectangle(FireBallCurrentX, FireBallCurrentY1, 20, 20);
-            Rectangle FireBallDestinationRectangle2= new Rectangle(FireBallCurrentX, FireBallCurrentY2, 20, 20);
+            Rectangle FireBallDestinationRectangle2 = new Rectangle(FireBallCurrentX, FireBallCurrentY2, 20, 20);
             batch.Begin();
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             if (fire)
@@ -114,7 +110,7 @@ namespace Sprint0.enemy
             }
 
             batch.End();
-      
+
             return temp;
         }
 

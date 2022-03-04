@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0
 {
@@ -43,9 +41,9 @@ namespace Sprint0
             this.batch = batch;
             this.position = position;
             this.direction = direction;
-            
+
             sourceRect = new Rectangle(97, 280, 12, 19);
-            
+
             isRunning = true;
             rotation = 0f;
             frame = 0;
@@ -55,7 +53,7 @@ namespace Sprint0
         {
             if (direction.X == 0 && direction.Y > 0)
             {
-                rotation = (float)Math.PI  / 2f;
+                rotation = (float)Math.PI / 2f;
             }
             else if (direction.X == 0 && direction.Y < 0)
             {
@@ -75,7 +73,7 @@ namespace Sprint0
         {
             GetRotation(direction);
 
-            if(IsRunning == true)
+            if (IsRunning == true)
             {
                 destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
                 frame++;
@@ -132,7 +130,7 @@ namespace Sprint0
             {
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
-            
+
         }
 
         public void Draw()
@@ -144,14 +142,14 @@ namespace Sprint0
                  sourceRect,
                 Color.White,
                 rotation,
-                new Vector2(sourceRect.Width / 2 , sourceRect.Height/ 2),
+                new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
                 SpriteEffects.None,
                 0f
                 );
             batch.End();
         }
 
-        
+
     }
 
 

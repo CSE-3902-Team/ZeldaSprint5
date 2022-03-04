@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace Sprint0.enemy
 {
@@ -13,12 +10,12 @@ namespace Sprint0.enemy
         public Texture2D Texture;
 
         private int currentFrame;
- 
+
         private SpriteBatch batch;
         Random getDistance = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
-   
+
         private Vector2 direction;
         public Vector2 currentPos;
         private Vector2 destination;
@@ -27,7 +24,7 @@ namespace Sprint0.enemy
         private int frame;
         public enemyBat(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
-         
+
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
@@ -41,21 +38,21 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction,destination, currentFrame);
-            MoveEnemy move = new MoveEnemy(direction, currentPos,destination);
+            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+            MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
 
-            if (frame ==5)
+            if (frame == 5)
             {
-             
-               currentFrame=action.frameReturn();
+
+                currentFrame = action.frameReturn();
                 frame = 0;
             }
-  
+
             currentPos = move.Move();
             direction = makeNextMove.RollingDice1();
             destination = makeNextMove.RollingDice();
-            
+
             frame++;
 
         }
@@ -67,15 +64,15 @@ namespace Sprint0.enemy
             Vector2 temp = new Vector2();
             int row = currentFrame;
 
-            Rectangle sourceRectangle = new Rectangle(16 * row + 183, 11,16, 16);
+            Rectangle sourceRectangle = new Rectangle(16 * row + 183, 11, 16, 16);
             Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 40, 40);
 
             batch.Begin();
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-      
+
 
             batch.End();
-     
+
             return temp;
         }
 

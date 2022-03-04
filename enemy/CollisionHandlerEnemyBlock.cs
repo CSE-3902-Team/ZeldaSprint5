@@ -1,13 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0.enemy
 {
-    class CollisionHandlerEnemyBlock:ICollisionHandler
+    class CollisionHandlerEnemyBlock : ICollisionHandler
     {
-      
+
         private Vector2 movement;
         Vector2 result;
         private Vector2 direction;
@@ -17,7 +15,7 @@ namespace Sprint0.enemy
         Random getDistance = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
-      
+
         public CollisionHandlerEnemyBlock(Vector2 Direction, Vector2 CurrentPos, Vector2 Destination)
         {
             this.result = Destination;
@@ -26,7 +24,7 @@ namespace Sprint0.enemy
         }
         public void HandleCollision()
         {
-            
+
         }
         public Vector2 hitWall()
         {
@@ -43,13 +41,13 @@ namespace Sprint0.enemy
                     if (movement.Y == 1)
                         result.Y = (int)currentPos.Y - randomNum;
                     else
-                        result.Y = (int)currentPos.Y+ randomNum;
+                        result.Y = (int)currentPos.Y + randomNum;
                     break;
             }
 
             return result;
         }
-    
-        }
+
     }
+}
 

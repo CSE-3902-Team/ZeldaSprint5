@@ -1,13 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace Sprint0.enemy
 {
-    public class enemyGel: IEnemySprite
+    public class enemyGel : IEnemySprite
     {
 
         public Texture2D Texture;
@@ -62,22 +59,22 @@ namespace Sprint0.enemy
 
 
         public Vector2 draw()
-    {
+        {
 
             Vector2 temp = new Vector2();
-        int row = currentFrame;
+            int row = currentFrame;
 
-        Rectangle sourceRectangle = new Rectangle(8 * row +2, 11, 8, 16);
-        Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
+            Rectangle sourceRectangle = new Rectangle(8 * row + 2, 11, 8, 16);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
 
-        batch.Begin();
-        batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-     
-        batch.End();
-       
+            batch.Begin();
+            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+
+            batch.End();
+
             return temp;
+        }
+
+
     }
-
-
-}
 }

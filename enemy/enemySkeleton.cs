@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace Sprint0.enemy
 {
@@ -19,7 +16,7 @@ namespace Sprint0.enemy
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
         private int flipHorizontally;
-        public  Vector2 direction;
+        public Vector2 direction;
         private Vector2 currentPos;
         public Vector2 CurrentPos
         {
@@ -58,13 +55,13 @@ namespace Sprint0.enemy
                 frame = 0;
             }
 
-           
-                currentPos = move.Move();
-            
-                direction = makeNextMove.RollingDice1();
-                destination = makeNextMove.RollingDice();
-            
-     
+
+            currentPos = move.Move();
+
+            direction = makeNextMove.RollingDice1();
+            destination = makeNextMove.RollingDice();
+
+
             frame++;
 
         }
@@ -74,20 +71,20 @@ namespace Sprint0.enemy
             Vector2 temp = new Vector2();
             Vector2 origin = new Vector2(0, 0);
             Vector2 location = new Vector2((int)currentPos.X, (int)currentPos.Y);
-   
+
 
             Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 164,164);
-          
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 164, 164);
+
             batch.Begin();
-            if (flipHorizontally%2==0)
+            if (flipHorizontally % 2 == 0)
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.FlipHorizontally, 1);
-        
+
 
             else
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.None, 1);
             batch.End();
-     
+
             return temp;
         }
     }

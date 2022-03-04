@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace Sprint0
 {
@@ -13,15 +9,15 @@ namespace Sprint0
         public Texture2D Texture;
 
         private int currentFrame;
-     
+
         private SpriteBatch batch;
-    
+
         private int currentX = 400;
         private int currentY = 200;
-      
+
         int x = 400;
         int y = 200;
- 
+
         public oldMan(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
@@ -35,7 +31,7 @@ namespace Sprint0
 
         public void Update()
         {
-           
+
         }
 
 

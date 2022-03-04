@@ -1,17 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0;
-using System;
 
 namespace Sprint0.ItemClass
 {
-	public class ItemBow : AItem
-	{
-		private static int spritePos = 6;
+    public class ItemBow : AItem
+    {
+        private static int spritePos = 6;
 
-		public ItemBow(Texture2D tileSheet, SpriteBatch batch, Vector2 position) : base(tileSheet, batch, position, spritePos)
-		{
+        public ItemBow(Texture2D tileSheet, SpriteBatch batch, Vector2 position) : base(tileSheet, batch, position, spritePos)
+        {
 
-		}
-	}
+        }
+    }
 }

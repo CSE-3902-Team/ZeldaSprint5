@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialBoomerang : IProjectile 
+    public class ProjectileSpecialBoomerang : IProjectile
     {
         private Vector2 position;
         private Vector2 direction;
@@ -81,7 +79,7 @@ namespace Sprint0
         {
             GetRotation(direction);
 
-            if(IsRunning == true)
+            if (IsRunning == true)
             {
                 destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
                 frame++;

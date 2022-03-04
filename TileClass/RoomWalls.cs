@@ -1,15 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0.TileClass
 
 {
     class RoomWalls : ITile
     {
-       
+
         private Vector2 myPos;
         private Texture2D myTile;
         private SpriteBatch myBatch;
@@ -58,7 +55,7 @@ namespace Sprint0.TileClass
             set { myPos = value; }
         }
 
-        
+
     }
 }
 

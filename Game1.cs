@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Sprint0.TileClass;
-using Sprint0.ItemClass;
 using Sprint0.Collision;
-using Sprint0.PlayerClass;
-using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
 using Sprint0.enemy;
+using Sprint0.ItemClass;
+using Sprint0.TileClass;
 
 namespace Sprint0
 {
@@ -27,7 +23,7 @@ namespace Sprint0
 
         private Texture2D playerTexture;
         private Texture2D projectileTexture;
-        
+
         private Texture2D enemyTexture;
         private Texture2D dragonTexture;
         private Texture2D npcTexture;
@@ -40,8 +36,8 @@ namespace Sprint0
         private ItemSpriteFactory itemFactory;
         private AItem item;
         private Player _player;
-        private ITile tile1; 
-        private ITile tile2; 
+        private ITile tile1;
+        private ITile tile2;
 
         private Vector2 temp;
 
@@ -49,7 +45,7 @@ namespace Sprint0
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            
+
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -57,7 +53,7 @@ namespace Sprint0
         protected override void Initialize()
         {
             _graphics.PreferredBackBufferWidth = 1024;
-            _graphics.PreferredBackBufferHeight = 704; 
+            _graphics.PreferredBackBufferHeight = 704;
             _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
             // TODO: Add your initialization logic here
@@ -77,7 +73,7 @@ namespace Sprint0
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
             whiteRectangle = new Texture2D(GraphicsDevice, 1, 1);
-            whiteRectangle.SetData(new[] { Color.Black }); 
+            whiteRectangle.SetData(new[] { Color.Black });
             tile = new BrickTile(tileTexture, _spriteBatch, new Vector2(128, 128));
             tileList = new ITile[]
             {
@@ -98,21 +94,21 @@ namespace Sprint0
             roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), _spriteBatch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
 
 
-            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)),new Vector2(100,200), Content.Load<Texture2D>("solid navy tile"));
+            _player = new Player(playerTexture, _spriteBatch, new ProjectileBomb(projectileTexture, _spriteBatch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(100, 200), Content.Load<Texture2D>("solid navy tile"));
 
-            
-            
+
+
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
             itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
             item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
-   
+
             enemyTexture = Content.Load<Texture2D>("Enemy");
-            npcTexture= Content.Load<Texture2D>("oldman1");
-            dragonTexture= Content.Load<Texture2D>("dragon");
+            npcTexture = Content.Load<Texture2D>("oldman1");
+            dragonTexture = Content.Load<Texture2D>("dragon");
             enemySprite = new enemySkeleton(enemyTexture, _spriteBatch, temp);
             EnemyList = new IEnemySprite[] {
-         
+
             new enemyGel(enemyTexture, _spriteBatch, temp),
             new enemyGoriya(enemyTexture, _spriteBatch,temp),
             new enemyBat(enemyTexture, _spriteBatch,temp),
@@ -142,7 +138,7 @@ namespace Sprint0
             // TODO: Add your update logic here
             kController.handleInput();
             _player.Update();
-			currentEnemy.Update();
+            currentEnemy.Update();
             colliderDector.HandleCollisions();
             base.Update(gameTime);
         }
@@ -177,9 +173,9 @@ namespace Sprint0
 
         public SpriteBatch SpriteBatch
         {
-            get { return _spriteBatch; } 
+            get { return _spriteBatch; }
         }
-        
+
 
         public ITile CurrentTile
         {
@@ -218,9 +214,10 @@ namespace Sprint0
             get { return _player; }
         }
 
-        public Texture2D ProjectileTexture { get {return projectileTexture; } }
+        public Texture2D ProjectileTexture { get { return projectileTexture; } }
 
-        public void reset() {
+        public void reset()
+        {
             LoadContent();
         }
 

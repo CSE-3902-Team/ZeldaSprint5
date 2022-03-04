@@ -1,7 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0.enemy
 {
@@ -12,7 +9,7 @@ namespace Sprint0.enemy
         private Vector2 Pos;
         int destinationX;
         int destinationY;
-        public MoveEnemy(Vector2 direction, Vector2 currentPos,Vector2 destination)
+        public MoveEnemy(Vector2 direction, Vector2 currentPos, Vector2 destination)
 
         {
             this.destinationX = (int)destination.X;
@@ -30,14 +27,14 @@ namespace Sprint0.enemy
 
                         Pos.Y++;
                     else if (Pos.Y > destinationY)
-                       Pos.Y--;
+                        Pos.Y--;
 
                     break;
                 case 1:
                     if (Pos.X < destinationX)
                         Pos.X++;
                     else if (Pos.X > destinationX)
-                      Pos.X--;
+                        Pos.X--;
                     break;
             }
             return Pos;
@@ -52,12 +49,12 @@ namespace Sprint0.enemy
             if (Pos.X < destinationX)
             {
                 destinationX = 600;
-               Pos.X++;
+                Pos.X++;
             }
             if (Pos.X >= destinationX)
             {
                 destinationX = 400;
-               Pos.X--;
+                Pos.X--;
             }
             result.X = destinationX;
             result.Y = Pos.X;

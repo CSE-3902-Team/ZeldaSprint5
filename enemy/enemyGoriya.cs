@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace Sprint0.enemy
 {
@@ -32,7 +29,7 @@ namespace Sprint0.enemy
         private int currentFrame1 = 0;
         bool flipHorizontal = false;
         bool fire = false;
-     
+
         public enemyGoriya(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
@@ -77,7 +74,7 @@ namespace Sprint0.enemy
 
                         }
                         break;
-                        //moving to up down left and right
+                    //moving to up down left and right
                     case 1:
                         if (currentX < x)
                         {
@@ -146,19 +143,19 @@ namespace Sprint0.enemy
                         case 0:
                             if (currentY < y)
 
-                                pCurrentY+=2;
+                                pCurrentY += 2;
                             else if (currentY > y)
-                                pCurrentY-=2;
+                                pCurrentY -= 2;
 
                             break;
                         case 1:
                             if (currentX < x)
                             {
-                                pCurrentX+=2;
+                                pCurrentX += 2;
                             }
                             else if (currentX > x)
                             {
-                                pCurrentX-=2;
+                                pCurrentX -= 2;
                             }
                             break;
                     }
@@ -172,19 +169,19 @@ namespace Sprint0.enemy
                         case 0:
                             if (currentY < y)
 
-                                pCurrentY-=2;
+                                pCurrentY -= 2;
                             else if (currentY > y)
-                                pCurrentY+=2;
+                                pCurrentY += 2;
 
                             break;
                         case 1:
                             if (currentX < x)
                             {
-                                pCurrentX-=2;
+                                pCurrentX -= 2;
                             }
                             else if (currentX > x)
                             {
-                                pCurrentX+=2;
+                                pCurrentX += 2;
                             }
                             break;
                     }
@@ -194,74 +191,74 @@ namespace Sprint0.enemy
 
             }
 
-           //when it reaches the destination set from previous random call, call random for next movement
-                if (currentX == x || currentY == y)
+            //when it reaches the destination set from previous random call, call random for next movement
+            if (currentX == x || currentY == y)
+            {
+
+                randomNum = getDistance.Next(50, 100);
+                Axis = coinFlipForAxis.Next(0, 2);
+                flip = coinFlipForDirection.Next(0, 2);
+
+                switch (Axis)
                 {
-                   
-                    randomNum = getDistance.Next(50, 100);
-                   Axis = coinFlipForAxis.Next(0, 2);
-                    flip = coinFlipForDirection.Next(0, 2);
 
-                    switch (Axis)
-                    {
+                    case 0:
+                        if (flip == 0)
+                            x = currentX + randomNum;
+                        else
+                            x = currentX - randomNum;
+                        break;
+                    case 1:
+                        if (flip == 1)
+                            y = currentY + randomNum;
+                        else
+                            y = currentY - randomNum;
+                        break;
+                }
 
-                        case 0:
-                            if (flip == 0)
-                                x = currentX + randomNum;
-                            else
-                                x = currentX - randomNum;
-                            break;
-                        case 1:
-                            if (flip == 1)
-                                y = currentY + randomNum;
-                            else
-                                y = currentY - randomNum;
-                            break;
-                    }
-           
 
             }
 
-         
+
 
             frame++;
-          
-            }
-
-
-            public Vector2 draw()
-            {
-                Vector2 temp = new Vector2();
-                Vector2 origin = new Vector2(0, 0);
-                Vector2 location = new Vector2(currentX, currentY);
-                int row = currentFrame;
-                int row1 = currentFrame1;
-
-                Rectangle sourceRectangle = new Rectangle(16 * row + 222, 11, 16, 16);
-                Rectangle sourceRectangleProjectile = new Rectangle(8 * row1 + 289, 11, 8, 16);
-                Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40, 40);
-                Vector2 location1 = new Vector2(pCurrentX, pCurrentY);
-
-            
-                batch.Begin();
-           
-               if(fire)
-                    batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
-                    if (flipHorizontal)
-                        batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
-
-                    else
-                        batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
-
-              
-                batch.End();
-                temp.X = currentX;
-                temp.Y = currentY;
-                return temp;
-            }
-
-
 
         }
+
+
+        public Vector2 draw()
+        {
+            Vector2 temp = new Vector2();
+            Vector2 origin = new Vector2(0, 0);
+            Vector2 location = new Vector2(currentX, currentY);
+            int row = currentFrame;
+            int row1 = currentFrame1;
+
+            Rectangle sourceRectangle = new Rectangle(16 * row + 222, 11, 16, 16);
+            Rectangle sourceRectangleProjectile = new Rectangle(8 * row1 + 289, 11, 8, 16);
+            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40, 40);
+            Vector2 location1 = new Vector2(pCurrentX, pCurrentY);
+
+
+            batch.Begin();
+
+            if (fire)
+                batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
+            if (flipHorizontal)
+                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
+
+            else
+                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
+
+
+            batch.End();
+            temp.X = currentX;
+            temp.Y = currentY;
+            return temp;
+        }
+
+
+
     }
+}
 

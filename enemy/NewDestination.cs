@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0.enemy
 {
@@ -26,7 +24,7 @@ namespace Sprint0.enemy
         {
             if (Pos.X == result.X || Pos.Y == result.Y)
             {
-       
+
                 switch (movement.X)
                 {
 
@@ -37,11 +35,12 @@ namespace Sprint0.enemy
                             if (result.X >= 800)
                                 result.X = 799;
                         }
-                        else {
+                        else
+                        {
                             result.X = (int)Pos.X - randomNum;
                             if (result.X <= 128)
                                 result.X = 130;
-                                    }
+                        }
                         break;
                     case 1:
                         if (movement.Y == 1)
@@ -68,15 +67,15 @@ namespace Sprint0.enemy
         {
             if (Pos.X == result.X || Pos.Y == result.Y)
             {
-                randomNum = getDistance.Next(50,100);
-             
+                randomNum = getDistance.Next(50, 100);
+
                 movement.X = coinFlipForAxis.Next(0, 2);
                 movement.Y = coinFlipForDirection.Next(0, 2);
 
 
 
             }
-        
+
 
             return movement;
         }

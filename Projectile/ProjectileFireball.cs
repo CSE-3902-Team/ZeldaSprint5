@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0
 {
@@ -90,7 +88,7 @@ namespace Sprint0
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
 
-            
+
         }
         public void Draw()
         {

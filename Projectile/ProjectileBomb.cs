@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0
 {
-    public class ProjectileBomb : IProjectile 
+    public class ProjectileBomb : IProjectile
     {
         private Vector2 position;
         private Vector2 direction;
@@ -59,7 +57,7 @@ namespace Sprint0
 
         public void Update()
         {
-            if(IsRunning == true)
+            if (IsRunning == true)
             {
                 destinationRect = new Rectangle((int)position.X, (int)position.Y, 30, 40);
                 frame++;
@@ -99,9 +97,9 @@ namespace Sprint0
         {
             batch.Begin();
             batch.Draw(
-                 texture,  
+                 texture,
                  destinationRect,
-                 sourceRect, 
+                 sourceRect,
                 Color.White,
                 rotation,
                 new Vector2(sourceRect.Width / 2, sourceRect.Height / 2),
@@ -114,5 +112,5 @@ namespace Sprint0
 }
 
 
-    
+
 

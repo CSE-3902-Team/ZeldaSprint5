@@ -1,7 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0.enemy
 {
@@ -13,14 +10,14 @@ namespace Sprint0.enemy
         int destinationY;
         int currentFrame;
         int total;
-        public FrameChaningforEnemy(Vector2 currentPos,Vector2 direction,Vector2 destination,int frame)
+        public FrameChaningforEnemy(Vector2 currentPos, Vector2 direction, Vector2 destination, int frame)
         {
             this.destinationX = (int)destination.X;
             this.destinationY = (int)destination.Y;
             this.movement = direction;
             this.Pos = currentPos;
             this.currentFrame = frame;
-    }
+        }
         public int frameReturn()
         {
             switch (movement.X)
@@ -101,6 +98,6 @@ namespace Sprint0.enemy
                 currentFrame = 0;
             return currentFrame;
         }
-        
+
     }
 }

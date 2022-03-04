@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0
 {
@@ -57,7 +55,7 @@ namespace Sprint0
             rotation = 0f;
             isRunning = true;
             frame = 1;
-            
+
         }
         public void GetRotation(Vector2 direction)
         {
@@ -82,7 +80,7 @@ namespace Sprint0
         {
             GetRotation(direction);
 
-            if(IsRunning == true)
+            if (IsRunning == true)
             {
                 destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
                 frame++;
@@ -109,11 +107,11 @@ namespace Sprint0
             {
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
-            
+
         }
 
         public void Draw()
-        { 
+        {
             batch.Begin();
             batch.Draw(
                  texture,
