@@ -10,9 +10,6 @@ namespace Sprint0.Collision
         private Player player;
         private ITile block;
         private int overlap;
-        private float xDirection;
-        private float yDirection;
-        private int currentDirection;
         private CollisionDirections collisionDirections;
 
         
@@ -23,12 +20,12 @@ namespace Sprint0.Collision
             this.overlap = overlap;
             this.collisionDirections = collisionDirections;
 
-            xDirection = 0f;
-            yDirection = 0f;
-
         }
         public void HandleCollision()
         {
+            float xDirection;
+            float yDirection;
+
             switch (collisionDirections)
             {
                 case CollisionDirections.North:
