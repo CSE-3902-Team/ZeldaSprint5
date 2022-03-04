@@ -63,6 +63,7 @@ namespace Sprint0
 
         public void Update()
         {
+
             destinationRect = new Rectangle((int)position.X, (int)position.Y, 30, 40);
             frame++;
 
@@ -70,11 +71,11 @@ namespace Sprint0
             {
                 position.X += direction.X * 5f;
                 position.Y += direction.Y * 5f;
-                
+
             }
             else if (frame >= 10 && frame < 30)
             {
-                if(frame % 10 < 5)
+                if (frame % 10 < 5)
                 {
                     sourceRect = new Rectangle(287, 276, 22, 27);
                 }
@@ -88,6 +89,8 @@ namespace Sprint0
                 IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+
+            
         }
         public void Draw()
         {

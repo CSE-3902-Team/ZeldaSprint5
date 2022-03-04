@@ -32,19 +32,33 @@ namespace Sprint0.enemy
 
                     case 0:
                         if (movement.Y == 0)
-                           result.X = (int)Pos.X + randomNum;
-                        else
+                        {
+                            result.X = (int)Pos.X + randomNum;
+                            if (result.X >= 800)
+                                result.X = 799;
+                        }
+                        else {
                             result.X = (int)Pos.X - randomNum;
+                            if (result.X <= 128)
+                                result.X = 130;
+                                    }
                         break;
                     case 1:
                         if (movement.Y == 1)
+                        {
                             result.Y = (int)Pos.Y + randomNum;
+                            if (result.Y >= 512)
+                                result.Y = 500;
+                        }
                         else
+                        {
                             result.Y = (int)Pos.Y - randomNum;
+                            if (result.Y <= 130)
+                                result.Y = 132;
+                        }
                         break;
                 }
 
-           
 
 
             }
@@ -54,13 +68,16 @@ namespace Sprint0.enemy
         {
             if (Pos.X == result.X || Pos.Y == result.Y)
             {
-                randomNum = getDistance.Next(50, 100);
+                randomNum = getDistance.Next(50,100);
+             
                 movement.X = coinFlipForAxis.Next(0, 2);
                 movement.Y = coinFlipForDirection.Next(0, 2);
 
 
 
             }
+        
+
             return movement;
         }
     }

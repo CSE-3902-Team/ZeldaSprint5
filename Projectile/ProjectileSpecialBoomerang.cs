@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialBoomerang : IProjectile
+    public class ProjectileSpecialBoomerang : IProjectile 
     {
         private Vector2 position;
         private Vector2 direction;
@@ -79,58 +79,67 @@ namespace Sprint0
         }
         public void Update()
         {
-            destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
             GetRotation(direction);
-            frame++;
 
-            if (frame < 10)
+            if(IsRunning == true)
             {
-                IsRunning = true;
-                position.X += direction.X * 10f;
-                position.Y += direction.Y * 10f;
-            }
-            else if (frame >= 10 && frame < 20)
-            {
-                position.X += direction.X * 10f;
-                position.Y += direction.Y * 10f;
-                sourceRect = new Rectangle(147, 280, 12, 19);
-            }
-            else if (frame >= 20 && frame < 30)
-            {
-                position.X += direction.X * 5f;
-                position.Y += direction.Y * 5f;
-                sourceRect = new Rectangle(161, 280, 12, 19);
-            }
-            else if (frame >= 30 && frame < 35)
-            {
-                position.X += direction.X * 0f;
-                position.Y += direction.Y * 0f;
-                sourceRect = new Rectangle(137, 280, 12, 19);
-            }
-            else if (frame >= 35 && frame < 45)
-            {
-                position.X += direction.X * -5f;
-                position.Y += direction.Y * -5f;
-                sourceRect = new Rectangle(147, 280, 12, 19);
-            }
-            else if (frame >= 45 && frame < 55)
-            {
-                position.X += direction.X * -10f;
-                position.Y += direction.Y * -10f;
-                sourceRect = new Rectangle(161, 280, 12, 19);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
+                frame++;
 
-            }
-            else if (frame >= 55 && frame < 65)
-            {
-                position.X += direction.X * -10f;
-                position.Y += direction.Y * -10f;
-                sourceRect = new Rectangle(137, 280, 12, 19);
+                if (frame < 10)
+                {
+                    IsRunning = true;
+                    position.X += direction.X * 10f;
+                    position.Y += direction.Y * 10f;
+                }
+                else if (frame >= 10 && frame < 20)
+                {
+                    position.X += direction.X * 10f;
+                    position.Y += direction.Y * 10f;
+                    sourceRect = new Rectangle(147, 280, 12, 19);
+                }
+                else if (frame >= 20 && frame < 30)
+                {
+                    position.X += direction.X * 5f;
+                    position.Y += direction.Y * 5f;
+                    sourceRect = new Rectangle(161, 280, 12, 19);
+                }
+                else if (frame >= 30 && frame < 35)
+                {
+                    position.X += direction.X * 0f;
+                    position.Y += direction.Y * 0f;
+                    sourceRect = new Rectangle(137, 280, 12, 19);
+                }
+                else if (frame >= 35 && frame < 45)
+                {
+                    position.X += direction.X * -5f;
+                    position.Y += direction.Y * -5f;
+                    sourceRect = new Rectangle(147, 280, 12, 19);
+                }
+                else if (frame >= 45 && frame < 55)
+                {
+                    position.X += direction.X * -10f;
+                    position.Y += direction.Y * -10f;
+                    sourceRect = new Rectangle(161, 280, 12, 19);
+
+                }
+                else if (frame >= 55 && frame < 65)
+                {
+                    position.X += direction.X * -10f;
+                    position.Y += direction.Y * -10f;
+                    sourceRect = new Rectangle(137, 280, 12, 19);
+                }
+                else
+                {
+                    IsRunning = false;
+                    sourceRect = new Rectangle(400, 400, 0, 0);
+                }
             }
             else
             {
-                IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+
         }
 
         public void Draw()

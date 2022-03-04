@@ -20,7 +20,7 @@ namespace Sprint0.enemy
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
    
         private Vector2 direction;
-        private Vector2 currentPos;
+        public Vector2 currentPos;
         private Vector2 destination;
         int x = 400;
         int y = 200;

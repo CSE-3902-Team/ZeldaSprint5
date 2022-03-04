@@ -19,8 +19,13 @@ namespace Sprint0.enemy
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
         private int flipHorizontally;
-        private Vector2 direction;
+        public  Vector2 direction;
         private Vector2 currentPos;
+        public Vector2 CurrentPos
+        {
+            get { return currentPos; }
+            set { currentPos = value; }
+        }
         private Vector2 destination;
         int x = 400;
         int y = 200;
@@ -44,6 +49,7 @@ namespace Sprint0.enemy
             FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
             MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
+            CollisionHandlerEnemyBlock temp = new CollisionHandlerEnemyBlock(direction, currentPos, destination);
 
             if (frame == 5)
             {
@@ -52,10 +58,13 @@ namespace Sprint0.enemy
                 frame = 0;
             }
 
-            currentPos = move.Move();
-            direction = makeNextMove.RollingDice1();
-            destination = makeNextMove.RollingDice();
-
+           
+                currentPos = move.Move();
+            
+                direction = makeNextMove.RollingDice1();
+                destination = makeNextMove.RollingDice();
+            
+     
             frame++;
 
         }
@@ -68,15 +77,15 @@ namespace Sprint0.enemy
    
 
             Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 40, 40);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 164,164);
           
             batch.Begin();
             if (flipHorizontally%2==0)
-                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
+                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.FlipHorizontally, 1);
         
 
             else
-                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
+                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.None, 1);
             batch.End();
      
             return temp;
