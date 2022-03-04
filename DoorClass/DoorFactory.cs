@@ -71,6 +71,8 @@ namespace Sprint0.DoorClass
 					return new DoorClosed(doorSheet, batch, position, (int)doorSide);
 				case Door.Hole:
 					return new DoorHole(doorSheet, batch, position, (int)doorSide);
+				default:
+					return new DoorWall(doorSheet, batch, position, (int)doorSide);
 			}
 		}
 

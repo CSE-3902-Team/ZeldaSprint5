@@ -19,10 +19,11 @@ namespace Sprint0.DoorClass
             myBatch = batch;
             myPos = position;
             sourceRect = new Rectangle(spriteColumn * width, side * height, 127, 127);
+            //Console.Write(sourceRect);
         }
         public void draw()
         {
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 64, 64);
+            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 128, 128);
             myBatch.Begin();
             myBatch.Draw(
                  mySheet,

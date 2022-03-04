@@ -4,10 +4,7 @@ using System.Text;
 
 namespace Sprint0.LevelClass
 {
-
-
-
-    class LevelManager
+    class Room
     {
     }
 }

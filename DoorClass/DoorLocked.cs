@@ -7,7 +7,7 @@ namespace Sprint0.DoorClass
 {
 	public class DoorLocked : ADoor
 	{
-		private static int spriteColumn = 0;
+		private static int spriteColumn = 2;
 
 		public DoorLocked(Texture2D tileSheet, SpriteBatch batch, Vector2 position, int side) : base(tileSheet, batch, position, spriteColumn, side)
 		{
