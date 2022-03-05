@@ -1,4 +1,4 @@
-SPRINT 2 README
+SPRINT 3 README
 Group name: team 6
 Group members: Craig Cirino, Ting Feng, Austin Motz, Zening Teng, Luke Wingert
 
@@ -14,8 +14,19 @@ Controls:
 "e" - cause link to become damaged
 "t" and "y" - cycle between which block is being shown
 "u" and "i" - cycle between which item is being shown
-"o" and "p" - cycle between which npc is being shown
 "q" - quits game
 "r" - resets game
+
+New Features for Sprint3:
+Room,
+Level switching,
+Enemy-projectile collision(enemy won't dissappear when they get hit, console will print"hit" if projectile land on enemy),
+Enemy-wall collision,
+Refactoring,
+Collision detector,
+Link-block collision,
+Link-enemy collision,
+Link-wall collision,
+
 
 
