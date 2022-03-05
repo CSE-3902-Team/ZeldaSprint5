@@ -22,6 +22,7 @@ namespace Sprint0
         private ITile roomWalls;
 
         private IController kController;
+        private IController mController;
 
         private ICollision colliderDector;
 
@@ -52,7 +53,7 @@ namespace Sprint0
             // TODO: Add your initialization logic here
             levelManager = LevelManager.Instance;
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            
+            mController = new MouseController(this);
 
             base.Initialize();
         }
@@ -78,6 +79,7 @@ namespace Sprint0
 
             // TODO: Add your update logic here
             kController.handleInput();
+            mController.handleInput();
             _currentRoom.updateRoom();
             base.Update(gameTime);
         }
