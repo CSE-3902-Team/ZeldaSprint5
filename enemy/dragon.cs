@@ -35,6 +35,14 @@ namespace Sprint0.enemy
         private TopLeft topLeft;
         private BottomRight botRight;
 
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return botRight; }
+        }
 
 
         public bossDragon(Texture2D texture, SpriteBatch batch, Vector2 location)

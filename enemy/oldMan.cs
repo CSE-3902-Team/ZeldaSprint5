@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Sprint0
 {
-    public class oldMan : IEnemySprite
+    public class oldMan : IEnemySprite,IBoxCollider
     {
 
         public Texture2D Texture;
