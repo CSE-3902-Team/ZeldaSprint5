@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
 using Sprint0.enemy;
+using Sprint0.DoorClass;
 
 namespace Sprint0
 {
@@ -39,9 +40,14 @@ namespace Sprint0
 
         private ItemSpriteFactory itemFactory;
         private AItem item;
+        private DoorFactory doorFactory;
         private Player _player;
         private ITile tile1; 
-        private ITile tile2; 
+        private ITile tile2;
+        private ADoor leftDoor;
+        private ADoor topDoor;
+        private ADoor rightDoor;
+        private ADoor bottomDoor;
 
         private Vector2 temp;
 
@@ -63,6 +69,7 @@ namespace Sprint0
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             itemFactory = ItemSpriteFactory.Instance;
+            doorFactory = DoorFactory.Instance;
             colliderDector = new SortSweep(this);
 
             base.Initialize();
@@ -104,8 +111,15 @@ namespace Sprint0
             
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
-            itemFactory.setBatchPosition(_spriteBatch, new Vector2(300, 100));
-            item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass);
+            itemFactory.setBatch(_spriteBatch);
+            doorFactory.LoadAllTextures(Content);
+            doorFactory.setBatch(_spriteBatch);
+            leftDoor = doorFactory.CreateDoorSprite(DoorFactory.Door.Open, DoorFactory.Side.Left, new Vector2(0, 288));
+            topDoor = doorFactory.CreateDoorSprite(DoorFactory.Door.Wall, DoorFactory.Side.Top, new Vector2(448, 0));
+            rightDoor = doorFactory.CreateDoorSprite(DoorFactory.Door.Locked, DoorFactory.Side.Right, new Vector2(896, 288));
+            bottomDoor = doorFactory.CreateDoorSprite(DoorFactory.Door.Closed, DoorFactory.Side.Bottom, new Vector2(448, 576));
+
+            item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass, new Vector2(300, 100));
    
             enemyTexture = Content.Load<Texture2D>("Enemy");
             npcTexture= Content.Load<Texture2D>("oldman1");
@@ -155,6 +169,10 @@ namespace Sprint0
             Player.Draw();
             // TODO: Add your drawing code here
             shownItem.draw();
+            leftDoor.draw();
+            topDoor.draw();
+            rightDoor.draw();
+            bottomDoor.draw();
             //enemySprite.draw();
 
 

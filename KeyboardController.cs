@@ -103,11 +103,11 @@ namespace Sprint0 {
 			}
 			//item keys
 			if (HasBeenPressed(Keys.U)) {
-				myGame.shownItem = myGame.itemFactoryPublic.previousItem();
+				//myGame.shownItem = myGame.itemFactoryPublic.previousItem();
 			}
 			else if (HasBeenPressed(Keys.I))
 			{
-				myGame.shownItem = myGame.itemFactoryPublic.nextItem();
+				//myGame.shownItem = myGame.itemFactoryPublic.nextItem();
 			}
 
 			if (HasBeenPressed(Keys.Q))
