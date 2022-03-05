@@ -79,20 +79,16 @@ namespace Sprint0.Collision
                     {
 
                         List<Object> result = InspectCollision( ListItem[1] as IBoxCollider, ListItem[0] as IBoxCollider);
-                        CollisionDirections col = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                        CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(ListItem[0] as Player, ListItem[1] as ITile, col,(int)result[1]);
-                        handler.HandleCollision();
-
-
+                        CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                        AssignPlayerHandler(ListItem[0] as Player, ListItem[1], direction, (int)result[1]);
                         Console.WriteLine("Player is Colliding from the "+ result[0] +" direction with a magnitude of "+result[1]);
 
                     }
                     else if(ListItem[1].GetType() == typeof(Player))
                     {
                         List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
-                        CollisionDirections col = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                        CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(ListItem[1] as Player, ListItem[0] as ITile, col, (int)result[1]);
-                        handler.HandleCollision();
+                        CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                        AssignPlayerHandler(ListItem[1] as Player, ListItem[0], direction, (int)result[1]);
                         Console.WriteLine("Player is Colliding from the "+ result[0] + " direction with a magnitude of "+result[1]);
                     }
                 }
@@ -149,7 +145,27 @@ namespace Sprint0.Collision
             }
         }
 
-        public void AssignHandler(CollisionDirections dir, int magnitude)
+        private void AssignPlayerHandler(Player player, Object other, CollisionDirections dir, int magnitude)
+        {
+            if (other is ITile) 
+            {
+                CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(player, other as ITile, dir, magnitude);
+                handler.HandleCollision();
+            }
+            if (other is IEnemySprite)
+            {
+                CollisionHandlerPlayerEnemy handler = new CollisionHandlerPlayerEnemy(player, other as IEnemySprite, dir);
+                handler.HandleCollision();
+            }
+            return;
+        }
+
+        private void AsssignEnemyHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
+        {
+            return;
+        }
+
+        private void AssignProjectileHandler(IEnemySprite enemy, Object other,CollisionDirections dir, int magnitude)
         {
             return;
         }

@@ -44,13 +44,12 @@ namespace Sprint0.PlayerClass
 			{
 				player.SourceRectangle = new Rectangle(168, 93, 122, 152);
 				player.DrawOffset = new Vector2(0, 0);
-				player.Draw();
+
 			}
 			else
 			{
 				player.SourceRectangle = new Rectangle(6, 94, 141, 152);
 				player.DrawOffset = new Vector2(0, 0);
-				player.Draw();
 			}
 			moveFrame++;
 			if (moveFrame > 30)
@@ -70,6 +69,25 @@ namespace Sprint0.PlayerClass
 			proj.Position = new Vector2(player.Position.X, player.Position.Y + 40);
 			player.Projectiles.Enqueue(proj);
 			player.State = new PlayerDownUseItem(player);
+		}
+
+		public void DamageLink(Player.Directions dir)
+		{
+			switch (dir)
+			{
+				case Player.Directions.Up:
+					player.State = new PlayerUpDamaged(player);
+					break;
+				case Player.Directions.Down:
+					player.State = new PlayerDownDamaged(player);
+					break;
+				case Player.Directions.Left:
+					player.State = new PlayerLeftDamaged(player);
+					break;
+				case Player.Directions.Right:
+					player.State = new PlayerRightDamaged(player);
+					break;
+			}
 		}
 	}
 }
