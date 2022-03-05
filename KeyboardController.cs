@@ -46,10 +46,7 @@ namespace Sprint0 {
 		public void handleInput() {
 			previousState = kstate;
 			kstate = Keyboard.GetState();
-			if (HasBeenPressed(Keys.Tab))
-			{
-				myGame.CurrentRoom = levelManger.SwitchRoom();
-			}
+			
 				/*if (HasBeenPressed(Keys.O))
 				{
 					enemyCount--;
