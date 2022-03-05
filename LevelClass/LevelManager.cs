@@ -125,10 +125,10 @@ namespace Sprint0.LevelClass
             Vector2 temp = new Vector2(400, 200);
             EnemyList = new IEnemySprite[] {
 
-            new enemyGel(enemyTexture, batch, temp),
+            new enemyGel(enemyTexture, batch, temp,_player),
             new enemyGoriya(enemyTexture, batch, temp),
-            new enemyBat(enemyTexture, batch, temp),
-            new enemyHand(enemyTexture, batch, temp),
+            new enemyBat(enemyTexture, batch, temp,_player),
+            new enemyHand(enemyTexture, batch, temp,_player),
             new enemySkeleton(enemyTexture, batch, temp,_player),
              new oldMan(npcTexture, batch, temp),
              new bossDragon(dragonTexture, batch, temp)
@@ -156,7 +156,7 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Open, DoorFactory.Side.Bottom)
             };
             IEnemySprite[] enemyList1 = new IEnemySprite[] {
-                new enemyGel(enemyTexture, batch, temp),
+                new enemyGel(enemyTexture, batch, temp,_player),
                 new enemyGoriya(enemyTexture, batch, temp)
             };
             AItem[] itemList1 = new AItem[] {
@@ -181,8 +181,8 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Wall, DoorFactory.Side.Bottom)
             };
             IEnemySprite[] enemyList2 = new IEnemySprite[] {
-                new enemyBat(enemyTexture, batch, temp),
-                new enemyHand(enemyTexture, batch, temp)
+                new enemyBat(enemyTexture, batch, temp,_player),
+                new enemyHand(enemyTexture, batch, temp,_player)
             };
             AItem[] itemList2 = new AItem[] {
                 itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Bow, new Vector2(128+128, 128)),
@@ -205,7 +205,7 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Locked, DoorFactory.Side.Bottom)
             };
             IEnemySprite[] enemyList3 = new IEnemySprite[] {
-                new enemyHand(enemyTexture, batch, temp),
+                new enemyHand(enemyTexture, batch, temp,_player),
                 new enemySkeleton(enemyTexture, batch, temp,_player)
             };
             AItem[] itemList3 = new AItem[] {
