@@ -62,6 +62,25 @@ namespace Sprint0.PlayerClass
 			player.State = new PlayerRightAttack(player);
 		}
 
+		public void DamageLink(Player.Directions dir)
+		{
+			switch (dir)
+			{
+				case Player.Directions.Up:
+					player.State = new PlayerUpDamaged(player);
+					break;
+				case Player.Directions.Down:
+					player.State = new PlayerDownDamaged(player);
+					break;
+				case Player.Directions.Left:
+					player.State = new PlayerLeftDamaged(player);
+					break;
+				case Player.Directions.Right:
+					player.State = new PlayerRightDamaged(player);
+					break;
+			}
+		}
+
 		public void UseItem(IProjectile proj)
 		{
 			proj.Direction = new Vector2(1, 0);

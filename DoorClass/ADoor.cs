@@ -6,20 +6,43 @@ namespace Sprint0.DoorClass
 {
     public abstract class ADoor
     {
+        private static Vector2 topDoorLocation = new Vector2(448, 0);
+        private static Vector2 leftDoorLocation = new Vector2(0, 288);
+        private static Vector2 rightDoorLocation = new Vector2(896, 288);
+        private static Vector2 bottomDoorLocation = new Vector2(448, 576);
+
         public Vector2 myPos;
         protected Texture2D mySheet;
         protected SpriteBatch myBatch;
         protected Rectangle sourceRect;
+        protected DoorFactory.Side side;
         protected static int height = 132;
         protected static int width = 132;
 
-        public ADoor(Texture2D tileSheet, SpriteBatch batch, Vector2 position, int spriteColumn, int side)
+        public ADoor(Texture2D tileSheet, SpriteBatch batch, int spriteColumn, DoorFactory.Side side)
         {
+            this.side = side;
             mySheet = tileSheet;
             myBatch = batch;
-            myPos = position;
-            sourceRect = new Rectangle(spriteColumn * width, side * height, 127, 127);
-            //Console.Write(sourceRect);
+            switch (side) {
+                case DoorFactory.Side.Top:
+                    myPos = topDoorLocation;
+                    break;
+                case DoorFactory.Side.Left:
+                    myPos = leftDoorLocation;
+                    break;
+                case DoorFactory.Side.Right:
+                    myPos = rightDoorLocation;
+                    break;
+                case DoorFactory.Side.Bottom:
+                    myPos = bottomDoorLocation;
+                    break;
+                default:
+                    myPos = topDoorLocation;
+                    break;
+            }
+
+            sourceRect = new Rectangle(spriteColumn * width, (int)side * height, 127, 127);
         }
         public void draw()
         {

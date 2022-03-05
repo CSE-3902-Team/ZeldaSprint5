@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Sprint0
 {
-    interface ICollision 
+    public interface ICollision 
     {
-        void HandleCollisions();
-        void AddToList(IBoxCollider box);
+        public void HandleCollisions();
+        public void AddToList(IBoxCollider box);
 
 
     }

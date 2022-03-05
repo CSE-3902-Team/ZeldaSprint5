@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Sprint0.PlayerClass;
 
 namespace Sprint0.Collision
 {
@@ -18,34 +19,29 @@ namespace Sprint0.Collision
         }
         public void HandleCollision()
         {
-            float yDirection;
-            float xDirection;
+
+            //TODO: Reduce coupling by passing direction into state and letting it handle the state positions. Collisions shouldn't know
+            //about states
             switch (collisionDirections)
             {
                 case CollisionDirections.North:
-                    yDirection = 1;
-                    xDirection = 0;
+                    player.DamageLink(Player.Directions.Up);
                     break;
                 case CollisionDirections.East:
-                    yDirection = 0;
-                    xDirection = -1;
+                    player.DamageLink(Player.Directions.Right);
                     break;
                 case CollisionDirections.South:
-                    yDirection = -1;
-                    xDirection = 0;
+                    player.DamageLink(Player.Directions.Down);
                     break;
                 case CollisionDirections.West:
-                    yDirection = 0;
-                    xDirection = 1;
+                    player.DamageLink(Player.Directions.Left);
                     break;
                 default:
-                    yDirection = 0;
-                    xDirection = 0;
+    
                     break;
             }
 
-            Console.WriteLine("yDirection=" + yDirection);
-            // player.State = new PlayerInjuredState(xDirection, yDirection);
+            //Console.WriteLine("yDirection=" + yDirection);
         }
     }
 }

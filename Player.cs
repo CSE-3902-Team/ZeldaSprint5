@@ -16,11 +16,16 @@ using Sprint0;
         private Vector2 drawOffset;
 		private float scale;
 		private SpriteBatch _spriteBatch;
+	private Vector2 pposition;
 		private bool damaged;
 		private Queue<IProjectile> projectiles;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
+		public const float MOVE_SPEED = 5;
+		public const float ATTACK_KNOCKBACK_SPEED = 20;
+	public const int KNOCKBACK_FRAMES = 10;
 		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
+		public float Speed { get { return speed; } set { speed = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 		public Vector2 Position { 
@@ -34,7 +39,7 @@ using Sprint0;
                 UpdateCollisionBox();
             }
 		}
-
+		
 		public Texture2D colT;
 		public TopLeft TopLeft 
 		{ 
@@ -44,9 +49,10 @@ using Sprint0;
         {
             get { return bottomRight; }
         }
-
+	
         public Queue<IProjectile> Projectiles { get { return projectiles; } }
-		public IState State
+
+	public IState State
 		{
 			get { return _state; }
 			set { _state = value; }
@@ -65,7 +71,7 @@ using Sprint0;
 			_spriteBatch = batch;
 			this.texture = texture;
 			position = p;
-			speed = 5;
+			speed = MOVE_SPEED;
 			attackFrames = 15;
 			damaged = false;
 			scale = 0.35f;
@@ -93,9 +99,13 @@ using Sprint0;
 			_state.Attack();
 		}
 
-		public void DamageLink()
+		public void DamageLink(Player.Directions dir)
 		{
+			
+				_state.DamageLink(dir);
+			
 			damaged = true;
+			
 		}
 
 		public void UseItem(IProjectile proj)
@@ -127,6 +137,7 @@ using Sprint0;
 				{
 					projectile.Update();
 					projectile.Draw();
+				    pposition = projectile.Position;
 					projectiles.Enqueue(projectile);
 				}
 			}
@@ -159,6 +170,10 @@ using Sprint0;
 
 
 
-
-
+	public Vector2 pPosition
+	{
+		get { return pposition; }
+		set { pposition = value; }
 	}
+
+}
