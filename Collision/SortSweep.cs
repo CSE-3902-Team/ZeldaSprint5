@@ -69,42 +69,35 @@ namespace Sprint0.Collision
         {
             for (int listInd = 0; listInd < targets.Count; listInd++)
             {
-                //TODO: resolve collisions between more than 2 objects
-                for (int x = 0; x < targets[listInd].Count && targets[listInd].Count > 1; x++) {
-                    targets[listInd].Sort(delegate (Object a, Object b)
+                targets[listInd].Sort(delegate (Object a, Object b)
+                {
+                    if (a.GetType() == typeof(Player))
                     {
-                        if (a.GetType() == typeof(Player))
-                        {
-                            return -2;
-                        }
-                        else if (a.GetType() == typeof(IEnemySprite))
-                        {
-                            return -1;
-                        }
-                        else {
-                            return 1;
-                        }
-                    });
+                        return -2;
+                    }
+                    else if (a.GetType() == typeof(IEnemySprite))
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                });
+                //TODO: resolve collisions between more than 2 objects
+                for (int x = 1; x < targets[listInd].Count && targets[listInd].Count > 1; x++) {
+                    Console.WriteLine("Sublist = ");
                     foreach (object obj in targets[listInd])
                     {
-                        Console.Write("Sublist = " + obj.GetType());
+                        Console.Write(" " + obj.GetType());
                     }
-                    Console.WriteLine();
+                    
                         
                     
-                    if (targets[listInd][x].GetType() == typeof(Player)){
-                        int other;
-                        if (x > 0)
-                        {
-                            other = x - 1;
-                        }
-                        else {
-                            other = x + 1;
-                        }
-                        List<Object> result = InspectCollision(targets[listInd][x] as IBoxCollider, targets[listInd][other] as IBoxCollider);
+                    if (targets[listInd][0].GetType() == typeof(Player)){ 
+                        List<Object> result = InspectCollision(targets[listInd][0] as IBoxCollider, targets[listInd][x] as IBoxCollider);
                         CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                        AssignPlayerHandler(targets[listInd][x] as Player, targets[listInd][other], direction, (int)result[other]);
-
+                        AssignPlayerHandler(targets[listInd][0] as Player, targets[listInd][x], direction, (int)result[1]);
                     }
 
 
@@ -129,7 +122,7 @@ namespace Sprint0.Collision
         }
         //Returns the magnitude and direction of a collision between two objects
         //The first item in the list is direction, the second item is magnitude
-        private List<Object> InspectCollision(IBoxCollider origin, IBoxCollider agiator)
+        private List<Object> InspectCollision(IBoxCollider agiator, IBoxCollider origin)
         {
             //check y's, we can assume that these objects are colliding on x-axis
             Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " + agiator.TopLeft.X + " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;

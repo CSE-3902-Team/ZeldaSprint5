@@ -16,6 +16,7 @@ namespace Sprint0.TileClass
         private Rectangle sourceRect;
         private Boolean isWalkable = false;
 
+
         public RoomWalls(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
             myTile = tile;
@@ -23,7 +24,7 @@ namespace Sprint0.TileClass
             myPos = position;
             sourceRect = new Rectangle(0, 0, 1024, 704);
 
-        }
+    }
         public void draw()
         {
             Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 1024, 704);

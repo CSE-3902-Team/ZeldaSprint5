@@ -446,3 +446,4 @@ C:\Users\10717\Source\Repos\CSE-3902-Team\ZeldaGameS31\obj\Debug\netcoreapp3.1\S
 C:\Users\10717\Source\Repos\CSE-3902-Team\ZeldaGameS31\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\10717\Source\Repos\CSE-3902-Team\ZeldaGameS31\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\10717\Source\Repos\CSE-3902-Team\ZeldaGameS31\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
+C:\Users\lukes\ZeldaGameS3\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache

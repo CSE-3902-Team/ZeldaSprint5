@@ -44,6 +44,10 @@ namespace Sprint0.LevelClass
             foreach (ITile currentTile in tileList) {
                 colliderDetector.AddToList(currentTile as IBoxCollider);
             }
+            foreach (IEnemySprite currentEnemy in enemyList)
+            {
+                colliderDetector.AddToList(currentEnemy as IBoxCollider);
+            }
 
             colliderDetector.AddToList(_player);
         }
