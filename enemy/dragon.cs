@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Sprint0.enemy
 {
-    public class bossDragon : IEnemySprite
+    public class bossDragon : IEnemySprite, IBoxCollider
     {
 
         public Texture2D Texture;
@@ -31,6 +31,12 @@ namespace Sprint0.enemy
 
         private int frame;
         private int frame1;
+
+        private TopLeft topLeft;
+        private BottomRight botLeft;
+
+
+
         public bossDragon(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
@@ -40,8 +46,8 @@ namespace Sprint0.enemy
             currentPos.X = 400;
             destination.X = 400;
             destination.Y = 200;
-
-
+            topLeft = new TopLeft(400, 200,this);
+            botLeft = new BottomRight(480, 300, this);
 
         }
 
@@ -86,7 +92,7 @@ namespace Sprint0.enemy
     }
             frame++;
             frame1++;
-
+            UpdateCollisionBox();
         }
 
         
@@ -116,6 +122,15 @@ namespace Sprint0.enemy
             batch.End();
       
             return temp;
+        }
+
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)currentPos.X;
+            topLeft.Y = (int)currentPos.Y;
+            botLeft.X = (int)currentPos.X + 80;
+            botLeft.Y = (int)currentPos.Y + 100;
+
         }
 
 
