@@ -24,7 +24,7 @@ namespace Sprint0.enemy
         private Vector2 currentPos;
 
         public Game1 game;
-        IProjectile temp;
+        Player link;
 
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
@@ -45,7 +45,7 @@ namespace Sprint0.enemy
         {
             get { return bottomRight; }
         }
-        public enemySkeleton(Texture2D texture, SpriteBatch batch, Vector2 location)
+        public enemySkeleton(Texture2D texture, SpriteBatch batch, Vector2 location,Player player)
         {
 
             Texture = texture;
@@ -55,7 +55,7 @@ namespace Sprint0.enemy
             currentPos.X = 400;
             destination.X = 400;
             destination.Y = 200;
-  
+            link = player;
             topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
             bottomRight = new BottomRight((int)currentPos.X, (int)currentPos.Y, this);
 
@@ -67,7 +67,7 @@ namespace Sprint0.enemy
             FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
             MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-            CollisionHandlerEnemyBlock temp = new CollisionHandlerEnemyBlock(direction, currentPos, destination);
+            CollisionHandlerEnemyProjectile temp = new CollisionHandlerEnemyProjectile(direction, currentPos, destination,link);
 
             if (frame == 5)
             {
@@ -76,9 +76,7 @@ namespace Sprint0.enemy
                 frame = 0;
             }
 
-            temp = new CollisionHandlerEnemyBlock(direction, currentPos, destination);
-            temp.UpdateCollisionBox();
-            destination = temp.AvoidCollision();
+            temp.HandleCollision();
             currentPos = move.Move();
             
                 direction = makeNextMove.RollingDice1();
@@ -123,7 +121,7 @@ namespace Sprint0.enemy
             topLeft.X = (int)currentPos.X;
             topLeft.Y = (int)currentPos.Y;
             bottomRight.X = (int)currentPos.X + 16;
-            bottomRight.X = (int)currentPos.Y + 16;
+            bottomRight.Y = (int)currentPos.Y + 16;
         }
     }
 }

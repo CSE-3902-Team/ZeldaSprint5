@@ -129,7 +129,7 @@ namespace Sprint0.LevelClass
             new enemyGoriya(enemyTexture, batch, temp),
             new enemyBat(enemyTexture, batch, temp),
             new enemyHand(enemyTexture, batch, temp),
-            new enemySkeleton(enemyTexture, batch, temp),
+            new enemySkeleton(enemyTexture, batch, temp,_player),
              new oldMan(npcTexture, batch, temp),
              new bossDragon(dragonTexture, batch, temp)
             };
@@ -140,7 +140,7 @@ namespace Sprint0.LevelClass
 
             item = itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass, new Vector2(300, 100));
 
-            enemySprite = new enemySkeleton(enemyTexture, batch, temp);
+            enemySprite = new enemySkeleton(enemyTexture, batch, temp,_player);
 
             tile1 = new SolidNavyTile(Content.Load<Texture2D>("solid navy tile"), batch, new Vector2(440, 400));
 
@@ -206,7 +206,7 @@ namespace Sprint0.LevelClass
             };
             IEnemySprite[] enemyList3 = new IEnemySprite[] {
                 new enemyHand(enemyTexture, batch, temp),
-                new enemySkeleton(enemyTexture, batch, temp)
+                new enemySkeleton(enemyTexture, batch, temp,_player)
             };
             AItem[] itemList3 = new AItem[] {
                 itemFactory.CreateItemSprite(ItemSpriteFactory.Item.Compass, new Vector2(128+128, 128)),
