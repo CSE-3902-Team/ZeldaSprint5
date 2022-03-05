@@ -25,6 +25,19 @@ namespace Sprint0.enemy
         int x = 400;
         int y = 200;
         private int frame;
+        private TopLeft topLeft;
+        private BottomRight botRight;
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+
+        public BottomRight BottomRight
+        {
+            get { return botRight; }
+        }
+
         public enemyHand(Texture2D texture, SpriteBatch batch, Vector2 location,Player player)
         {
 
@@ -36,6 +49,8 @@ namespace Sprint0.enemy
             destination.X = 400;
             destination.Y = 200;
             link = player;
+            topLeft = new TopLeft(400, 200, this);
+            botRight = new BottomRight(440, 240, this);
 
         }
 
@@ -83,6 +98,15 @@ namespace Sprint0.enemy
             batch.End();
         
             return temp;
+        }
+
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)currentPos.X;
+            topLeft.Y = (int)currentPos.Y;
+            botRight.X = (int)currentPos.X + 40;
+            botRight.Y = (int)currentPos.Y + 40;
+
         }
 
 

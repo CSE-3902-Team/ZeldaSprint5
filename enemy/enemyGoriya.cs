@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Sprint0.enemy
 {
-    public class enemyGoriya : IEnemySprite
+    public class enemyGoriya : IEnemySprite, IBoxCollider
     {
         public Texture2D Texture;
 
@@ -32,7 +32,18 @@ namespace Sprint0.enemy
         private int currentFrame1 = 0;
         bool flipHorizontal = false;
         bool fire = false;
-     
+        private TopLeft topLeft;
+        private BottomRight botRight;
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+
+        public BottomRight BottomRight
+        {
+            get { return botRight; }
+        }
         public enemyGoriya(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
@@ -40,7 +51,8 @@ namespace Sprint0.enemy
             currentFrame = 0;
             currentX = (int)location.X;
             currentY = (int)location.Y;
-
+            topLeft = new TopLeft(400, 200, this);
+            botRight = new BottomRight(440, 240, this);
 
         }
 
@@ -225,8 +237,9 @@ namespace Sprint0.enemy
          
 
             frame++;
-          
-            }
+            UpdateCollisionBox();
+
+        }
 
 
             public Vector2 draw()
@@ -260,8 +273,18 @@ namespace Sprint0.enemy
                 return temp;
             }
 
+            private void UpdateCollisionBox()
+            {
+              topLeft.X = (int)currentX;
+              topLeft.Y = (int)currentY;
+              botRight.X = (int)currentX + 40;
+              botRight.Y = (int)currentY + 40;
+
+            }
 
 
-        }
+
+
     }
+}
 
