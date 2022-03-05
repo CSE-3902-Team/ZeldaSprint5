@@ -7,4 +7,5 @@ public interface IState
 		void Update();
 		void Attack();
         void UseItem(IProjectile proj) { return; }
+		void DamageLink(Player.Directions dir);
 }

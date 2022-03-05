@@ -5,12 +5,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.PlayerClass
 {
-	public class PlayerUpDamaged : IState
+	public class PlayerRightDamaged : IState
 	{
 		private Player player;
 		private int currentFrame;
 
-		public PlayerUpDamaged(Player instance)
+		public PlayerRightDamaged(Player instance)
 		{
 			player = instance;
 			currentFrame = 1;
@@ -24,21 +24,21 @@ namespace Sprint0.PlayerClass
 		public void Update()
 		{
 			player.Speed = Player.ATTACK_KNOCKBACK_SPEED;
-			player.Move(0, 1);
+			player.Move(-1, 0);
 			if (currentFrame <= Player.KNOCKBACK_FRAMES/2)
 			{
-				player.SourceRectangle = new Rectangle(789, 93, 113, 150);
+				player.SourceRectangle = new Rectangle(466, 105, 131, 142);
 				player.DrawOffset = new Vector2(0, 0);
 			}
 			else if(currentFrame <= Player.KNOCKBACK_FRAMES)
 			{
-				player.SourceRectangle = new Rectangle(637, 93, 133, 161);
+				player.SourceRectangle = new Rectangle(312, 95, 140, 152);
 				player.DrawOffset = new Vector2(0, 0);
 			}
 			else
 			{
 				player.Speed = Player.MOVE_SPEED;
-				player.State = new PlayerUpIdle(player);
+				player.State = new PlayerRightIdle(player);
 			}
 			currentFrame++;
 		}
@@ -53,6 +53,7 @@ namespace Sprint0.PlayerClass
 		{
 			return;
 		}
+
 
 	}
 }

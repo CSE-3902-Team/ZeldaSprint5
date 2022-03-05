@@ -35,6 +35,8 @@ namespace Sprint0.PlayerClass
 			}
 		}
 
+
+
 		public void Update()
 		{
 			player.SourceRectangle = new Rectangle(312, 95, 140, 152);
@@ -53,6 +55,26 @@ namespace Sprint0.PlayerClass
 			player.Projectiles.Enqueue(proj);
 			player.State = new PlayerRightUseItem(player);
 		}
+		public void DamageLink(Player.Directions dir)
+		{
+			switch (dir)
+			{
+				case Player.Directions.Up:
+					player.State = new PlayerUpDamaged(player);
+					break;
+				case Player.Directions.Down:
+					player.State = new PlayerDownDamaged(player);
+					break;
+				case Player.Directions.Left:
+					player.State = new PlayerLeftDamaged(player);
+					break;
+				case Player.Directions.Right:
+					player.State = new PlayerRightDamaged(player);
+					break;
+			}
+		}
 	}
+
+	
 
 }

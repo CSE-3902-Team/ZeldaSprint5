@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Sprint0.enemy
 {
-    public class enemySkeleton : IEnemySprite
+    public class enemySkeleton : IEnemySprite, IBoxCollider
     {
 
         public Texture2D Texture;
@@ -21,10 +21,26 @@ namespace Sprint0.enemy
         private int flipHorizontally;
         public  Vector2 direction;
         private Vector2 currentPos;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
+        }
+
         public Vector2 CurrentPos
         {
             get { return currentPos; }
-            set { currentPos = value; }
+            set 
+            {
+                currentPos = value;
+                UpdateCollisionBox();
+            }
         }
         private Vector2 destination;
         int x = 400;
@@ -40,8 +56,8 @@ namespace Sprint0.enemy
             currentPos.X = 400;
             destination.X = 400;
             destination.Y = 200;
-
-
+            topLeft = new TopLeft((int)location.X, (int)location.Y, this);
+            bottomRight = new BottomRight((int)location.X + 16, (int)location.Y + 16, this);
         }
 
         public void Update()
@@ -66,6 +82,7 @@ namespace Sprint0.enemy
             
      
             frame++;
+            //UpdateCollisionBox();
 
         }
 
@@ -77,18 +94,29 @@ namespace Sprint0.enemy
    
 
             Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 164,164);
-          
+            Rectangle destinationRectangle = new Rectangle(topLeft.X, topLeft.Y, bottomRight.X - topLeft.X+20, bottomRight.Y - topLeft.Y+20);
+
+
             batch.Begin();
+            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.Black);
             if (flipHorizontally%2==0)
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.FlipHorizontally, 1);
-        
+                
+
+
 
             else
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.None, 1);
             batch.End();
      
             return temp;
+        }
+
+        private void UpdateCollisionBox() {
+            topLeft.X = (int)currentPos.X;
+            topLeft.Y = (int)currentPos.Y;
+            bottomRight.X = (int)currentPos.X + 16;
+            bottomRight.X = (int)currentPos.Y + 16;
         }
     }
 }

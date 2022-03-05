@@ -123,9 +123,7 @@ namespace Sprint0 {
 			{
 				myGame.reset();
 			}
-			if (kstate.IsKeyDown(Keys.E)) {
-				levelManger.Player.DamageLink();
-			}
+			
 
 			if (kstate.IsKeyDown(Keys.W) || kstate.IsKeyDown(Keys.Up))
 			{
