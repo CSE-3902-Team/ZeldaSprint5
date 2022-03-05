@@ -18,14 +18,14 @@ namespace Sprint0.enemy
         Random getDistance = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
-
+        Player link;
         private Vector2 direction;
         private Vector2 currentPos;
         private Vector2 destination;
         int x = 400;
         int y = 200;
         private int frame;
-        public enemyHand(Texture2D texture, SpriteBatch batch, Vector2 location)
+        public enemyHand(Texture2D texture, SpriteBatch batch, Vector2 location,Player player)
         {
 
             Texture = texture;
@@ -35,28 +35,36 @@ namespace Sprint0.enemy
             currentPos.X = 400;
             destination.X = 400;
             destination.Y = 200;
-
+            link = player;
 
         }
 
         public void Update()
         {
+
             FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
             MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
+            CollisionHandlerEnemyProjectile temp = new CollisionHandlerEnemyProjectile(direction, currentPos, destination, link);
 
             if (frame == 5)
             {
-
+             
                 currentFrame = action.frameReturn();
                 frame = 0;
             }
 
+            temp.HandleCollision();
             currentPos = move.Move();
+
             direction = makeNextMove.RollingDice1();
+
             destination = makeNextMove.RollingDice();
 
+
+
             frame++;
+            //UpdateCollisionBox();
 
         }
 
