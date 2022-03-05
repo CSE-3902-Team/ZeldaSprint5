@@ -24,19 +24,6 @@ namespace Sprint0.enemy
 
         public Game1 game;
         IProjectile temp;
-        private Vector2 currentPos;
-        private readonly TopLeft topLeft;
-        private readonly BottomRight bottomRight;
-
-        public TopLeft TopLeft
-        {
-            get { return topLeft; }
-        }
-        public BottomRight BottomRight
-        {
-            get { return bottomRight; }
-        }
-
         public Vector2 CurrentPos
         {
             get { return currentPos; }
@@ -103,7 +90,6 @@ namespace Sprint0.enemy
    
          
             frame++;
-            //UpdateCollisionBox();
 
 
         }
