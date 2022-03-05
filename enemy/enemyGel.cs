@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Sprint0.enemy
 {
-    public class enemyGel: IEnemySprite
+    public class enemyGel: IEnemySprite,IBoxCollider
     {
 
         public Texture2D Texture;

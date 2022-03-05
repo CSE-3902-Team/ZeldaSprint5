@@ -25,16 +25,18 @@ namespace Sprint0.Collision
             switch (collisionDirections)
             {
                 case CollisionDirections.North:
-                    player.DamageLink(Player.Directions.Up);
+                    player.DamageLink(Player.Directions.Down);
+                    
                     break;
                 case CollisionDirections.East:
-                    player.DamageLink(Player.Directions.Right);
+                    player.DamageLink(Player.Directions.Left);
+                    
                     break;
                 case CollisionDirections.South:
-                    player.DamageLink(Player.Directions.Down);
+                    player.DamageLink(Player.Directions.Up);
                     break;
                 case CollisionDirections.West:
-                    player.DamageLink(Player.Directions.Left);
+                    player.DamageLink(Player.Directions.Right);
                     break;
                 default:
     

@@ -41,13 +41,19 @@ namespace Sprint0.LevelClass
             _player = player;
             colliderDetector = new SortSweep();
 
+           
+            for (int x = 0; x < enemyList.Length; x++) {
+                IBoxCollider test = (enemyList[x] as IBoxCollider);
+                int val = test.BottomRight.X;
+                 colliderDetector.AddToList(enemyList[x] as IBoxCollider);
+            }
+             
+            
+
             foreach (ITile currentTile in tileList) {
                 colliderDetector.AddToList(currentTile as IBoxCollider);
             }
-            foreach (IEnemySprite currentEnemy in enemyList)
-            {
-                colliderDetector.AddToList(currentEnemy as IBoxCollider);
-            }
+
 
             colliderDetector.AddToList(_player);
         }

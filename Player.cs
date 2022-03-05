@@ -22,8 +22,8 @@ using Sprint0;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
 		public const float MOVE_SPEED = 5;
-		public const float ATTACK_KNOCKBACK_SPEED = 20;
-	public const int KNOCKBACK_FRAMES = 10;
+		public const float ATTACK_KNOCKBACK_SPEED = 10;
+	public const int KNOCKBACK_FRAMES = 5;
 		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
 		public float Speed { get { return speed; } set { speed = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
