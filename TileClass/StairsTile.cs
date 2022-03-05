@@ -12,6 +12,7 @@ namespace Sprint0.TileClass
 		private Texture2D myTile;
 		private SpriteBatch myBatch;
         private Rectangle sourceRect;
+        private Boolean isWalkable = true;
 
 		public StairsTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
@@ -65,6 +66,11 @@ namespace Sprint0.TileClass
         public BottomRight BottomRight
         {
             get { return bRight; }
+            set { }
+        }
+        public Boolean Walkable
+        {
+            get { return isWalkable; }
             set { }
         }
     }
