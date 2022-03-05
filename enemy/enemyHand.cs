@@ -79,7 +79,7 @@ namespace Sprint0.enemy
 
 
             frame++;
-            //UpdateCollisionBox();
+            UpdateCollisionBox();
 
         }
 

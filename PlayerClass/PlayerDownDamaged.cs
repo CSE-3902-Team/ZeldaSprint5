@@ -24,6 +24,7 @@ namespace Sprint0.PlayerClass
 		public void Update()
 		{
 			player.Speed = Player.ATTACK_KNOCKBACK_SPEED;
+			player.Col = Color.Red;
 			player.Move(0, -1);
 			if (currentFrame <= Player.KNOCKBACK_FRAMES/2)
 			{
@@ -38,6 +39,7 @@ namespace Sprint0.PlayerClass
 			else
 			{
 				player.Speed = Player.MOVE_SPEED;
+				player.Col = Color.White;
 				player.State = new PlayerDownIdle(player);
 			}
 			currentFrame++;

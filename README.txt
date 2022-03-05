@@ -20,13 +20,24 @@ Controls:
 New Features for Sprint3:
 Room,
 Level switching,
+Level csv's
 Enemy-projectile collision(enemy won't dissappear when they get hit, console will print"hit" if projectile land on enemy),
-Enemy-wall collision,
-Refactoring,
+Refactoring of enemy class,
 Collision detector,
 Link-block collision,
 Link-enemy collision,
-Link-wall collision,
+
+
+Unimplemented:
+Link-item
+link-wall
+
+enemy-tile
+enemy-wall
+link-attack
+csv-parsing
+
+
 
 
 

@@ -57,7 +57,7 @@ namespace Sprint0.enemy
             destination.Y = 200;
             link = player;
             topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
-            bottomRight = new BottomRight((int)currentPos.X, (int)currentPos.Y, this);
+            bottomRight = new BottomRight((int)currentPos.X+40, (int)currentPos.Y+40, this);
 
         }
 
@@ -120,8 +120,8 @@ namespace Sprint0.enemy
         private void UpdateCollisionBox() {
             topLeft.X = (int)currentPos.X;
             topLeft.Y = (int)currentPos.Y;
-            bottomRight.X = (int)currentPos.X + 16;
-            bottomRight.Y = (int)currentPos.Y + 16;
+            bottomRight.X = (int)currentPos.X + 40;
+            bottomRight.Y = (int)currentPos.Y + 40;
         }
     }
 }

@@ -56,7 +56,7 @@ namespace Sprint0.Collision
 
 
             Console.WriteLine();
-            PrintList();
+            //PrintList();
             //PrintCollisions();
             ProcessCollisions();
             targets.Clear();
@@ -86,7 +86,7 @@ namespace Sprint0.Collision
                 });
                 //TODO: resolve collisions between more than 2 objects
                 for (int x = 1; x < targets[listInd].Count && targets[listInd].Count > 1; x++) {
-                    Console.WriteLine("Sublist = ");
+                    //Console.WriteLine("Sublist = ");
                     foreach (object obj in targets[listInd])
                     {
                         Console.Write(" " + obj.GetType());
@@ -125,7 +125,7 @@ namespace Sprint0.Collision
         private List<Object> InspectCollision(IBoxCollider agiator, IBoxCollider origin)
         {
             //check y's, we can assume that these objects are colliding on x-axis
-            Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " + agiator.TopLeft.X + " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
+            //Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " + agiator.TopLeft.X + " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
 
             int magY = 0;
             CollisionDirections yDir = CollisionDirections.None;
@@ -160,12 +160,12 @@ namespace Sprint0.Collision
 
             if (magY <= magX)
             {
-                Console.WriteLine("D = " + yDir.ToString() + " magY = " + magY + " magX =" + magX);
+                //Console.WriteLine("D = " + yDir.ToString() + " magY = " + magY + " magX =" + magX);
                 return new List<Object> { yDir, magY };
             }
             else
             {
-                Console.WriteLine("D = " + xDir.ToString() + " magY = " + magY + " magX =" + magX);
+                //Console.WriteLine("D = " + xDir.ToString() + " magY = " + magY + " magX =" + magX);
                 return new List<Object> { xDir, magX };
             }
         }

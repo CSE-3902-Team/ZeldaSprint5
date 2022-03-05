@@ -25,6 +25,7 @@ namespace Sprint0.PlayerClass
 		{
 			player.Speed = Player.ATTACK_KNOCKBACK_SPEED;
 			player.Move(-1, 0);
+			player.Col = Color.Red;
 			if (currentFrame <= Player.KNOCKBACK_FRAMES/2)
 			{
 				player.SourceRectangle = new Rectangle(466, 105, 131, 142);
@@ -38,6 +39,7 @@ namespace Sprint0.PlayerClass
 			else
 			{
 				player.Speed = Player.MOVE_SPEED;
+				player.Col = Color.White;
 				player.State = new PlayerRightIdle(player);
 			}
 			currentFrame++;

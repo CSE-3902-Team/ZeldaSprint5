@@ -23,6 +23,7 @@ using Sprint0;
         private readonly BottomRight bottomRight;
 		public const float MOVE_SPEED = 5;
 		public const float ATTACK_KNOCKBACK_SPEED = 10;
+	private Color col;
 	public const int KNOCKBACK_FRAMES = 5;
 		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
 		public float Speed { get { return speed; } set { speed = value; } }
@@ -57,6 +58,12 @@ using Sprint0;
 			get { return _state; }
 			set { _state = value; }
 		}
+
+	public Color Col
+    {
+		get { return col; }
+		set { col = value; }
+	}
 		public enum Directions
 		{
 			Up,
@@ -79,6 +86,7 @@ using Sprint0;
             topLeft = new TopLeft((int)(position.X - (src.Width * scale)/2), (int)((position.Y - (src.Height * scale)/2)), this);
             bottomRight = new BottomRight(((int)(position.X+(src.Width * scale)/2)), (int)((position.Y+(src.Height * scale)/2)), this);
 			this.colT = colT;
+		col = Color.White;
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -152,17 +160,15 @@ using Sprint0;
 		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
-            Color col = Color.White;
-			if (damaged)
-			{
-				col = Color.MediumVioletRed;
-			}
+            
+
+			
 			Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width * scale), (int)(src.Height * scale));
 			_spriteBatch.Begin();
 			_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 - xOffset, src.Height / 2 - yOffset), SpriteEffects.None, 0f);
 			//_spriteBatch.Draw(texture, destRect, src, col,0f, new Vector2(0,0) , SpriteEffects.None, 0f);
-			_spriteBatch.Draw(colT, CollisionRectTL, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
-			_spriteBatch.Draw(colT, CollisionRectBR, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
+			//_spriteBatch.Draw(colT, CollisionRectTL, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
+			//_spriteBatch.Draw(colT, CollisionRectBR, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
 			_spriteBatch.End();
 
 			DrawItems();
