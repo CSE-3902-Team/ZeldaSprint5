@@ -16,6 +16,7 @@ using Sprint0;
         private Vector2 drawOffset;
 		private float scale;
 		private SpriteBatch _spriteBatch;
+	private Vector2 pposition;
 		private bool damaged;
 		private Queue<IProjectile> projectiles;
         private readonly TopLeft topLeft;
@@ -38,7 +39,7 @@ using Sprint0;
                 UpdateCollisionBox();
             }
 		}
-
+		
 		public Texture2D colT;
 		public TopLeft TopLeft 
 		{ 
@@ -48,9 +49,10 @@ using Sprint0;
         {
             get { return bottomRight; }
         }
-
+	
         public Queue<IProjectile> Projectiles { get { return projectiles; } }
-		public IState State
+
+	public IState State
 		{
 			get { return _state; }
 			set { _state = value; }
@@ -135,6 +137,7 @@ using Sprint0;
 				{
 					projectile.Update();
 					projectile.Draw();
+				    pposition = projectile.Position;
 					projectiles.Enqueue(projectile);
 				}
 			}
@@ -167,6 +170,10 @@ using Sprint0;
 
 
 
-
-
+	public Vector2 pPosition
+	{
+		get { return pposition; }
+		set { pposition = value; }
 	}
+
+}
