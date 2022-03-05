@@ -39,7 +39,8 @@ namespace Sprint0.enemy
         {
             if (destinationRectangle.Right == 790 || (destinationRectangle.Bottom == 500)|| destinationRectangle.Top==130||destinationRectangle.Left==140)
             {
-          
+                destination.X = currentPos.X;
+                destination.Y=currentPos.Y;
                 Console.WriteLine("yes");
                 
             }

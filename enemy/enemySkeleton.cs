@@ -42,7 +42,7 @@ namespace Sprint0.enemy
         {
             get { return bottomRight; }
         }
-        public enemySkeleton(Texture2D texture, SpriteBatch batch, Vector2 location,Game1 g)
+        public enemySkeleton(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
 
             Texture = texture;
@@ -52,7 +52,7 @@ namespace Sprint0.enemy
             currentPos.X = 400;
             destination.X = 400;
             destination.Y = 200;
-            this.game = g;
+  
             topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
             bottomRight = new BottomRight((int)currentPos.X, (int)currentPos.Y, this);
 
