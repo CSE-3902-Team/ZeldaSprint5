@@ -34,6 +34,8 @@ namespace Sprint0.enemy
                 Console.WriteLine("hit");
 
         }
+
+
         
     }
 }

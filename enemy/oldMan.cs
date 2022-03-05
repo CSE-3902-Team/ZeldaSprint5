@@ -18,7 +18,19 @@ namespace Sprint0
     
         private int currentX = 400;
         private int currentY = 200;
-      
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
+
+
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
+        }
         int x = 400;
         int y = 200;
  
@@ -29,6 +41,8 @@ namespace Sprint0
             currentFrame = 0;
             currentX = (int)location.X;
             currentY = (int)location.Y;
+            topLeft = new TopLeft((int)currentX, (int)currentY, this);
+            bottomRight = new BottomRight((int)currentX, (int)currentY, this);
 
 
         }

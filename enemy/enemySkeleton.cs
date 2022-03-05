@@ -86,7 +86,7 @@ namespace Sprint0.enemy
    
          
             frame++;
-            //UpdateCollisionBox();
+            UpdateCollisionBox();
 
 
         }
@@ -99,11 +99,11 @@ namespace Sprint0.enemy
    
 
             Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
-            Rectangle destinationRectangle = new Rectangle(topLeft.X, topLeft.Y, bottomRight.X - topLeft.X+20, bottomRight.Y - topLeft.Y+20);
+
 
 
             batch.Begin();
-            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.Black);
+
             if (flipHorizontally%2==0)
                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.FlipHorizontally, 1);
                 

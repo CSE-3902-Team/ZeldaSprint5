@@ -33,7 +33,7 @@ namespace Sprint0.enemy
         private int frame1;
 
         private TopLeft topLeft;
-        private BottomRight botLeft;
+        private BottomRight botRight;
 
 
 
@@ -47,7 +47,7 @@ namespace Sprint0.enemy
             destination.X = 400;
             destination.Y = 200;
             topLeft = new TopLeft(400, 200,this);
-            botLeft = new BottomRight(480, 300, this);
+            botRight = new BottomRight(480, 300, this);
 
         }
 
@@ -128,8 +128,8 @@ namespace Sprint0.enemy
         {
             topLeft.X = (int)currentPos.X;
             topLeft.Y = (int)currentPos.Y;
-            botLeft.X = (int)currentPos.X + 80;
-            botLeft.Y = (int)currentPos.Y + 100;
+            botRight.X = (int)currentPos.X + 80;
+            botRight.Y = (int)currentPos.Y + 100;
 
         }
 

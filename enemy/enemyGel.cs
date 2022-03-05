@@ -25,6 +25,11 @@ namespace Sprint0.enemy
         int x = 400;
         int y = 200;
         private int frame;
+        private TopLeft topLeft;
+        private BottomRight botRight;
+
+        public TopLeft TopLeft { get { return topLeft; } }
+        public BottomRight BottomRight { get { return botRight; } }
         public enemyGel(Texture2D texture, SpriteBatch batch, Vector2 location,Player player)
         {
 
@@ -36,8 +41,10 @@ namespace Sprint0.enemy
             destination.X = 400;
             destination.Y = 200;
             link = player;
+            topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
+            botRight = new BottomRight((int)currentPos.X + 64, (int)currentPos.Y + 64, this);
 
-        }
+    }
 
         public void Update()
         {
@@ -63,7 +70,7 @@ namespace Sprint0.enemy
 
 
             frame++;
-            //UpdateCollisionBox();
+            UpdateCollisionBox();
 
 
         }
@@ -85,7 +92,15 @@ namespace Sprint0.enemy
        
             return temp;
     }
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)currentPos.X;
+            topLeft.Y = (int)currentPos.Y;
+            botRight.X = (int)currentPos.X + 64;
+            botRight.Y = (int)currentPos.Y + 64;
+        }
 
 
-}
+
+    }
 }
