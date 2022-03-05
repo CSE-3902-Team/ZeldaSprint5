@@ -20,25 +20,23 @@ namespace Sprint0.enemy
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
         private int flipHorizontally;
         public  Vector2 direction;
-        private Vector2 currentPos
+
+        private Vector2 currentPos;
 
         public Game1 game;
         IProjectile temp;
-        public Vector2 CurrentPos
-        {
-            get { return currentPos; }
-            set 
-            {
-                currentPos = value;
-                UpdateCollisionBox();
-            }
-        }
+
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
+
+
+
+
         private Vector2 destination;
         int x = 400;
         int y = 200;
         private int frame;
-        private readonly TopLeft topLeft;
-        private readonly BottomRight bottomRight;
+
         public TopLeft TopLeft
         {
             get { return topLeft; }
@@ -90,6 +88,7 @@ namespace Sprint0.enemy
    
          
             frame++;
+            //UpdateCollisionBox();
 
 
         }

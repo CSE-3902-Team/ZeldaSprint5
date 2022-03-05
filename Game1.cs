@@ -22,13 +22,14 @@ namespace Sprint0
         private ITile roomWalls;
 
         private IController kController;
-        private IController mController;
 
         private ICollision colliderDector;
 
         private LevelManager levelManager;
 
-        
+        private IController mController;
+
+
         private AItem item;
         private ITile tile1; 
         private ITile tile2;
@@ -62,9 +63,11 @@ namespace Sprint0
         { 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             
+
             Vector2 center = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2);
             levelManager.initialize(_spriteBatch, Content, colliderDector, center);
             _currentRoom = levelManager.StartRoom();
+
 
 
 
@@ -79,8 +82,8 @@ namespace Sprint0
 
             // TODO: Add your update logic here
             kController.handleInput();
-            mController.handleInput();
             _currentRoom.updateRoom();
+            mController.handleInput();
             base.Update(gameTime);
         }
 
