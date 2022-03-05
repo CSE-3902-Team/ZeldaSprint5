@@ -10,12 +10,10 @@ namespace Sprint0.Collision
     public enum CollisionDirections {North,South,East,West,None}
     class SortSweep : ICollision 
     {
-        Game1 myGame;
         private List<List<Object>> targets;
         private List<CollisionPoint> collisionPoints;
         public List<CollisionPoint> CollisionPoints { get { return collisionPoints; }  }
-        public SortSweep(Game1 g) {
-            myGame = g;
+        public SortSweep() {
             targets = new List<List<Object>>();
             collisionPoints = new List<CollisionPoint>();
         }

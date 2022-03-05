@@ -10,7 +10,6 @@ namespace Sprint0.DoorClass
 	{
 		private Texture2D doorSheet;
 		private SpriteBatch batch;
-		private Vector2 position;
 		private int currentItem;
 
 		public enum Door
@@ -56,23 +55,22 @@ namespace Sprint0.DoorClass
 		}
 
 
-		public ADoor CreateDoorSprite(Door doorNum, Side doorSide, Vector2 pos)
+		public ADoor CreateDoorSprite(Door doorNum, Side doorSide)
 		{
-			position = pos;
 			switch (doorNum)
 			{
 				case Door.Wall:
-					return new DoorWall(doorSheet, batch, position, (int)doorSide);
+					return new DoorWall(doorSheet, batch, doorSide);
 				case Door.Open:
-					return new DoorOpen(doorSheet, batch, position, (int)doorSide);
+					return new DoorOpen(doorSheet, batch, doorSide);
 				case Door.Locked:
-					return new DoorLocked(doorSheet, batch, position, (int)doorSide);
+					return new DoorLocked(doorSheet, batch, doorSide);
 				case Door.Closed:
-					return new DoorClosed(doorSheet, batch, position, (int)doorSide);
+					return new DoorClosed(doorSheet, batch, doorSide);
 				case Door.Hole:
-					return new DoorHole(doorSheet, batch, position, (int)doorSide);
+					return new DoorHole(doorSheet, batch, doorSide);
 				default:
-					return new DoorWall(doorSheet, batch, position, (int)doorSide);
+					return new DoorWall(doorSheet, batch, doorSide);
 			}
 		}
 
