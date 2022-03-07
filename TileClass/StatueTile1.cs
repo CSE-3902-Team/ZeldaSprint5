@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
 namespace Sprint0.TileClass
 {
     public class StatueTile1 : ITile, IBoxCollider
