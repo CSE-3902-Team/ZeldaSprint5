@@ -1,9 +1,13 @@
-﻿namespace Sprint0
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Sprint0
 {
-    interface ICollision
+    public interface ICollision 
     {
-        void HandleCollisions();
-        void AddToList(IBoxCollider box);
+        public void HandleCollisions();
+        public void AddToList(IBoxCollider box);
 
 
     }

@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using Microsoft.Xna.Framework;
 
 
 
 namespace Sprint0.Collision
 {
-    public enum CollisionDirections { North, South, East, West, None }
+    public enum CollisionDirections {North,South,East,West,None}
     class SortSweep : ICollision
     {
-        Game1 myGame;
         private List<List<Object>> targets;
         private List<CollisionPoint> collisionPoints;
         public List<CollisionPoint> CollisionPoints { get { return collisionPoints; } }
-        public SortSweep(Game1 g)
-        {
-            myGame = g;
+        public SortSweep() {
             targets = new List<List<Object>>();
             collisionPoints = new List<CollisionPoint>();
         }
@@ -68,45 +67,65 @@ namespace Sprint0.Collision
 
         private void ProcessCollisions()
         {
-            foreach (List<Object> ListItem in targets)
+            for (int listInd = 0; listInd < targets.Count; listInd++)
             {
+                targets[listInd].Sort(delegate (Object a, Object b)
+                {
+                    if (a.GetType() == typeof(Player))
+                    {
+                        return -2;
+                    }
+                    else if (a.GetType() == typeof(IEnemySprite))
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                });
                 //TODO: resolve collisions between more than 2 objects
-                if (ListItem.Count > 2)
-                {
-                    Console.Write("Warning collisions for 3 or more objects aren't defined");
-                }
-                else if (ListItem.Count > 1)
-                {
-                    if (ListItem[0].GetType() == typeof(Player))
+                for (int x = 1; x < targets[listInd].Count && targets[listInd].Count > 1; x++) {
+                    //Console.WriteLine("Sublist = ");
+                    foreach (object obj in targets[listInd])
                     {
-
-                        List<Object> result = InspectCollision(ListItem[1] as IBoxCollider, ListItem[0] as IBoxCollider);
-                        CollisionDirections col = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                        CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(ListItem[0] as Player, ListItem[1] as ITile, col, (int)result[1]);
-                        handler.HandleCollision();
-
-
-                        Console.WriteLine("Player is Colliding from the " + result[0] + " direction with a magnitude of " + result[1]);
-
+                        Console.Write(" " + obj.GetType());
                     }
-                    else if (ListItem[1].GetType() == typeof(Player))
-                    {
-                        List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
-                        CollisionDirections col = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                        CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(ListItem[1] as Player, ListItem[0] as ITile, col, (int)result[1]);
-                        handler.HandleCollision();
-                        Console.WriteLine("Player is Colliding from the " + result[0] + " direction with a magnitude of " + result[1]);
+                    
+                        
+                    
+                    if (targets[listInd][0].GetType() == typeof(Player)){ 
+                        List<Object> result = InspectCollision(targets[listInd][0] as IBoxCollider, targets[listInd][x] as IBoxCollider);
+                        CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                        AssignPlayerHandler(targets[listInd][0] as Player, targets[listInd][x], direction, (int)result[1]);
                     }
+
+
                 }
+
+               
+                /*
+                    List<Object> result = InspectCollision(ListItem[1] as IBoxCollider, ListItem[0] as IBoxCollider);
+                    CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                    AssignPlayerHandler(ListItem[0] as Player, ListItem[1], direction, (int)result[1]);
+                    Console.WriteLine("Player is Colliding from the " + result[0] + " direction with a magnitude of " + result[1]);
+
+                
+                
+                    List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
+                    CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                    AssignPlayerHandler(ListItem[1] as Player, ListItem[0], direction, (int)result[1]);
+                    Console.WriteLine("Player is Colliding from the " + result[0] + " direction with a magnitude of " + result[1]);
+                */
+                
             }
         }
-
         //Returns the magnitude and direction of a collision between two objects
         //The first item in the list is direction, the second item is magnitude
-        private List<Object> InspectCollision(IBoxCollider origin, IBoxCollider agiator)
+        private List<Object> InspectCollision(IBoxCollider agiator, IBoxCollider origin)
         {
             //check y's, we can assume that these objects are colliding on x-axis
-            Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " + agiator.TopLeft.X + " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
+            //Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " + agiator.TopLeft.X + " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
 
             int magY = 0;
             CollisionDirections yDir = CollisionDirections.None;
@@ -141,17 +160,37 @@ namespace Sprint0.Collision
 
             if (magY <= magX)
             {
-                Console.WriteLine("D = " + yDir.ToString() + " magY = " + magY + " magX =" + magX);
+                //Console.WriteLine("D = " + yDir.ToString() + " magY = " + magY + " magX =" + magX);
                 return new List<Object> { yDir, magY };
             }
             else
             {
-                Console.WriteLine("D = " + xDir.ToString() + " magY = " + magY + " magX =" + magX);
+                //Console.WriteLine("D = " + xDir.ToString() + " magY = " + magY + " magX =" + magX);
                 return new List<Object> { xDir, magX };
             }
         }
 
-        public void AssignHandler(CollisionDirections dir, int magnitude)
+        private void AssignPlayerHandler(Player player, Object other, CollisionDirections dir, int magnitude)
+        {
+            if (other is ITile)
+            {
+                CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(player, other as ITile, dir, magnitude);
+                handler.HandleCollision();
+            }
+            if (other is IEnemySprite)
+            {
+                CollisionHandlerPlayerEnemy handler = new CollisionHandlerPlayerEnemy(player, other as IEnemySprite, dir);
+                handler.HandleCollision();
+            }
+            return;
+        }
+
+        private void AsssignEnemyHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
+        {
+            return;
+        }
+
+        private void AssignProjectileHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
         {
             return;
         }
@@ -184,6 +223,9 @@ namespace Sprint0.Collision
                 Console.WriteLine();
             }
         }
-
     }
+
+        
+
+    
 }

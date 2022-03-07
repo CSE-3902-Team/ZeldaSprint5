@@ -1,41 +1,63 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.PlayerClass
 {
-    public class PlayerRightAttack : IState
-    {
-        private Player player;
-        private int currentFrame;
+	public class PlayerRightAttack : IState
+	{
+		private Player player;
+		private int currentFrame;
 
-        public PlayerRightAttack(Player instance)
-        {
-            player = instance;
-            currentFrame = 1;
-        }
+		public PlayerRightAttack(Player instance)
+		{
+			player = instance;
+			currentFrame = 1;
+		}
 
-        public void ChangeDirection(Player.Directions dir)
-        {
-            return;
-        }
+		public void ChangeDirection(Player.Directions dir)
+		{
+			return;
+		}
 
-        public void Update()
-        {
-            if (currentFrame <= player.AttackFrames)
-            {
-                player.SourceRectangle = new Rectangle(168, 689, 239, 139);
-                player.DrawOffset = new Vector2(62, 0);
-            }
-            else
-            {
-                player.State = new PlayerRightIdle(player);
-            }
-            currentFrame++;
-        }
+		public void Update()
+		{
+			if (currentFrame <= player.AttackFrames)
+			{
+				player.SourceRectangle = new Rectangle(168, 689, 239, 139);
+				player.DrawOffset = new Vector2( 62, 0);
+			}
+			else
+			{
+				player.State = new PlayerRightIdle(player);
+			}
+			currentFrame++;
+		}
 
 
-        public void Attack()
-        {
-            return;
-        }
-    }
+		public void Attack()
+		{
+			return;
+		}
+
+		public void DamageLink(Player.Directions dir)
+		{
+			switch (dir)
+			{
+				case Player.Directions.Up:
+					player.State = new PlayerUpDamaged(player);
+					break;
+				case Player.Directions.Down:
+					player.State = new PlayerDownDamaged(player);
+					break;
+				case Player.Directions.Left:
+					player.State = new PlayerLeftDamaged(player);
+					break;
+				case Player.Directions.Right:
+					player.State = new PlayerRightDamaged(player);
+					break;
+			}
+		}
+	}
 }

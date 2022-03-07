@@ -1,16 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Sprint0.TileClass
 
 {
     class RoomWalls : ITile
     {
-
+       
         private Vector2 myPos;
         private Texture2D myTile;
         private SpriteBatch myBatch;
         private Rectangle sourceRect;
+        private Boolean isWalkable = false;
+
 
         public RoomWalls(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
@@ -19,7 +24,7 @@ namespace Sprint0.TileClass
             myPos = position;
             sourceRect = new Rectangle(0, 0, 1024, 704);
 
-        }
+    }
         public void draw()
         {
             Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 1024, 704);
@@ -55,6 +60,11 @@ namespace Sprint0.TileClass
             set { myPos = value; }
         }
 
+        public Boolean Walkable
+        {
+            get { return isWalkable; }
+            set { }
+        }
 
     }
 }

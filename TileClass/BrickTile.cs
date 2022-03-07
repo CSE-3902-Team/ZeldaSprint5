@@ -11,6 +11,7 @@ namespace Sprint0.TileClass
         private Texture2D myTile;
         private SpriteBatch myBatch;
         private Rectangle sourceRect;
+        private Boolean isWalkable = false;
 
         public BrickTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
@@ -19,7 +20,7 @@ namespace Sprint0.TileClass
             myPos = position;
             sourceRect = new Rectangle(0, 0, 64, 64);
             tLeft = new TopLeft((int)position.X, (int)position.Y, this);
-            bRight = new BottomRight((int)position.X + 64, (int)position.Y, this);
+            bRight = new BottomRight((int)position.X + 64, (int)position.Y+64, this);
 
         }
         public void draw()
@@ -66,6 +67,12 @@ namespace Sprint0.TileClass
         public BottomRight BottomRight
         {
             get { return bRight; }
+            set { }
+        }
+
+        public Boolean Walkable
+        {
+            get { return isWalkable; }
             set { }
         }
     }

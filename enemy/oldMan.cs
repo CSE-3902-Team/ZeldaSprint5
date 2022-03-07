@@ -1,23 +1,39 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 
 namespace Sprint0
 {
-    public class oldMan : IEnemySprite
+    public class oldMan : IEnemySprite,IBoxCollider
     {
 
         public Texture2D Texture;
 
         private int currentFrame;
-
+     
         private SpriteBatch batch;
-
+    
         private int currentX = 400;
         private int currentY = 200;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
 
+
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
+        }
         int x = 400;
         int y = 200;
-
+ 
         public oldMan(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
@@ -25,13 +41,15 @@ namespace Sprint0
             currentFrame = 0;
             currentX = (int)location.X;
             currentY = (int)location.Y;
+            topLeft = new TopLeft((int)currentX, (int)currentY, this);
+            bottomRight = new BottomRight((int)currentX, (int)currentY, this);
 
 
         }
 
         public void Update()
         {
-
+           
         }
 
 

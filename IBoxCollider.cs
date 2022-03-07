@@ -1,6 +1,6 @@
 ﻿namespace Sprint0
 {
-    interface IBoxCollider
+    public interface IBoxCollider
     {
         /*
          * The instance variables that represent TopLeft and BottomRight must

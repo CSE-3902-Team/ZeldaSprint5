@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.enemy
 {
-    public class bossDragon : IEnemySprite
+    public class bossDragon : IEnemySprite, IBoxCollider
     {
 
         public Texture2D Texture;
@@ -27,6 +27,20 @@ namespace Sprint0.enemy
 
         private int frame;
         private int frame1;
+
+        private TopLeft topLeft;
+        private BottomRight botRight;
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return botRight; }
+        }
+
+
         public bossDragon(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
@@ -36,8 +50,8 @@ namespace Sprint0.enemy
             currentPos.X = 400;
             destination.X = 400;
             destination.Y = 200;
-
-
+            topLeft = new TopLeft(400, 200,this);
+            botRight = new BottomRight(480, 300, this);
 
         }
 
@@ -82,7 +96,7 @@ namespace Sprint0.enemy
             }
             frame++;
             frame1++;
-
+            UpdateCollisionBox();
         }
 
 
@@ -112,6 +126,15 @@ namespace Sprint0.enemy
             batch.End();
 
             return temp;
+        }
+
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)currentPos.X;
+            topLeft.Y = (int)currentPos.Y;
+            botRight.X = (int)currentPos.X + 80;
+            botRight.Y = (int)currentPos.Y + 100;
+
         }
 
 
