@@ -4,16 +4,17 @@ using System;
 
 namespace Sprint0
 {
-    public class ProjectileBomb : IProjectile
+    public class ProjectileBomb : IProjectile,IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
 
         private Rectangle sourceRect;
         private Rectangle destinationRect;
-        private Rectangle collisionBox;
         private Texture2D texture;
         private SpriteBatch batch;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight botttomRight;
 
         private int frame;
         private float rotation;
@@ -24,7 +25,7 @@ namespace Sprint0
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; }
+            set { position = value; UpdateCollisionBox(); }
         }
         public Vector2 Direction
         {
@@ -36,10 +37,13 @@ namespace Sprint0
             get { return isRunning; }
             set { isRunning = value; }
         }
-        public Rectangle CollisionBox
+        public TopLeft TopLeft
         {
-            get { return collisionBox; }
-            set { collisionBox = value; }
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return BottomRight; }
         }
         public ProjectileBomb(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
@@ -49,7 +53,8 @@ namespace Sprint0
             this.direction = direction;
 
             sourceRect = new Rectangle(276, 192, 14, 25);
-            collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, 45, 45);
+            topLeft = new TopLeft((int)position.X, (int)position.Y,this);
+            botttomRight = new BottomRight((int)position.X + 45, (int)position.Y + 45,this);
             frame = 0;
             isRunning = true;
             rotation = 0f;
@@ -92,6 +97,8 @@ namespace Sprint0
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
 
+            UpdateCollisionBox();
+
         }
         public void Draw()
         {
@@ -107,6 +114,14 @@ namespace Sprint0
                 0f
                 );
             batch.End();
+        }
+
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)position.X;
+            topLeft.Y = (int)position.Y;
+            botttomRight.X = (int)position.X + 45;
+            BottomRight.Y = (int)position.Y + 45;
         }
     }
 }
