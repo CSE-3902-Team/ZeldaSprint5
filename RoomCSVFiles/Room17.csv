@@ -1,6 +1,6 @@
 roomwalls,0,0
 leftDoorNormal,0,288
-topDoorNormal,488,0
+topDoorKey,488,0
 rightDoorNormal,896,288
 bottomDoorNormal,488,576
 solid blue tile,128,128
@@ -87,3 +87,11 @@ sandtile,640,512
 solid blue tile,704,512
 solid blue tile,768,512
 solid blue tile,832,512
+leftWallTop,0,128
+leftWallBot,0,416
+topWallLeft,128,0
+topWallRight,576,0
+rightWallTop,896,128
+rightWallBottom,896,416
+botWallLeft,128,576
+botWallRight,576,576
