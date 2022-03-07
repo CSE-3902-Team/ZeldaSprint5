@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0.Collision
 {
@@ -12,7 +10,7 @@ namespace Sprint0.Collision
         private int overlap;
         private CollisionDirections collisionDirections;
 
-        
+
         public CollisionHandlerPlayerBlock(Player player, ITile block, CollisionDirections collisionDirections, int overlap)
         {
             this.player = player;

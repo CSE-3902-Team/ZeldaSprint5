@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialArrow : IProjectile 
+    public class ProjectileSpecialArrow : IProjectile
     {
         private Vector2 position;
         private Vector2 direction;

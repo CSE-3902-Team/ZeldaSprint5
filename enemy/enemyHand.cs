@@ -1,9 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace Sprint0.enemy
 {
@@ -96,7 +93,7 @@ namespace Sprint0.enemy
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
 
             batch.End();
-        
+
             return temp;
         }
 

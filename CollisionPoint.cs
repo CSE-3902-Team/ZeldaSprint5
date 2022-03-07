@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
 
 namespace Sprint0
 {
@@ -14,7 +11,7 @@ namespace Sprint0
         public int Y { get { return y; } set { y = value; } }
         public Object Parent { get { return parent; } }
 
-        public CollisionPoint(int x, int y,Object p)
+        public CollisionPoint(int x, int y, Object p)
         {
             this.x = x;
             this.y = y;

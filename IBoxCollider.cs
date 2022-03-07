@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-namespace Sprint0
+﻿namespace Sprint0
 {
     public interface IBoxCollider
     {

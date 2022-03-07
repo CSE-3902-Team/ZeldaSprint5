@@ -1,31 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-
 namespace Sprint0.TileClass
 {
-	public class BrickTile : ITile, IBoxCollider
-	{
+    public class BrickTile : ITile, IBoxCollider
+    {
         private readonly TopLeft tLeft;
         private readonly BottomRight bRight;
         private Vector2 myPos;
-		private Texture2D myTile;
-		private SpriteBatch myBatch;
+        private Texture2D myTile;
+        private SpriteBatch myBatch;
         private Rectangle sourceRect;
         private Boolean isWalkable = false;
 
-		public BrickTile(Texture2D tile, SpriteBatch batch, Vector2 position)
+        public BrickTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
-			myTile = tile;
-			myBatch = batch;
+            myTile = tile;
+            myBatch = batch;
             myPos = position;
             sourceRect = new Rectangle(0, 0, 64, 64);
             tLeft = new TopLeft((int)position.X, (int)position.Y, this);
             bRight = new BottomRight((int)position.X + 64, (int)position.Y+64, this);
 
         }
-		public void draw()
-		{
+        public void draw()
+        {
             Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 64, 64);
             myBatch.Begin();
             myBatch.Draw(
