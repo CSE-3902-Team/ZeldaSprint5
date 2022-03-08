@@ -52,7 +52,8 @@ namespace Sprint0.PlayerClass
 		{
 			proj.Direction = new Vector2(1, 0);
 			proj.Position = new Vector2(player.Position.X + 40, player.Position.Y);
-			player.Projectiles.Enqueue(proj);
+			player.AddProjectileCommand.LoadCommand(proj);
+			player.AddProjectileCommand.Execute();
 			player.State = new PlayerRightUseItem(player);
 		}
 		public void DamageLink(Player.Directions dir)

@@ -69,26 +69,39 @@ namespace Sprint0.Collision
             {
                 SortSublistByType(targets[listInd]);
 
-
-                for (int x = 1; x < targets[listInd].Count; x++) {
-                    //Console.WriteLine();
-                    //foreach (object obj in targets[listInd])
-                   // {
-                    //    Console.Write(" " + obj.GetType());
-                    //}
-
-                    if (targets[listInd][0].GetType() == typeof(Player)){ 
-                        List<Object> result = InspectCollision(targets[listInd][0] as IBoxCollider, targets[listInd][x] as IBoxCollider);
-                        CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                        if (direction != CollisionDirections.None)
+                for (int handlerTarget = 0; handlerTarget < targets[listInd].Count; handlerTarget++)
+                {
+                    for (int x = 0; x < targets[listInd].Count; x++)
+                    {
+                        if (targets[listInd][handlerTarget].GetType() == typeof(Player))
                         {
-                            AssignPlayerHandler(targets[listInd][0] as Player, targets[listInd][x], direction, (int)result[1]);
+                            List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
+                            CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                            if (direction != CollisionDirections.None)
+                            {
+                                AssignPlayerHandler(targets[listInd][handlerTarget] as Player, targets[listInd][x], direction, (int)result[1]);
+                            }
+
                         }
-                        
+
+                        if (targets[listInd][handlerTarget] is IProjectile)
+                        {
+                            Console.WriteLine("inspecting possible projectile collisions");
+                            Console.WriteLine("inspecting possible projectile collisions");
+                            Console.WriteLine("inspecting possible projectile collisions");
+                            Console.WriteLine("inspecting possible projectile collisions");
+                            List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
+                            CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                            if (direction != CollisionDirections.None)
+                            {
+                                AssignProjectileHandler(targets[listInd][handlerTarget] as IProjectile, targets[listInd][x], direction, (int)result[1]);
+                            }
+
+                        }
+
                     }
-
-
                 }
+
 
                
             
@@ -159,7 +172,11 @@ namespace Sprint0.Collision
             {
                 handler = new CollisionHandlerPlayerItem(other as AItem);
             }
-            else 
+            else if (other is IProjectile) 
+            {
+                handler = new CollisionHandlerPlayerProjectile(player, other as IProjectile, dir);
+            }
+            else
             {
                 handler = new CollisionHandlerUnknown(other);
             }
@@ -172,9 +189,28 @@ namespace Sprint0.Collision
             return;
         }
 
-        private void AssignProjectileHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
+        private void AssignProjectileHandler(IProjectile projectile, Object other, CollisionDirections dir, int magnitude)
         {
-            return;
+            //By sorted order, projectiles will only ever interact with projectiles, items and tiles
+
+            if (other is IProjectile)
+            {
+                return;
+            }
+            else if (other is AItem)
+            {
+                return;
+            }
+            else if (other is ITile)
+            {
+                ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
+                handler.HandleCollision();
+            }
+            else
+            {
+                ICollisionHandler handler = new CollisionHandlerUnknown(other);
+                handler.HandleCollision();
+            }
         }
 
         public void AddToList(IBoxCollider box)
@@ -218,10 +254,17 @@ namespace Sprint0.Collision
                 {
                     return -1;
                 }
+                else if (a.GetType() == typeof(IProjectile))
+                {
+                    return 0;
+                }
                 else
                 {
+                    //items and tiles
                     return 1;
                 }
+                
+                
             });
         }
 

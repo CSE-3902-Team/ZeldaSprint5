@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Sprint0.enemy;
 using Sprint0.DoorClass;
 using Microsoft.Xna.Framework.Content;
+using Sprint0.Command;
 
 namespace Sprint0.LevelClass
 {
@@ -38,7 +39,10 @@ namespace Sprint0.LevelClass
             get { return _player; }
         }
 
-
+        public Room CurrentRoom
+        {
+            get { return roomList[currentRoom]; }
+        }
 
         //these need to be gotten rid of
         private ITile tile;
@@ -92,8 +96,8 @@ namespace Sprint0.LevelClass
 
         };
 
-
-            _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(200, 200), Content.Load<Texture2D>("solid navy tile"));
+            ICommand command = new AddProjectileToLevel(this);
+            _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(200, 200), Content.Load<Texture2D>("solid navy tile"), command);
 
 
 

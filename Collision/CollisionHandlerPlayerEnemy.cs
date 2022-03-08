@@ -20,8 +20,7 @@ namespace Sprint0.Collision
         public void HandleCollision()
         {
 
-            //TODO: Reduce coupling by passing direction into state and letting it handle the state positions. Collisions shouldn't know
-            //about states
+            
             switch (collisionDirections)
             {
                 case CollisionDirections.North:
@@ -39,7 +38,6 @@ namespace Sprint0.Collision
                     player.DamageLink(Player.Directions.Right);
                     break;
                 default:
-    
                     break;
             }
 

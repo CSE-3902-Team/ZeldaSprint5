@@ -30,8 +30,8 @@ namespace Sprint0.enemy
         }
         public void HandleCollision()
         {
-            if((link.pPosition.X>=(currentPos.X-64)&& link.pPosition.X <= (currentPos.X + 64))&& (link.pPosition.Y >= (currentPos.Y -64) && link.pPosition.Y <= (currentPos.Y + 64)))
-                Console.WriteLine("hit");
+            //if((link.pPosition.X>=(currentPos.X-64)&& link.pPosition.X <= (currentPos.X + 64))&& (link.pPosition.Y >= (currentPos.Y -64) && link.pPosition.Y <= (currentPos.Y + 64)))
+            //    Console.WriteLine("hit");
 
         }
 
