@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Sprint0.ItemClass;
 
 
 
@@ -20,8 +21,8 @@ namespace Sprint0.Collision
         public void HandleCollisions()
         {
             FindCollisionsX();
-            //SortY()
-            //AssignHandlers();
+            ProcessCollisions();
+            targets.Clear();
         }
 
 
@@ -58,8 +59,7 @@ namespace Sprint0.Collision
             Console.WriteLine();
             //PrintList();
             //PrintCollisions();
-            ProcessCollisions();
-            targets.Clear();
+
         }
 
 
@@ -67,36 +67,27 @@ namespace Sprint0.Collision
 
         private void ProcessCollisions()
         {
+            //Go through list of objects intersecting on x-axis
             for (int listInd = 0; listInd < targets.Count; listInd++)
             {
-                targets[listInd].Sort(delegate (Object a, Object b)
-                {
-                    if (a.GetType() == typeof(Player))
-                    {
-                        return -2;
-                    }
-                    else if (a.GetType() == typeof(IEnemySprite))
-                    {
-                        return -1;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                });
-                for (int x = 1; x < targets[listInd].Count && targets[listInd].Count > 1; x++) {
+                SortSublistByType(targets[listInd]);
+
+
+                for (int x = 1; x < targets[listInd].Count; x++) {
                     //Console.WriteLine("Sublist = ");
                     foreach (object obj in targets[listInd])
                     {
                         Console.Write(" " + obj.GetType());
                     }
-                    
-                        
-                    
+
                     if (targets[listInd][0].GetType() == typeof(Player)){ 
                         List<Object> result = InspectCollision(targets[listInd][0] as IBoxCollider, targets[listInd][x] as IBoxCollider);
                         CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                        AssignPlayerHandler(targets[listInd][0] as Player, targets[listInd][x], direction, (int)result[1]);
+                        if (direction != CollisionDirections.None)
+                        {
+                            AssignPlayerHandler(targets[listInd][0] as Player, targets[listInd][x], direction, (int)result[1]);
+                        }
+                        
                     }
 
 
@@ -111,7 +102,6 @@ namespace Sprint0.Collision
         //The first item in the list is direction, the second item is magnitude
         private List<Object> InspectCollision(IBoxCollider agiator, IBoxCollider origin)
         {
-            //check y's, we can assume that these objects are colliding on x-axis
             //Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " + agiator.TopLeft.X + " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
 
             int magY = 0;
@@ -159,16 +149,24 @@ namespace Sprint0.Collision
 
         private void AssignPlayerHandler(Player player, Object other, CollisionDirections dir, int magnitude)
         {
+            ICollisionHandler handler;
             if (other is ITile)
             {
-                CollisionHandlerPlayerBlock handler = new CollisionHandlerPlayerBlock(player, other as ITile, dir, magnitude);
-                handler.HandleCollision();
+                handler = new CollisionHandlerPlayerBlock(player, other as ITile, dir, magnitude);
             }
-            if (other is IEnemySprite)
+            else if (other is IEnemySprite)
             {
-                CollisionHandlerPlayerEnemy handler = new CollisionHandlerPlayerEnemy(player, other as IEnemySprite, dir);
-                handler.HandleCollision();
+                handler = new CollisionHandlerPlayerEnemy(player, other as IEnemySprite, dir);
             }
+            else if (other is AItem)
+            {
+                handler = new CollisionHandlerPlayerItem(other as AItem);
+            }
+            else 
+            {
+                handler = new CollisionHandlerUnknown(other);
+            }
+            handler.HandleCollision();
             return;
         }
 
@@ -188,6 +186,25 @@ namespace Sprint0.Collision
             collisionPoints.Add(box.BottomRight);
         }
 
+        private void SortSublistByType(List<Object> sublist)
+        {
+            sublist.Sort(delegate (Object a, Object b)
+            {
+                if (a.GetType() == typeof(Player))
+                {
+                    return -2;
+                }
+                else if (a.GetType() == typeof(IEnemySprite))
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 1;
+                }
+            });
+        }
+
         private void PrintList()
         {
             for (int x = 0; x < collisionPoints.Count; x++)
@@ -196,6 +213,7 @@ namespace Sprint0.Collision
             }
             Console.WriteLine();
         }
+
 
         private void PrintCollisions()
         {
