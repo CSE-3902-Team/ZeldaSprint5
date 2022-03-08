@@ -11,7 +11,6 @@ namespace Sprint0.ItemClass
 		private Texture2D itemSheet;
 		private SpriteBatch batch;
 		private Vector2 position;
-		private int currentItem;
 
 		public enum Item{
 			Compass				= 0,
@@ -56,8 +55,7 @@ namespace Sprint0.ItemClass
 		public AItem CreateItemSprite(Item itemNum, Vector2 pos)
 		{
 			position = pos;
-			currentItem = (int)itemNum;
-			switch ((Item)currentItem)
+			switch (itemNum)
             {
 				case Item.Compass:
 					return new ItemCompass(itemSheet, batch, position);

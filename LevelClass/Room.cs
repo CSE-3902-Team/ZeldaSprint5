@@ -51,7 +51,9 @@ namespace Sprint0.LevelClass
             
 
             foreach (ITile currentTile in tileList) {
-                colliderDetector.AddToList(currentTile as IBoxCollider);
+                if (!currentTile.Walkable) {
+                    colliderDetector.AddToList(currentTile as IBoxCollider);
+                }
             }
 
 
