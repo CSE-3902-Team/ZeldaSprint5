@@ -4,7 +4,7 @@ using System;
 
 namespace Sprint0
 {
-    public class ProjectileNormalBoomerang : IProjectile
+    public class ProjectileNormalBoomerang : IProjectile,IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
@@ -18,6 +18,9 @@ namespace Sprint0
         private float rotation;
         // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
+
 
         public Boolean IsRunning
         {
@@ -27,12 +30,21 @@ namespace Sprint0
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; }
+            set { position = value; UpdateCollisionBox(); }
         }
         public Vector2 Direction
         {
             get { return direction; }
             set { direction = value; }
+        }
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
         }
 
         public ProjectileNormalBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
@@ -41,6 +53,9 @@ namespace Sprint0
             this.batch = batch;
             this.position = position;
             this.direction = direction;
+
+            topLeft = new TopLeft((int)position.X, (int)position.Y, this);
+            bottomRight = new BottomRight((int)position.X + 24, (int)position.Y + 38, this);
 
             sourceRect = new Rectangle(97, 280, 12, 19);
 
@@ -130,6 +145,7 @@ namespace Sprint0
             {
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+            UpdateCollisionBox();
 
         }
 
@@ -149,6 +165,13 @@ namespace Sprint0
             batch.End();
         }
 
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)position.X;
+            topLeft.Y = (int)position.Y;
+            bottomRight.X = (int)position.X + 24;
+            BottomRight.Y = (int)position.Y + 38;
+        }
 
     }
 

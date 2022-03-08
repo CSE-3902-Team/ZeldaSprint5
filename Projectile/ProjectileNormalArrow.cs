@@ -14,7 +14,7 @@ namespace Sprint0
         private Rectangle sourceRect;
         private Rectangle destinationRect;
         private readonly TopLeft topLeft;
-        private readonly BottomRight botttomRight;
+        private readonly BottomRight bottomRight;
 
         private int frame;
         private float rotation;
@@ -43,7 +43,7 @@ namespace Sprint0
         }
         public BottomRight BottomRight
         {
-            get { return BottomRight; }
+            get { return bottomRight; }
         }
         //Vector direction should only use 0, 1, -1
         public ProjectileNormalArrow(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
@@ -55,7 +55,7 @@ namespace Sprint0
 
             sourceRect = new Rectangle(14, 282, 26, 14);
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
-            botttomRight = new BottomRight((int)position.X + 45, (int)position.Y + 45, this);
+            bottomRight = new BottomRight((int)position.X + 45, (int)position.Y + 45, this);
 
             rotation = 0f;
             isRunning = true;
@@ -112,6 +112,7 @@ namespace Sprint0
             {
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+            UpdateCollisionBox();
 
         }
 
@@ -129,6 +130,14 @@ namespace Sprint0
                 0f
                 );
             batch.End();
+        }
+
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)position.X;
+            topLeft.Y = (int)position.Y;
+            bottomRight.X = (int)position.X + 45;
+            BottomRight.Y = (int)position.Y + 45;
         }
 
     }
