@@ -75,7 +75,7 @@ namespace Sprint0.LevelClass
             {
                 currentItem.draw();
             }
-            
+
             foreach (IEnemySprite currentEnemy in enemyList) {
                 currentEnemy.draw();
             }

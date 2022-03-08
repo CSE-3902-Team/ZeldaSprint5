@@ -20,6 +20,7 @@ namespace Sprint0.Collision
         }
         public void HandleCollisions()
         {
+            PruneProjectilesAndItems();
             FindCollisionsX();
             ProcessCollisions();
             targets.Clear();
@@ -32,14 +33,12 @@ namespace Sprint0.Collision
         {
             List<Object> active = new List<Object>();
 
-            //TODO: check if this is insertion sort
-            //sorts objects by their x cordinates in ascending order
             collisionPoints.Sort(delegate (CollisionPoint a, CollisionPoint b)
             {
                 return a.X.CompareTo(b.X);
             });
 
-            //PrintList();
+            PrintList();
 
             for (int x = 0; x < collisionPoints.Count; x++)
             {
@@ -56,8 +55,6 @@ namespace Sprint0.Collision
             }
 
 
-            Console.WriteLine();
-            //PrintList();
             //PrintCollisions();
 
         }
@@ -74,11 +71,11 @@ namespace Sprint0.Collision
 
 
                 for (int x = 1; x < targets[listInd].Count; x++) {
-                    //Console.WriteLine("Sublist = ");
-                    foreach (object obj in targets[listInd])
-                    {
-                        Console.Write(" " + obj.GetType());
-                    }
+                    //Console.WriteLine();
+                    //foreach (object obj in targets[listInd])
+                   // {
+                    //    Console.Write(" " + obj.GetType());
+                    //}
 
                     if (targets[listInd][0].GetType() == typeof(Player)){ 
                         List<Object> result = InspectCollision(targets[listInd][0] as IBoxCollider, targets[listInd][x] as IBoxCollider);
@@ -186,6 +183,29 @@ namespace Sprint0.Collision
             collisionPoints.Add(box.BottomRight);
         }
 
+        private void PruneProjectilesAndItems()
+        {
+            for (int x = 0; x < collisionPoints.Count; x++)
+            {
+                if (collisionPoints[x].Parent is AItem)
+                {
+                    if ((collisionPoints[x].Parent as AItem).IsPickedUp)
+                    {
+                        collisionPoints.RemoveAt(x);
+                        x--;
+                    }
+                }
+                else if (collisionPoints[x].Parent is IProjectile)
+                {
+                    if (!(collisionPoints[x].Parent as IProjectile).IsRunning)
+                    {
+                        collisionPoints.RemoveAt(x);
+                        x--;
+                    }
+                }
+            }
+        }
+
         private void SortSublistByType(List<Object> sublist)
         {
             sublist.Sort(delegate (Object a, Object b)
@@ -211,6 +231,7 @@ namespace Sprint0.Collision
             {
                 Console.Write(collisionPoints[x].Parent.GetType() + ": " + collisionPoints[x].X + " |");
             }
+            Console.WriteLine();
             Console.WriteLine();
         }
 
