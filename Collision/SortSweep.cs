@@ -86,10 +86,6 @@ namespace Sprint0.Collision
 
                         if (targets[listInd][handlerTarget] is IProjectile)
                         {
-                            Console.WriteLine("inspecting possible projectile collisions");
-                            Console.WriteLine("inspecting possible projectile collisions");
-                            Console.WriteLine("inspecting possible projectile collisions");
-                            Console.WriteLine("inspecting possible projectile collisions");
                             List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
                             CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
                             if (direction != CollisionDirections.None)
