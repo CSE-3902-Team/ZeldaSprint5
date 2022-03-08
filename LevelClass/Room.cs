@@ -47,13 +47,12 @@ namespace Sprint0.LevelClass
                 int val = test.BottomRight.X;
                  colliderDetector.AddToList(enemyList[x] as IBoxCollider);
             }
-             
-            
+
+
 
             foreach (ITile currentTile in tileList) {
                 colliderDetector.AddToList(currentTile as IBoxCollider);
             }
-
 
             colliderDetector.AddToList(_player);
         }
@@ -76,6 +75,7 @@ namespace Sprint0.LevelClass
             foreach (IEnemySprite currentEnemy in enemyList) {
                 currentEnemy.draw();
             }
+
             Player.Draw();
         }
 

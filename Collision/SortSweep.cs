@@ -84,7 +84,6 @@ namespace Sprint0.Collision
                         return 1;
                     }
                 });
-                //TODO: resolve collisions between more than 2 objects
                 for (int x = 1; x < targets[listInd].Count && targets[listInd].Count > 1; x++) {
                     //Console.WriteLine("Sublist = ");
                     foreach (object obj in targets[listInd])
@@ -104,19 +103,7 @@ namespace Sprint0.Collision
                 }
 
                
-                /*
-                    List<Object> result = InspectCollision(ListItem[1] as IBoxCollider, ListItem[0] as IBoxCollider);
-                    CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                    AssignPlayerHandler(ListItem[0] as Player, ListItem[1], direction, (int)result[1]);
-                    Console.WriteLine("Player is Colliding from the " + result[0] + " direction with a magnitude of " + result[1]);
-
-                
-                
-                    List<Object> result = InspectCollision(ListItem[0] as IBoxCollider, ListItem[1] as IBoxCollider);
-                    CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                    AssignPlayerHandler(ListItem[1] as Player, ListItem[0], direction, (int)result[1]);
-                    Console.WriteLine("Player is Colliding from the " + result[0] + " direction with a magnitude of " + result[1]);
-                */
+            
                 
             }
         }

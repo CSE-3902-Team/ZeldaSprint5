@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.DoorClass;
+
 
 namespace Sprint0.LevelClass
 {
@@ -12,6 +10,7 @@ namespace Sprint0.LevelClass
     {
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
+
 
         public float Speed
         {
@@ -45,9 +44,10 @@ namespace Sprint0.LevelClass
         {
             get { return bottomRight; }
         }
+
         public WallCollisionBox(Rectangle rect)
         {
-            topLeft = new TopLeft(rect.X, rect.Y,this);
+            topLeft = new TopLeft(rect.X, rect.Y, this);
             bottomRight = new BottomRight(rect.X + rect.Width, rect.Y + rect.Height, this);
         }
 

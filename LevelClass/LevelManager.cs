@@ -88,8 +88,9 @@ namespace Sprint0.LevelClass
                 new StatueTile2(Content.Load<Texture2D>("tile with square in middle"), batch, new Vector2(128, 128)),
                 new LeftFire(Content.Load<Texture2D>("LeftFire"), batch, new Vector2(128, 128)),
                 new RightFire(Content.Load<Texture2D>("RightFire"), batch, new Vector2(128, 128)),
-                new Text(Content.Load<Texture2D>("textsprite"), batch, new Vector2(128, 128))
-            };
+                new Text(Content.Load<Texture2D>("textsprite"), batch, new Vector2(128, 128)),
+
+        };
 
 
             _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(200, 200), Content.Load<Texture2D>("solid navy tile"));
