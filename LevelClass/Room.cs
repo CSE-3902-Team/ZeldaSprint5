@@ -45,17 +45,20 @@ namespace Sprint0.LevelClass
             for (int x = 0; x < enemyList.Length; x++) {
                 IBoxCollider test = (enemyList[x] as IBoxCollider);
                 int val = test.BottomRight.X;
-                 colliderDetector.AddToList(enemyList[x] as IBoxCollider);
+                colliderDetector.AddToList(enemyList[x] as IBoxCollider);
             }
-             
-            
+
+            foreach (AItem currentItem in itemList)
+            {
+                colliderDetector.AddToList(currentItem as IBoxCollider);
+            }
+
 
             foreach (ITile currentTile in tileList) {
                 if (!currentTile.Walkable) {
                     colliderDetector.AddToList(currentTile as IBoxCollider);
                 }
             }
-
 
             colliderDetector.AddToList(_player);
         }
@@ -74,10 +77,11 @@ namespace Sprint0.LevelClass
             {
                 currentItem.draw();
             }
-            
+
             foreach (IEnemySprite currentEnemy in enemyList) {
                 currentEnemy.draw();
             }
+
             Player.Draw();
         }
 

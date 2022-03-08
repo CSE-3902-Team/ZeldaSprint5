@@ -11,7 +11,8 @@ namespace Sprint0
 
         private Rectangle sourceRect;
         private Rectangle destinationRect;
-        private Rectangle collisionBox;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
         private Texture2D texture;
         private SpriteBatch batch;
 
@@ -29,17 +30,22 @@ namespace Sprint0
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; }
+            set { position = value; UpdateCollisionBox(); }
         }
         public Vector2 Direction
         {
             get { return direction; }
             set { direction = value; }
         }
-        public Rectangle CollisionBox
+        
+
+        public TopLeft TopLeft
         {
-            get { return collisionBox; }
-            set { collisionBox = value; }
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
         }
         public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
@@ -49,7 +55,8 @@ namespace Sprint0
             this.direction = direction;
 
             sourceRect = new Rectangle(137, 280, 12, 19);
-            collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, 24, 38);
+            topLeft = new TopLeft((int)position.X, (int)position.Y, this);
+            bottomRight = new BottomRight((int)position.X + 24, (int)position.Y + 28, this);
 
             frame = 0;
             isRunning = true;
@@ -137,6 +144,7 @@ namespace Sprint0
             {
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+            UpdateCollisionBox();
 
         }
 
@@ -154,6 +162,14 @@ namespace Sprint0
                 0f
                 );
             batch.End();
+        }
+
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)position.X;
+            topLeft.Y = (int)position.Y;
+            bottomRight.X = (int)position.X + 24;
+            BottomRight.Y = (int)position.Y + 28;
         }
 
     }

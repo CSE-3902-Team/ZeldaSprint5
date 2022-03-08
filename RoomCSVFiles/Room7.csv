@@ -88,3 +88,11 @@ solid black tile,704,512
 solid black tile,768,512
 solid black tile,832,512
 textsprite,256,192
+leftWallTop,0,128
+leftWallBot,0,416
+topWallLeft,128,0
+topWallRight,576,0
+rightWallTop,896,128
+rightWallBottom,896,416
+botWallLeft,128,576
+botWallRight,576,576

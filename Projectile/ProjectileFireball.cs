@@ -4,7 +4,7 @@ using System;
 
 namespace Sprint0
 {
-    public class ProjectileFireball : IProjectile
+    public class ProjectileFireball : IProjectile, IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
@@ -13,7 +13,8 @@ namespace Sprint0
         private SpriteBatch batch;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
-        private Rectangle collisionBox;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
 
         private int frame;
         private float rotation;
@@ -29,17 +30,20 @@ namespace Sprint0
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; }
+            set { position = value; UpdateCollisionBox(); }
         }
         public Vector2 Direction
         {
             get { return direction; }
             set { direction = value; }
         }
-        public Rectangle CollisionBox
+        public TopLeft TopLeft
         {
-            get { return collisionBox; }
-            set { collisionBox = value; }
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
         }
 
         //Vector direction should only use 0, 1, -1
@@ -51,7 +55,8 @@ namespace Sprint0
             this.direction = direction;
 
             sourceRect = new Rectangle(287, 276, 22, 26);
-            collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, 30, 40);
+            topLeft = new TopLeft((int)position.X, (int)position.Y, this);
+            bottomRight = new BottomRight((int)position.X + 45, (int)position.Y + 45, this);
             isRunning = true;
             frame = 0;
             rotation = 0f;
@@ -87,6 +92,7 @@ namespace Sprint0
                 IsRunning = false;
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+            UpdateCollisionBox();
 
 
         }
@@ -104,6 +110,15 @@ namespace Sprint0
                 0f
                 );
             batch.End();
+            UpdateCollisionBox();
+        }
+
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)position.X;
+            topLeft.Y = (int)position.Y;
+            bottomRight.X = (int)position.X + 45;
+            BottomRight.Y = (int)position.Y + 45;
         }
 
     }

@@ -13,7 +13,8 @@ namespace Sprint0
         private SpriteBatch batch;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
-        private Rectangle collisionBox;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
 
         private int frame;
         private float rotation;
@@ -29,17 +30,20 @@ namespace Sprint0
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; }
+            set { position = value; UpdateCollisionBox(); }
         }
         public Vector2 Direction
         {
             get { return direction; }
             set { direction = value; }
         }
-        public Rectangle CollisionBox
+        public TopLeft TopLeft
         {
-            get { return collisionBox; }
-            set { collisionBox = value; }
+            get { return topLeft; }
+        }
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
         }
         //Vector direction should only use 0, 1, -1
         public ProjectileSpecialArrow(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
@@ -50,7 +54,8 @@ namespace Sprint0
             this.direction = direction;
 
             sourceRect = new Rectangle(53, 280, 26, 14);
-            collisionBox = new Rectangle((int)this.position.X, (int)this.position.Y, 40, 20);
+            topLeft = new TopLeft((int)position.X, (int)position.Y, this);
+            bottomRight = new BottomRight((int)position.X + 40, (int)position.Y + 20, this);
 
             rotation = 0f;
             frame = 1;
@@ -108,6 +113,7 @@ namespace Sprint0
             {
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+            UpdateCollisionBox();
 
         }
         public void Draw()
@@ -126,5 +132,12 @@ namespace Sprint0
             batch.End();
         }
 
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)position.X;
+            topLeft.Y = (int)position.Y;
+            bottomRight.X = (int)position.X + 40;
+            BottomRight.Y = (int)position.Y + 20;
+        }
     }
 }

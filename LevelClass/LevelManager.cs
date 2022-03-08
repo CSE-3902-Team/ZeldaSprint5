@@ -68,13 +68,6 @@ namespace Sprint0.LevelClass
 
 
 
-
-            
-
-
-
-
-
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
             itemFactory.setBatch(batch);
