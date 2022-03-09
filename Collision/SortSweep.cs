@@ -83,6 +83,16 @@ namespace Sprint0.Collision
                             }
 
                         }
+                        if (targets[listInd][handlerTarget] is IEnemySprite)
+                        {
+                            List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
+                            CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                            if (direction != CollisionDirections.None)
+                            {
+                                AssignEnemyHandler(targets[listInd][handlerTarget] as IEnemySprite, targets[listInd][x], direction, (int)result[1]);
+                            }
+
+                        }
 
                         if (targets[listInd][handlerTarget] is IProjectile)
                         {
@@ -180,8 +190,28 @@ namespace Sprint0.Collision
             return;
         }
 
-        private void AsssignEnemyHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
+        private void AssignEnemyHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
         {
+            ICollisionHandler handler;
+            if (other is ITile)
+            {
+                handler = new CollisionHandlerEnemyBlock(enemy, other as ITile, dir, magnitude);
+                handler.HandleCollision();
+            }
+            else if (other is IProjectile) { 
+
+                handler = new CollisionHandlerEnemyProjectile(enemy, other as ITile, dir, magnitude);
+
+                handler.HandleCollision();
+
+
+            }
+            else
+            {
+                handler = new CollisionHandlerUnknown(other);
+                handler.HandleCollision();
+            }
+       
             return;
         }
 
@@ -201,7 +231,9 @@ namespace Sprint0.Collision
             }
             else if (other is IEnemySprite)
             {
-                return;
+                ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
+                handler.HandleCollision();
+                //The logic when a player projectile hit an enemy is same as hit a tile
             }
             else if (other is ITile)
             {

@@ -29,14 +29,32 @@ namespace Sprint0.enemy
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
         private bool isAlive;
+        public Vector2 position
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
+                UpdateCollisionBox();
 
+            }
+        }
         public bool IsAlive
         {
             get { return isAlive; }
             set { isAlive = value; }
         }
 
+        public Vector2 Destination
+        {
+            get { return destination; }
+            set
+            {
+                destination = value;
 
+
+            }
+        }
 
 
         private Vector2 destination;
@@ -69,11 +87,12 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-        
+            if (isAlive) { 
+
             FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
             MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-            CollisionHandlerEnemyProjectile temp = new CollisionHandlerEnemyProjectile(direction, currentPos, destination,link);
+
 
             if (frame == 5)
             {
@@ -82,16 +101,22 @@ namespace Sprint0.enemy
                 frame = 0;
             }
 
-            temp.HandleCollision();
+
             currentPos = move.Move();
-            
-                direction = makeNextMove.RollingDice1();
-       
+
+            direction = makeNextMove.RollingDice1();
+
             destination = makeNextMove.RollingDice();
-       
-   
-         
+
+
+
             frame++;
+        }
+            else
+            {
+                currentPos.X = 0;
+                currentPos.Y = 0;
+            }
             UpdateCollisionBox();
 
 
@@ -105,29 +130,33 @@ namespace Sprint0.enemy
    
 
             Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
+            if (isAlive)
+            {
+
+
+                batch.Begin();
+
+                if (flipHorizontally % 2 == 0)
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
 
 
 
-            batch.Begin();
 
-            if (flipHorizontally%2==0)
-                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.FlipHorizontally, 1);
-                
-
-
-
-            else
-                batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 4f, SpriteEffects.None, 1);
-            batch.End();
-     
+                else
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
+                batch.End();
+            }
             return temp;
         }
 
         private void UpdateCollisionBox() {
-            topLeft.X = (int)currentPos.X;
-            topLeft.Y = (int)currentPos.Y;
-            bottomRight.X = (int)currentPos.X + 40;
-            bottomRight.Y = (int)currentPos.Y + 40;
+           
+                topLeft.X = (int)currentPos.X;
+                topLeft.Y = (int)currentPos.Y;
+                bottomRight.X = (int)currentPos.X + 40;
+                bottomRight.Y = (int)currentPos.Y + 40;
+            
+        
         }
     }
 }

@@ -47,6 +47,26 @@ namespace Sprint0.enemy
             get { return botRight; }
         }
 
+        public Vector2 position
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
+                UpdateCollisionBox();
+
+            }
+        }
+        public Vector2 Destination
+        {
+            get { return destination; }
+            set
+            {
+                destination = value;
+
+
+            }
+        }
 
         public bossDragon(Texture2D texture, SpriteBatch batch, Vector2 location)
         {

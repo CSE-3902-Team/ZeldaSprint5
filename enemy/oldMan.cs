@@ -27,8 +27,29 @@ namespace Sprint0
             get { return isAlive; }
             set { isAlive = value; }
         }
+        public Vector2 currentPos;
+    
+
+        public Vector2 position
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
+       
+
+            }
+        }
+        public Vector2 Destination
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
 
 
+            }
+        }
 
         public TopLeft TopLeft
         {
@@ -57,7 +78,8 @@ namespace Sprint0
 
         public void Update()
         {
-           
+            currentPos.X = currentX;
+            currentPos.Y = currentY;
         }
 
 

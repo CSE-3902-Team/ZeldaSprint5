@@ -13,7 +13,7 @@ namespace Sprint0.Collision
         }
         public void HandleCollision()
         {     
-            throw new ArgumentException("Unknown Collision ", nameof(other));
+  
         }
     }
 }

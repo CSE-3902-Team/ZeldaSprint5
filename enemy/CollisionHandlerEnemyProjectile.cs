@@ -3,35 +3,31 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint0.enemy
+namespace Sprint0.Collision
 {
     class CollisionHandlerEnemyProjectile : ICollisionHandler
     {
+        private IEnemySprite enemy;
+        private ITile block;
+        private int overlap;
+        private CollisionDirections collisionDirections;
 
-        private Vector2 movement;
-        Vector2 result;
-    
-        public Vector2 currentPos;
-
-        public Player link;
-  
         Random getDistance = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
 
 
-        public CollisionHandlerEnemyProjectile(Vector2 Direction, Vector2 CurrentPos, Vector2 Destination, Player player)
+        public CollisionHandlerEnemyProjectile(IEnemySprite enemy, ITile block, CollisionDirections collisionDirections, int overlap)
         {
-            this.result = Destination;
-            this.movement = Direction;
-            this.currentPos = CurrentPos;
-            link = player;
+            this.enemy = enemy;
+            this.block = block;
+            this.overlap = overlap;
+            this.collisionDirections = collisionDirections;
 
         }
         public void HandleCollision()
         {
-            //if((link.pPosition.X>=(currentPos.X-64)&& link.pPosition.X <= (currentPos.X + 64))&& (link.pPosition.Y >= (currentPos.Y -64) && link.pPosition.Y <= (currentPos.Y + 64)))
-            //    Console.WriteLine("hit");
+            enemy.IsAlive = false;
 
         }
 

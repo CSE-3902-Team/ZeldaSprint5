@@ -65,6 +65,49 @@ namespace Sprint0.enemy
             }
             return currentFrame;
         }
+        public int goriya()
+        {
+            switch (movement.X)
+            {//make the enemies move in a random route.
+
+                case 0:
+                    if (Pos.Y< destinationY)
+                    {
+
+
+
+                        currentFrame = 0;
+
+                    }
+                    if (Pos.Y >destinationY)
+                    {
+
+                        currentFrame = 1;
+
+                    }
+                    break;
+                //moving to up down left and right
+                case 1:
+                    if (Pos.X< destinationX)
+                    {
+                        total = 4;
+                        currentFrame++;
+                        if (currentFrame >= total)
+                            currentFrame = 2;
+
+                    }
+                    if (Pos.X> destinationX)
+                    {
+                        total = 4;
+                        currentFrame++;
+                        if (currentFrame >= total)
+                            currentFrame = 2;
+
+                    }
+                    break;
+            }
+            return currentFrame;
+        }
         public int dragon()
         {
             if (Pos.X < destinationX)
