@@ -110,6 +110,7 @@ namespace Sprint0.LevelClass
 
         private void parseFields(string[] fields) 
         {
+            //Console.WriteLine(fields.ToString());
             string tileDoor;
             Vector2 position;
             string enemy;
@@ -117,8 +118,25 @@ namespace Sprint0.LevelClass
 
             tileDoor = fields[0];
             position = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2]));
-            enemy = fields[3];
-            item = fields[4];
+            if (fields.Length >= 4)
+            {
+                enemy = fields[3];
+            }
+            else 
+            {
+                enemy = "";
+            }
+
+            if (fields.Length >= 5)
+            {
+                item = fields[4];
+            }
+            else
+            {
+                item = "";
+            }
+
+
             if (doorFactory.isADoor(tileDoor))
             {
                 doorList.Add(doorFactory.CreateDoorSprite(doorFactory.getDoor(tileDoor), doorFactory.getSide(tileDoor)));
@@ -158,13 +176,14 @@ namespace Sprint0.LevelClass
             string[] fields;
             
             foreach (string file in roomFiles) {
+                //Console.WriteLine(file);
                 parser = PrepareforNewRoom(file);
                 while (parser.PeekChars(1) != null) 
                 {
                     fields = parser.ReadFields();
                     parseFields(fields);
-                    roomList.Add(new Room(doorList.ToArray(), enemyList.ToArray(), itemList.ToArray(), tileList.ToArray(), _player));
                 }
+                roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player));
             }
         }
 

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Diagnostics;
 using Sprint0.enemy;
 using Sprint0.DoorClass;
+using System;
 
 namespace Sprint0.LevelClass
 {
@@ -66,6 +67,7 @@ namespace Sprint0.LevelClass
 
             foreach (ITile currentTile in tileList) {
                 if (!currentTile.Walkable) {
+                    //Console.Write(currentTile.GetType());
                     colliderDetector.AddToList(currentTile as IBoxCollider);
                 }
             }
@@ -75,12 +77,13 @@ namespace Sprint0.LevelClass
 
 
         public void drawRoom() {
-            foreach (ADoor currentDoor in doorList) {
-                currentDoor.draw();
-            }
             foreach (ITile currentTile in tileList)
             {
                 currentTile.draw();
+            }
+            foreach (ADoor currentDoor in doorList)
+            {
+                currentDoor.draw();
             }
             foreach (AItem currentItem in itemList)
             {

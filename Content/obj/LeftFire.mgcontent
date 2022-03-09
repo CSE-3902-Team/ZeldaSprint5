@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/LeftFire.png</SourceFile>
-  <SourceTime>2022-03-02T19:03:56.670627-05:00</SourceTime>
-  <DestFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/bin/LeftFire.xnb</DestFile>
-  <DestTime>2022-03-02T20:31:26.4798783-05:00</DestTime>
+  <SourceFile>C:/Users/austi/source/repos/ZeldaGameS3/Content/LeftFire.png</SourceFile>
+  <SourceTime>2022-03-04T10:03:52.8486448-05:00</SourceTime>
+  <DestFile>C:/Users/austi/source/repos/ZeldaGameS3/Content/bin/LeftFire.xnb</DestFile>
+  <DestTime>2022-03-08T22:06:24.872209-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
