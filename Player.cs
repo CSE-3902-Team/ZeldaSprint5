@@ -3,7 +3,9 @@ using Microsoft.Xna.Framework;
 using Sprint0.PlayerClass;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using Sprint0;
+using Sprint0.Command;
+
+namespace Sprint0 { 
 
 	public class Player : IBoxCollider
 	{
@@ -16,15 +18,14 @@ using Sprint0;
         private Vector2 drawOffset;
 		private float scale;
 		private SpriteBatch _spriteBatch;
-	private Vector2 pposition;
 		private bool damaged;
-		private Queue<IProjectile> projectiles;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
 		public const float MOVE_SPEED = 5;
 		public const float ATTACK_KNOCKBACK_SPEED = 10;
 	private Color col;
 	public const int KNOCKBACK_FRAMES = 5;
+		private readonly ICommand addProjectileCommand;
 		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
 		public float Speed { get { return speed; } set { speed = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
@@ -51,7 +52,6 @@ using Sprint0;
             get { return bottomRight; }
         }
 	
-        public Queue<IProjectile> Projectiles { get { return projectiles; } }
 
 	public IState State
 		{
@@ -72,7 +72,12 @@ using Sprint0;
 			Right,
 			Idle,
 		}
-		public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile, Vector2 p,Texture2D colT)
+
+		public ICommand AddProjectileCommand
+		{
+			get { return addProjectileCommand; }
+		}
+		public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile, Vector2 p,Texture2D colT, ICommand c)
 		{
 			_state = new PlayerRightIdle(this);
 			_spriteBatch = batch;
@@ -82,11 +87,11 @@ using Sprint0;
 			attackFrames = 15;
 			damaged = false;
 			scale = 0.35f;
-			projectiles = new Queue<IProjectile>();
             topLeft = new TopLeft((int)(position.X - (src.Width * scale)/2), (int)((position.Y - (src.Height * scale)/2)), this);
             bottomRight = new BottomRight(((int)(position.X+(src.Width * scale)/2)), (int)((position.Y+(src.Height * scale)/2)), this);
 			this.colT = colT;
-		col = Color.White;
+			col = Color.White;
+			addProjectileCommand = c;
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -135,21 +140,7 @@ using Sprint0;
 			position.Y += y * speed;
 		}
 
-		public void DrawItems()
-		{
-			int size = projectiles.Count;
-			for (int x = 0; x < size; x++)
-			{
-				IProjectile projectile = projectiles.Dequeue();
-				if (projectile.IsRunning)
-				{
-					projectile.Update();
-					projectile.Draw();
-				    pposition = projectile.Position;
-					projectiles.Enqueue(projectile);
-				}
-			}
-		}
+		
 
        
 		public void Draw()
@@ -171,15 +162,8 @@ using Sprint0;
 			//_spriteBatch.Draw(colT, CollisionRectBR, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
 			_spriteBatch.End();
 
-			DrawItems();
+		
 		}
 
-
-
-	public Vector2 pPosition
-	{
-		get { return pposition; }
-		set { pposition = value; }
-	}
-
+}
 }

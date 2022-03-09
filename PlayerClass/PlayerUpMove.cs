@@ -64,9 +64,11 @@ namespace Sprint0.PlayerClass
 
 		public void UseItem(IProjectile proj)
 		{
+
 			proj.Direction = new Vector2(0, -1);
 			proj.Position = new Vector2(player.Position.X, player.Position.Y - 40);
-			player.Projectiles.Enqueue(proj);
+			player.AddProjectileCommand.LoadCommand(proj);
+			player.AddProjectileCommand.Execute();
 			player.State = new PlayerUpUseItem(player);
 		}
 

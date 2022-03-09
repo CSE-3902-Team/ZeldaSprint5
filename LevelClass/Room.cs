@@ -16,31 +16,43 @@ namespace Sprint0.LevelClass
     public class Room
     {
 
-        
 
         private ADoor[] doorList;
         private ICollision colliderDetector;
 
-        private IEnemySprite[] enemyList;
+        private readonly List<IEnemySprite> enemyList;
         private AItem[] itemList;
         private ITile[] tileList;
+        private readonly List<IProjectile> projectileList;
         private Player _player;
+
+        public List<IProjectile> ProjectileList
+        {
+            get { return projectileList; }
+        }
+
+        public ICollision ColliderDetector
+        {
+            get { return colliderDetector; }
+        }
 
         public Player Player
         {
             get { return _player; }
         }
+        
 
-        public Room( ADoor[] doorList, IEnemySprite[] enemyList, AItem[] itemList, ITile[] tileList, Player player) {
+        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player) {
             this.doorList = doorList;
             this.enemyList = enemyList;
             this.itemList = itemList;
             this.tileList = tileList;
+            projectileList = new List<IProjectile>();
             _player = player;
             colliderDetector = new SortSweep();
 
            
-            for (int x = 0; x < enemyList.Length; x++) {
+            for (int x = 0; x < enemyList.Count; x++) {
                 IBoxCollider test = (enemyList[x] as IBoxCollider);
                 int val = test.BottomRight.X;
                 colliderDetector.AddToList(enemyList[x] as IBoxCollider);
@@ -79,19 +91,38 @@ namespace Sprint0.LevelClass
                 currentEnemy.draw();
             }
 
+            foreach (IProjectile currentProjectile in projectileList)
+            {
+                currentProjectile.Draw();
+            }
+
+
             Player.Draw();
         }
 
         public void updateRoom() {
-
             foreach(IEnemySprite currentEnemy in enemyList) {
                 currentEnemy.Update();
             }
+            UpdateProjectiles();
             Player.Update();
-
             colliderDetector.HandleCollisions();
+        }
 
-
+        public void UpdateProjectiles()
+        {
+            for (int x = 0; x < projectileList.Count; x++)
+            {
+                if (!projectileList[x].IsRunning)
+                {
+                    projectileList.RemoveAt(x);
+                    x--;
+                }
+                else
+                {
+                    projectileList[x].Update();
+                }
+            }
         }
 
     }

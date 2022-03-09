@@ -4,15 +4,15 @@ using System;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialArrow : IProjectile, IBoxCollider
+    public class ProjectilePlayerBomb : IProjectile,IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
 
-        private Texture2D texture;
-        private SpriteBatch batch;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
+        private Texture2D texture;
+        private SpriteBatch batch;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
 
@@ -22,11 +22,6 @@ namespace Sprint0
         // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
 
-        public Boolean IsRunning
-        {
-            get { return isRunning; }
-            set { isRunning = value; }
-        }
         public Vector2 Position
         {
             get { return position; }
@@ -37,6 +32,11 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
+        public Boolean IsRunning
+        {
+            get { return isRunning; }
+            set { isRunning = value; }
+        }
         public TopLeft TopLeft
         {
             get { return topLeft; }
@@ -45,63 +45,46 @@ namespace Sprint0
         {
             get { return bottomRight; }
         }
-        //Vector direction should only use 0, 1, -1
-        public ProjectileSpecialArrow(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
+        public ProjectilePlayerBomb(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
             this.direction = direction;
 
-            sourceRect = new Rectangle(53, 280, 26, 14);
-            topLeft = new TopLeft((int)position.X, (int)position.Y, this);
-            bottomRight = new BottomRight((int)position.X + 40, (int)position.Y + 20, this);
-
-            rotation = 0f;
-            frame = 1;
+            sourceRect = new Rectangle(276, 192, 14, 25);
+            topLeft = new TopLeft((int)position.X, (int)position.Y,this);
+            bottomRight = new BottomRight((int)position.X + 45, (int)position.Y + 45,this);
+            frame = 0;
             isRunning = true;
-        }
-
-        public void GetRotation(Vector2 direction)
-        {
-            if (direction.X == 0 && direction.Y > 0)
-            {
-                rotation = (float)Math.PI / 2f;
-            }
-            else if (direction.X == 0 && direction.Y < 0)
-            {
-                rotation = (float)Math.PI * 3f / 2f;
-            }
-            else if (direction.X > 0 && direction.Y == 0)
-            {
-                rotation = 0f;
-            }
-            else if (direction.X < 0 && direction.Y == 0)
-            {
-                rotation = (float)Math.PI;
-            }
+            rotation = 0f;
         }
 
         public void Update()
         {
-            GetRotation(direction);
-
             if (IsRunning == true)
             {
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 30, 40);
                 frame++;
-
-                if (frame < 50)
+                if (frame < 25)
                 {
                     IsRunning = true;
-                    position.X += direction.X * 10f;
-                    position.Y += direction.Y * 10f;
-
+                    sourceRect = new Rectangle(193, 276, 14, 24);
                 }
-                else if (frame >= 50 && frame < 60)
+                else if (frame >= 25 && frame < 30)
                 {
-                    sourceRect = new Rectangle(176, 280, 15, 20);
-                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 20, 25);
+                    sourceRect = new Rectangle(206, 277, 24, 24);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
+                }
+                else if (frame >= 30 && frame < 32)
+                {
+                    sourceRect = new Rectangle(232, 276, 24, 24);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
+                }
+                else if (frame >= 32 && frame < 34)
+                {
+                    sourceRect = new Rectangle(259, 276, 24, 24);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
                 }
                 else
                 {
@@ -113,6 +96,7 @@ namespace Sprint0
             {
                 sourceRect = new Rectangle(400, 400, 0, 0);
             }
+
             UpdateCollisionBox();
 
         }
@@ -136,8 +120,12 @@ namespace Sprint0
         {
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
-            bottomRight.X = (int)position.X + 40;
-            BottomRight.Y = (int)position.Y + 20;
+            bottomRight.X = (int)position.X + 45;
+            bottomRight.Y = (int)position.Y + 45;
         }
     }
 }
+
+
+
+

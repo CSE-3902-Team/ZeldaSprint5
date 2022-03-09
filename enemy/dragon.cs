@@ -30,6 +30,13 @@ namespace Sprint0.enemy
 
         private TopLeft topLeft;
         private BottomRight botRight;
+        private bool isAlive;
+
+        public bool IsAlive
+        {
+            get { return isAlive; }
+            set { isAlive = value; }
+        }
 
         public TopLeft TopLeft
         {
@@ -52,6 +59,7 @@ namespace Sprint0.enemy
             destination.Y = 200;
             topLeft = new TopLeft(400, 200,this);
             botRight = new BottomRight(480, 300, this);
+            isAlive = true;
 
         }
 

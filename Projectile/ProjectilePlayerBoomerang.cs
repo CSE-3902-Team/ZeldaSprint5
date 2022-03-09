@@ -4,23 +4,23 @@ using System;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialBoomerang : IProjectile, IBoxCollider
+    public class ProjectilePlayerBoomerang : IProjectile,IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
 
-        private Rectangle sourceRect;
-        private Rectangle destinationRect;
-        private readonly TopLeft topLeft;
-        private readonly BottomRight bottomRight;
         private Texture2D texture;
         private SpriteBatch batch;
+        private Rectangle sourceRect;
+        private Rectangle destinationRect;
 
         private int frame;
         private float rotation;
-
         // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
+
 
         public Boolean IsRunning
         {
@@ -37,7 +37,6 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
-        
 
         public TopLeft TopLeft
         {
@@ -47,31 +46,33 @@ namespace Sprint0
         {
             get { return bottomRight; }
         }
-        public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
+
+        public ProjectilePlayerBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
             this.direction = direction;
 
-            sourceRect = new Rectangle(137, 280, 12, 19);
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
-            bottomRight = new BottomRight((int)position.X + 24, (int)position.Y + 28, this);
+            bottomRight = new BottomRight((int)position.X + 24, (int)position.Y + 38, this);
 
-            frame = 0;
+            sourceRect = new Rectangle(97, 280, 12, 19);
+
             isRunning = true;
             rotation = 0f;
+            frame = 0;
         }
 
         public void GetRotation(Vector2 direction)
         {
             if (direction.X == 0 && direction.Y > 0)
             {
-                rotation = (float)Math.PI * 3f / 2f;
+                rotation = (float)Math.PI / 2f;
             }
             else if (direction.X == 0 && direction.Y < 0)
             {
-                rotation = (float)Math.PI / 2f;
+                rotation = (float)Math.PI * 3f / 2f;
             }
             else if (direction.X > 0 && direction.Y == 0)
             {
@@ -82,6 +83,7 @@ namespace Sprint0
                 rotation = (float)Math.PI;
             }
         }
+
         public void Update()
         {
             GetRotation(direction);
@@ -94,45 +96,44 @@ namespace Sprint0
                 if (frame < 10)
                 {
                     IsRunning = true;
-                    position.X += direction.X * 10f;
-                    position.Y += direction.Y * 10f;
+                    position.X += direction.X * 5f;
+                    position.Y += direction.Y * 5f;
                 }
                 else if (frame >= 10 && frame < 20)
                 {
-                    position.X += direction.X * 10f;
-                    position.Y += direction.Y * 10f;
-                    sourceRect = new Rectangle(147, 280, 12, 19);
+                    position.X += direction.X * 5f;
+                    position.Y += direction.Y * 5f;
+                    sourceRect = new Rectangle(107, 280, 12, 19);
                 }
                 else if (frame >= 20 && frame < 30)
                 {
-                    position.X += direction.X * 5f;
-                    position.Y += direction.Y * 5f;
-                    sourceRect = new Rectangle(161, 280, 12, 19);
+                    position.X += direction.X * 3f;
+                    position.Y += direction.Y * 3f;
+                    sourceRect = new Rectangle(124, 280, 12, 19);
                 }
                 else if (frame >= 30 && frame < 35)
                 {
                     position.X += direction.X * 0f;
                     position.Y += direction.Y * 0f;
-                    sourceRect = new Rectangle(137, 280, 12, 19);
+                    sourceRect = new Rectangle(97, 280, 12, 19);
                 }
                 else if (frame >= 35 && frame < 45)
                 {
-                    position.X += direction.X * -5f;
-                    position.Y += direction.Y * -5f;
-                    sourceRect = new Rectangle(147, 280, 12, 19);
+                    position.X += direction.X * -3f;
+                    position.Y += direction.Y * -3f;
+                    sourceRect = new Rectangle(107, 280, 12, 19);
                 }
                 else if (frame >= 45 && frame < 55)
                 {
-                    position.X += direction.X * -10f;
-                    position.Y += direction.Y * -10f;
-                    sourceRect = new Rectangle(161, 280, 12, 19);
-
+                    position.X += direction.X * -5f;
+                    position.Y += direction.Y * -5f;
+                    sourceRect = new Rectangle(122, 280, 12, 19);
                 }
                 else if (frame >= 55 && frame < 65)
                 {
-                    position.X += direction.X * -10f;
-                    position.Y += direction.Y * -10f;
-                    sourceRect = new Rectangle(137, 280, 12, 19);
+                    position.X += direction.X * -5f;
+                    position.Y += direction.Y * -5f;
+                    sourceRect = new Rectangle(97, 280, 12, 19);
                 }
                 else
                 {
@@ -169,8 +170,13 @@ namespace Sprint0
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
             bottomRight.X = (int)position.X + 24;
-            BottomRight.Y = (int)position.Y + 28;
+            BottomRight.Y = (int)position.Y + 38;
         }
 
     }
+
+
+
 }
+
+

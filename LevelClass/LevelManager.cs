@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.VisualBasic.FileIO;
 using System.IO;
 using System;
+using Sprint0.Command;
 
 namespace Sprint0.LevelClass
 {
@@ -49,7 +50,10 @@ namespace Sprint0.LevelClass
             get { return _player; }
         }
 
-
+        public Room CurrentRoom
+        {
+            get { return roomList[currentRoom]; }
+        }
 
         //these need to be gotten rid of
 
@@ -76,7 +80,8 @@ namespace Sprint0.LevelClass
 
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
-            _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(100, 200), Content.Load<Texture2D>("solid navy tile"));
+            ICommand command = new AddProjectileToLevel(this);
+            _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(200, 200), Content.Load<Texture2D>("solid navy tile"), command);
 
 
 

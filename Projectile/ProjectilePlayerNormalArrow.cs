@@ -4,17 +4,17 @@ using System;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialBoomerang : IProjectile, IBoxCollider
+    public class ProjectilePlayerNormalArrow : IProjectile, IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
 
+        private Texture2D texture;
+        private SpriteBatch batch;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
-        private Texture2D texture;
-        private SpriteBatch batch;
 
         private int frame;
         private float rotation;
@@ -37,8 +37,6 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
-        
-
         public TopLeft TopLeft
         {
             get { return topLeft; }
@@ -47,31 +45,32 @@ namespace Sprint0
         {
             get { return bottomRight; }
         }
-        public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
+        //Vector direction should only use 0, 1, -1
+        public ProjectilePlayerNormalArrow(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
             this.direction = direction;
 
-            sourceRect = new Rectangle(137, 280, 12, 19);
+            sourceRect = new Rectangle(14, 282, 26, 14);
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
-            bottomRight = new BottomRight((int)position.X + 24, (int)position.Y + 28, this);
+            bottomRight = new BottomRight((int)position.X + 45, (int)position.Y + 45, this);
 
-            frame = 0;
-            isRunning = true;
             rotation = 0f;
-        }
+            isRunning = true;
+            frame = 1;
 
+        }
         public void GetRotation(Vector2 direction)
         {
             if (direction.X == 0 && direction.Y > 0)
             {
-                rotation = (float)Math.PI * 3f / 2f;
+                rotation = (float)Math.PI / 2f;
             }
             else if (direction.X == 0 && direction.Y < 0)
             {
-                rotation = (float)Math.PI / 2f;
+                rotation = (float)Math.PI * 3f / 2f;
             }
             else if (direction.X > 0 && direction.Y == 0)
             {
@@ -88,51 +87,20 @@ namespace Sprint0
 
             if (IsRunning == true)
             {
-                destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
+                destinationRect = new Rectangle((int)position.X, (int)position.Y, 40, 20);
                 frame++;
 
-                if (frame < 10)
+                if (frame < 50)
                 {
                     IsRunning = true;
-                    position.X += direction.X * 10f;
-                    position.Y += direction.Y * 10f;
-                }
-                else if (frame >= 10 && frame < 20)
-                {
-                    position.X += direction.X * 10f;
-                    position.Y += direction.Y * 10f;
-                    sourceRect = new Rectangle(147, 280, 12, 19);
-                }
-                else if (frame >= 20 && frame < 30)
-                {
                     position.X += direction.X * 5f;
                     position.Y += direction.Y * 5f;
-                    sourceRect = new Rectangle(161, 280, 12, 19);
-                }
-                else if (frame >= 30 && frame < 35)
-                {
-                    position.X += direction.X * 0f;
-                    position.Y += direction.Y * 0f;
-                    sourceRect = new Rectangle(137, 280, 12, 19);
-                }
-                else if (frame >= 35 && frame < 45)
-                {
-                    position.X += direction.X * -5f;
-                    position.Y += direction.Y * -5f;
-                    sourceRect = new Rectangle(147, 280, 12, 19);
-                }
-                else if (frame >= 45 && frame < 55)
-                {
-                    position.X += direction.X * -10f;
-                    position.Y += direction.Y * -10f;
-                    sourceRect = new Rectangle(161, 280, 12, 19);
 
                 }
-                else if (frame >= 55 && frame < 65)
+                else if (frame >= 50 && frame < 60)
                 {
-                    position.X += direction.X * -10f;
-                    position.Y += direction.Y * -10f;
-                    sourceRect = new Rectangle(137, 280, 12, 19);
+                    sourceRect = new Rectangle(176, 280, 15, 20);
+                    destinationRect = new Rectangle((int)position.X, (int)position.Y, 20, 25);
                 }
                 else
                 {
@@ -168,8 +136,8 @@ namespace Sprint0
         {
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
-            bottomRight.X = (int)position.X + 24;
-            BottomRight.Y = (int)position.Y + 28;
+            bottomRight.X = (int)position.X + 45;
+            BottomRight.Y = (int)position.Y + 45;
         }
 
     }

@@ -19,33 +19,57 @@ namespace Sprint0.Collision
             float xDirection;
             float yDirection;
 
+            //Check for Friendly fire 
+            if (projectile is ProjectilePlayerBoomerang)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerSpecialBoomerang)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerBomb)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerFireball)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerNormalArrow)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerSpecialArrow)
+            {
+                return;
+            }
+
             switch (collisionDirections)
             {
                 case CollisionDirections.North:
-                    yDirection = 1;
-                    xDirection = 0;
+                    player.DamageLink(Player.Directions.Down);
+
                     break;
                 case CollisionDirections.East:
-                    yDirection = 0;
-                    xDirection = -1;
+                    player.DamageLink(Player.Directions.Left);
+
                     break;
                 case CollisionDirections.South:
-                    yDirection = -1;
-                    xDirection = 0;
+                    player.DamageLink(Player.Directions.Up);
                     break;
                 case CollisionDirections.West:
-                    yDirection = 0;
-                    xDirection = 1;
+                    player.DamageLink(Player.Directions.Right);
                     break;
                 default:
-                    yDirection = 0;
-                    xDirection = 0;
                     break;
             }
-
-            Console.WriteLine("yDirection=" + yDirection);
             projectile.IsRunning = false;
-            // player.State = new PlayerInjuredState(xDirection, yDirection);
         }
     }
 }

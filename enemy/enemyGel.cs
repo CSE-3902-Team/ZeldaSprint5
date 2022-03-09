@@ -28,6 +28,14 @@ namespace Sprint0.enemy
         private TopLeft topLeft;
         private BottomRight botRight;
 
+        private bool isAlive;
+
+        public bool IsAlive
+        {
+            get { return isAlive; }
+            set { isAlive = value; }
+        }
+
         public TopLeft TopLeft { get { return topLeft; } }
         public BottomRight BottomRight { get { return botRight; } }
         public enemyGel(Texture2D texture, SpriteBatch batch, Vector2 location,Player player)
@@ -43,8 +51,9 @@ namespace Sprint0.enemy
             link = player;
             topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
             botRight = new BottomRight((int)currentPos.X + 64, (int)currentPos.Y + 64, this);
+            isAlive = true;
 
-    }
+        }
 
         public void Update()
         {

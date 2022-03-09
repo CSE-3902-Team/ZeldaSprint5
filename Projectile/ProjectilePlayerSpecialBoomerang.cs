@@ -4,7 +4,7 @@ using System;
 
 namespace Sprint0
 {
-    public class ProjectileSpecialBoomerang : IProjectile, IBoxCollider
+    public class ProjectilePlayerSpecialBoomerang : IProjectile, IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
@@ -47,7 +47,7 @@ namespace Sprint0
         {
             get { return bottomRight; }
         }
-        public ProjectileSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
+        public ProjectilePlayerSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;
             this.batch = batch;
