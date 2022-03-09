@@ -10,6 +10,7 @@ using System.Linq;
 using System.Diagnostics;
 using Sprint0.enemy;
 using Sprint0.DoorClass;
+using System;
 
 namespace Sprint0.LevelClass
 {
@@ -17,7 +18,6 @@ namespace Sprint0.LevelClass
     {
 
 
-        private ITile roomWalls;
         private ADoor[] doorList;
         private ICollision colliderDetector;
 
@@ -41,11 +41,9 @@ namespace Sprint0.LevelClass
         {
             get { return _player; }
         }
-
         
 
-        public Room(ITile roomWalls, ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player) {
-            this.roomWalls = roomWalls;
+        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player) {
             this.doorList = doorList;
             this.enemyList = enemyList;
             this.itemList = itemList;
@@ -68,7 +66,10 @@ namespace Sprint0.LevelClass
 
 
             foreach (ITile currentTile in tileList) {
-                colliderDetector.AddToList(currentTile as IBoxCollider);
+                if (!currentTile.Walkable) {
+                    //Console.Write(currentTile.GetType());
+                    colliderDetector.AddToList(currentTile as IBoxCollider);
+                }
             }
 
             colliderDetector.AddToList(_player);
@@ -76,13 +77,13 @@ namespace Sprint0.LevelClass
 
 
         public void drawRoom() {
-            roomWalls.draw();
-            foreach (ADoor currentDoor in doorList) {
-                currentDoor.draw();
-            }
             foreach (ITile currentTile in tileList)
             {
                 currentTile.draw();
+            }
+            foreach (ADoor currentDoor in doorList)
+            {
+                currentDoor.draw();
             }
             foreach (AItem currentItem in itemList)
             {

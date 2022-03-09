@@ -49,7 +49,7 @@ tile with square in middle,512,320,
 solid blue tile,576,320,
 solid blue tile,640,320,
 solid blue tile,704,320,
-solid blue tile,768,320,map
+solid blue tile,768,320,,map
 solid blue tile,832,320,gel
 solid blue tile,128,384,
 solid blue tile,192,384,
