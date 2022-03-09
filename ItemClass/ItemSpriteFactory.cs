@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Sprint0.ItemClass
@@ -11,6 +12,22 @@ namespace Sprint0.ItemClass
 		private Texture2D itemSheet;
 		private SpriteBatch batch;
 		private Vector2 position;
+
+		public static Dictionary<string, Item> dict = new Dictionary<string, Item>() {
+			{"compass", Item.Compass},
+			{"map", Item.Map},
+			{"key", Item.Key},
+			{"heartContainer", Item.HeartContainer},
+			{"triforcePiece", Item.TriforcePiece},
+			{"woodenBoomerang", Item.WoodenBoomerang},
+			{"bow", Item.Bow},
+			{"heart", Item.Heart},
+			{"rupee", Item.Rupee},
+			{"arrow", Item.Arrow},
+			{"bomb", Item.Bomb},
+			{"fairy", Item.Fairy},
+			{"clock", Item.Clock}
+		};
 
 		public enum Item{
 			Compass				= 0,
@@ -50,6 +67,16 @@ namespace Sprint0.ItemClass
 		{
 			itemSheet = content.Load<Texture2D>("sprint-2-items");
 
+		}
+
+		public ItemSpriteFactory.Item GetItem(string key)
+		{
+			Item result;
+			if (dict.TryGetValue(key, out result))
+			{
+				return result;
+			}
+			throw new ArgumentException(key + " is not in dictionary");
 		}
 
 		public AItem CreateItemSprite(Item itemNum, Vector2 pos)

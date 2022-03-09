@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Sprint0.enemy
@@ -12,8 +13,17 @@ namespace Sprint0.enemy
 		private Texture2D dragonTexture;
 		private Texture2D npcTexture; 
 		private SpriteBatch batch;
-		private Vector2 position;
 		private Player _player;
+
+		private static Dictionary<string, Enemy> dict = new Dictionary<string, Enemy>() {
+			{"gel", Enemy.Gel},
+			{"goriya", Enemy.Goriya},
+			{"bat", Enemy.Bat},
+			{"hand", Enemy.Hand},
+			{"skeleton", Enemy.Skeleton},
+			{"oldMan", Enemy.OldMan},
+			{"dragon", Enemy.BossDragon}
+		};
 
 		public enum Enemy
 		{
@@ -54,10 +64,18 @@ namespace Sprint0.enemy
 			dragonTexture = content.Load<Texture2D>("dragon");
 		}
 
-		public IEnemySprite CreateItemSprite(Enemy itemNum, Vector2 pos)
+		public EnemyFactory.Enemy GetEnemy(string key)
+        {
+			Enemy result;
+            if (dict.TryGetValue(key, out result)){
+				return result;
+			}
+			throw new ArgumentException(key + " is not in dictionary");
+        }
+
+        public IEnemySprite CreateEnemySprite(Enemy enemyNum, Vector2 pos)
 		{
-			position = pos;
-			switch (itemNum)
+			switch (enemyNum)
 			{
 				case Enemy.Gel:
 					return new enemyGel(enemyTexture, batch, pos, _player);

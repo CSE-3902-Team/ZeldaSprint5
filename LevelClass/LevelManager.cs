@@ -11,13 +11,16 @@ using System.Diagnostics;
 using Sprint0.enemy;
 using Sprint0.DoorClass;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.VisualBasic.FileIO;
+using System.IO;
+using System;
 
 namespace Sprint0.LevelClass
 {
 	public class LevelManager
 	{
 		private SpriteBatch batch;
-		private Room[] roomList;
+		private List<Room> roomList;
         private int currentRoom;
         private int numRooms;
 
@@ -27,6 +30,14 @@ namespace Sprint0.LevelClass
         private TileFactory tileFactory;
 		private Player _player;
         private Vector2 center;
+
+        private List<ADoor> doorList;
+        private List<AItem> itemList;
+        private List<IEnemySprite> enemyList;
+        private List<ITile> tileList;
+
+
+
 
         public Texture2D ProjectileTexture
         {
@@ -56,11 +67,12 @@ namespace Sprint0.LevelClass
 			itemFactory = ItemSpriteFactory.Instance;
 			doorFactory = DoorFactory.Instance;
             enemyFactory = EnemyFactory.Instance;
+            tileFactory = TileFactory.Instance;
 			batch = aBatch;
             this.center = center;
             currentRoom = 0;
             numRooms = 5;
-            roomList = new Room[numRooms];
+            roomList = new List<Room>();
 
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
@@ -73,42 +85,10 @@ namespace Sprint0.LevelClass
             itemFactory.setBatch(batch);
             doorFactory.LoadAllTextures(Content);
             doorFactory.setBatch(batch);
-            
-
-            
-
-
-            //from here down should go in load rooms
-
-            IEnemySprite[] EnemyList;
-
-            ADoor leftDoor;
-            ADoor topDoor;
-            ADoor rightDoor;
-            ADoor bottomDoor;
-            AItem item;
-            IEnemySprite enemySprite;
-            ITile tile1;
-            ITile tile2;
-            ITile roomWalls;
-
-            Vector2 temp = new Vector2(400, 200);
-            
-
-            //roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), batch, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            roomWalls = new RoomWalls(Content.Load<Texture2D>("roomwalls"), batch, center);
-
-
-
-
-
-            
-
-            
-
-
-
-
+            enemyFactory.LoadAllTextures(Content);
+            enemyFactory.initialize(batch, _player);
+            tileFactory.LoadAllTextures(Content);
+            tileFactory.setBatch(batch);
         }
 
 		public static LevelManager Instance
@@ -123,13 +103,67 @@ namespace Sprint0.LevelClass
 		{
 		}
 
+        private void parseFields(string[] fields) 
+        {
+            string tileDoor;
+            Vector2 position;
+            string enemy;
+            string item;
+
+            tileDoor = fields[0];
+            position = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2]));
+            enemy = fields[3];
+            item = fields[4];
+            if (doorFactory.isADoor(tileDoor))
+            {
+                doorList.Add(doorFactory.CreateDoorSprite(doorFactory.getDoor(tileDoor), doorFactory.getSide(tileDoor)));
+            }
+            else if(tileFactory.IsTile(tileDoor))
+            {
+                tileList.Add(tileFactory.CreateTileSprite(tileFactory.GetTile(tileDoor), position));
+            }
+            if (enemy.Length > 0) {
+                enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position));
+            }
+            if (item.Length > 0) {
+                itemList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
+            }
+        }
+
+        private TextFieldParser PrepareforNewRoom(string file) {
+            TextFieldParser parser = new TextFieldParser(file);
+            parser.TextFieldType = FieldType.Delimited;
+            parser.SetDelimiters(",");
+            parser.HasFieldsEnclosedInQuotes = false;
+            parser.TrimWhiteSpace = true;
+
+            doorList = new List<ADoor>();
+            itemList = new List<AItem>();
+            enemyList = new List<IEnemySprite>();
+            tileList = new List<ITile>();
+
+            return parser;
+    }
+
 		public void LoadRooms()
 		{
+            TextFieldParser parser;
+
+            string[] roomFiles = Directory.GetFiles(@"..\..\..\RoomCSVFiles\", "*.csv");
+            string[] fields;
             
-
-
-
+            foreach (string file in roomFiles) {
+                parser = PrepareforNewRoom(file);
+                while (parser.PeekChars(1) != null) 
+                {
+                    fields = parser.ReadFields();
+                    parseFields(fields);
+                    roomList.Add(new Room(doorList.ToArray(), enemyList.ToArray(), itemList.ToArray(), tileList.ToArray(), _player));
+                }
+            }
         }
+
+
 
         public Room StartRoom() {
             return roomList[0];
@@ -138,10 +172,12 @@ namespace Sprint0.LevelClass
 
     public Room SwitchRoom()
 		{
-            if (currentRoom < numRooms-1) {
+            if (currentRoom < roomList.Count-1) 
+            {
                 currentRoom++;
             }
-            else {
+            else 
+            {
                 currentRoom = 0;
             }
             return roomList[currentRoom];

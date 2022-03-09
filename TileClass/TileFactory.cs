@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Sprint0.TileClass
@@ -22,10 +23,26 @@ namespace Sprint0.TileClass
 		private Texture2D leftFireTexture;
 		private Texture2D rightFireTexture;
 		private Texture2D textTexture;
+		private Texture2D roomWallsTexture;
 
 		private SpriteBatch batch;
-		private Vector2 position;
-		private Player _player;
+
+		private static Dictionary<string, TileFactory.Tile> dict = new Dictionary<string, TileFactory.Tile>() {
+			{"bricks", Tile.BrickTile},
+			{"sandtile", Tile.SandTile},
+			{"silverlines", Tile.SilverLinesTile},
+			{"solid black tile", Tile.SolidBlackTile},
+			{"solid blue tile", Tile.SolidBlueTile},
+			{"solid navy tile", Tile.SolidNavyTile},
+			{"stairs", Tile.StairsTile},
+			{"statue1", Tile.StatueTile1},
+			{"statue2", Tile.StatueTile2},
+			{"tile with square in middle", Tile.tileWithSquare},
+			{"leftfire", Tile.LeftFire},
+			{"rightfire", Tile.RightFire},
+			{"textsprite", Tile.Text},
+			{"roomwalls", Tile.Walls}
+		};
 
 		public enum Tile
 		{
@@ -38,18 +55,19 @@ namespace Sprint0.TileClass
 			StairsTile = 6,
 			StatueTile1 = 7,
 			StatueTile2 = 8,
-			LeftFire = 9,
-			RightFire = 10,
-			Text = 11
+			tileWithSquare = 9,
+			LeftFire = 10,
+			RightFire = 11,
+			Text = 12,
+			Walls = 13
 
 		}
 
 		private static TileFactory instance = new TileFactory();
 
-		public void initialize(SpriteBatch aBatch, Player player)
+		public void setBatch(SpriteBatch aBatch)
 		{
 			batch = aBatch;
-			_player = player;
 		}
 
 		public static TileFactory Instance
@@ -79,13 +97,28 @@ namespace Sprint0.TileClass
 			leftFireTexture = content.Load<Texture2D>("LeftFire");
 			rightFireTexture = content.Load<Texture2D>("RightFire");
 			textTexture = content.Load<Texture2D>("textsprite");
-	}
+			roomWallsTexture = content.Load<Texture2D>("roomwalls");
 
-		public ITile CreateItemSprite(Tile itemNum, Vector2 pos)
+		}
+
+		public TileFactory.Tile GetTile(string key)
 		{
-			position = pos;
+			Tile result;
+			if (dict.TryGetValue(key, out result))
+			{
+				return result;
+			}
+			throw new ArgumentException(key + " is not in dictionary");
+		}
 
-			switch (itemNum)
+		public bool IsTile(string key) 
+		{
+			return dict.ContainsKey(key);
+		}
+
+		public ITile CreateTileSprite(Tile tileNum, Vector2 pos)
+		{
+			switch (tileNum)
 			{
 				case Tile.BrickTile:
 					return new BrickTile(bricksTexture, batch, pos);
@@ -105,12 +138,16 @@ namespace Sprint0.TileClass
 					return new StatueTile1(statue1Texture, batch, pos);
 				case Tile.StatueTile2:
 					return new StatueTile2(statue2Texture, batch, pos);
+				case Tile.tileWithSquare:
+					return new StatueTile2(tileWithSquareTexture, batch, pos);
 				case Tile.LeftFire:
 					return new LeftFire(leftFireTexture, batch, pos);
 				case Tile.RightFire:
 					return new RightFire(rightFireTexture, batch, pos);
 				case Tile.Text:
 					return new Text(textTexture, batch, pos);
+				case Tile.Walls:
+					return new RoomWalls(roomWallsTexture, batch, pos);
 				default:
 					return new BrickTile(bricksTexture, batch, pos);
 			}

@@ -18,7 +18,6 @@ namespace Sprint0.LevelClass
 
         
 
-        private ITile roomWalls;
         private ADoor[] doorList;
         private ICollision colliderDetector;
 
@@ -32,8 +31,7 @@ namespace Sprint0.LevelClass
             get { return _player; }
         }
 
-        public Room(ITile roomWalls, ADoor[] doorList, IEnemySprite[] enemyList, AItem[] itemList, ITile[] tileList, Player player) {
-            this.roomWalls = roomWalls;
+        public Room( ADoor[] doorList, IEnemySprite[] enemyList, AItem[] itemList, ITile[] tileList, Player player) {
             this.doorList = doorList;
             this.enemyList = enemyList;
             this.itemList = itemList;
@@ -65,7 +63,6 @@ namespace Sprint0.LevelClass
 
 
         public void drawRoom() {
-            roomWalls.draw();
             foreach (ADoor currentDoor in doorList) {
                 currentDoor.draw();
             }
