@@ -20,6 +20,13 @@ namespace Sprint0
         private int currentY = 200;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
+        private bool isAlive;
+
+        public bool IsAlive
+        {
+            get { return isAlive; }
+            set { isAlive = value; }
+        }
 
 
 
@@ -43,6 +50,7 @@ namespace Sprint0
             currentY = (int)location.Y;
             topLeft = new TopLeft((int)currentX, (int)currentY, this);
             bottomRight = new BottomRight((int)currentX, (int)currentY, this);
+            isAlive = true;
 
 
         }

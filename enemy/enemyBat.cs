@@ -27,6 +27,14 @@ namespace Sprint0.enemy
         private int frame;
         private TopLeft topLeft;
         private BottomRight botRight;
+        private bool isAlive;
+
+        public bool IsAlive
+        {
+            get { return isAlive; }
+            set { isAlive = value; }
+        }
+
 
         public TopLeft TopLeft
         {
@@ -53,6 +61,7 @@ namespace Sprint0.enemy
             link = player;
             topLeft = new TopLeft(400, 200, this);
             botRight= new BottomRight(440, 240, this);
+            isAlive = true;
 
         }
 

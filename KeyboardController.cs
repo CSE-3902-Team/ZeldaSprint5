@@ -11,7 +11,7 @@ namespace Sprint0 {
 	{
 		Game1 myGame;
 		Vector2 center;
-		LevelManager levelManger;
+		LevelManager levelManager;
 		//int count = 0;
 		//int enemyCount = 3;
 
@@ -23,7 +23,7 @@ namespace Sprint0 {
 		{
 			myGame = g;
 			this.center = center;
-			levelManger = LevelManager.Instance;
+			levelManager = LevelManager.Instance;
 		}
 
 		private bool HasBeenPressed(Keys key)
@@ -124,48 +124,48 @@ namespace Sprint0 {
 
 			if (kstate.IsKeyDown(Keys.W) || kstate.IsKeyDown(Keys.Up))
 			{
-				levelManger.Player.ChangeDirection(Player.Directions.Up);
+				levelManager.Player.ChangeDirection(Player.Directions.Up);
 			}
 			else if (kstate.IsKeyDown(Keys.A) || kstate.IsKeyDown(Keys.Left))
 			{
-				levelManger.Player.ChangeDirection(Player.Directions.Left);
+				levelManager.Player.ChangeDirection(Player.Directions.Left);
 			}
 			else if (kstate.IsKeyDown(Keys.S) || kstate.IsKeyDown(Keys.Down))
 			{
-				levelManger.Player.ChangeDirection(Player.Directions.Down);
+				levelManager.Player.ChangeDirection(Player.Directions.Down);
 			}
 			else if (kstate.IsKeyDown(Keys.D) || kstate.IsKeyDown(Keys.Right))
 			{
-				levelManger.Player.ChangeDirection(Player.Directions.Right);
+				levelManager.Player.ChangeDirection(Player.Directions.Right);
 			}
 			else if (AllMovementKeysUp()) {
-				levelManger.Player.ChangeDirection(Player.Directions.Idle);
+				levelManager.Player.ChangeDirection(Player.Directions.Idle);
 			}
 
 			if (kstate.IsKeyDown(Keys.Z) || kstate.IsKeyDown(Keys.N))
 			{
-				levelManger.Player.Attack();
+				levelManager.Player.Attack();
 			}
 
 			//player projectile controls
 			if (HasBeenPressed(Keys.D1))
 			{
-				levelManger.Player.UseItem(new ProjectileFireball(levelManger.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+				levelManager.Player.UseItem(new ProjectilePlayerFireball(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 			}
 			else if(HasBeenPressed(Keys.D2)) {
-				levelManger.Player.UseItem(new ProjectileBomb(levelManger.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+				levelManager.Player.UseItem(new ProjectilePlayerBomb(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 			}
 			else if(HasBeenPressed(Keys.D3)) {
-				levelManger.Player.UseItem(new ProjectileNormalArrow(levelManger.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+				levelManager.Player.UseItem(new ProjectilePlayerNormalArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 			}
 			else if(HasBeenPressed(Keys.D4)) {
-				levelManger.Player.UseItem(new ProjectileNormalBoomerang(levelManger.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+				levelManager.Player.UseItem(new ProjectilePlayerBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 			}
 			else if(HasBeenPressed(Keys.D5)) {
-				levelManger.Player.UseItem(new ProjectileSpecialArrow(levelManger.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+				levelManager.Player.UseItem(new ProjectilePlayerSpecialArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 			}		
 			else if(HasBeenPressed(Keys.D6)) {
-				levelManger.Player.UseItem(new ProjectileSpecialBoomerang(levelManger.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
+				levelManager.Player.UseItem(new ProjectilePlayerSpecialBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 			}
 		}
 

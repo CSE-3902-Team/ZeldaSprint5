@@ -20,17 +20,32 @@ namespace Sprint0.Collision
             float yDirection;
 
             //Check for Friendly fire 
-            if (projectile is ProjectileNormalBoomerang)
+            if (projectile is ProjectilePlayerBoomerang)
             {
                 return;
             }
 
-            if (projectile is ProjectileSpecialBoomerang)
+            if (projectile is ProjectilePlayerSpecialBoomerang)
             {
                 return;
             }
 
-            if (projectile is ProjectileBomb)
+            if (projectile is ProjectilePlayerBomb)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerFireball)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerNormalArrow)
+            {
+                return;
+            }
+
+            if (projectile is ProjectilePlayerSpecialArrow)
             {
                 return;
             }

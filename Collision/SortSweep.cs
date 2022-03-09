@@ -187,13 +187,19 @@ namespace Sprint0.Collision
 
         private void AssignProjectileHandler(IProjectile projectile, Object other, CollisionDirections dir, int magnitude)
         {
-            //By sorted order, projectiles will only ever interact with projectiles, items and tiles
-
             if (other is IProjectile)
             {
                 return;
             }
             else if (other is AItem)
+            {
+                return;
+            }
+            else if (other is Player)
+            {
+                return;
+            }
+            else if (other is IEnemySprite)
             {
                 return;
             }

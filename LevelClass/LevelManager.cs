@@ -160,7 +160,7 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Open, DoorFactory.Side.Right),
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Open, DoorFactory.Side.Bottom)
             };
-            IEnemySprite[] enemyList1 = new IEnemySprite[] {
+            List<IEnemySprite> enemyList1 = new List<IEnemySprite> {
                 new enemyGel(enemyTexture, batch, temp,_player),
                 new enemyGoriya(enemyTexture, batch, temp)
             };
@@ -185,7 +185,7 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Wall, DoorFactory.Side.Right),
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Wall, DoorFactory.Side.Bottom)
             };
-            IEnemySprite[] enemyList2 = new IEnemySprite[] {
+            List<IEnemySprite> enemyList2 = new List<IEnemySprite> {
                 new enemyBat(enemyTexture, batch, temp,_player),
                 new enemyHand(enemyTexture, batch, temp,_player)
             };
@@ -209,7 +209,7 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Locked, DoorFactory.Side.Right),
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Locked, DoorFactory.Side.Bottom)
             };
-            IEnemySprite[] enemyList3 = new IEnemySprite[] {
+            List<IEnemySprite> enemyList3 = new List<IEnemySprite> {
                 new enemyHand(enemyTexture, batch, temp,_player),
                 new enemySkeleton(enemyTexture, batch, temp,_player)
             };
@@ -233,7 +233,7 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Hole, DoorFactory.Side.Right),
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Hole, DoorFactory.Side.Bottom)
             };
-            IEnemySprite[] enemyList4 = new IEnemySprite[] {
+            List<IEnemySprite> enemyList4 = new List<IEnemySprite> {
                 new oldMan(npcTexture, batch, temp),
                 new bossDragon(dragonTexture, batch, temp)
             };
@@ -256,7 +256,8 @@ namespace Sprint0.LevelClass
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Closed, DoorFactory.Side.Right),
                 doorFactory.CreateDoorSprite(DoorFactory.Door.Closed, DoorFactory.Side.Bottom)
             };
-            IEnemySprite[] enemyList5 = new IEnemySprite[] {
+            List<IEnemySprite> enemyList5 = new List<IEnemySprite>
+            {
                 
             };
             AItem[] itemList5 = new AItem[] {

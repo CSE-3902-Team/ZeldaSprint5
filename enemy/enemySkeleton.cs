@@ -28,6 +28,13 @@ namespace Sprint0.enemy
 
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
+        private bool isAlive;
+
+        public bool IsAlive
+        {
+            get { return isAlive; }
+            set { isAlive = value; }
+        }
 
 
 
@@ -58,6 +65,7 @@ namespace Sprint0.enemy
             link = player;
             topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
             bottomRight = new BottomRight((int)currentPos.X+40, (int)currentPos.Y+40, this);
+            isAlive = true;
 
         }
 

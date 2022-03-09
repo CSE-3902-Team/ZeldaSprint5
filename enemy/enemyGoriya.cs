@@ -34,7 +34,13 @@ namespace Sprint0.enemy
         bool fire = false;
         private TopLeft topLeft;
         private BottomRight botRight;
+        private bool isAlive;
 
+        public bool IsAlive
+        {
+            get { return isAlive; }
+            set { isAlive = value; }
+        }
         public TopLeft TopLeft
         {
             get { return topLeft; }
@@ -53,6 +59,7 @@ namespace Sprint0.enemy
             currentY = (int)location.Y;
             topLeft = new TopLeft(400, 200, this);
             botRight = new BottomRight(440, 240, this);
+            isAlive = true;
 
         }
 
