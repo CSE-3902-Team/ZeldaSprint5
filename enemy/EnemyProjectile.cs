@@ -15,6 +15,7 @@ namespace Sprint0.enemy
         private Vector2 projectilePos;
         private TopLeft topLeft;
         private BottomRight botRight;
+        
 
 
         public TopLeft TopLeft
@@ -35,7 +36,9 @@ namespace Sprint0.enemy
         public Vector2 Position
         {
             get { return projectilePos; }
-            set { projectilePos = value; }
+            set { projectilePos = value;
+                UpdateCollisionBox();
+            }
         }
         public EnemyProjectile(Vector2 direction, Vector2 currentPos, Vector2 destination, Vector2 ProjectilePos, int frameCount, int projectileFrame)
 
@@ -54,10 +57,6 @@ namespace Sprint0.enemy
         public void Update()
         {
 
-            Console.WriteLine(projectilePos.X);
-            
-
-     
             if (FrameCount < 100)
             {
                 switch (movement.X)

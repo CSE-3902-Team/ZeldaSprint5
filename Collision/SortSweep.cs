@@ -20,8 +20,11 @@ namespace Sprint0.Collision
         }
         public void HandleCollisions()
         {
+
+
             PruneProjectilesAndItems();
             FindCollisionsX();
+            //PrintCollisions();
             ProcessCollisions();
             targets.Clear();
         }
@@ -77,6 +80,7 @@ namespace Sprint0.Collision
                         {
                             List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
                             CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                            Console.WriteLine("Result of inspecting " + targets[listInd][x].GetType() + " for collision:" + direction);
                             if (direction != CollisionDirections.None)
                             {
                                 AssignPlayerHandler(targets[listInd][handlerTarget] as Player, targets[listInd][x], direction, (int)result[1]);
@@ -180,12 +184,14 @@ namespace Sprint0.Collision
             }
             else if (other is IProjectile) 
             {
+
                 handler = new CollisionHandlerPlayerProjectile(player, other as IProjectile, dir);
             }
             else
             {
                 handler = new CollisionHandlerUnknown(other);
             }
+            Console.WriteLine("Player->"+handler.GetType()+" other="+other.GetType());
             handler.HandleCollision();
             return;
         }
@@ -198,17 +204,28 @@ namespace Sprint0.Collision
                 handler = new CollisionHandlerEnemyBlock(enemy, other as ITile, dir, magnitude);
                 handler.HandleCollision();
             }
-            else if (other is IProjectile) { 
+            else if (other is AItem)
+            {
+                return;
+            }
+            else if (other is Player)
+            {
+                return;
+            }
+            else if (other is IEnemySprite) {
+                return;
+            }
+            else if (other is IProjectile)
+            {
 
                 handler = new CollisionHandlerEnemyProjectile(enemy, other as ITile, dir, magnitude);
-
+                Console.WriteLine("Enemy->" + handler.GetType() + " other=" + other.GetType());
                 handler.HandleCollision();
-
-
             }
             else
             {
                 handler = new CollisionHandlerUnknown(other);
+                Console.WriteLine("Enemy->" + handler.GetType() + " other=" + other.GetType());
                 handler.HandleCollision();
             }
        
@@ -231,20 +248,25 @@ namespace Sprint0.Collision
             }
             else if (other is IEnemySprite)
             {
+                
                 ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
                 handler.HandleCollision();
+                Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
                 //The logic when a player projectile hit an enemy is same as hit a tile
             }
             else if (other is ITile)
             {
                 ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
                 handler.HandleCollision();
+                Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }
             else
             {
                 ICollisionHandler handler = new CollisionHandlerUnknown(other);
                 handler.HandleCollision();
+                Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }
+            
         }
 
         public void AddToList(IBoxCollider box)
@@ -323,6 +345,7 @@ namespace Sprint0.Collision
                     Console.Write(ListItem[x].GetType() + " ");
                 }
                 Console.Write("]");
+                Console.WriteLine();
                 Console.WriteLine();
             }
         }
