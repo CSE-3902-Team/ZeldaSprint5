@@ -25,6 +25,7 @@ namespace Sprint0.enemy
         public Vector2 currentPos;
         private Vector2 destination;
         public Vector2 ProjectileCurrent;
+        ICommand command;
 
         private int frame;
         private int frame1;
@@ -73,7 +74,7 @@ namespace Sprint0.enemy
             }
         }
 
-        public enemyGoriya(Texture2D texture, SpriteBatch batch, Vector2 location)
+        public enemyGoriya(Texture2D texture, SpriteBatch batch, Vector2 location, ICommand c)
         {
             Texture = texture;
             this.batch = batch;
@@ -85,6 +86,7 @@ namespace Sprint0.enemy
             isAlive = true;
             destination = location;
              fireCount =fireSomething.Next(150, 500);
+            command = c;
         }
 
         public void Update()

@@ -19,6 +19,7 @@ namespace Sprint0.enemy
         private int FireBallCurrentY = 200;
         private int FireBallCurrentY1 = 200;
         private int FireBallCurrentY2 = 200;
+        ICommand command;
 
         private Vector2 direction;
         private Vector2 currentPos;
@@ -68,7 +69,7 @@ namespace Sprint0.enemy
             }
         }
 
-        public bossDragon(Texture2D texture, SpriteBatch batch, Vector2 location)
+        public bossDragon(Texture2D texture, SpriteBatch batch, Vector2 location, ICommand c)
         {
             Texture = texture;
             this.batch = batch;
@@ -80,6 +81,7 @@ namespace Sprint0.enemy
             topLeft = new TopLeft(400, 200,this);
             botRight = new BottomRight(480, 300, this);
             isAlive = true;
+            command = c;
 
         }
 

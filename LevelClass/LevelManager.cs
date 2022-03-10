@@ -36,6 +36,7 @@ namespace Sprint0.LevelClass
         private List<AItem> itemList;
         private List<IEnemySprite> enemyList;
         private List<ITile> tileList;
+        ICommand command;
 
 
 
@@ -80,7 +81,7 @@ namespace Sprint0.LevelClass
 
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
-            ICommand command = new AddProjectileToLevel(this);
+            
             _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(200, 200), Content.Load<Texture2D>("solid navy tile"), command);
 
 
@@ -106,7 +107,8 @@ namespace Sprint0.LevelClass
 
 		private LevelManager()
 		{
-		}
+            command = new AddProjectileToLevel(this);
+        }
 
         private void parseFields(string[] fields) 
         {
@@ -147,7 +149,7 @@ namespace Sprint0.LevelClass
                 tileList.Add(tileFactory.CreateTileSprite(tileFactory.GetTile(tileDoor), position));
             }
             if (enemy.Length > 0) {
-                enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position1));
+                enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position1, command));
             }
             if (item.Length > 0) {
                 itemList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));

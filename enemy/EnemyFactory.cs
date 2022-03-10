@@ -43,6 +43,7 @@ namespace Sprint0.enemy
 		{
 			batch = aBatch;
 			_player = player;
+
 		}
 
 		public static EnemyFactory Instance
@@ -73,14 +74,14 @@ namespace Sprint0.enemy
 			throw new ArgumentException(key + " is not in dictionary");
         }
 
-        public IEnemySprite CreateEnemySprite(Enemy enemyNum, Vector2 pos)
+        public IEnemySprite CreateEnemySprite(Enemy enemyNum, Vector2 pos,ICommand addcommand)
 		{
 			switch (enemyNum)
 			{
 				case Enemy.Gel:
 					return new enemyGel(enemyTexture, batch, pos, _player);
 				case Enemy.Goriya:
-					return new enemyGoriya(enemyTexture, batch, pos);
+					return new enemyGoriya(enemyTexture, batch, pos, addcommand);
 				case Enemy.Bat:
 					return new enemyBat(enemyTexture, batch, pos, _player);
 				case Enemy.Hand:
@@ -90,7 +91,7 @@ namespace Sprint0.enemy
 				case Enemy.OldMan:
 					return new oldMan(npcTexture, batch, pos);
 				case Enemy.BossDragon:
-					return new bossDragon(dragonTexture, batch, pos);
+					return new bossDragon(dragonTexture, batch, pos, addcommand);
 				default:
 					return new enemyGel(enemyTexture, batch, pos, _player);
 			}
