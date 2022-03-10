@@ -3,54 +3,63 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sprint0.enemy
+namespace Sprint0.Collision
 {
     class CollisionHandlerEnemyBlock:ICollisionHandler
     {
-      
-     
-        private Vector2 direction;
-        public Vector2 currentPos;
-        private Vector2 destination;
-        public Vector2 result;
-        Rectangle destinationRectangle;
-        Random getDistance = new Random((int)DateTime.Now.Ticks);
-        Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
-        Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
+
+
+        private IEnemySprite enemy;
+        private ITile block;
+        private int overlap;
+        private CollisionDirections collisionDirections;
         public Vector2 Pos
         {
             get { return Pos; }
             set { }
         }
-        public CollisionHandlerEnemyBlock(Vector2 Direction, Vector2 CurrentPos,  Vector2 Destination)
+        public CollisionHandlerEnemyBlock(IEnemySprite enemy, ITile block, CollisionDirections collisionDirections, int overlap)
         {
-            this.destination = Destination;
-            this.direction = Direction;
-            this.currentPos = CurrentPos;
-       
+            this.enemy = enemy;
+            this.block = block;
+            this.overlap = overlap;
+            this.collisionDirections = collisionDirections;
         }
         public void HandleCollision()
         {
 
-    
+            float xDirection;
+            float yDirection;
 
-        }
-        public Vector2 AvoidCollision()
-        {
-            if (destinationRectangle.Right == 790 || (destinationRectangle.Bottom == 500)|| destinationRectangle.Top==130||destinationRectangle.Left==140)
+            switch (collisionDirections)
             {
-                destination.X = currentPos.X;
-                destination.Y=currentPos.Y;
-                Console.WriteLine("yes");
-                
+                case CollisionDirections.North:
+                    yDirection = -1;
+                    xDirection = 0;
+                    break;
+                case CollisionDirections.East:
+                    yDirection = 0;
+                    xDirection = 1;
+                    break;
+                case CollisionDirections.South:
+                    yDirection = 1;
+                    xDirection = 0;
+                    break;
+                case CollisionDirections.West:
+                    yDirection = 0;
+                    xDirection = -1;
+                    break;
+                default:
+                    yDirection = 0;
+                    xDirection = 0;
+                    break;
             }
-            return destination;
-        }
-        public void UpdateCollisionBox()
-        {
-             destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
+
+            Console.WriteLine("a"+ yDirection);
+            enemy.Destination = new Vector2(enemy.position.X + 5*(xDirection * (float)overlap), enemy.position.Y + 5*(yDirection * (float)overlap));
 
         }
+    
     }
     }
 

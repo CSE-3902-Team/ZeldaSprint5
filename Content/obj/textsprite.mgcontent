@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/textsprite.png</SourceFile>
-  <SourceTime>2022-03-02T19:50:15.6560088-05:00</SourceTime>
-  <DestFile>C:/Users/tingy/source/repos/ZeldaGame12/Content/bin/textsprite.xnb</DestFile>
-  <DestTime>2022-03-02T20:31:27.7295741-05:00</DestTime>
+  <SourceFile>C:/Users/austi/source/repos/ZeldaGameS3/Content/textsprite.png</SourceFile>
+  <SourceTime>2022-03-04T10:03:52.8735775-05:00</SourceTime>
+  <DestFile>C:/Users/austi/source/repos/ZeldaGameS3/Content/bin/textsprite.xnb</DestFile>
+  <DestTime>2022-03-08T22:06:27.387007-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

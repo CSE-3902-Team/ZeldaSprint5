@@ -35,7 +35,26 @@ namespace Sprint0.enemy
             get { return isAlive; }
             set { isAlive = value; }
         }
+        public Vector2 position
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
+                UpdateCollisionBox();
 
+            }
+        }
+        public Vector2 Destination
+        {
+            get { return destination; }
+            set
+            {
+                destination = value;
+
+
+            }
+        }
         public TopLeft TopLeft { get { return topLeft; } }
         public BottomRight BottomRight { get { return botRight; } }
         public enemyGel(Texture2D texture, SpriteBatch batch, Vector2 location,Player player)
@@ -57,28 +76,36 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-            MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
-            NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-            CollisionHandlerEnemyProjectile temp = new CollisionHandlerEnemyProjectile(direction, currentPos, destination, link);
-
-            if (frame == 5)
+            if (isAlive)
             {
-              
-                currentFrame = action.frameReturn();
-                frame = 0;
+                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
+                NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
+
+
+                if (frame == 5)
+                {
+
+                    currentFrame = action.frameReturn();
+                    frame = 0;
+                }
+
+
+                currentPos = move.Move();
+
+                direction = makeNextMove.RollingDice1();
+
+                destination = makeNextMove.RollingDice();
+
+
+
+                frame++;
             }
-
-            temp.HandleCollision();
-            currentPos = move.Move();
-
-            direction = makeNextMove.RollingDice1();
-
-            destination = makeNextMove.RollingDice();
-
-
-
-            frame++;
+            else
+            {
+                currentPos.X = 0;
+                currentPos.Y = 0;
+            }
             UpdateCollisionBox();
 
 
@@ -90,23 +117,35 @@ namespace Sprint0.enemy
 
             Vector2 temp = new Vector2();
         int row = currentFrame;
+            if (isAlive)
+            {
+                Rectangle sourceRectangle = new Rectangle(8 * row + 2, 11, 8, 16);
+                Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
 
-        Rectangle sourceRectangle = new Rectangle(8 * row +2, 11, 8, 16);
-        Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
+                batch.Begin();
+                batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
 
-        batch.Begin();
-        batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-     
-        batch.End();
-       
+                batch.End();
+            }
             return temp;
     }
         private void UpdateCollisionBox()
         {
-            topLeft.X = (int)currentPos.X;
-            topLeft.Y = (int)currentPos.Y;
-            botRight.X = (int)currentPos.X + 64;
-            botRight.Y = (int)currentPos.Y + 64;
+            if (isAlive)
+            {
+                topLeft.X = (int)currentPos.X;
+                topLeft.Y = (int)currentPos.Y;
+                botRight.X = (int)currentPos.X + 40;
+                botRight.Y = (int)currentPos.Y + 40;
+            }
+            else
+            {
+                topLeft.X = 0;
+                topLeft.Y = 0;
+                botRight.X = 0;
+                botRight.Y = 0;
+
+            }
         }
 
 

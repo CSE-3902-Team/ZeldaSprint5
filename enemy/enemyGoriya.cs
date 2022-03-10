@@ -12,29 +12,31 @@ namespace Sprint0.enemy
         public Texture2D Texture;
 
         private int currentFrame;
-        private int total;
+
         private SpriteBatch batch;
-        Random getDistance = new Random((int)DateTime.Now.Ticks);
-        Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
-        Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
-        private int currentX;
-        private int currentY;
-        private int pCurrentX;
-        private int pCurrentY;
-        private int randomNum;
-        private int Axis;
-        private int flip;
-        int x = 400;
-        int y = 200;
+        Random fireSomething = new Random((int)DateTime.Now.Ticks);
+        private int fireCount;
+   
+
+        private Vector2 pCurrentPos;
+        private int projectileFrame = 0;
+
+        private Vector2 direction;
+        public Vector2 currentPos;
+        private Vector2 destination;
+        public Vector2 ProjectileCurrent;
+
         private int frame;
         private int frame1;
         private int frame2;
-        private int currentFrame1 = 0;
+     
         bool flipHorizontal = false;
         bool fire = false;
         private TopLeft topLeft;
         private BottomRight botRight;
         private bool isAlive;
+
+
 
         public bool IsAlive
         {
@@ -50,202 +52,129 @@ namespace Sprint0.enemy
         {
             get { return botRight; }
         }
+        public Vector2 position
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
+                UpdateCollisionBox();
+
+            }
+        }
+        public Vector2 Destination
+        {
+            get { return destination; }
+            set
+            {
+                destination= value;
+
+
+            }
+        }
+
         public enemyGoriya(Texture2D texture, SpriteBatch batch, Vector2 location)
         {
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
-            currentX = (int)location.X;
-            currentY = (int)location.Y;
+            currentPos.X = (int)location.X;
+            currentPos.Y = (int)location.Y;
             topLeft = new TopLeft(400, 200, this);
             botRight = new BottomRight(440, 240, this);
             isAlive = true;
-
+            destination = location;
+             fireCount =fireSomething.Next(150, 500);
         }
 
         public void Update()
         {
-            // the goriya will fire every 210 frames, and reset frame counts
-            if (frame1 == 210)
-            {
-                fire = true;
-                pCurrentX = currentX;
-                pCurrentY = currentY;
-                frame1 = 0;
-                frame2 = 0;
-            }
-            //every 5 frames, display next pos instead of every frame
-            if (frame == 5)
-            {
-                switch (Axis)
-                {//make the enemies move in a random route.
-
-                    case 0:
-                        if (currentY < y)
-                        {
-
-
-
-                            currentFrame = 0;
-
-                        }
-                        if (currentY > y)
-                        {
-
-                            currentFrame = 1;
-
-                        }
-                        break;
-                        //moving to up down left and right
-                    case 1:
-                        if (currentX < x)
-                        {
-                            total = 4;
-                            currentFrame++;
-                            if (currentFrame >= total)
-                                currentFrame = 2;
-
-                        }
-                        if (currentX > x)
-                        {
-                            total = 4;
-                            currentFrame++;
-                            if (currentFrame >= total)
-                                currentFrame = 2;
-
-                        }
-                        break;
-                }
-                frame = 0;
-            }
-            if (!fire)
-            {
-                switch (Axis)
+            if (isAlive) {
+                // the goriya will fire every 210 frames, and reset frame counts
+                if (frame1 == fireCount)
                 {
-
-                    case 0:
-                        if (currentY < y)
-
-                            currentY++;
-                        else if (currentY > y)
-                            currentY--;
-
-                        break;
-                    case 1:
-                        if (currentX < x)
-                        {
-                            currentX++;
-                            flipHorizontal = false;
-                        }
-                        else if (currentX > x)
-                        {
-                            currentX--;
-                            flipHorizontal = true;
-                        }
-                        break;
-
+                    fire = true;
+                    pCurrentPos.X = currentPos.X;
+                    pCurrentPos.Y = currentPos.Y;
+                    frame1 = 0;
+                    frame2 = 0;
                 }
-                frame1++;
-            }
-            // fire projectile here, this is for the forward part of projectile, since it's boomerang, it will fly back.
+                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
+                EnemyProjectile proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
+
+                direction = makeNextMove.RollingDice1();
+
+                destination = makeNextMove.RollingDice();
+                MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
+
+                //every 5 frames, display next pos instead of every frame
+                if (frame == 5)
+                {
+                    currentFrame = action.goriya();
+
+                    frame = 0;
+                }
+
+                if (!fire)
+                {
+                    switch (direction.X)
+                    {
+
+                        case 1:
+                            if (currentPos.X < destination.X)
+                            {
+
+                                flipHorizontal = false;
+                            }
+                            else if (currentPos.X > destination.X)
+                            {
+
+                                flipHorizontal = true;
+                            }
+                            break;
+                        default:
+                            break;
+
+                    }
+                    currentPos = move.Move();
+
+                    direction = makeNextMove.RollingDice1();
+
+                    destination = makeNextMove.RollingDice();
+                    frame1++;
+                }
+                else
+                {
+                    frame2++;
+
+                    projectileFrame = proj.ProjectileFrameChange();
+                    pCurrentPos = proj.GoriyaFire();
+
+
+                    // fire projectile here, this is for the forward part of projectile, since it's boomerang, it will fly back.
+
+                    if (frame2 == 200)
+                        fire = false;
+                }
+
+
+
+
+
+
+                //when it reaches the destination set from previous random call, call random for next movement
+
+
+                frame++;
+     
+                    }
             else
             {
-                frame2++;
-                if (frame == 3)
-                {
-                    currentFrame1++;
-                    if (currentFrame1 > 2)
-                        currentFrame1 = 0;
-                }
-                if (frame2 < 100)
-                {
-                    switch (Axis)
-                    {
-
-                        case 0:
-                            if (currentY < y)
-
-                                pCurrentY+=2;
-                            else if (currentY > y)
-                                pCurrentY-=2;
-
-                            break;
-                        case 1:
-                            if (currentX < x)
-                            {
-                                pCurrentX+=2;
-                            }
-                            else if (currentX > x)
-                            {
-                                pCurrentX-=2;
-                            }
-                            break;
-                    }
-                }
-                //after the boomerang reaches the destination, it will fly back, similar logic as above, but the projectile's y and x are decreasing this time
-                if (frame2 >= 100)
-                {
-                    switch (Axis)
-                    {
-
-                        case 0:
-                            if (currentY < y)
-
-                                pCurrentY-=2;
-                            else if (currentY > y)
-                                pCurrentY+=2;
-
-                            break;
-                        case 1:
-                            if (currentX < x)
-                            {
-                                pCurrentX-=2;
-                            }
-                            else if (currentX > x)
-                            {
-                                pCurrentX+=2;
-                            }
-                            break;
-                    }
-                }
-                if (frame2 == 200)
-                    fire = false;
-
+                currentPos.X = 0;
+                currentPos.Y = 0;
             }
-
-           //when it reaches the destination set from previous random call, call random for next movement
-                if (currentX == x || currentY == y)
-                {
-                   
-                    randomNum = getDistance.Next(50, 100);
-                   Axis = coinFlipForAxis.Next(0, 2);
-                    flip = coinFlipForDirection.Next(0, 2);
-
-                    switch (Axis)
-                    {
-
-                        case 0:
-                            if (flip == 0)
-                                x = currentX + randomNum;
-                            else
-                                x = currentX - randomNum;
-                            break;
-                        case 1:
-                            if (flip == 1)
-                                y = currentY + randomNum;
-                            else
-                                y = currentY - randomNum;
-                            break;
-                    }
-           
-
-            }
-
-         
-
-            frame++;
             UpdateCollisionBox();
-
         }
 
 
@@ -253,39 +182,41 @@ namespace Sprint0.enemy
             {
                 Vector2 temp = new Vector2();
                 Vector2 origin = new Vector2(0, 0);
-                Vector2 location = new Vector2(currentX, currentY);
+                Vector2 location = new Vector2(currentPos.X, currentPos.Y);
                 int row = currentFrame;
-                int row1 = currentFrame1;
+                int row1 = projectileFrame;
 
                 Rectangle sourceRectangle = new Rectangle(16 * row + 222, 11, 16, 16);
                 Rectangle sourceRectangleProjectile = new Rectangle(8 * row1 + 289, 11, 8, 16);
-                Rectangle destinationRectangle = new Rectangle(currentX, currentY, 40, 40);
-                Vector2 location1 = new Vector2(pCurrentX, pCurrentY);
+                Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 40, 40);
+                Vector2 location1 = new Vector2(pCurrentPos.X, pCurrentPos.Y);
 
-            
+            if (isAlive)
+            {
                 batch.Begin();
-           
-               if(fire)
+
+                if (fire)
                     batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
-                    if (flipHorizontal)
-                        batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
+                if (flipHorizontal)
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
 
-                    else
-                        batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
+                else
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
 
-              
+
                 batch.End();
-                temp.X = currentX;
-                temp.Y = currentY;
+            }
+                temp.X = currentPos.X;
+                temp.Y = currentPos.Y;
                 return temp;
             }
 
             private void UpdateCollisionBox()
             {
-              topLeft.X = (int)currentX;
-              topLeft.Y = (int)currentY;
-              botRight.X = (int)currentX + 40;
-              botRight.Y = (int)currentY + 40;
+              topLeft.X = (int)currentPos.X;
+              topLeft.Y = (int)currentPos.Y;
+              botRight.X = (int)currentPos.X + 40;
+              botRight.Y = (int)currentPos.Y + 40;
 
             }
 

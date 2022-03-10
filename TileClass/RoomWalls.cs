@@ -14,14 +14,14 @@ namespace Sprint0.TileClass
         private Texture2D myTile;
         private SpriteBatch myBatch;
         private Rectangle sourceRect;
-        private Boolean isWalkable = false;
+        private Boolean isWalkable = true;
 
 
         public RoomWalls(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
             myTile = tile;
             myBatch = batch;
-            myPos = position;
+            myPos = new Vector2(512,352);
             sourceRect = new Rectangle(0, 0, 1024, 704);
 
     }

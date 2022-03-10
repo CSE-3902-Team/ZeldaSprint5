@@ -22,12 +22,10 @@ namespace Sprint0.enemy
         private Vector2 direction;
         public Vector2 currentPos;
         private Vector2 destination;
-        int x = 400;
-        int y = 200;
         private int frame;
         private TopLeft topLeft;
         private BottomRight botRight;
-        private bool isAlive;
+        private bool isAlive=true;
 
         public bool IsAlive
         {
@@ -45,7 +43,26 @@ namespace Sprint0.enemy
         {
             get { return botRight; }
         }
+        public Vector2 position
+        {
+            get { return currentPos; }
+            set
+            {
+                currentPos = value;
+          
 
+            }
+        }
+        public Vector2 Destination
+        {
+            get { return destination; }
+            set
+            {
+               destination = value;
+
+
+            }
+        }
 
 
         public enemyBat(Texture2D texture, SpriteBatch batch, Vector2 location,Player player)
@@ -54,10 +71,8 @@ namespace Sprint0.enemy
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
-            currentPos.Y = 200;
-            currentPos.X = 400;
-            destination.X = 400;
-            destination.Y = 200;
+            currentPos = location;
+            destination = location;
             link = player;
             topLeft = new TopLeft(400, 200, this);
             botRight= new BottomRight(440, 240, this);
@@ -67,28 +82,36 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-            MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
-            NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-            CollisionHandlerEnemyProjectile temp = new CollisionHandlerEnemyProjectile(direction, currentPos, destination, link);
-
-            if (frame == 5)
+            if (isAlive)
             {
+                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
+                NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
 
-                currentFrame = action.frameReturn();
-                frame = 0;
+
+                if (frame == 5)
+                {
+
+                    currentFrame = action.frameReturn();
+                    frame = 0;
+                }
+
+
+                currentPos = move.Move();
+
+                direction = makeNextMove.RollingDice1();
+                destination = makeNextMove.RollingDice();
+
+
+
+
+                frame++;
             }
-
-            temp.HandleCollision();
-            currentPos = move.Move();
-
-            direction = makeNextMove.RollingDice1();
-            destination = makeNextMove.RollingDice();
-            
-
-
-
-            frame++;
+            else
+            {
+                currentPos.X = 0;
+                currentPos.Y = 0;
+            }
             UpdateCollisionBox();
 
 
@@ -100,16 +123,16 @@ namespace Sprint0.enemy
 
             Vector2 temp = new Vector2();
             int row = currentFrame;
-
-            Rectangle sourceRectangle = new Rectangle(16 * row + 183, 11,16, 16);
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 40, 40);
+            if (isAlive) { 
+            Rectangle sourceRectangle = new Rectangle(16 * row + 183, 11, 16, 16);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
 
             batch.Begin();
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-      
+
 
             batch.End();
-     
+        }
             return temp;
         }
 

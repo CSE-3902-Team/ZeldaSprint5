@@ -39,10 +39,7 @@ namespace Sprint0.enemy
             }
             return Pos;
         }
-        public Vector2 GoriyaMove()
-        {
-            return Pos;
-        }
+
         public Vector2 DragonMove()
         {
             Vector2 result;

@@ -54,6 +54,70 @@ namespace Sprint0.DoorClass
 
 		}
 
+		public DoorFactory.Door getDoor(string key)
+		{
+			if (key.Contains("Wall"))
+			{
+				return Door.Wall;
+			}
+			else if (key.Contains("Normal")) 
+			{
+				return Door.Open;
+			}
+			else if (key.Contains("Key"))
+			{
+				return Door.Locked;
+			}
+			else if (key.Contains("Hole"))
+			{
+				return Door.Hole;
+			}
+			else if (key.Contains("Gate"))
+			{
+				return Door.Closed;
+			}
+			else
+			{
+				throw new ArgumentException(key + " is not a door type");
+			}
+		}
+
+		public DoorFactory.Side getSide(string key)
+		{
+			if (key.Contains("top"))
+			{
+				return Side.Top;
+			}
+			else if (key.Contains("left"))
+			{
+				return Side.Left;
+			}
+			else if (key.Contains("right"))
+			{
+				return Side.Right;
+			}
+			else if (key.Contains("bottom"))
+			{
+				return Side.Bottom;
+			}
+			else
+			{
+				throw new ArgumentException(key + " does not contain a side type");
+			}
+		}
+
+		public bool isADoor(string key)
+		{
+			if (key.Contains("Door"))
+			{
+				return true;
+			}
+			else
+            {
+				return false;
+            }
+		}
+
 
 		public ADoor CreateDoorSprite(Door doorNum, Side doorSide)
 		{

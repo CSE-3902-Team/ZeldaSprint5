@@ -9,7 +9,16 @@ namespace Sprint0
         Vector2 draw();
         void Update();
         bool IsAlive { get; set; }
-
+        public Vector2 position
+        {
+            get;
+            set;
+        }
+        public Vector2 Destination
+        {
+            get;
+            set;
+        }
 
     }
 }

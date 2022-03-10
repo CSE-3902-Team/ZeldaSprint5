@@ -66,6 +66,7 @@ namespace Sprint0
 
             Vector2 center = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2);
             levelManager.initialize(_spriteBatch, Content, colliderDector, center);
+            levelManager.LoadRooms();
             _currentRoom = levelManager.StartRoom();
 
 
