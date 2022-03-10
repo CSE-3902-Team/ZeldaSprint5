@@ -56,8 +56,6 @@ namespace Sprint0.LevelClass
 
            
             for (int x = 0; x < enemyList.Count; x++) {
-                IBoxCollider test = (enemyList[x] as IBoxCollider);
-                int val = test.BottomRight.X;
                 colliderDetector.AddToList(enemyList[x] as IBoxCollider);
             }
 
@@ -123,6 +121,22 @@ namespace Sprint0.LevelClass
                 else
                 {
                     projectileList[x].Update();
+                }
+            }
+        }
+
+        public void UpdateEnemies()
+        {
+            for (int x = 0; x < enemyList.Count; x++)
+            {
+                if (!enemyList[x].IsAlive)
+                {
+                    enemyList.RemoveAt(x);
+                    x--;
+                }
+                else
+                {
+                    enemyList[x].Update();
                 }
             }
         }
