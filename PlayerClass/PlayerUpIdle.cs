@@ -39,10 +39,16 @@ namespace Sprint0.PlayerClass
 		{
 			player.SourceRectangle = new Rectangle(637, 93, 113, 161);
 			player.DrawOffset = new Vector2(0, 0);
+			player.CollisionOffsetX = new Vector2(0, 0);
+			player.CollisionOffsetY = new Vector2(0, 0);
 		}
 
 		public void Attack()
 		{
+			ProjectilePlayerSword sword = new ProjectilePlayerSword(new Vector2(player.Position.X, player.TopLeft.Y), Player.Directions.Up);
+			player.SwordProjectile = sword;
+			player.AddProjectileCommand.LoadCommand(sword);
+			player.AddProjectileCommand.Execute();
 			player.State = new PlayerUpAttack(player);
 
 		}

@@ -24,6 +24,8 @@ namespace Sprint0.PlayerClass
 
 		public void Update()
 		{
+			player.CollisionOffsetX = new Vector2(0, 0);
+			player.CollisionOffsetY = new Vector2(0, 0);
 			if (currentFrame <= player.AttackFrames)
 			{
 				player.SourceRectangle = new Rectangle(1115, 107, 138, 136);

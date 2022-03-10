@@ -38,7 +38,7 @@ namespace Sprint0.Collision
                 return a.X.CompareTo(b.X);
             });
 
-            PrintList();
+            //PrintList();
 
             for (int x = 0; x < collisionPoints.Count; x++)
             {

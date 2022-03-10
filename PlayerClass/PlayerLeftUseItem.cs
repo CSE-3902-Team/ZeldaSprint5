@@ -29,6 +29,8 @@ namespace Sprint0.PlayerClass
 			{
 				player.SourceRectangle = new Rectangle(419, 1714, 137, 138);
 				player.DrawOffset = new Vector2(0, 0);
+				player.CollisionOffsetX = new Vector2(0, 0);
+				player.CollisionOffsetY = new Vector2(0, 0);
 			}
 			else
 			{

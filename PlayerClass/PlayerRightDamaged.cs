@@ -25,6 +25,8 @@ namespace Sprint0.PlayerClass
 		{
 			player.Speed = Player.ATTACK_KNOCKBACK_SPEED;
 			player.Move(-1, 0);
+			player.CollisionOffsetX = new Vector2(0, 0);
+			player.CollisionOffsetY = new Vector2(0, 0);
 			player.Col = Color.Red;
 			if (currentFrame <= Player.KNOCKBACK_FRAMES/2)
 			{

@@ -18,14 +18,24 @@ namespace Sprint0 {
         private Vector2 drawOffset;
 		private float scale;
 		private SpriteBatch _spriteBatch;
-		private bool damaged;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
+		private ProjectilePlayerSword swordProjectile;
 		public const float MOVE_SPEED = 5;
 		public const float ATTACK_KNOCKBACK_SPEED = 10;
-	private Color col;
-	public const int KNOCKBACK_FRAMES = 5;
+		private Vector2 collisionOffsetX;
+		private Vector2 collisionOffsetY;
+		private Color col;
+		public const int KNOCKBACK_FRAMES = 5;
 		private readonly ICommand addProjectileCommand;
+
+		public ProjectilePlayerSword SwordProjectile
+		{
+			get { return swordProjectile; }
+			set { swordProjectile = value; }
+		}
+		public Vector2 CollisionOffsetX { get { return collisionOffsetX; } set { collisionOffsetX = value; } }
+		public Vector2 CollisionOffsetY { get { return collisionOffsetY; } set { collisionOffsetY = value; } }
 		public Rectangle SourceRectangle { get { return src; } set { src = value; } }
 		public float Speed { get { return speed; } set { speed = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
@@ -85,13 +95,14 @@ namespace Sprint0 {
 			position = p;
 			speed = MOVE_SPEED;
 			attackFrames = 15;
-			damaged = false;
 			scale = 0.35f;
             topLeft = new TopLeft((int)(position.X - (src.Width * scale)/2), (int)((position.Y - (src.Height * scale)/2)), this);
             bottomRight = new BottomRight(((int)(position.X+(src.Width * scale)/2)), (int)((position.Y+(src.Height * scale)/2)), this);
 			this.colT = colT;
 			col = Color.White;
 			addProjectileCommand = c;
+			collisionOffsetX = new Vector2(0, 0);
+			collisionOffsetY = new Vector2(0, 0);
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -114,10 +125,7 @@ namespace Sprint0 {
 
 		public void DamageLink(Player.Directions dir)
 		{
-			
-				_state.DamageLink(dir);
-			
-			damaged = true;
+			_state.DamageLink(dir);
 			
 		}
 
@@ -128,10 +136,11 @@ namespace Sprint0 {
 		}
 
 		private void UpdateCollisionBox() {
-            topLeft.X = (int)(position.X - (src.Width * scale) / 2);
-            topLeft.Y = (int)((position.Y - (src.Height * scale) / 2));
-            bottomRight.X = (int)(position.X + (src.Width * scale) / 2);
-            bottomRight.Y = (int)((position.Y + (src.Height * scale) / 2));
+
+            topLeft.X = (int)(position.X - (src.Width * scale) / 2 + collisionOffsetX.X );
+            topLeft.Y = (int)((position.Y - (src.Height * scale) / 2) + CollisionOffsetY.X);
+            bottomRight.X = (int)(position.X  + (src.Width * scale) / 2 + collisionOffsetX.Y);
+            bottomRight.Y = (int)((position.Y + (src.Height * scale) / 2) + CollisionOffsetY.Y);
 		}
 		public void Move(int x, int y)
 		{

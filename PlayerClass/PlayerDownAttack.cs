@@ -28,10 +28,13 @@ namespace Sprint0.PlayerClass
 			{
 				player.SourceRectangle = new Rectangle(157, 420, 141, 248);
 				player.DrawOffset = new Vector2(-1, 52);
-				player.Draw();
+				player.CollisionOffsetX = new Vector2(0, 0);
+				player.CollisionOffsetY = new Vector2(player.DrawOffset.Y / 4, -player.DrawOffset.Y / 4);
+				
 			}
 			else
 			{
+				player.SwordProjectile.IsRunning = false;
 				player.State = new PlayerDownIdle(player);
 			}
 			currentFrame++;
@@ -45,6 +48,7 @@ namespace Sprint0.PlayerClass
 
 		public void DamageLink(Player.Directions dir)
 		{
+			player.SwordProjectile.IsRunning = false;
 			switch (dir)
 			{
 				case Player.Directions.Up:
