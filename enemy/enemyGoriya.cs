@@ -103,8 +103,10 @@ namespace Sprint0.enemy
                 }
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                 NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-                EnemyProjectile proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
-
+               //boomerang
+               EnemyProjectile proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
+                command.LoadCommand(proj);
+                command.Execute();
                 direction = makeNextMove.RollingDice1();
 
                 destination = makeNextMove.RollingDice();
@@ -151,7 +153,8 @@ namespace Sprint0.enemy
                     frame2++;
 
                     projectileFrame = proj.ProjectileFrameChange();
-                    pCurrentPos = proj.GoriyaFire();
+                  proj.Update();
+                    pCurrentPos = proj.Position;
 
 
                     // fire projectile here, this is for the forward part of projectile, since it's boomerang, it will fly back.

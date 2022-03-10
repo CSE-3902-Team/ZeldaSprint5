@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 
 namespace Sprint0.enemy
 {
 
-    class EnemyProjectile
+    class EnemyProjectile : IBoxCollider, IProjectile
     {
         private Vector2 movement;
         private Vector2 Pos;
@@ -12,6 +13,30 @@ namespace Sprint0.enemy
         private int result;
         private int FrameCount;
         private Vector2 projectilePos;
+        private TopLeft topLeft;
+        private BottomRight botRight;
+
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+
+        public BottomRight BottomRight
+        {
+            get { return botRight; }
+        }
+        public bool IsRunning
+        {
+            get;
+            set;
+        }
+        public Vector2 Direction { get; set; }
+        public Vector2 Position
+        {
+            get { return projectilePos; }
+            set { projectilePos = value; }
+        }
         public EnemyProjectile(Vector2 direction, Vector2 currentPos, Vector2 destination, Vector2 ProjectilePos, int frameCount, int projectileFrame)
 
         {
@@ -22,13 +47,17 @@ namespace Sprint0.enemy
             this.projectilePos = ProjectilePos;
             this.result = projectileFrame;
             this.FrameCount = frameCount;
+            topLeft = new TopLeft(400, 200, this);
+            botRight = new BottomRight(440, 240, this);
         }
 
-        public Vector2 GoriyaFire()
+        public void Update()
         {
 
+            Console.WriteLine(projectilePos.X);
+            
 
-
+     
             if (FrameCount < 100)
             {
                 switch (movement.X)
@@ -80,7 +109,12 @@ namespace Sprint0.enemy
                         break;
                 }
             }
-            return projectilePos;
+            UpdateCollisionBox();
+            return;
+        }
+        public void Draw()
+        {
+
         }
 
         public int ProjectileFrameChange()
@@ -93,10 +127,13 @@ namespace Sprint0.enemy
             }
             return result;
         }
-        public Vector2 DragonFire()
+        private void UpdateCollisionBox()
         {
+            topLeft.X = (int)projectilePos.X;
+            topLeft.Y = (int)projectilePos.Y;
+            botRight.X = (int)projectilePos.X + 20;
+            botRight.Y = (int)projectilePos.Y + 20;
 
-            return Pos;
         }
     }
 }
