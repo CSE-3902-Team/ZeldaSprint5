@@ -20,6 +20,7 @@ namespace Sprint0.Collision
         }
         public void HandleCollisions()
         {
+      
             PruneProjectilesAndItems();
             FindCollisionsX();
             ProcessCollisions();
@@ -227,6 +228,7 @@ namespace Sprint0.Collision
             }
             else if (other is Player)
             {
+       
                 return;
             }
             else if (other is IEnemySprite)

@@ -36,7 +36,7 @@ namespace Sprint0.enemy
         private TopLeft topLeft;
         private BottomRight botRight;
         private bool isAlive;
-
+        EnemyProjectile proj;
 
 
         public bool IsAlive
@@ -104,7 +104,7 @@ namespace Sprint0.enemy
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                 NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
                //boomerang
-               EnemyProjectile proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
+                proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
                 command.LoadCommand(proj);
                 command.Execute();
                 direction = makeNextMove.RollingDice1();
@@ -193,21 +193,27 @@ namespace Sprint0.enemy
 
                 Rectangle sourceRectangle = new Rectangle(16 * row + 222, 11, 16, 16);
                 Rectangle sourceRectangleProjectile = new Rectangle(8 * row1 + 289, 11, 8, 16);
-                Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 40, 40);
+      
                 Vector2 location1 = new Vector2(pCurrentPos.X, pCurrentPos.Y);
+
 
             if (isAlive)
             {
                 batch.Begin();
 
-                if (fire)
+                if (fire&&proj.IsRunning)
                     batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
                 if (flipHorizontal)
+                {
+
                     batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
+                }
 
                 else
+                {
+              
                     batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
-
+                }
 
                 batch.End();
             }

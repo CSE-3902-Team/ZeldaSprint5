@@ -4,7 +4,7 @@ using System;
 namespace Sprint0.enemy
 {
 
-    class EnemyProjectile : IBoxCollider, IProjectile
+    class EnemyProjectile : IProjectile, IBoxCollider
     {
         private Vector2 movement;
         private Vector2 Pos;
@@ -15,6 +15,7 @@ namespace Sprint0.enemy
         private Vector2 projectilePos;
         private TopLeft topLeft;
         private BottomRight botRight;
+        private bool isRunning;
 
 
         public TopLeft TopLeft
@@ -28,8 +29,8 @@ namespace Sprint0.enemy
         }
         public bool IsRunning
         {
-            get;
-            set;
+            get { return isRunning; }
+            set { isRunning = value; }
         }
         public Vector2 Direction { get; set; }
         public Vector2 Position
@@ -40,6 +41,7 @@ namespace Sprint0.enemy
         public EnemyProjectile(Vector2 direction, Vector2 currentPos, Vector2 destination, Vector2 ProjectilePos, int frameCount, int projectileFrame)
 
         {
+            isRunning = true;
             this.destinationX = (int)destination.X;
             this.destinationY = (int)destination.Y;
             this.movement = direction;
@@ -54,62 +56,69 @@ namespace Sprint0.enemy
         public void Update()
         {
 
-            Console.WriteLine(projectilePos.X);
-            
 
-     
-            if (FrameCount < 100)
+
+
+            if (isRunning)
             {
-                switch (movement.X)
+                if (FrameCount < 100)
                 {
+                    switch (movement.X)
+                    {
 
-                    case 0:
-                        if (Pos.Y < destinationY)
+                        case 0:
+                            if (Pos.Y < destinationY)
 
-                            projectilePos.Y += 2;
-                        else if (Pos.Y > destinationY)
-                            projectilePos.Y -= 2;
+                                projectilePos.Y += 2;
+                            else if (Pos.Y > destinationY)
+                                projectilePos.Y -= 2;
 
-                        break;
-                    case 1:
-                        if (Pos.X < destinationX)
-                        {
-                            projectilePos.X += 2;
-                        }
-                        else if (Pos.X > destinationX)
-                        {
-                            projectilePos.X -= 2;
-                        }
-                        break;
+                            break;
+                        case 1:
+                            if (Pos.X < destinationX)
+                            {
+                                projectilePos.X += 2;
+                            }
+                            else if (Pos.X > destinationX)
+                            {
+                                projectilePos.X -= 2;
+                            }
+                            break;
+                    }
                 }
+                //after the boomerang reaches the destination, it will fly back, similar logic as above, but the projectile's y and x are decreasing this time
+                else if (FrameCount >= 100)
+                {
+                    switch (movement.X)
+                    {
+
+                        case 0:
+                            if (Pos.Y < destinationY)
+
+                                projectilePos.Y -= 2;
+                            else if (Pos.Y > destinationY)
+                                projectilePos.Y += 2;
+
+                            break;
+                        case 1:
+                            if (Pos.X < destinationX)
+                            {
+                                projectilePos.X -= 2;
+                            }
+                            else if (Pos.X > destinationX)
+                            {
+                                projectilePos.X += 2;
+                            }
+                            break;
+                    }
+                }
+
             }
-            //after the boomerang reaches the destination, it will fly back, similar logic as above, but the projectile's y and x are decreasing this time
-            else if (FrameCount >= 100)
+            else
             {
-                switch (movement.X)
-                {
-
-                    case 0:
-                        if (Pos.Y < destinationY)
-
-                            projectilePos.Y -= 2;
-                        else if (Pos.Y > destinationY)
-                            projectilePos.Y += 2;
-
-                        break;
-                    case 1:
-                        if (Pos.X < destinationX)
-                        {
-                            projectilePos.X -= 2;
-                        }
-                        else if (Pos.X > destinationX)
-                        {
-                            projectilePos.X += 2;
-                        }
-                        break;
-                }
+                projectilePos.X = 0;
+                projectilePos.Y = 0;
             }
-            UpdateCollisionBox();
             return;
         }
         public void Draw()
@@ -131,8 +140,8 @@ namespace Sprint0.enemy
         {
             topLeft.X = (int)projectilePos.X;
             topLeft.Y = (int)projectilePos.Y;
-            botRight.X = (int)projectilePos.X + 20;
-            botRight.Y = (int)projectilePos.Y + 20;
+            botRight.X = (int)projectilePos.X + 100;
+            botRight.Y = (int)projectilePos.Y + 100;
 
         }
     }

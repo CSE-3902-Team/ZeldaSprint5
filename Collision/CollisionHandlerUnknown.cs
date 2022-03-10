@@ -12,8 +12,8 @@ namespace Sprint0.Collision
             other = o;
         }
         public void HandleCollision()
-        {     
-  
+        {
+            Console.WriteLine(other);
         }
     }
 }
