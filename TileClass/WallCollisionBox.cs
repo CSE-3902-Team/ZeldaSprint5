@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace Sprint0.LevelClass
+namespace Sprint0.TileClass
 {
     
     class WallCollisionBox : ITile,IBoxCollider
