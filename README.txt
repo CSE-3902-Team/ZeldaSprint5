@@ -12,8 +12,7 @@ Controls:
 "z" and "n" - attack with sword
 "1,2,3,4,5" - Have link shoot different projectiles
 "e" - cause link to become damaged
-"t" and "y" - cycle between which block is being shown
-"u" and "i" - cycle between which item is being shown
+
 "q" - quits game
 "r" - resets game
 
