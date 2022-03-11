@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace Sprint0.enemy
 {
@@ -13,12 +14,12 @@ namespace Sprint0.enemy
         private int total;
         private SpriteBatch batch;
         private bool fire;
-        private int currentX = 400;
-        private int currentY = 200;
-        private int FireBallCurrentX = 400;
-        private int FireBallCurrentY = 200;
-        private int FireBallCurrentY1 = 200;
-        private int FireBallCurrentY2 = 200;
+        DragonFireBall dragonBreath1;
+        DragonFireBall1 dragonBreath2;
+        DragonFireBall2 dragonBreath3;
+        private Vector2 FireballCurrent1;
+        private Vector2 FireballCurrent2;
+        private Vector2 FireballCurrent3;
         ICommand command;
 
         private Vector2 direction;
@@ -27,7 +28,7 @@ namespace Sprint0.enemy
         int x = 600;
 
         private int frame;
-        private int frame1;
+        private int frame1=200;
 
         private TopLeft topLeft;
         private BottomRight botRight;
@@ -82,46 +83,72 @@ namespace Sprint0.enemy
             botRight = new BottomRight(480, 300, this);
             isAlive = true;
             command = c;
-
+            FireballCurrent1.X = 400;
+            FireballCurrent1.Y = 200;
+       dragonBreath1 = new DragonFireBall(Texture, batch,FireballCurrent1, direction, destination, FireBallCurrentFrame, frame1, currentPos);
+          dragonBreath2 = new DragonFireBall1(Texture, batch,FireballCurrent2, direction, destination, FireBallCurrentFrame, frame1, currentPos);
+             dragonBreath3 = new DragonFireBall2(Texture, batch,FireballCurrent3, direction, destination, FireBallCurrentFrame, frame1, currentPos);
         }
 
         public void Update()
         {
+            dragonBreath1.Direction = currentPos;
+            dragonBreath2.Direction = currentPos;
+            dragonBreath3.Direction = currentPos;
             FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-            FrameChaningforEnemy dragonBreath = new FrameChaningforEnemy(currentPos, direction, destination, FireBallCurrentFrame);
+            dragonBreath1.Update();
+            dragonBreath2.Update();
+            dragonBreath3.Update();
             MoveEnemy dragonMove = new MoveEnemy(direction, currentPos, destination);
             Vector2 result = dragonMove.DragonMove();
             if (frame == 5)
             {
 
                 currentFrame = action.dragon();
-                FireBallCurrentFrame = dragonBreath.fireBall();
+
+                FireBallCurrentFrame = dragonBreath1.ProjectileFrameChange();
+                FireBallCurrentFrame = dragonBreath2.ProjectileFrameChange();
+                FireBallCurrentFrame = dragonBreath3.ProjectileFrameChange();
 
 
                 frame = 0;
             }
-
+       
             currentPos.X = result.Y;
             destination.X = result.X;
+
+            Console.WriteLine(frame1);
+            if (frame1 % 15 == 0 )
+            {
+                command.LoadCommand(dragonBreath1);
+                command.Execute();
+                command.LoadCommand(dragonBreath2);
+                command.Execute();
+                command.LoadCommand(dragonBreath3);
+                command.Execute();
+            }
+            if (frame1 == 100)
+            {
+      
+            }
             if (frame1 == 200)
             {
+       
                 fire = true;
                 frame1 = 0;
-                FireBallCurrentX = (int)currentPos.X - 15;
+         
+
+
             }
             if (fire)
             {
 
-                FireBallCurrentX -= 3;
-                FireBallCurrentY1--;
-                FireBallCurrentY2++;
-                if (FireBallCurrentY1 <= 0)
+              
+                if (frame1 == 200)
                 {
 
                     fire = false;
-                    FireBallCurrentY = 200;
-                    FireBallCurrentY1 = 200;
-                    FireBallCurrentY2 = 200;
+             
                 }
             }
             frame++;
@@ -135,25 +162,17 @@ namespace Sprint0.enemy
 
             Vector2 temp = new Vector2();
             int row = currentFrame;
-            int rowFireBall = FireBallCurrentFrame;
+        
+            Rectangle sourceRectangle = new Rectangle(50 * row+3, 11, 48,82);
 
-            Rectangle sourceRectangle = new Rectangle(25 * row, 11, 24, 32);
-            Rectangle FireballSourceRectangle = new Rectangle(9 * rowFireBall + 100, 11, 8, 15);
-
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 80, 100);
-            Rectangle FireBallDestinationRectangle = new Rectangle(FireBallCurrentX, FireBallCurrentY, 20, 20);
-            Rectangle FireBallDestinationRectangle1 = new Rectangle(FireBallCurrentX, FireBallCurrentY1, 20, 20);
-            Rectangle FireBallDestinationRectangle2 = new Rectangle(FireBallCurrentX, FireBallCurrentY2, 20, 20);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 160, 200);
+      
             batch.Begin();
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-            if (fire)
-            {
-                batch.Draw(Texture, FireBallDestinationRectangle, FireballSourceRectangle, Color.White);
-                batch.Draw(Texture, FireBallDestinationRectangle1, FireballSourceRectangle, Color.White);
-                batch.Draw(Texture, FireBallDestinationRectangle2, FireballSourceRectangle, Color.White);
-            }
-
             batch.End();
+         
+
+     
 
             return temp;
         }
@@ -162,8 +181,8 @@ namespace Sprint0.enemy
         {
             topLeft.X = (int)currentPos.X;
             topLeft.Y = (int)currentPos.Y;
-            botRight.X = (int)currentPos.X + 80;
-            botRight.Y = (int)currentPos.Y + 100;
+            botRight.X = (int)currentPos.X + 160;
+            botRight.Y = (int)currentPos.Y + 200;
 
         }
 

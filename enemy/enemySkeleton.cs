@@ -96,7 +96,7 @@ namespace Sprint0.enemy
 
             if (frame == 5)
             {
-                flipHorizontally++;
+       
                 currentFrame = action.frameReturn();
                 frame = 0;
             }
@@ -125,27 +125,8 @@ namespace Sprint0.enemy
         public Vector2 draw()
         {
             Vector2 temp = new Vector2();
-            Vector2 origin = new Vector2(0, 0);
-            Vector2 location = new Vector2((int)currentPos.X, (int)currentPos.Y);
-   
-
-            Rectangle sourceRectangle = new Rectangle(1, 60, 16, 16);
-            if (isAlive)
-            {
-
-
-                batch.Begin();
-
-                if (flipHorizontally % 2 == 0)
-                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
-
-
-
-
-                else
-                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
-                batch.End();
-            }
+            EnemyDraw draw = new EnemyDraw(Texture, batch, new Vector2(0, 0), direction, destination, 0, 0, currentFrame, currentPos, isAlive,false);
+            draw.DrawSkeleton();
             return temp;
         }
 

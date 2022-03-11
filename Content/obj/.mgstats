@@ -1,4 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/../../../../../Desktop/dragon.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",55353,2339669,0.13429
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/dragon.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",24022,584981,0.2888039
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/enemy.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/bin/enemy.xnb","TextureProcessor","Texture2DContent",44535,1667221,0.1250316
 "C:/Users/austi/source/repos/ZeldaGameS3/Content/ball.png","C:/Users/austi/source/repos/ZeldaGameS3/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1228935
 "C:/Users/austi/source/repos/ZeldaGameS3/Content/bricks.png","C:/Users/austi/source/repos/ZeldaGameS3/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",392,16469,0.0052078
 "C:/Users/austi/source/repos/ZeldaGameS3/Content/creditsEdited.png","C:/Users/austi/source/repos/ZeldaGameS3/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0170006
