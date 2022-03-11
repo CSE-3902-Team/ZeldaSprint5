@@ -24,6 +24,9 @@ namespace Sprint0.TileClass
 		private Texture2D rightFireTexture;
 		private Texture2D textTexture;
 		private Texture2D roomWallsTexture;
+		private const int BOUNDARY_THICKNESS = 128;
+		private const int HORZONTAL_BOUNDARY_LENGTH = 320;
+		private const int VERTICAL_BOUNDARY_LENGTH = 160;
 
 		private SpriteBatch batch;
 
@@ -41,7 +44,16 @@ namespace Sprint0.TileClass
 			{"leftfire", Tile.LeftFire},
 			{"rightfire", Tile.RightFire},
 			{"textsprite", Tile.Text},
-			{"roomwalls", Tile.Walls}
+			{"roomwalls", Tile.Walls},
+			{"leftWallTop", Tile.LeftWallTop },
+			{"leftWallBot", Tile.LeftWallBot },
+			{"topWallLeft", Tile.TopWallLeft },
+			{"topWallRight", Tile.TopWallRight },
+			{"rightWallTop", Tile.RightWallTop },
+			{"rightWallBottom", Tile.RightWallBottom },
+			{"botWallLeft", Tile.BotWallLeft },
+			{"botWallRight", Tile.BotWallRight },
+
 		};
 
 		public enum Tile
@@ -59,8 +71,15 @@ namespace Sprint0.TileClass
 			LeftFire = 10,
 			RightFire = 11,
 			Text = 12,
-			Walls = 13
-
+			Walls = 13,
+			TopWallLeft = 14,
+			TopWallRight = 15,
+			RightWallTop = 16,
+			RightWallBottom = 17,
+			BotWallLeft = 18,
+			BotWallRight = 19,
+			LeftWallTop = 20,
+			LeftWallBot = 21
 		}
 
 		private static TileFactory instance = new TileFactory();
@@ -148,6 +167,22 @@ namespace Sprint0.TileClass
 					return new Text(textTexture, batch, pos);
 				case Tile.Walls:
 					return new RoomWalls(roomWallsTexture, batch, pos);
+				case Tile.TopWallLeft:
+					return new WallCollisionBox(new Rectangle((int)pos.X,(int) pos.Y, HORZONTAL_BOUNDARY_LENGTH, BOUNDARY_THICKNESS));
+				case Tile.TopWallRight:
+					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, HORZONTAL_BOUNDARY_LENGTH, BOUNDARY_THICKNESS));
+				case Tile.BotWallLeft:
+					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, HORZONTAL_BOUNDARY_LENGTH, BOUNDARY_THICKNESS));
+				case Tile.BotWallRight:
+					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, HORZONTAL_BOUNDARY_LENGTH, BOUNDARY_THICKNESS));
+				case Tile.RightWallTop:
+					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, BOUNDARY_THICKNESS, VERTICAL_BOUNDARY_LENGTH));
+				case Tile.RightWallBottom:
+					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, BOUNDARY_THICKNESS, VERTICAL_BOUNDARY_LENGTH));
+				case Tile.LeftWallTop:
+					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, BOUNDARY_THICKNESS, VERTICAL_BOUNDARY_LENGTH));
+				case Tile.LeftWallBot:
+					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, BOUNDARY_THICKNESS, VERTICAL_BOUNDARY_LENGTH));
 				default:
 					return new BrickTile(bricksTexture, batch, pos);
 			}
