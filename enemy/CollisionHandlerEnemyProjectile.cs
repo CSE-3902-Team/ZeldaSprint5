@@ -8,7 +8,7 @@ namespace Sprint0.Collision
     class CollisionHandlerEnemyProjectile : ICollisionHandler
     {
         private IEnemySprite enemy;
-        private ITile block;
+        private IProjectile projectile;
         private int overlap;
         private CollisionDirections collisionDirections;
 
@@ -17,16 +17,20 @@ namespace Sprint0.Collision
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
 
 
-        public CollisionHandlerEnemyProjectile(IEnemySprite enemy, ITile block, CollisionDirections collisionDirections, int overlap)
+        public CollisionHandlerEnemyProjectile(IEnemySprite enemy, IProjectile projectile, CollisionDirections collisionDirections, int overlap)
         {
             this.enemy = enemy;
-            this.block = block;
+            this.projectile = projectile;
             this.overlap = overlap;
             this.collisionDirections = collisionDirections;
 
         }
         public void HandleCollision()
         {
+            if(this.projectile is Sprint0.enemy.EnemyProjectile)
+            {
+                return;
+            }
             enemy.IsAlive = false;
 
         }

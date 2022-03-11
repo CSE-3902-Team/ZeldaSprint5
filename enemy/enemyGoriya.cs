@@ -73,7 +73,7 @@ namespace Sprint0.enemy
 
             }
         }
-
+        int frame3;
         public enemyGoriya(Texture2D texture, SpriteBatch batch, Vector2 location, ICommand c)
         {
             Texture = texture;
@@ -86,6 +86,7 @@ namespace Sprint0.enemy
             isAlive = true;
             destination = location;
              fireCount =fireSomething.Next(150, 500);
+            proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
             command = c;
         }
 
@@ -100,19 +101,30 @@ namespace Sprint0.enemy
                     pCurrentPos.Y = currentPos.Y;
                     frame1 = 0;
                     frame2 = 0;
+                    proj.IsRunning = true;
+                 
+                 
                 }
+                if (frame3 == 15)
+                {
+
+
+                    command.LoadCommand(proj);
+                    command.Execute();
+
+                    frame3 = 0;
+                }
+                proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                 NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-               //boomerang
-                proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
-                command.LoadCommand(proj);
-                command.Execute();
+               
+
                 direction = makeNextMove.RollingDice1();
 
                 destination = makeNextMove.RollingDice();
                 MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
 
-                //every 5 frames, display next pos instead of every frame
+                //every 5 frames,change goriya's action frame
                 if (frame == 5)
                 {
                     currentFrame = action.goriya();
@@ -122,6 +134,7 @@ namespace Sprint0.enemy
 
                 if (!fire)
                 {
+                    proj.IsRunning = false;
                     switch (direction.X)
                     {
 
@@ -150,17 +163,24 @@ namespace Sprint0.enemy
                 }
                 else
                 {
+                    proj.IsRunning = true;
                     frame2++;
 
                     projectileFrame = proj.ProjectileFrameChange();
                   proj.Update();
                     pCurrentPos = proj.Position;
+                    Console.WriteLine(proj.IsRunning);
 
 
-                    // fire projectile here, this is for the forward part of projectile, since it's boomerang, it will fly back.
+
 
                     if (frame2 == 200)
+                    {
+
+
                         fire = false;
+                        proj.IsRunning = false;
+                    }
                 }
 
 
@@ -168,7 +188,7 @@ namespace Sprint0.enemy
 
 
 
-                //when it reaches the destination set from previous random call, call random for next movement
+         
 
 
                 frame++;
@@ -176,10 +196,11 @@ namespace Sprint0.enemy
                     }
             else
             {
-                currentPos.X = 0;
-                currentPos.Y = 0;
+                pCurrentPos.X = 0;
+                pCurrentPos.Y = 0;
             }
             UpdateCollisionBox();
+            frame3++;
         }
 
 
@@ -201,8 +222,11 @@ namespace Sprint0.enemy
             {
                 batch.Begin();
 
-                if (fire&&proj.IsRunning)
-                    batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
+                if (fire)
+                {
+                    if (proj.IsRunning)
+                        batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
+                }
                 if (flipHorizontal)
                 {
 
@@ -226,7 +250,7 @@ namespace Sprint0.enemy
             {
               topLeft.X = (int)currentPos.X;
               topLeft.Y = (int)currentPos.Y;
-              botRight.X = (int)currentPos.X + 40;
+              botRight.X = (int)currentPos.X +40;
               botRight.Y = (int)currentPos.Y + 40;
 
             }

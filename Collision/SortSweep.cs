@@ -191,7 +191,7 @@ namespace Sprint0.Collision
             {
                 handler = new CollisionHandlerUnknown(other);
             }
-            Console.WriteLine("Player->"+handler.GetType()+" other="+other.GetType());
+      
             handler.HandleCollision();
             return;
         }
@@ -218,14 +218,14 @@ namespace Sprint0.Collision
             else if (other is IProjectile)
             {
 
-                handler = new CollisionHandlerEnemyProjectile(enemy, other as ITile, dir, magnitude);
-                Console.WriteLine("Enemy->" + handler.GetType() + " other=" + other.GetType());
+                handler = new CollisionHandlerEnemyProjectile(enemy, other as IProjectile , dir, magnitude);
+    
                 handler.HandleCollision();
             }
             else
             {
                 handler = new CollisionHandlerUnknown(other);
-                Console.WriteLine("Enemy->" + handler.GetType() + " other=" + other.GetType());
+
                 handler.HandleCollision();
             }
        

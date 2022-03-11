@@ -18,7 +18,7 @@ namespace Sprint0.Collision
         {
             float xDirection;
             float yDirection;
-
+       
             //Check for Friendly fire 
             if (projectile is ProjectilePlayerBoomerang)
             {
@@ -76,6 +76,7 @@ namespace Sprint0.Collision
                     break;
             }
             projectile.IsRunning = false;
+
         }
     }
 }

@@ -30,7 +30,10 @@ namespace Sprint0.Collision
 
             float xDirection;
             float yDirection;
-
+            if(enemy is Sprint0.enemy.enemyBat)
+            {
+                return;
+            }
             switch (collisionDirections)
             {
                 case CollisionDirections.North:
