@@ -12,6 +12,7 @@ namespace Sprint0.TileClass
         private SpriteBatch myBatch;
         private Rectangle sourceRect;
         private Boolean isWalkable = false;
+        private Boolean isPushable = false;
 
         public BrickTile(Texture2D tile, SpriteBatch batch, Vector2 position)
         {
@@ -74,6 +75,12 @@ namespace Sprint0.TileClass
         {
             get { return isWalkable; }
             set { }
+        }
+
+        public Boolean Pushable
+        {
+            get { return isPushable; }
+
         }
     }
 

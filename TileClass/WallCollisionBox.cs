@@ -10,6 +10,7 @@ namespace Sprint0.TileClass
     {
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
+        private Boolean isPushable = false;
 
 
         public float Speed
@@ -43,6 +44,12 @@ namespace Sprint0.TileClass
         public BottomRight BottomRight
         {
             get { return bottomRight; }
+        }
+
+        public Boolean Pushable
+        {
+            get { return isPushable; }
+
         }
 
         public WallCollisionBox(Rectangle rect)
