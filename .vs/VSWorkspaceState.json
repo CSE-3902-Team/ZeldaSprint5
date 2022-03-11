@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Collision",
+    "\\enemy"
   ],
-  "SelectedNode": "\\Sprint0.sln",
+  "SelectedNode": "\\enemy\\enemyGoriya.cs",
   "PreviewInSolutionExplorer": false
 }
