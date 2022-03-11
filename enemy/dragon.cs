@@ -117,7 +117,7 @@ namespace Sprint0.enemy
             currentPos.X = result.Y;
             destination.X = result.X;
 
-            Console.WriteLine(frame1);
+        
             if (frame1 % 15 == 0 )
             {
                 command.LoadCommand(dragonBreath1);
@@ -127,10 +127,7 @@ namespace Sprint0.enemy
                 command.LoadCommand(dragonBreath3);
                 command.Execute();
             }
-            if (frame1 == 100)
-            {
-      
-            }
+         
             if (frame1 == 200)
             {
        
