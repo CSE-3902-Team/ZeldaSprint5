@@ -12,30 +12,35 @@ Controls:
 "z" and "n" - attack with sword
 "1,2,3,4,5" - Have link shoot different projectiles
 "e" - cause link to become damaged
-"t" and "y" - cycle between which block is being shown
-"u" and "i" - cycle between which item is being shown
+
 "q" - quits game
 "r" - resets game
 
 New Features for Sprint3:
-Room,
-Level switching,
-Level csv's
-Enemy-projectile collision(enemy won't dissappear when they get hit, console will print"hit" if projectile land on enemy),
-Refactoring of enemy class,
-Collision detector,
-Link-block collision,
-Link-enemy collision,
+Level switching
+Level generation from csv's
+enemy-projectile collisions
+player-projectile collisions
+player-enemy collisions
+playerAttack-enemy collisions
+player-tile and player-wall
+Collision Detection with sort and sweep
 
 
-Unimplemented:
-Link-item
-link-wall
+Known Bugs and Unimplemented features:
+-Some enemy-player collisions don't register or have a large delay
+-Link-Doors [unimplemented]
+-Link-Pushable-Blocks [unimplemented]
+-Dragon projectiles and player
 
-enemy-tile
-enemy-wall
-link-attack
-csv-parsing
+Code analysis suggestions:
+-Use switch expresions instead of return statements inside switches
+-Several unused variables + instance variables + parameters
+-Several naming convention violations + with lowercase function names
+-Several suggestions to make fields readonly
+-Suggestions to make variable declarations and definitions in the same line.
+
+
 
 
 
