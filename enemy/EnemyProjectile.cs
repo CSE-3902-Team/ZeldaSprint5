@@ -36,7 +36,9 @@ namespace Sprint0.enemy
         public Vector2 Position
         {
             get { return projectilePos; }
-            set { projectilePos = value; }
+            set { projectilePos = value;
+                UpdateCollisionBox();
+            }
         }
         public EnemyProjectile(Vector2 direction, Vector2 currentPos, Vector2 destination, Vector2 ProjectilePos, int frameCount, int projectileFrame)
 
@@ -49,6 +51,7 @@ namespace Sprint0.enemy
             this.projectilePos = ProjectilePos;
             this.result = projectileFrame;
             this.FrameCount = frameCount;
+            isRunning = true;
             topLeft = new TopLeft(400, 200, this);
             botRight = new BottomRight(440, 240, this);
         }
@@ -116,8 +119,9 @@ namespace Sprint0.enemy
             }
             else
             {
-             projectilePos.X=0;
-               projectilePos.Y=0;
+                projectilePos.X = 0;
+
+                projectilePos.Y=0;
             }
             return;
         }
@@ -140,8 +144,8 @@ namespace Sprint0.enemy
         {
             topLeft.X = (int)projectilePos.X;
             topLeft.Y = (int)projectilePos.Y;
-            botRight.X = (int)projectilePos.X +20;
-            botRight.Y = (int)projectilePos.Y +20;
+            botRight.X = (int)projectilePos.X +40;
+            botRight.Y = (int)projectilePos.Y +40;
 
         }
     }

@@ -30,6 +30,7 @@ namespace Sprint0.enemy
         private int frame;
         private int frame1;
         private int frame2;
+        private bool temp=true;
      
         bool flipHorizontal = false;
         bool fire = false;
@@ -101,24 +102,23 @@ namespace Sprint0.enemy
                     pCurrentPos.Y = currentPos.Y;
                     frame1 = 0;
                     frame2 = 0;
-                    proj.IsRunning = true;
+                    
                  
                  
                 }
                 if (frame3 == 15)
                 {
 
-
                     command.LoadCommand(proj);
                     command.Execute();
 
                     frame3 = 0;
                 }
-                proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
+                    proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
+
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                 NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-               
-
+              
                 direction = makeNextMove.RollingDice1();
 
                 destination = makeNextMove.RollingDice();
@@ -163,13 +163,14 @@ namespace Sprint0.enemy
                 }
                 else
                 {
-                    proj.IsRunning = true;
+         
                     frame2++;
 
                     projectileFrame = proj.ProjectileFrameChange();
                   proj.Update();
+        
+
                     pCurrentPos = proj.Position;
-                    Console.WriteLine(proj.IsRunning);
 
 
 
@@ -179,7 +180,7 @@ namespace Sprint0.enemy
 
 
                         fire = false;
-                        proj.IsRunning = false;
+                 
                     }
                 }
 
@@ -196,8 +197,8 @@ namespace Sprint0.enemy
                     }
             else
             {
-                pCurrentPos.X = 0;
-                pCurrentPos.Y = 0;
+                currentPos.X = 0;
+                currentPos.Y = 0;
             }
             UpdateCollisionBox();
             frame3++;
@@ -207,42 +208,14 @@ namespace Sprint0.enemy
             public Vector2 draw()
             {
                 Vector2 temp = new Vector2();
-                Vector2 origin = new Vector2(0, 0);
-                Vector2 location = new Vector2(currentPos.X, currentPos.Y);
-                int row = currentFrame;
-                int row1 = projectileFrame;
+       
 
-                Rectangle sourceRectangle = new Rectangle(16 * row + 222, 11, 16, 16);
-                Rectangle sourceRectangleProjectile = new Rectangle(8 * row1 + 289, 11, 8, 16);
-      
-                Vector2 location1 = new Vector2(pCurrentPos.X, pCurrentPos.Y);
+            EnemyDraw draw = new EnemyDraw(Texture, batch, pCurrentPos, direction, destination, projectileFrame, 0, currentFrame, currentPos, isAlive, flipHorizontal);
+            
+       
+            draw.DrawGoriya(proj.IsRunning);
 
 
-            if (isAlive)
-            {
-                batch.Begin();
-
-                if (fire)
-                {
-                    if (proj.IsRunning)
-                        batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
-                }
-                if (flipHorizontal)
-                {
-
-                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.FlipHorizontally, 1);
-                }
-
-                else
-                {
-              
-                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 3f, SpriteEffects.None, 1);
-                }
-
-                batch.End();
-            }
-                temp.X = currentPos.X;
-                temp.Y = currentPos.Y;
                 return temp;
             }
 
