@@ -1,16 +1,17 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "UmSKVdHFCTm4RML67hfxqs2zNZEWcJtOGI8uHoNNNTM0oXzQCkCNx33vimHsLl3kXuf9czfioQowpmfS/HC/3g==",
   "success": true,
   "projectFilePath": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaGameS35\\Sprint0.csproj",
-=======
-  "dgSpecHash": "YsOQMAQlhZO0dMX/alOMYuD6CUqTq1YbO2KclDlr0X4ykwah2Q7vIUjs9/kFSW9OUWnDTCfKXJefuGEGYsgeCw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\tingy\\source\\repos\\ZeldaGameS3part2\\Sprint0.csproj",
->>>>>>> 5a67fe94f46f2d002426e4fe4be3f27513bf6841
   "expectedPackageFiles": [
     "C:\\Users\\10717\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaGameS35\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
