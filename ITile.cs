@@ -29,6 +29,12 @@ namespace Sprint0
             get;
             set;
         }
+
+        public Boolean Pushable
+        {
+            get;
+            
+        }
         void draw();
 	}
 }

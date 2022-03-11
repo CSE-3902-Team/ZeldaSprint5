@@ -1,0 +1,14 @@
+﻿Author of the code review: Ting Feng
+Date of the code review: 03/11/2022
+Sprint 3
+LevelManager.cs
+Author of cs file: Austin Motz
+
+Specific comments on code quality and readability:
+	The readability is overall fine. 
+	Overall the code quality is also good.
+	There is tight coupling, but that comes with the amount of things you have to draw for each room.
+	Cohesion seems very good, I think as long as the csv files are the same format, you could draw anything,
+
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
+	A change to the level manager could be to link all the rooms together in the level manager while creating them, or call a level linker method.
