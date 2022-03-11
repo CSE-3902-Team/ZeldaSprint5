@@ -4,6 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/enemy.png</File>
+    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/../../../../../Desktop/dragon.png</File>
+    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/dragon.png</File>
     <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/ball.png</File>
     <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/bricks.png</File>
     <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/creditsEdited.png</File>
@@ -38,35 +41,6 @@
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>dragon.png</File>
   </DestFiles>
 </SourceFileCollection>

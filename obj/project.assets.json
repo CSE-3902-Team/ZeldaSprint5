@@ -90,11 +90,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaGameS35\\Sprint0.csproj",
+      "projectUniqueName": "C:\\Users\\10717\\source\\repos\\CSE-3902-Team\\ZeldaGameS35\\Sprint0.csproj",
       "projectName": "Sprint0",
-      "projectPath": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaGameS35\\Sprint0.csproj",
+      "projectPath": "C:\\Users\\10717\\source\\repos\\CSE-3902-Team\\ZeldaGameS35\\Sprint0.csproj",
       "packagesPath": "C:\\Users\\10717\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaGameS35\\obj\\",
+      "outputPath": "C:\\Users\\10717\\source\\repos\\CSE-3902-Team\\ZeldaGameS35\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -152,13 +152,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaGameS35\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

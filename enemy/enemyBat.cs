@@ -87,11 +87,8 @@ namespace Sprint0.enemy
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                 MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
                 NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-
-
                 if (frame == 5)
                 {
-
                     currentFrame = action.frameReturn();
                     frame = 0;
                 }
@@ -101,10 +98,6 @@ namespace Sprint0.enemy
 
                 direction = makeNextMove.RollingDice1();
                 destination = makeNextMove.RollingDice();
-
-
-
-
                 frame++;
             }
             else
@@ -120,19 +113,11 @@ namespace Sprint0.enemy
 
         public Vector2 draw()
         {
+            Vector2 temp = new Vector2(0,0);
 
-            Vector2 temp = new Vector2();
-            int row = currentFrame;
-            if (isAlive) { 
-            Rectangle sourceRectangle = new Rectangle(16 * row + 183, 11, 16, 16);
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
-
-            batch.Begin();
-            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-
-
-            batch.End();
-        }
+            EnemyDraw draw = new EnemyDraw(Texture, batch, new Vector2(0,0), direction, destination, 0,0, currentFrame,currentPos, isAlive,false);
+            draw.DrawBat();
+        
             return temp;
         }
 
