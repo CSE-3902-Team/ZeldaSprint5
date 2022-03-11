@@ -34,7 +34,7 @@ namespace Sprint0.ItemClass
             mySheet = tileSheet;
             myBatch = batch;
             myPos = position;
-            sourceRect = new Rectangle(16 * spritePos, 0, 16, 16);
+            sourceRect = new Rectangle(WIDTH_HEIGHT * spritePos, 0, WIDTH_HEIGHT, WIDTH_HEIGHT);
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
             bottomRight = new BottomRight((int)position.X + WIDTH_HEIGHT, (int)position.Y + WIDTH_HEIGHT, this);
         }
