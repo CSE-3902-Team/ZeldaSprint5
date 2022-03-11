@@ -30,11 +30,13 @@ solid black tile,832,192
 solid black tile,128,256
 solid black tile,192,256
 solid black tile,256,256
+solid black tile,320,256
 LeftFire,320,256
 solid black tile,384,256
 solid black tile,448,256
 solid black tile,512,256
 solid black tile,576,256
+solid black tile,640,256
 RightFire,640,256
 solid black tile,704,256
 solid black tile,768,256
@@ -87,7 +89,7 @@ solid black tile,640,512
 solid black tile,704,512
 solid black tile,768,512
 solid black tile,832,512
-textsprite,256,192
+textsprite,200,150
 leftWallTop,0,128
 leftWallBot,0,416
 topWallLeft,128,0
