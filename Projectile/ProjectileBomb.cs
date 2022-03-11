@@ -54,7 +54,7 @@ namespace Sprint0
 
             sourceRect = new Rectangle(276, 192, 14, 25);
             topLeft = new TopLeft((int)position.X, (int)position.Y,this);
-            bottomRight = new BottomRight((int)position.X + 45, (int)position.Y + 45,this);
+            bottomRight = new BottomRight((int)position.X + 25, (int)position.Y + 25,this);
             frame = 0;
             isRunning = true;
             rotation = 0f;
@@ -120,8 +120,8 @@ namespace Sprint0
         {
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
-            bottomRight.X = (int)position.X + 45;
-            bottomRight.Y = (int)position.Y + 45;
+            bottomRight.X = (int)position.X + 25;
+            bottomRight.Y = (int)position.Y + 25;
         }
     }
 }
