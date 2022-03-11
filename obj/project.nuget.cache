@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "l02obdMKpXmi2IF70xoFwQRAVD1wLIgM1YQWImgaZg/iN6MbMa15hd+mPTM6miH6jrAqi2bwI7RALbjsdGv31g==",
+  "dgSpecHash": "QXiGb97VQMCUURo7KPe8ygRByousz9sUPg1QSe3MOWyKdnLf0UN/GOa1SgmSLvZxgLQr4f60QIQ0sgq65i5MWQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaGameS36\\Sprint0.csproj",
+  "projectFilePath": "C:\\Users\\cciri\\source\\repos\\ZeldaGameS3\\Sprint0.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\10717\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+    "C:\\Users\\cciri\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
   ],
   "logs": []
 }
