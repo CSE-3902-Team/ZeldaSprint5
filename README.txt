@@ -1,5 +1,5 @@
 SPRINT 3 README
-Group name: team 6
+Group name: I Link therefore I am
 Group members: Craig Cirino, Ting Feng, Austin Motz, Zening Teng, Luke Wingert
 
 SEE THE "Sprint 2 Deliverables" FOLDER FOR:
@@ -41,6 +41,12 @@ Code analysis suggestions:
 -Several suggestions to make fields readonly
 -Suggestions to make variable declarations and definitions in the same line.
 
+Code Metrics results:
+-Mainainability index:	82
+-Cyclomatic Complexity:	1334
+-Depth of inheirtance:	2
+-Class coupling:		162
+-Lines of executable
 
 
 
