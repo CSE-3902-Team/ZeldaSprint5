@@ -28,10 +28,11 @@ Collision Detection with sort and sweep
 
 
 Known Bugs and Unimplemented features:
--Some enemy-player collisions don't register or have a large delay
+-Some enemy-player collisions don't register because of small collision boxes
 -Link-Doors [unimplemented]
 -Link-Pushable-Blocks [unimplemented]
--Dragon projectiles and player
+-Collision Detection needs to be segmented into different classes
+-Boomerang doesn't return to player's current position
 
 Code analysis suggestions:
 -Use switch expresions instead of return statements inside switches
