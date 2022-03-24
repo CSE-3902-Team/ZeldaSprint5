@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
+using Sprint0.TileClass;
 
 namespace Sprint0.Collision
 {
@@ -48,8 +49,17 @@ namespace Sprint0.Collision
                     break;
             }
 
+            if (!(block is PushableTile))
+            {
+                player.Position = new Vector2(player.Position.X + (xDirection * overlap), player.Position.Y + yDirection * (float)overlap);
+            }
+            else
+            {
+                player.Position = new Vector2(player.Position.X + (xDirection * -1), player.Position.Y + (yDirection * -1));
+                block.Position = new Vector2(player.Position.X + (xDirection * -1), player.Position.Y + (yDirection * -1));
+            }
+
             Console.WriteLine("yDirection=" + yDirection);
-            player.Position = new Vector2(player.Position.X + (xDirection * (float)overlap), player.Position.Y + yDirection * (float)overlap);
         }
     }
 }
