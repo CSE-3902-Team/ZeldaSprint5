@@ -80,7 +80,7 @@ namespace Sprint0.Collision
                         {
                             List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
                             CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                            Console.WriteLine("Result of inspecting " + targets[listInd][x].GetType() + " for collision:" + direction);
+                            //Console.WriteLine("Result of inspecting " + targets[listInd][x].GetType() + " for collision:" + direction);
                             if (direction != CollisionDirections.None)
                             {
                                 AssignPlayerHandler(targets[listInd][handlerTarget] as Player, targets[listInd][x], direction, (int)result[1]);
@@ -258,13 +258,13 @@ namespace Sprint0.Collision
             {
                 ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
                 handler.HandleCollision();
-                Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
+                //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }
             else
             {
                 ICollisionHandler handler = new CollisionHandlerUnknown(other);
                 handler.HandleCollision();
-                Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
+                //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }
             
         }

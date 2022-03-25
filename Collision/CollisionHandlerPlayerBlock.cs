@@ -59,7 +59,7 @@ namespace Sprint0.Collision
                 block.Position = new Vector2(player.Position.X + (xDirection * -1), player.Position.Y + (yDirection * -1));
             }
 
-            Console.WriteLine("yDirection=" + yDirection);
+            //Console.WriteLine("yDirection=" + yDirection);
         }
     }
 }

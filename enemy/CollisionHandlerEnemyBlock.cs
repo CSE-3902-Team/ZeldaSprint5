@@ -58,7 +58,7 @@ namespace Sprint0.Collision
                     break;
             }
 
-            Console.WriteLine("a"+ yDirection);
+            //Console.WriteLine("a"+ yDirection);
             enemy.Destination = new Vector2(enemy.position.X + 5*(xDirection * (float)overlap), enemy.position.Y + 5*(yDirection * (float)overlap));
 
         }
