@@ -4,43 +4,71 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/enemy.png</File>
-    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/../../../../../Desktop/dragon.png</File>
-    <File>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS35/Content/dragon.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/ball.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/bricks.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/creditsEdited.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/doors.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/dragon.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/DungeonEnemy.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/Enemy.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/itemsAndWeapons.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/itemsAndWeapons1.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/LeftFire.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/linkSheet.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/NES - The Legend of Zelda - Dungeon Tileset.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/oldman.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/oldman1.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/playerSheet.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/RightFire.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/roomwalls original.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/roomwalls.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/sandtile.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/silverlines.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/solid black tile.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/solid blue tile.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/solid navy tile.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/Sprint 2 Tiles.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/sprint-2-items.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/stairs.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/statue1.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/statue2.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/textsprite.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/tile with square in middle.png</File>
-    <File>C:/Users/austi/source/repos/ZeldaGameS3/Content/zelda.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/ball.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/bricks.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/creditsEdited.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/doors.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/dragon.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/DungeonEnemy.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/Enemy.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/itemsAndWeapons.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/itemsAndWeapons1.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/LeftFire.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/linkSheet.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/LOZ_Sword_Slash.wav</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/NES - The Legend of Zelda - Dungeon Tileset.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/oldman.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/oldman1.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/playerSheet.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/RightFire.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/roomwalls original.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/roomwalls.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/sandtile.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/silverlines.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/solid black tile.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/solid blue tile.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/solid navy tile.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/Sprint 2 Tiles.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/sprint-2-items.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/stairs.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/statue1.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/statue2.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/textsprite.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/tile with square in middle.png</File>
+    <File>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
-    <File>dragon.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

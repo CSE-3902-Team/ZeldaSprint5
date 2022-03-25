@@ -97,18 +97,6 @@
 /processorParam:TextureFormat=Color
 /build:DungeonEnemy.png
 
-#begin enemy.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:enemy.png
-
 #begin Enemy.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -168,6 +156,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:linkSheet.png
+
+#begin LOZ_Sword_Slash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LOZ_Sword_Slash.wav
 
 #begin NES - The Legend of Zelda - Dungeon Tileset.png
 /importer:TextureImporter
