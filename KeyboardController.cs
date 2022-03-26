@@ -144,8 +144,11 @@ namespace Sprint0 {
 
 			if (kstate.IsKeyDown(Keys.Z) || kstate.IsKeyDown(Keys.N))
 			{
+				//LevelManager.Instance.SoundManager.Play(SoundManager.Sound.PuzzleSolved);
 				levelManager.Player.Attack();
+				
 			}
+			
 
 			//player projectile controls
 			if (HasBeenPressed(Keys.D1))

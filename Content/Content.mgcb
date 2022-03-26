@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:ball.png
 
+#begin BombBlow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BombBlow.wav
+
+#begin BombDrop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BombDrop.wav
+
 #begin bricks.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -72,6 +84,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:doors.png
+
+#begin DoorUnlock.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:DoorUnlock.wav
 
 #begin dragon.png
 /importer:TextureImporter
@@ -109,6 +127,36 @@
 /processorParam:TextureFormat=Color
 /build:Enemy.png
 
+#begin EnemyDie.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:EnemyDie.wav
+
+#begin EnemyHit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:EnemyHit.wav
+
+#begin GetHeartKey.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:GetHeartKey.wav
+
+#begin GetInventoryItem.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:GetInventoryItem.wav
+
+#begin GetRupee.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:GetRupee.wav
+
 #begin itemsAndWeapons.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -133,6 +181,12 @@
 /processorParam:TextureFormat=Color
 /build:itemsAndWeapons1.png
 
+#begin KeyAppear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:KeyAppear.wav
+
 #begin LeftFire.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -145,6 +199,18 @@
 /processorParam:TextureFormat=Color
 /build:LeftFire.png
 
+#begin LinkDie.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LinkDie.wav
+
+#begin LinkHurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LinkHurt.wav
+
 #begin linkSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -156,6 +222,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:linkSheet.png
+
+#begin LowHp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LowHp.wav
 
 #begin LOZ_Sword_Slash.wav
 /importer:WavImporter
@@ -174,6 +246,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:NES - The Legend of Zelda - Dungeon Tileset.png
+
+#begin NewItem.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:NewItem.wav
 
 #begin oldman.png
 /importer:TextureImporter
@@ -210,6 +288,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:playerSheet.png
+
+#begin PuzzleSolved.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:PuzzleSolved.wav
 
 #begin RightFire.png
 /importer:TextureImporter
@@ -390,6 +474,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:tile with square in middle.png
+
+#begin WalkStairs.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:WalkStairs.wav
 
 #begin zelda.png
 /importer:TextureImporter
