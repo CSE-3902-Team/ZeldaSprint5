@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Sprint0.LevelClass;
 namespace Sprint0.Collision
 {
     public class CollisionHandlerPlayerProjectile : ICollisionHandler
@@ -77,6 +77,7 @@ namespace Sprint0.Collision
                 default:
                     break;
             }
+            LevelManager.Instance.SoundManager.Play(SoundManager.Sound.LinkHurt);
             projectile.IsRunning = false;
 
         }

@@ -27,7 +27,10 @@ namespace Sprint0 {
 		private Vector2 collisionOffsetY;
 		private Color col;
 		public const int KNOCKBACK_FRAMES = 5;
+		public const int STARTING_PLAYER_HP = 3;
 		private readonly ICommand addProjectileCommand;
+		private int playerHp;
+		
 
 		public ProjectilePlayerSword SwordProjectile
 		{
@@ -69,6 +72,11 @@ namespace Sprint0 {
 			set { _state = value; }
 		}
 
+	public int PlayerHp
+		{
+			get { return playerHp; }
+			set { playerHp = value; }
+		}
 	public Color Col
     {
 		get { return col; }
@@ -103,6 +111,7 @@ namespace Sprint0 {
 			addProjectileCommand = c;
 			collisionOffsetX = new Vector2(0, 0);
 			collisionOffsetY = new Vector2(0, 0);
+			playerHp = STARTING_PLAYER_HP;
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -159,7 +168,14 @@ namespace Sprint0 {
 		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
-            
+
+			if (playerHp == 1 && col == Color.White)
+			{
+				col = Color.Red;
+			}
+			else if (playerHp == 1) {
+				col = Color.White;
+			}
 
 			
 			Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width * scale), (int)(src.Height * scale));

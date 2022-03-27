@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Sprint0.PlayerClass;
+using Sprint0.LevelClass;
 
 namespace Sprint0.Collision
 {
@@ -40,6 +41,7 @@ namespace Sprint0.Collision
                 default:
                     break;
             }
+            LevelManager.Instance.SoundManager.Play(SoundManager.Sound.LinkHurt);
 
             //Console.WriteLine("yDirection=" + yDirection);
         }

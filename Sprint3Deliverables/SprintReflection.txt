@@ -1,4 +1,0 @@
-﻿Reflection: This sprint was very difficult. Figuring out collision detection was the most challenging task as was making it usuable for every class.
-Projectile collision detection proved to be the hardest to implement. Both player and enemy decided to store projectiles within their own classes.
-Both player and enemy decided to handle this differently so it was very chlalenging to get both classes working. Room loading and csv file creation
-was straightforward.

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/Sprint 2 Tiles.png</SourceFile>
-  <SourceTime>2022-03-25T11:41:47.8079682-04:00</SourceTime>
-  <DestFile>C:/Users/lukes/OneDrive/Desktop/Repositories/ZeldaGameS4/Content/bin/Sprint 2 Tiles.xnb</DestFile>
-  <DestTime>2022-03-25T22:40:02.6451255-04:00</DestTime>
+  <SourceFile>C:/Users/lukes/ZeldaGameS4/Content/Sprint 2 Tiles.png</SourceFile>
+  <SourceTime>2022-03-26T19:18:56.1708033-04:00</SourceTime>
+  <DestFile>C:/Users/lukes/ZeldaGameS4/Content/bin/Sprint 2 Tiles.xnb</DestFile>
+  <DestTime>2022-03-27T14:33:38.5030929-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

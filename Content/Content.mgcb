@@ -37,6 +37,12 @@
 /processorParam:TextureFormat=Color
 /build:ball.png
 
+#begin BG_MUSIC.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BG_MUSIC.wav
+
 #begin BombBlow.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -228,6 +234,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:LowHp.wav
+
+#begin LOZ_Arrow_Boomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LOZ_Arrow_Boomerang.wav
+
+#begin LOZ_MagicalRod.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LOZ_MagicalRod.wav
 
 #begin LOZ_Sword_Slash.wav
 /importer:WavImporter

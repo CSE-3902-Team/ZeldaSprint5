@@ -80,6 +80,7 @@ namespace Sprint0.PlayerClass
 
 		public void DamageLink(Player.Directions dir)
 		{
+			
 			switch (dir)
 			{
 				case Player.Directions.Up:
