@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Sprint0.LevelClass;
 
 namespace Sprint0
 {
@@ -13,6 +14,7 @@ namespace Sprint0
         private SpriteBatch batch;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
+        private const int RETURN_FRAMES = 15;
 
         private int frame;
         private float rotation;
@@ -37,6 +39,7 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
+
 
         public TopLeft TopLeft
         {
@@ -64,6 +67,12 @@ namespace Sprint0
             frame = 0;
         }
 
+        public int GetSign(int distance)
+        {
+            if (distance < 0) return 1;
+            return -1;
+        }
+
         public void GetRotation(Vector2 direction)
         {
             if (direction.X == 0 && direction.Y > 0)
@@ -87,8 +96,11 @@ namespace Sprint0
         public void Update()
         {
             GetRotation(direction);
+            Console.WriteLine("Projectile: "+position.X + " player:" + LevelManager.Instance.Player.Position.X);
+            int PlayerProjectileDistanceX = (int) (LevelManager.Instance.Player.Position.X - position.X);
+            int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player.Position.Y - position.Y);
 
-            if (IsRunning == true)
+            if (IsRunning)
             {
                 destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
                 frame++;
@@ -119,26 +131,26 @@ namespace Sprint0
                 }
                 else if (frame >= 35 && frame < 45)
                 {
-                    position.X += direction.X * -3f;
-                    position.Y += direction.Y * -3f;
+                    position.X += GetSign(PlayerProjectileDistanceX) * -5f;
+                    position.Y += GetSign(PlayerProjectileDistanceY) * -5f;
                     sourceRect = new Rectangle(107, 280, 12, 19);
                 }
                 else if (frame >= 45 && frame < 55)
                 {
-                    position.X += direction.X * -5f;
-                    position.Y += direction.Y * -5f;
+                    position.X += GetSign(PlayerProjectileDistanceX) * -5f;
+                    position.Y += GetSign(PlayerProjectileDistanceY) * -5f;
                     sourceRect = new Rectangle(122, 280, 12, 19);
                 }
-                else if (frame >= 55 && frame < 65)
+                else if (frame > 55 & frame < 65)
                 {
-                    position.X += direction.X * -5f;
-                    position.Y += direction.Y * -5f;
+                    position.X += GetSign(PlayerProjectileDistanceX) * -5f;
+                    position.Y += GetSign(PlayerProjectileDistanceY) * -5f;
                     sourceRect = new Rectangle(97, 280, 12, 19);
                 }
-                else
+
+                if (frame > 65)
                 {
-                    IsRunning = false;
-                    sourceRect = new Rectangle(400, 400, 0, 0);
+                    frame = 35;
                 }
             }
             else

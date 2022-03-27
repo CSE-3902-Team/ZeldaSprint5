@@ -132,7 +132,6 @@ namespace Sprint0 {
 		public void UseItem(IProjectile proj)
 		{
 			_state.UseItem(proj);
-
 		}
 
 		private void UpdateCollisionBox() {

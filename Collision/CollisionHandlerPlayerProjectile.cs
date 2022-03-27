@@ -22,11 +22,13 @@ namespace Sprint0.Collision
             //Check for Friendly fire 
             if (projectile is ProjectilePlayerBoomerang)
             {
+                projectile.IsRunning = false;
                 return;
             }
 
             if (projectile is ProjectilePlayerSpecialBoomerang)
             {
+                projectile.IsRunning = false;
                 return;
             }
 
