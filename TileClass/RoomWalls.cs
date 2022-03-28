@@ -9,7 +9,9 @@ namespace Sprint0.TileClass
 {
     class RoomWalls : ITile
     {
-       
+
+
+        private const int OFFSET = 256;
         private Vector2 myPos;
         private Texture2D myTile;
         private SpriteBatch myBatch;
@@ -23,7 +25,7 @@ namespace Sprint0.TileClass
         {
             myTile = tile;
             myBatch = batch;
-            myPos = new Vector2(512,352);
+            myPos = new Vector2(512,352 + OFFSET);
             sourceRect = new Rectangle(0, 0, 1024, 704);
 
     }

@@ -24,6 +24,7 @@ namespace Sprint0.LevelClass
 		private List<Room> roomList;
         private int currentRoom;
         private int numRooms;
+        private const int OFFSET = 256; //used in sprint4 because we need to push the level down to have the inventory/map on the top of the screen
 
 		private ItemSpriteFactory itemFactory;
 		private DoorFactory doorFactory;
@@ -87,7 +88,7 @@ namespace Sprint0.LevelClass
             playerTexture = Content.Load<Texture2D>("playerSheet");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
             
-            _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200), new Vector2(1, 0)), new Vector2(200, 200), Content.Load<Texture2D>("solid navy tile"), command);
+            _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200+OFFSET), new Vector2(1, 0)), new Vector2(200, 200+OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
             soundManager = new SoundManager();
             soundManager.LoadAllSounds(Content);
 
@@ -126,8 +127,8 @@ namespace Sprint0.LevelClass
             string item;
             Vector2 position1;
             tileDoor = fields[0];
-            position = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2]));
-            position1 = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+50);
+            position = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+OFFSET);
+            position1 = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+50+OFFSET);
             if (fields.Length >= 4)
             {
                 enemy = fields[3];

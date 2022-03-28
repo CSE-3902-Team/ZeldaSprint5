@@ -6,10 +6,12 @@ namespace Sprint0.DoorClass
 {
     public abstract class ADoor
     {
-        private static Vector2 topDoorLocation = new Vector2(448, 0);
-        private static Vector2 leftDoorLocation = new Vector2(0, 288);
-        private static Vector2 rightDoorLocation = new Vector2(896, 288);
-        private static Vector2 bottomDoorLocation = new Vector2(448, 576);
+
+        public const int OFFSET = 256;
+        private static Vector2 topDoorLocation = new Vector2(448, 0 + OFFSET);
+        private static Vector2 leftDoorLocation = new Vector2(0, 288+ OFFSET);
+        private static Vector2 rightDoorLocation = new Vector2(896, 288+OFFSET);
+        private static Vector2 bottomDoorLocation = new Vector2(448, 576+OFFSET);
 
         public Vector2 myPos;
         protected Texture2D mySheet;
