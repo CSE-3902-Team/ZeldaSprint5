@@ -4,6 +4,7 @@ using Sprint0.PlayerClass;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Sprint0.Command;
+using Sprint0.LevelClass;
 
 namespace Sprint0 { 
 
@@ -28,8 +29,10 @@ namespace Sprint0 {
 		private Color col;
 		public const int KNOCKBACK_FRAMES = 5;
 		public const int STARTING_PLAYER_HP = 3;
+		public int HPFRAMES = 1;
 		private readonly ICommand addProjectileCommand;
 		private int playerHp;
+		
 		
 
 		public ProjectilePlayerSword SwordProjectile
@@ -135,7 +138,16 @@ namespace Sprint0 {
 		public void DamageLink(Player.Directions dir)
 		{
 			_state.DamageLink(dir);
-			
+			if (playerHp == 1)
+			{
+				LevelManager.Instance.SoundManager.PlayLowHpBGM();
+			}
+			else if (playerHp == 0)
+			{
+				LevelManager.Instance.SoundManager.StopLowHpBGM();
+				//Player dead state
+			}
+
 		}
 
 		public void UseItem(IProjectile proj)
@@ -157,6 +169,23 @@ namespace Sprint0 {
 			position.Y += y * speed;
 		}
 
+		public void LinkLowHpColor() {
+			if (playerHp == 1 && HPFRAMES <= 12)
+			{
+				col = Color.Red;
+				HPFRAMES++;
+			}
+			else if (playerHp == 1 && HPFRAMES <= 24)
+			{
+				col = Color.White;
+				HPFRAMES++;
+			}
+			else if (playerHp == 1 && HPFRAMES > 24)
+			{
+				HPFRAMES = 1;
+				col = Color.White;
+			}
+		}
 		
 
        
@@ -168,16 +197,11 @@ namespace Sprint0 {
 		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
+			Console.WriteLine(playerHp);
 
-			if (playerHp == 1 && col == Color.White)
-			{
-				col = Color.Red;
-			}
-			else if (playerHp == 1) {
-				col = Color.White;
-			}
 
-			
+
+			LinkLowHpColor();
 			Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width * scale), (int)(src.Height * scale));
 			_spriteBatch.Begin();
 			_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 - xOffset, src.Height / 2 - yOffset), SpriteEffects.None, 0f);

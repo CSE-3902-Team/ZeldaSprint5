@@ -48,9 +48,9 @@ namespace Sprint0.PlayerClass
 
 		public void DamageLink(Player.Directions dir)
 		{
-			
+			player.PlayerHp = player.PlayerHp - 1;
 			player.SwordProjectile.IsRunning = false;
-
+			player.PlayerHp = player.PlayerHp - 1;
 			switch (dir)
 			{
 				case Player.Directions.Up:

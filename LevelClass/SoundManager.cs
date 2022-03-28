@@ -15,6 +15,7 @@ namespace Sprint0.LevelClass
 
         
         private SoundEffectInstance Current_BGM;
+        private SoundEffectInstance LowHp_BGM;
         public enum Sound
         { 
             SwordSlash,
@@ -78,13 +79,17 @@ namespace Sprint0.LevelClass
             Current_BGM.Play();
         }
 
-        public void ChangeBGM(Sound music)
+        public void PlayLowHpBGM()
         {
-            Current_BGM.Pause();
-            Current_BGM.Dispose();
-            Current_BGM = soundDict[music].CreateInstance();
-            Current_BGM.IsLooped = true;
-            Current_BGM.Play();
+            LowHp_BGM = soundDict[Sound.LowHp].CreateInstance();
+            LowHp_BGM.IsLooped = true;
+            LowHp_BGM.Play();
+        }
+
+        public void StopLowHpBGM()
+        {
+            LowHp_BGM.Pause();
+            //LowHp_BGM.Dispose();
         }
     }
 }
