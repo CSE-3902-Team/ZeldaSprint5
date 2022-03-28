@@ -67,10 +67,8 @@ namespace Sprint0.enemy
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
-            currentPos.Y = 200;
-            currentPos.X = 400;
-            destination.X = 400;
-            destination.Y = 200;
+            currentPos = location;
+            destination = location;
             link = player;
             topLeft = new TopLeft(400, 200, this);
             botRight = new BottomRight(440, 240, this);
