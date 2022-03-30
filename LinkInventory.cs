@@ -7,19 +7,20 @@ namespace Sprint0
 {
     public class LinkInventory
     {
-        private Dictionary<AItem, int> itemAndCount;
+        private List<int> itemCounts;
 
         private int rupeeCount;
         private int keyCount;
         private int bombCount;
-        private Boolean sword;
-        private int bowCount;
-        private int mapCount;
         private int arrowCount;
-        private int compassCount;
         private int heartCount;
         private int heartContainerCount;
 
+        private Boolean sword;
+        private Boolean bow;
+        private Boolean map;
+        private Boolean compass;
+        private Boolean boomerang;
         public int RupeeCount
         {
             get { return rupeeCount; }
@@ -36,12 +37,83 @@ namespace Sprint0
             get { return bombCount; }
             set { bombCount = value; }
         }
+
+        public int ArrowCount
+        {
+            get { return arrowCount; }
+            set { arrowCount = value; }
+        }
+
+        public int HeartCount
+        {
+            get { return heartCount; }
+            set { heartCount = value; }
+        }
+
+        public int HeartContainerCount
+        {
+            get { return heartContainerCount; }
+            set { heartContainerCount = value; }
+        }
         public Boolean Sword
         {
             get { return sword; }
             set { sword = value; }
         }
-                
-          
+
+        public Boolean Bow
+        {
+            get { return bow; }
+            set { bow = value; }
+        }
+
+        public Boolean Map
+        {
+            get { return map; }
+            set { map = value; }
+        }
+
+        public Boolean Compass
+        {
+            get { return compass; }
+            set { compass = value; }
+        }
+
+        public Boolean Boomerang
+        {
+            get { return boomerang; }
+            set { boomerang = value; }
+        }
+
+        public LinkInventory()
+        {
+            rupeeCount = 0;
+            keyCount = 0;
+            bombCount = 0;
+            arrowCount = 0;
+            heartCount = 6;
+            heartContainerCount = 3;
+
+            sword = false;
+            bow = false;
+            map = false;
+            compass = false;
+            boomerang = false;
+
+            itemCounts = new List<int>();
+            itemCounts.Add(RupeeCount);
+            itemCounts.Add(KeyCount);
+            itemCounts.Add(BombCount);
+            itemCounts.Add(ArrowCount);
+            itemCounts.Add(HeartCount);
+            itemCounts.Add(HeartContainerCount);
+
+        }
+
+        public void Update()
+        {
+            
+        }
+
     }
 }

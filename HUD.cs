@@ -19,19 +19,17 @@ namespace Sprint0
         private int keyCount;
         private int bombCount;
 
-        private int MAX_HEALTH_COUNT;
         public HUD(Player player, SpriteBatch spritebatch)
         {
             this.player = player;
             this.spriteBatch = spritebatch;
 
             health = player.PlayerHp;
-            rupeeCount = player.Inventory.RupeeCount;
-            keyCount = player.Inventory.KeyCount;
-            bombCount = player.Inventory.BombCount;
+   //         rupeeCount = player.Inventory.RupeeCount;
+  //          keyCount = player.Inventory.KeyCount;
+  //          bombCount = player.Inventory.BombCount;
 
             levelNumber = 1;
-            MAX_HEALTH_COUNT = 6;
 
         }
 
