@@ -86,6 +86,11 @@ namespace Sprint0.LevelClass
             Level_BGM.Play();
         }
 
+        public void StopBGM()
+        {
+            Level_BGM.Pause();
+        }
+
         public void PlayLowHpBGM()
         {
             LowHp_BGM.Play();
@@ -95,11 +100,8 @@ namespace Sprint0.LevelClass
         {
             LowHp_BGM.Pause();
         }
-
         public void PlayWinMusic()
         {
-            LowHp_BGM.Pause();
-            Level_BGM.Pause();
             Play(Sound.Triforce);
         }
     }

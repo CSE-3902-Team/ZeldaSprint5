@@ -28,7 +28,7 @@ namespace Sprint0 {
 		private Vector2 collisionOffsetY;
 		private Color col;
 		public const int KNOCKBACK_FRAMES = 5;
-		public const int STARTING_PLAYER_HP = 3;
+		private int maxHp = 6;
 		public int HPFRAMES = 1;
 		private readonly ICommand addProjectileCommand;
 		private int playerHp;
@@ -75,10 +75,35 @@ namespace Sprint0 {
 			set { _state = value; }
 		}
 
+	public int MaxHp
+        {
+			get { return maxHp; }
+			set { maxHp = value; }
+		}
 	public int PlayerHp
 		{
 			get { return playerHp; }
-			set { playerHp = value; }
+			set 
+			{
+				playerHp = value > maxHp ? maxHp : value;
+
+				if (playerHp > 1)
+				{
+					LevelManager.Instance.SoundManager.StopLowHpBGM();
+
+				}
+				if (playerHp == 1)
+				{
+					LevelManager.Instance.SoundManager.PlayLowHpBGM();
+				}
+				else if (playerHp == 0)
+				{
+					LevelManager.Instance.SoundManager.StopLowHpBGM();
+					LevelManager.Instance.SoundManager.StopBGM();
+					LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GameOver);
+					//Player dead state: player can't take anymore damage
+				}
+			}
 		}
 	public Color Col
     {
@@ -114,7 +139,7 @@ namespace Sprint0 {
 			addProjectileCommand = c;
 			collisionOffsetX = new Vector2(0, 0);
 			collisionOffsetY = new Vector2(0, 0);
-			playerHp = STARTING_PLAYER_HP;
+			playerHp = maxHp;
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -138,16 +163,6 @@ namespace Sprint0 {
 		public void DamageLink(Player.Directions dir)
 		{
 			_state.DamageLink(dir);
-			if (playerHp == 1)
-			{
-				LevelManager.Instance.SoundManager.PlayLowHpBGM();
-			}
-			else if (playerHp == 0)
-			{
-				LevelManager.Instance.SoundManager.StopLowHpBGM();
-				//Player dead state
-			}
-
 		}
 
 		public void UseItem(IProjectile proj)
@@ -184,6 +199,11 @@ namespace Sprint0 {
 			{
 				HPFRAMES = 1;
 				col = Color.White;
+			}
+			else if (playerHp > 1)
+			{
+				col = Color.White;
+				HPFRAMES = 1;
 			}
 		}
 		

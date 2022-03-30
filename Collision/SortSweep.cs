@@ -180,7 +180,7 @@ namespace Sprint0.Collision
             }
             else if (other is AItem)
             {
-                handler = new CollisionHandlerPlayerItem(other as AItem);
+                handler = new CollisionHandlerPlayerItem(player,other as AItem);
             }
             else if (other is IProjectile) 
             {
