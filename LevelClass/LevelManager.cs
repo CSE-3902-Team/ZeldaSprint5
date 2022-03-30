@@ -20,6 +20,8 @@ namespace Sprint0.LevelClass
 {
 	public class LevelManager
 	{
+        private HUD headsUpDisplay;
+
 		private SpriteBatch batch;
 		private List<Room> roomList;
         private int currentRoom;
@@ -39,9 +41,6 @@ namespace Sprint0.LevelClass
         private List<ITile> tileList;
         ICommand command;
         SoundManager soundManager;
-
-
-
 
         public Texture2D ProjectileTexture
         {
