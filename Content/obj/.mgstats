@@ -12,6 +12,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/lukes/ZeldaGameS4/Content/Enemy.png","C:/Users/lukes/ZeldaGameS4/Content/bin/Enemy.xnb","TextureProcessor","Texture2DContent",44535,1667221,0.0354717
 "C:/Users/lukes/ZeldaGameS4/Content/EnemyDie.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/EnemyDie.xnb","SoundEffectProcessor","SoundEffectContent",9282,9343,1.1881231
 "C:/Users/lukes/ZeldaGameS4/Content/EnemyHit.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/EnemyHit.xnb","SoundEffectProcessor","SoundEffectContent",10984,11044,1.1881073
+"C:/Users/lukes/ZeldaGameS4/Content/GameOver.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/GameOver.xnb","SoundEffectProcessor","SoundEffectContent",2958508,2958441,1.4551628
 "C:/Users/lukes/ZeldaGameS4/Content/GetHeartKey.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/GetHeartKey.xnb","SoundEffectProcessor","SoundEffectContent",7248,7308,1.1847568
 "C:/Users/lukes/ZeldaGameS4/Content/GetInventoryItem.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/GetInventoryItem.xnb","SoundEffectProcessor","SoundEffectContent",27284,27345,1.200311
 "C:/Users/lukes/ZeldaGameS4/Content/GetRupee.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/GetRupee.xnb","SoundEffectProcessor","SoundEffectContent",19814,19875,1.1869985
@@ -47,5 +48,6 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/lukes/ZeldaGameS4/Content/statue2.png","C:/Users/lukes/ZeldaGameS4/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",660,16469,0.0015816
 "C:/Users/lukes/ZeldaGameS4/Content/textsprite.png","C:/Users/lukes/ZeldaGameS4/Content/bin/textsprite.xnb","TextureProcessor","Texture2DContent",30099,154837,0.0056581
 "C:/Users/lukes/ZeldaGameS4/Content/tile with square in middle.png","C:/Users/lukes/ZeldaGameS4/Content/bin/tile with square in middle.xnb","TextureProcessor","Texture2DContent",450,16469,0.0017638
+"C:/Users/lukes/ZeldaGameS4/Content/Triforce.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/Triforce.xnb","SoundEffectProcessor","SoundEffectContent",792748,792681,1.2229326
 "C:/Users/lukes/ZeldaGameS4/Content/WalkStairs.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/WalkStairs.xnb","SoundEffectProcessor","SoundEffectContent",30134,30195,1.1757483
 "C:/Users/lukes/ZeldaGameS4/Content/zelda.png","C:/Users/lukes/ZeldaGameS4/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0017238

@@ -25,6 +25,10 @@ namespace Sprint0.Collision
             {
                 LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetRupee);
             }
+            else if(item is ItemTriforcePiece) 
+            {
+                LevelManager.Instance.SoundManager.PlayWinMusic();
+            }
             else 
             { 
                 LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetInventoryItem);

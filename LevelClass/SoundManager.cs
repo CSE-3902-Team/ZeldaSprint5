@@ -14,8 +14,9 @@ namespace Sprint0.LevelClass
         }
 
         
-        private SoundEffectInstance Current_BGM;
+        private SoundEffectInstance Level_BGM;
         private SoundEffectInstance LowHp_BGM;
+        
         public enum Sound
         { 
             SwordSlash,
@@ -35,7 +36,9 @@ namespace Sprint0.LevelClass
             PuzzleSolved,
             DoMagic,
             UseArrowBoomerang,
-            BG_MUSIC
+            BG_MUSIC,
+            Triforce,
+            GameOver
         }
 
         //private SoundEffectInstance levelMusic;
@@ -67,29 +70,37 @@ namespace Sprint0.LevelClass
                 {Sound.PuzzleSolved, content.Load<SoundEffect>("PuzzleSolved")},
                 {Sound.DoMagic, content.Load<SoundEffect>("LOZ_MagicalRod") }, //Complete
                 {Sound.UseArrowBoomerang, content.Load<SoundEffect>("LOZ_Arrow_Boomerang") }, //Complete
-                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSIC") }
+                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSIC") },
+                {Sound.Triforce, content.Load<SoundEffect>("Triforce") },
+                {Sound.GameOver, content.Load<SoundEffect>("GameOver") },
             };
+            LowHp_BGM = soundDict[Sound.LowHp].CreateInstance();
+            LowHp_BGM.IsLooped = true;
             StartBGM();
         }
 
         private void StartBGM()
         {
-            Current_BGM = soundDict[Sound.BG_MUSIC].CreateInstance();
-            Current_BGM.IsLooped = true;
-            Current_BGM.Play();
+            Level_BGM = soundDict[Sound.BG_MUSIC].CreateInstance();
+            Level_BGM.IsLooped = true;
+            Level_BGM.Play();
         }
 
         public void PlayLowHpBGM()
         {
-            LowHp_BGM = soundDict[Sound.LowHp].CreateInstance();
-            LowHp_BGM.IsLooped = true;
             LowHp_BGM.Play();
         }
 
         public void StopLowHpBGM()
         {
             LowHp_BGM.Pause();
-            //LowHp_BGM.Dispose();
+        }
+
+        public void PlayWinMusic()
+        {
+            LowHp_BGM.Pause();
+            Level_BGM.Pause();
+            Play(Sound.Triforce);
         }
     }
 }
