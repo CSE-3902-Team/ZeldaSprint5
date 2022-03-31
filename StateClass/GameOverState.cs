@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Sprint0.LevelClass;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,14 +17,20 @@ namespace Sprint0.StateClass
         private ContentManager _content;
         private Texture2D screen;
         private Texture2D text;
+        //private KeyboardController kController;
+        //private MouseController mController;
+
 
         public GameOverState(Game1 game, ContentManager content) : base(game, content)
         {
             _game = game;
             _content = content;
+            //kController = new KeyboardController(_game, new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2));
+            //mController = new MouseController(_game);
         }
         public override void loadContent()
         {
+            Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
             screen = _content.Load<Texture2D>("BlackBackground");
             text = _content.Load<Texture2D>("GameOverText");
         }
