@@ -32,7 +32,7 @@ namespace Sprint0 {
 		public int HPFRAMES = 1;
 		private readonly ICommand addProjectileCommand;
 		private int playerHp;
-		
+		private bool isDead;
 		
 
 		public ProjectilePlayerSword SwordProjectile
@@ -46,6 +46,7 @@ namespace Sprint0 {
 		public float Speed { get { return speed; } set { speed = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
+		public bool IsDead { get { return isDead; } set { isDead = value; } }
 		public Vector2 Position { 
 			get 
 			{ 
@@ -101,7 +102,10 @@ namespace Sprint0 {
 					LevelManager.Instance.SoundManager.StopLowHpBGM();
 					LevelManager.Instance.SoundManager.StopBGM();
 					LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GameOver);
-					//Player dead state: player can't take anymore damage
+					//Change to playerDeadState: isDead will be changed within the state.
+					isDead = true;
+
+
 				}
 			}
 		}
@@ -140,6 +144,7 @@ namespace Sprint0 {
 			collisionOffsetX = new Vector2(0, 0);
 			collisionOffsetY = new Vector2(0, 0);
 			playerHp = maxHp;
+			isDead = false;
 		}
 
 		public void ChangeDirection(Directions dir)

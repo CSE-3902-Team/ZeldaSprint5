@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Sprint0.LevelClass
 {
-    public class SoundManager
+    public class SoundManager : IDisposable
     {
         static SoundManager(){
             SoundEffect.MasterVolume = 0.10f;
@@ -16,6 +16,7 @@ namespace Sprint0.LevelClass
         
         private SoundEffectInstance Level_BGM;
         private SoundEffectInstance LowHp_BGM;
+        private SoundEffectInstance Game_Over;
         
         public enum Sound
         { 
@@ -76,6 +77,7 @@ namespace Sprint0.LevelClass
             };
             LowHp_BGM = soundDict[Sound.LowHp].CreateInstance();
             LowHp_BGM.IsLooped = true;
+            Game_Over = soundDict[Sound.GameOver].CreateInstance();
             StartBGM();
         }
 
@@ -100,9 +102,31 @@ namespace Sprint0.LevelClass
         {
             LowHp_BGM.Pause();
         }
+
+        public void PlayGameOver()
+        {
+            Game_Over.Stop();
+        }
+
+        public void StopGameOver()
+        {
+            Game_Over.Stop();
+        }
+
         public void PlayWinMusic()
         {
             Play(Sound.Triforce);
+        }
+
+
+        public void Dispose() 
+        {
+            StopBGM();
+            StopGameOver();
+            StopLowHpBGM();
+            Level_BGM.Dispose();
+            LowHp_BGM.Dispose();
+            Game_Over.Dispose();
         }
     }
 }
