@@ -10,6 +10,8 @@ public class MouseController : IController
 	private MouseState mState;
 	private MouseState previousState;
 
+	
+
 	public MouseController(Game1 thisGame)
 	{
 		this.game = thisGame;
