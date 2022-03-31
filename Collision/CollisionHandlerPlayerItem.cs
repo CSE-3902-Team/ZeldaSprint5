@@ -38,9 +38,9 @@ namespace Sprint0.Collision
             }
             else if (item is ItemTriforcePiece)
             {
-                LevelManager.Instance.SoundManager.StopBGM();
-                LevelManager.Instance.SoundManager.StopLowHpBGM();
-                LevelManager.Instance.SoundManager.PlayWinMusic();
+                LevelManager.Instance.SoundManager.Stop(SoundManager.Sound.BG_MUSIC);
+                LevelManager.Instance.SoundManager.Stop(SoundManager.Sound.LowHp);
+                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.Triforce);
             }
             else
             {

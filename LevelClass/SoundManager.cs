@@ -12,11 +12,6 @@ namespace Sprint0.LevelClass
         static SoundManager(){
             SoundEffect.MasterVolume = 0.10f;
         }
-
-        
-        private SoundEffectInstance Level_BGM;
-        private SoundEffectInstance LowHp_BGM;
-        private SoundEffectInstance Game_Over;
         
         public enum Sound
         { 
@@ -43,90 +38,54 @@ namespace Sprint0.LevelClass
         }
 
         //private SoundEffectInstance levelMusic;
-        private Dictionary<Sound, SoundEffect> soundDict;
+        private Dictionary<Sound, SoundEffectInstance> soundDict;
         public void Play(Sound s)
+        {   
+            soundDict[s].Play();
+        }
+
+        public void Stop(Sound s)
         {
-            SoundEffect target;
-            soundDict.TryGetValue(s, out target);
-            target.Play();
+            soundDict[s].Stop();
         }
         public void LoadAllSounds(ContentManager content)
         {
-            soundDict = new Dictionary<Sound, SoundEffect>
+            soundDict = new Dictionary<Sound, SoundEffectInstance>
             {
-                {Sound.SwordSlash,content.Load<SoundEffect>("LOZ_Sword_Slash")}, //Complete
-                {Sound.BombDrop, content.Load<SoundEffect>("BombDrop")},     //Complete
-                {Sound.BombBlow, content.Load<SoundEffect>("BombBlow")},    //Complete
-                {Sound.EnemyHit, content.Load<SoundEffect>("EnemyHit")},
-                {Sound.EnemyDie, content.Load<SoundEffect>("EnemyDie")},
-                {Sound.LinkHurt, content.Load<SoundEffect>("LinkHurt")},    //Complete
-                {Sound.LowHp,    content.Load<SoundEffect>("LowHp")}, 
-                {Sound.LinkDie,  content.Load<SoundEffect>("LinkDie")},
-                {Sound.NewItem,  content.Load<SoundEffect>("NewItem")},
-                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem")},
-                {Sound.GetHeartKey, content.Load<SoundEffect>("GetHeartKey")}, //Complete
-                {Sound.GetRupee,   content.Load<SoundEffect>("GetRupee")}, //Complete
-                {Sound.KeyAppear,  content.Load<SoundEffect>("KeyAppear")}, 
-                {Sound.WalkStairs, content.Load<SoundEffect>("WalkStairs")},
-                {Sound.PuzzleSolved, content.Load<SoundEffect>("PuzzleSolved")},
-                {Sound.DoMagic, content.Load<SoundEffect>("LOZ_MagicalRod") }, //Complete
-                {Sound.UseArrowBoomerang, content.Load<SoundEffect>("LOZ_Arrow_Boomerang") }, //Complete
-                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSIC") },
-                {Sound.Triforce, content.Load<SoundEffect>("Triforce") },
-                {Sound.GameOver, content.Load<SoundEffect>("GameOver") },
+                {Sound.SwordSlash,content.Load<SoundEffect>("LOZ_Sword_Slash").CreateInstance()}, //Complete
+                {Sound.BombDrop, content.Load<SoundEffect>("BombDrop").CreateInstance()},     //Complete
+                {Sound.BombBlow, content.Load<SoundEffect>("BombBlow").CreateInstance()},    //Complete
+                {Sound.EnemyHit, content.Load<SoundEffect>("EnemyHit").CreateInstance()},
+                {Sound.EnemyDie, content.Load<SoundEffect>("EnemyDie").CreateInstance()},
+                {Sound.LinkHurt, content.Load<SoundEffect>("LinkHurt").CreateInstance()},    //Complete
+                {Sound.LowHp,    content.Load<SoundEffect>("LowHp").CreateInstance()}, 
+                {Sound.LinkDie,  content.Load<SoundEffect>("LinkDie").CreateInstance()},
+                {Sound.NewItem,  content.Load<SoundEffect>("NewItem").CreateInstance()},
+                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem").CreateInstance()},
+                {Sound.GetHeartKey, content.Load<SoundEffect>("GetHeartKey").CreateInstance()}, //Complete
+                {Sound.GetRupee,   content.Load<SoundEffect>("GetRupee").CreateInstance()}, //Complete
+                {Sound.KeyAppear,  content.Load<SoundEffect>("KeyAppear").CreateInstance()}, 
+                {Sound.WalkStairs, content.Load<SoundEffect>("WalkStairs").CreateInstance()},
+                {Sound.PuzzleSolved, content.Load<SoundEffect>("PuzzleSolved").CreateInstance()},
+                {Sound.DoMagic, content.Load<SoundEffect>("LOZ_MagicalRod").CreateInstance() }, //Complete
+                {Sound.UseArrowBoomerang, content.Load<SoundEffect>("LOZ_Arrow_Boomerang").CreateInstance() }, //Complete
+                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSIC").CreateInstance() },
+                {Sound.Triforce, content.Load<SoundEffect>("Triforce").CreateInstance() },
+                {Sound.GameOver, content.Load<SoundEffect>("GameOver").CreateInstance() },
             };
-            LowHp_BGM = soundDict[Sound.LowHp].CreateInstance();
-            LowHp_BGM.IsLooped = true;
-            Game_Over = soundDict[Sound.GameOver].CreateInstance();
-            StartBGM();
-        }
-
-        private void StartBGM()
-        {
-            Level_BGM = soundDict[Sound.BG_MUSIC].CreateInstance();
-            Level_BGM.IsLooped = true;
-            Level_BGM.Play();
-        }
-
-        public void StopBGM()
-        {
-            Level_BGM.Pause();
-        }
-
-        public void PlayLowHpBGM()
-        {
-            LowHp_BGM.Play();
-        }
-
-        public void StopLowHpBGM()
-        {
-            LowHp_BGM.Pause();
-        }
-
-        public void PlayGameOver()
-        {
-            Game_Over.Stop();
-        }
-
-        public void StopGameOver()
-        {
-            Game_Over.Stop();
-        }
-
-        public void PlayWinMusic()
-        {
-            Play(Sound.Triforce);
+            soundDict[Sound.LowHp].IsLooped = true;
+            soundDict[Sound.BG_MUSIC].IsLooped = true;
+            Play(Sound.BG_MUSIC);
         }
 
 
         public void Dispose() 
         {
-            StopBGM();
-            StopGameOver();
-            StopLowHpBGM();
-            Level_BGM.Dispose();
-            LowHp_BGM.Dispose();
-            Game_Over.Dispose();
+            foreach (Sound key in Enum.GetValues(typeof(Sound)))
+            {
+                soundDict[key].Stop();
+                soundDict[key].Dispose();
+            }
         }
     }
 }
