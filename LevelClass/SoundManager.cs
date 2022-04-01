@@ -84,6 +84,7 @@ namespace Sprint0.LevelClass
             };
             soundDict[Sound.LowHp].IsLooped = true;
             soundDict[Sound.BG_MUSIC].IsLooped = true;
+            soundDict[Sound.GameOver].IsLooped = true;
             Play(Sound.BG_MUSIC);
         }
 

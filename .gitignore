@@ -58,3 +58,5 @@ obj/project.assets.json
 obj/project.nuget.cache
 obj/Sprint0.csproj.nuget.dgspec.json
 obj/Sprint0.csproj.nuget.g.props
+obj/Debug/netcoreapp3.1/Sprint0.assets.cache
+obj/Debug/netcoreapp3.1/Sprint0.GeneratedMSBuildEditorConfig.editorconfig
