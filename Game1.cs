@@ -29,6 +29,8 @@ namespace Sprint0
 
         private IController mController;
 
+        private SoundManager soundLibrary;
+
 
         private AItem item;
         private ITile tile1; 
@@ -55,15 +57,15 @@ namespace Sprint0
             levelManager = LevelManager.Instance;
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this);
-
+            soundLibrary = new SoundManager();
             base.Initialize();
         }
 
         protected override void LoadContent()
         { 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            
 
+            soundLibrary.LoadAllSounds(Content);
             Vector2 center = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2);
             levelManager.initialize(_spriteBatch, Content, colliderDector, center);
             levelManager.LoadRooms();

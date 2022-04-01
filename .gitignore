@@ -45,3 +45,16 @@ mono_crash.*
 *.nuget.props
 *.nuget.targets
 *.[Cc]ache
+bin/Debug/netcoreapp3.1/Sprint0.dll
+.vs/Sprint0/v16/.suo
+bin/Debug/netcoreapp3.1/Sprint0.dll
+obj/Debug/netcoreapp3.1/Sprint0.assets.cache
+obj/Debug/netcoreapp3.1/Sprint0.csproj.FileListAbsolute.txt
+obj/Debug/netcoreapp3.1/Sprint0.dll
+obj/Debug/netcoreapp3.1/Sprint0.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/netcoreapp3.1/Sprint0.genruntimeconfig.cache
+obj/Debug/netcoreapp3.1/Sprint0.pdb
+obj/project.assets.json
+obj/project.nuget.cache
+obj/Sprint0.csproj.nuget.dgspec.json
+obj/Sprint0.csproj.nuget.g.props

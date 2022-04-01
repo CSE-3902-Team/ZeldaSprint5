@@ -9,8 +9,17 @@ namespace Sprint0.LevelClass
 {
     public class SoundManager : IDisposable
     {
+        public static SoundManager instance;
+       
         static SoundManager(){
             SoundEffect.MasterVolume = 0.10f;
+        }
+        
+        public static SoundManager Instance { get { return instance; } }
+
+        public SoundManager()
+        {
+            instance = this;
         }
         
         public enum Sound
@@ -38,7 +47,7 @@ namespace Sprint0.LevelClass
         }
 
         //private SoundEffectInstance levelMusic;
-        private Dictionary<Sound, SoundEffectInstance> soundDict;
+        private static Dictionary<Sound, SoundEffectInstance> soundDict;
         public void Play(Sound s)
         {   
             soundDict[s].Play();

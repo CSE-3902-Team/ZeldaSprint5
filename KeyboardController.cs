@@ -144,7 +144,7 @@ namespace Sprint0 {
 
 			if (HasBeenPressed(Keys.Z) || HasBeenPressed(Keys.N))
 			{
-				LevelManager.Instance.SoundManager.Play(SoundManager.Sound.SwordSlash);
+				SoundManager.Instance.Play(SoundManager.Sound.SwordSlash);
 				levelManager.Player.Attack();
 				
 			}
@@ -154,27 +154,27 @@ namespace Sprint0 {
 			if (HasBeenPressed(Keys.D1))
 			{
 				levelManager.Player.UseItem(new ProjectilePlayerFireball(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-				levelManager.SoundManager.Play(SoundManager.Sound.DoMagic);
+				SoundManager.Instance.Play(SoundManager.Sound.DoMagic);
 			}
 			else if(HasBeenPressed(Keys.D2)) {
 				levelManager.Player.UseItem(new ProjectilePlayerBomb(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-				levelManager.SoundManager.Play(SoundManager.Sound.BombDrop);
+				SoundManager.Instance.Play(SoundManager.Sound.BombDrop);
 			}
 			else if(HasBeenPressed(Keys.D3)) {
 				levelManager.Player.UseItem(new ProjectilePlayerNormalArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-				levelManager.SoundManager.Play(SoundManager.Sound.UseArrowBoomerang);
+				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
 			}
 			else if(HasBeenPressed(Keys.D4)) {
 				levelManager.Player.UseItem(new ProjectilePlayerBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-				levelManager.SoundManager.Play(SoundManager.Sound.UseArrowBoomerang);
+				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
 			}
 			else if(HasBeenPressed(Keys.D5)) {
 				levelManager.Player.UseItem(new ProjectilePlayerSpecialArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-				levelManager.SoundManager.Play(SoundManager.Sound.UseArrowBoomerang);
+				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
 			}		
 			else if(HasBeenPressed(Keys.D6)) {
 				levelManager.Player.UseItem(new ProjectilePlayerSpecialBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-				levelManager.SoundManager.Play(SoundManager.Sound.UseArrowBoomerang);
+				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
 			}
 		}
 

@@ -90,18 +90,18 @@ namespace Sprint0 {
 
 				if (playerHp > 1)
 				{
-					LevelManager.Instance.SoundManager.Stop(SoundManager.Sound.LowHp);
+					SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
 
 				}
 				if (playerHp == 1)
 				{
-					LevelManager.Instance.SoundManager.Play(SoundManager.Sound.LowHp);
+					SoundManager.Instance.Play(SoundManager.Sound.LowHp);
 				}
 				else if (playerHp == 0)
 				{
-					LevelManager.Instance.SoundManager.Stop(SoundManager.Sound.LowHp);
-					LevelManager.Instance.SoundManager.Stop(SoundManager.Sound.BG_MUSIC);
-					LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GameOver);
+					SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
+					SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
+					SoundManager.Instance.Play(SoundManager.Sound.GameOver);
 					//Change to playerDeadState: isDead will be changed within the state.
 					isDead = true;
 

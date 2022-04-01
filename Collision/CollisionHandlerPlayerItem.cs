@@ -21,30 +21,30 @@ namespace Sprint0.Collision
             if (item is ItemHeartContainer)
             {
                 player.MaxHp += 2;
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetHeartKey);
+               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
             }
             else if (item is ItemHeart)
             {
                 player.PlayerHp += 2;
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetHeartKey);
+               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
             }
             else if (item is ItemKey) 
             {
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetHeartKey);
+               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
             }
             else if (item is ItemRupee)
             {
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetRupee);
+               SoundManager.Instance.Play(SoundManager.Sound.GetRupee);
             }
             else if (item is ItemTriforcePiece)
             {
-                LevelManager.Instance.SoundManager.Stop(SoundManager.Sound.BG_MUSIC);
-                LevelManager.Instance.SoundManager.Stop(SoundManager.Sound.LowHp);
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.Triforce);
+               SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
+               SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
+               SoundManager.Instance.Play(SoundManager.Sound.Triforce);
             }
             else
             {
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetInventoryItem);
+               SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
             }
 
             item.IsPickedUp = true;
