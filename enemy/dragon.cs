@@ -75,7 +75,7 @@ namespace Sprint0.enemy
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
-            currentPos.Y = 200;
+            currentPos.Y = 500;
             currentPos.X = 400;
             destination.X = 400;
             destination.Y = 200;

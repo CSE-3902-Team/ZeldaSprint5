@@ -20,6 +20,8 @@ namespace Sprint0.LevelClass
 {
 	public class LevelManager
 	{
+        private HUD headsUpDisplay;
+
 		private SpriteBatch batch;
 		private List<Room> roomList;
         private int currentRoom;
@@ -38,20 +40,14 @@ namespace Sprint0.LevelClass
         private List<IEnemySprite> enemyList;
         private List<ITile> tileList;
         ICommand command;
-        SoundManager soundManager;
-
-
-
+        
 
         public Texture2D ProjectileTexture
         {
             get { return projectileTexture; }
         }
         
-        public SoundManager SoundManager
-        {
-            get { return soundManager; }
-        }
+        
         public Player Player
         {
             get { return _player; }
@@ -89,8 +85,7 @@ namespace Sprint0.LevelClass
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
             
             _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200+OFFSET), new Vector2(1, 0)), new Vector2(200, 200+OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
-            soundManager = new SoundManager();
-            soundManager.LoadAllSounds(Content);
+
 
 
 

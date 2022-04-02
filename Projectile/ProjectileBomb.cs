@@ -79,7 +79,7 @@ namespace Sprint0
                 }
                 else if (frame >= 30 && frame < 32)
                 {
-                    LevelManager.Instance.SoundManager.Play(SoundManager.Sound.BombBlow);
+                   SoundManager.Instance.Play(SoundManager.Sound.BombBlow);
                     sourceRect = new Rectangle(232, 276, 24, 24);
                     destinationRect = new Rectangle((int)position.X, (int)position.Y, 45, 45);
                 }

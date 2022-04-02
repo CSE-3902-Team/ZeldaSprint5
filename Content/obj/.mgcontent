@@ -17,6 +17,7 @@
     <File>C:/Users/lukes/ZeldaGameS4/Content/Enemy.png</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/EnemyDie.wav</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/EnemyHit.wav</File>
+    <File>C:/Users/lukes/ZeldaGameS4/Content/GameOver.wav</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/GetHeartKey.wav</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/GetInventoryItem.wav</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/GetRupee.wav</File>
@@ -52,10 +53,13 @@
     <File>C:/Users/lukes/ZeldaGameS4/Content/statue2.png</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/textsprite.png</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/tile with square in middle.png</File>
+    <File>C:/Users/lukes/ZeldaGameS4/Content/Triforce.wav</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/WalkStairs.wav</File>
     <File>C:/Users/lukes/ZeldaGameS4/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

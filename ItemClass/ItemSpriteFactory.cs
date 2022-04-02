@@ -85,7 +85,6 @@ namespace Sprint0.ItemClass
 			switch (itemNum)
             {
 				case Item.Compass:
-					return new ItemCompass(itemSheet, batch, position);
 				case Item.Map:
 					return new ItemMap(itemSheet, batch, position);
 				case Item.Key:
