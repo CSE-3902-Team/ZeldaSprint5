@@ -20,6 +20,13 @@ namespace Sprint0
 
         protected Game1 _game;
         protected ContentManager _content;
+        protected Room _currentRoom;
+
+        public Room CurrentRoom
+        {
+            get { return _currentRoom;  }
+            set { _currentRoom = value; }
+        }
 
         public AState(Game1 game, ContentManager content)
         {

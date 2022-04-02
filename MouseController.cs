@@ -30,7 +30,8 @@ public class MouseController : IController
 
 		if (LeftButtonHasBeenPressed())
 			{
-				game.CurrentRoom = levelManger.SwitchRoom();
+				Console.WriteLine("mouse clicked");
+				game.CurrentState.CurrentRoom = levelManger.SwitchRoom();
 			}
 	}
 

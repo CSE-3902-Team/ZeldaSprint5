@@ -222,7 +222,7 @@ namespace Sprint0 {
 		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
-			Console.WriteLine(playerHp);
+			//Console.WriteLine(playerHp);
 
 
 

@@ -10,22 +10,18 @@ namespace Sprint0.StateClass
 {
     public class GameState: AState
     {
-            private Game1 _game;
-            private ContentManager _content;
-            private Room _currentRoom;
             private LevelManager levelManager;
             private ICollision colliderDetector;
+
             public GameState(Game1 game, ContentManager content) : base(game, content)
             {
                 _game = game;
                 _content = content;
                 levelManager = LevelManager.Instance;
-
             }
             
             public override void loadContent()
             {
-            
                 Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
                 levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
                 levelManager.LoadRooms();
@@ -34,9 +30,9 @@ namespace Sprint0.StateClass
 
             public override void update(GameTime gameTime)
             {
-                _game.MouseController.handleInput();
-                _game.KeyboardController.handleInput();
-                if(levelManager.Player.isDead == true)
+                //_game.MouseController.handleInput();
+                //_game.KeyboardController.handleInput();
+                if(levelManager.Player.IsDead)
                 {
                     _game.ChangeState(new GameOverState(_game, _content));
                 }

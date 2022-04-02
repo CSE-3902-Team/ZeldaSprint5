@@ -18,8 +18,10 @@ namespace Sprint0
         private AState _currentState;
         private AState _nextState;
 
+        private SoundManager soundLibrary;
+
         private AItem item;
-        private Room _currentRoom;
+        
 
 
 
@@ -40,11 +42,13 @@ namespace Sprint0
             // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this);
+            soundLibrary = new SoundManager();
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+            soundLibrary.LoadAllSounds(Content);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _currentState = new GameState(this, Content);
             _currentState.loadContent();
@@ -64,6 +68,8 @@ namespace Sprint0
                 _currentState.loadContent();
 
             }
+            kController.handleInput();
+            mController.handleInput();
             _currentState.update(gameTime);
             base.Update(gameTime);
         }
@@ -87,6 +93,7 @@ namespace Sprint0
         {
             _currentState = null;
             _nextState = null;
+            soundLibrary.Dispose();
             LoadContent();
         }
 
@@ -111,10 +118,7 @@ namespace Sprint0
             set { item = value; }
         }
 
-        public Room CurrentRoom {
-            get { return _currentRoom; }
-            set { _currentRoom = value; }
-        }
+        
         public KeyboardController KeyboardController
         {
             get { return (KeyboardController)kController; }
