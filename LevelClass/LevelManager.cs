@@ -208,7 +208,6 @@ namespace Sprint0.LevelClass
             }
             else 
             {
-                Console.WriteLine("else");
                 currentRoom = 0;
             }
             return roomList[currentRoom];
