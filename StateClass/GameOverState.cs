@@ -39,6 +39,10 @@ namespace Sprint0.StateClass
         {
             _game.MouseController.handleInput();
             _game.KeyboardController.handleInput();
+            //if(player presses "play again")
+            //reset the game
+            //if(player presses "exit game")
+            //quit the game
         }
 
         public override void Draw(GameTime gameTime)

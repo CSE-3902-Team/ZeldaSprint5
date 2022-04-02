@@ -36,7 +36,7 @@ namespace Sprint0.StateClass
             {
                 _game.MouseController.handleInput();
                 _game.KeyboardController.handleInput();
-                if(levelManager.Player.PlayerHp == 0)
+                if(levelManager.Player.isDead == true)
                 {
                     _game.ChangeState(new GameOverState(_game, _content));
                 }
