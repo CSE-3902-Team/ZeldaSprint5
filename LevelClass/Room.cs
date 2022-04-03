@@ -41,8 +41,11 @@ namespace Sprint0.LevelClass
         {
             get { return _player; }
         }
-        
 
+        public ADoor[] DoorList
+        {
+            get { return doorList; }
+        }
         public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player) {
             this.doorList = doorList;
             this.enemyList = enemyList;
@@ -52,6 +55,11 @@ namespace Sprint0.LevelClass
             _player = player;
             colliderDetector = new SortSweep();
 
+           
+
+            for (int x = 0; x < doorList.Length; x++) { 
+                colliderDetector.AddToList(doorList[x] as IBoxCollider);
+            }
            
             for (int x = 0; x < enemyList.Count; x++) {
                 colliderDetector.AddToList(enemyList[x] as IBoxCollider);

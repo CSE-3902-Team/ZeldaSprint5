@@ -18,7 +18,8 @@ namespace Sprint0.DoorClass
 			Open = 1,
 			Locked = 2,
 			Closed = 3,
-			Hole = 4
+			Hole = 4,
+			WeakWall = 5
 		}
 
 		public enum Side
@@ -60,7 +61,7 @@ namespace Sprint0.DoorClass
 			{
 				return Door.Wall;
 			}
-			else if (key.Contains("Normal")) 
+			else if (key.Contains("Normal"))
 			{
 				return Door.Open;
 			}
@@ -75,6 +76,10 @@ namespace Sprint0.DoorClass
 			else if (key.Contains("Gate"))
 			{
 				return Door.Closed;
+			}
+			else if (key.Contains("WeakWall")) 
+			{
+				return Door.WeakWall;
 			}
 			else
 			{
@@ -133,6 +138,8 @@ namespace Sprint0.DoorClass
 					return new DoorClosed(doorSheet, batch, doorSide);
 				case Door.Hole:
 					return new DoorHole(doorSheet, batch, doorSide);
+				case Door.WeakWall:
+					return new WeakWall(doorSheet, batch, doorSide);
 				default:
 					return new DoorWall(doorSheet, batch, doorSide);
 			}
