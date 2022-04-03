@@ -25,10 +25,7 @@ namespace Sprint0.Collision
             {
                 BlowUpDoor();
             }
-            else{
-                KillProjectile();
-            }
-
+            KillProjectile();
         }
 
         public void BlowUpDoor()
