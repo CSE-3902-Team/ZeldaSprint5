@@ -9,7 +9,7 @@ namespace Sprint0
     {
         private Player player;
 
-        private List<int> itemAndCounts;
+        private List<int> itemCounts;
 
         private int rupeeCount;
         private int keyCount;
@@ -19,17 +19,17 @@ namespace Sprint0
         private int heartContainerCount;
 
         private Boolean firstRupee;
-        private Boolean firstMap;
-        private Boolean firstCompass;
-        private Boolean firstBoomerang;
-        private Boolean firstArrow;
+        private Boolean firstKey;
         private Boolean firstBomb;
+        private Boolean firstBoomerang;
         private Boolean firstBow;
+        private Boolean firstClock;
+        private Boolean firstArrow;
         private Boolean firstHeart;
         private Boolean firstHeartContainer;
+        private Boolean firstCompass;
         private Boolean firstFairy;
-        private Boolean firstClock;
-        private Boolean firstKey;
+        private Boolean firstMap;
 
         private Boolean bow;
         private Boolean map;
@@ -76,6 +76,11 @@ namespace Sprint0
             get { return firstArrow; }
             set { firstArrow = value; }
         }
+        public Boolean FirstBomb
+        {
+            get { return firstBomb; }
+            set { firstBomb = value; }
+        }
         public Boolean FirstBoomerang
         {
             get { return firstBoomerang; }
@@ -86,12 +91,6 @@ namespace Sprint0
             get { return firstBow; }
             set { firstBow = value; }
         }
-        public Boolean FirstBomb
-        {
-            get { return firstBomb; }
-            set { firstBomb = value; }
-        }
-
         public Boolean FirstClock
         {
             get { return firstClock; }
@@ -112,7 +111,6 @@ namespace Sprint0
             get { return firstHeart; }
             set { firstHeart = value; }
         }
-
         public Boolean FirstHeartContainer
         {
             get { return firstHeartContainer; }
@@ -156,36 +154,34 @@ namespace Sprint0
             get { return boomerang; }
             set { boomerang = value; }
         }
+        
         public Boolean Clock
         {
             get { return clock; }
             set { clock = value; }
         }
 
+
         public LinkInventory(Player player)
         {
             this.player = player;
 
-            arrowCount = 0;
+            rupeeCount = 0;
+            keyCount = 0;
             bombCount = 0;
+            arrowCount = 0;
             heartCount = player.PlayerHp;
             heartContainerCount = 3;
-            keyCount = 0;
-            rupeeCount = 0;
 
-
-            firstArrow = true;
+            firstRupee = true;
+            firstKey = true; 
             firstBomb = true;
             firstBoomerang = true;
             firstBow = true;
             firstClock = true;
-            firstCompass = true;
-            firstFairy = true;
+            firstArrow = true;
             firstHeart = true;
             firstHeartContainer = true;
-            firstKey = true;
-            firstMap = true;
-            firstRupee = true;
 
             bow = false;
             map = false;
@@ -193,18 +189,20 @@ namespace Sprint0
             boomerang = false;
             clock = false;
 
-            itemAndCounts = new List<int>();
-            itemAndCounts.Add(ArrowCount);
-            itemAndCounts.Add(KeyCount);
-            itemAndCounts.Add(BombCount);
-            itemAndCounts.Add(ArrowCount);
-            itemAndCounts.Add(HeartCount);
-            itemAndCounts.Add(RupeeCount);
+            itemCounts = new List<int>();
+            itemCounts.Add(RupeeCount);
+            itemCounts.Add(KeyCount);
+            itemCounts.Add(BombCount);
+            itemCounts.Add(ArrowCount);
+            itemCounts.Add(HeartCount);
+            itemCounts.Add(HeartContainerCount);
 
         }
-        public void Draw()
+
+        public void Update()
         {
-
+            
         }
+
     }
 }
