@@ -46,14 +46,14 @@ namespace Sprint0.enemy
                         if (movement.Y == 1)
                         {
                             result.Y = (int)Pos.Y + randomNum;
-                            if (result.Y >= 512)
-                                result.Y = 500;
+                            if (result.Y >= 800)
+                                result.Y = 800;
                         }
                         else
                         {
                             result.Y = (int)Pos.Y - randomNum;
-                            if (result.Y <= 130)
-                                result.Y = 132;
+                            if (result.Y <= 400)
+                                result.Y = 400;
                         }
                         break;
                 }
@@ -79,5 +79,33 @@ namespace Sprint0.enemy
 
             return movement;
         }
+    
+        public Vector2 trap1(Player player)
+        {
+             if (player.Position.X < 250)
+            {
+                movement.X = 0;
+
+            }
+           else if (player.Position.X > 750)
+            {
+                movement.X = 1;
+
+            }
+           else if (player.Position.Y< 500 && player.Position.X>200 && player.Position.X<700)
+            {
+                movement.Y = 0;
+
+            }
+           else if (player.Position.Y > 700 && player.Position.X > 200 && player.Position.X < 700)
+            {
+                movement.Y = 1;
+
+            }
+
+
+            return movement;
+        }
+      
     }
 }

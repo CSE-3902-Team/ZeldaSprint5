@@ -4,7 +4,7 @@ using System;
 
 namespace Sprint0.DoorClass
 {
-    public abstract class ADoor
+    public abstract class ADoor : IBoxCollider
     {
 
         public const int OFFSET = 256;
@@ -18,8 +18,32 @@ namespace Sprint0.DoorClass
         protected SpriteBatch myBatch;
         protected Rectangle sourceRect;
         protected DoorFactory.Side side;
+        protected readonly TopLeft topLeft;
+        protected readonly BottomRight bottomRight;
         protected static int height = 132;
         protected static int width = 132;
+        protected bool isRunning;
+
+        public TopLeft TopLeft
+        {
+            get { return topLeft; }
+        }
+
+        public BottomRight BottomRight
+        {
+            get { return bottomRight; }
+        }
+
+        public DoorFactory.Side DoorSide
+        {
+            get { return side; }
+        }
+
+        public bool IsRunning
+        {
+            get { return isRunning; }
+            set { isRunning = value; }
+        }
 
         public ADoor(Texture2D tileSheet, SpriteBatch batch, int spriteColumn, DoorFactory.Side side)
         {
@@ -43,8 +67,10 @@ namespace Sprint0.DoorClass
                     myPos = topDoorLocation;
                     break;
             }
-
+            topLeft = new TopLeft((int)myPos.X, (int)myPos.Y, this);
+            bottomRight = new BottomRight((int)myPos.X + width, (int)myPos.Y + height, this);
             sourceRect = new Rectangle(spriteColumn * width, (int)side * height, 127, 127);
+            isRunning = true;
         }
         public void draw()
         {

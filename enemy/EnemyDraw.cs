@@ -177,6 +177,20 @@ namespace Sprint0.enemy
                 batch.End();
             }
         }
+        public void DrawTrap()
+        {
+            int row = currentFrame;
+            if (isRunning)
+            {
+                Rectangle sourceRectangle = new Rectangle(324,115, 32, 32);
+                Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
+
+                batch.Begin();
+                batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+
+                batch.End();
+            }
+        }
     }
 }
 

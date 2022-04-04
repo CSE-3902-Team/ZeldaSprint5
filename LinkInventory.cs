@@ -7,6 +7,8 @@ namespace Sprint0
 {
     public class LinkInventory
     {
+        private Player player;
+
         private List<int> itemCounts;
 
         private int rupeeCount;
@@ -16,11 +18,24 @@ namespace Sprint0
         private int heartCount;
         private int heartContainerCount;
 
-        private Boolean sword;
+        private Boolean firstRupee;
+        private Boolean firstKey;
+        private Boolean firstBomb;
+        private Boolean firstBoomerang;
+        private Boolean firstBow;
+        private Boolean firstClock;
+        private Boolean firstArrow;
+        private Boolean firstHeart;
+        private Boolean firstHeartContainer;
+        private Boolean firstCompass;
+        private Boolean firstFairy;
+        private Boolean firstMap;
+
         private Boolean bow;
         private Boolean map;
         private Boolean compass;
         private Boolean boomerang;
+        private Boolean clock;
         public int RupeeCount
         {
             get { return rupeeCount; }
@@ -55,12 +70,67 @@ namespace Sprint0
             get { return heartContainerCount; }
             set { heartContainerCount = value; }
         }
-        public Boolean Sword
-        {
-            get { return sword; }
-            set { sword = value; }
-        }
 
+        public Boolean FirstArrow
+        {
+            get { return firstArrow; }
+            set { firstArrow = value; }
+        }
+        public Boolean FirstBomb
+        {
+            get { return firstBomb; }
+            set { firstBomb = value; }
+        }
+        public Boolean FirstBoomerang
+        {
+            get { return firstBoomerang; }
+            set { firstBoomerang = value; }
+        }
+        public Boolean FirstBow
+        {
+            get { return firstBow; }
+            set { firstBow = value; }
+        }
+        public Boolean FirstClock
+        {
+            get { return firstClock; }
+            set { firstClock = value; }
+        }
+        public Boolean FirstCompass
+        {
+            get { return firstCompass; }
+            set { firstCompass = value; }
+        }
+        public Boolean FirstFairy
+        {
+            get { return firstFairy; }
+            set { firstFairy = value; }
+        }
+        public Boolean FirstHeart
+        {
+            get { return firstHeart; }
+            set { firstHeart = value; }
+        }
+        public Boolean FirstHeartContainer
+        {
+            get { return firstHeartContainer; }
+            set { firstHeartContainer = value; }
+        }
+        public Boolean FirstKey
+        {
+            get { return firstKey; }
+            set { firstKey = value; }
+        }
+        public Boolean FirstMap
+        {
+            get { return firstMap; }
+            set { firstMap = value; }
+        }
+        public Boolean FirstRupee
+        {
+            get { return firstRupee; }
+            set { firstRupee = value; }
+        }
         public Boolean Bow
         {
             get { return bow; }
@@ -84,21 +154,40 @@ namespace Sprint0
             get { return boomerang; }
             set { boomerang = value; }
         }
-
-        public LinkInventory()
+        
+        public Boolean Clock
         {
+            get { return clock; }
+            set { clock = value; }
+        }
+
+
+        public LinkInventory(Player player)
+        {
+            this.player = player;
+
             rupeeCount = 0;
             keyCount = 0;
             bombCount = 0;
             arrowCount = 0;
-            heartCount = 6;
+            heartCount = player.PlayerHp;
             heartContainerCount = 3;
 
-            sword = false;
+            firstRupee = true;
+            firstKey = true; 
+            firstBomb = true;
+            firstBoomerang = true;
+            firstBow = true;
+            firstClock = true;
+            firstArrow = true;
+            firstHeart = true;
+            firstHeartContainer = true;
+
             bow = false;
             map = false;
             compass = false;
             boomerang = false;
+            clock = false;
 
             itemCounts = new List<int>();
             itemCounts.Add(RupeeCount);
