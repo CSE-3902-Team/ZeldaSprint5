@@ -68,8 +68,8 @@ namespace Sprint0
                 _currentState.loadContent();
 
             }
-            kController.handleInput();
-            mController.handleInput();
+            //kController.handleInput();
+            //mController.handleInput();
             _currentState.update(gameTime);
             base.Update(gameTime);
         }

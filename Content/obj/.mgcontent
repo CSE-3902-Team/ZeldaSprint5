@@ -4,61 +4,63 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/ball.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BG_MUSIC.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BlackBackground.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BombBlow.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BombDrop.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bricks.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/creditsEdited.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/doors.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/DoorUnlock.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/dragon.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/DungeonEnemy.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/Enemy.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/EnemyDie.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/EnemyHit.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GameOverText.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetHeartKey.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetInventoryItem.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetRupee.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons1.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/KeyAppear.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LeftFire.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LinkDie.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LinkHurt.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/linkSheet.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LowHp.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LOZ_Arrow_Boomerang.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LOZ_MagicalRod.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LOZ_Sword_Slash.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/NES - The Legend of Zelda - Dungeon Tileset.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/NES - The Legend of Zelda - HUD &amp; Pause Screen.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/NewItem.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/oldman.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/oldman1.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/playerSheet.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/PuzzleSolved.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/RightFire.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/roomwalls original.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/roomwalls.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/sandtile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/silverlines.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/solid black tile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/solid blue tile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/solid navy tile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/Sprint 2 Tiles.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/sprint-2-items.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/stairs.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/statue1.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/statue2.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/textsprite.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/tile with square in middle.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/WalkStairs.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/zelda.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/ball.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/BG_MUSIC.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/BlackBackground.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/BombBlow.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/BombDrop.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/bricks.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/creditsEdited.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/doors.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/DoorUnlock.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/dragon.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/DungeonEnemy.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/Enemy.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/EnemyDie.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/EnemyHit.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/GameOverText.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/GetHeartKey.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/GetInventoryItem.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/GetRupee.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/itemsAndWeapons.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/itemsAndWeapons1.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/KeyAppear.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LeftFire.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LinkDie.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LinkHurt.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/linkSheet.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LowHp.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LOZ_Arrow_Boomerang.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LOZ_MagicalRod.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LOZ_Sword_Slash.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/NES - The Legend of Zelda - Dungeon Tileset.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/NES - The Legend of Zelda - HUD &amp; Pause Screen.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/NewItem.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/oldman.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/oldman1.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/playerSheet.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/PuzzleSolved.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/RightFire.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/roomwalls original.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/roomwalls.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/sandtile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/silverlines.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/solid black tile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/solid blue tile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/solid navy tile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/Sprint 2 Tiles.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/sprint-2-items.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/stairs.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/statue1.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/statue2.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/textsprite.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/tile with square in middle.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/VictoryText.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/WalkStairs.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

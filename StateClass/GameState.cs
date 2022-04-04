@@ -30,8 +30,8 @@ namespace Sprint0.StateClass
 
             public override void update(GameTime gameTime)
             {
-                //_game.MouseController.handleInput();
-                //_game.KeyboardController.handleInput();
+                _game.MouseController.handleInput();
+                _game.KeyboardController.handleInput();
                 if(levelManager.Player.IsDead)
                 {
                     _game.ChangeState(new GameOverState(_game, _content));
