@@ -58,6 +58,8 @@ namespace Sprint0.LevelClass
             get { return roomList[currentRoom]; }
         }
 
+        
+
         //these need to be gotten rid of
 
         private Texture2D playerTexture;

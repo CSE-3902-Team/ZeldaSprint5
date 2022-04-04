@@ -33,6 +33,7 @@ namespace Sprint0 {
 		private readonly ICommand addProjectileCommand;
 		private int playerHp;
 		private bool isDead;
+		private LinkInventory inventory;
 		
 
 		public ProjectilePlayerSword SwordProjectile
@@ -109,6 +110,11 @@ namespace Sprint0 {
 				}
 			}
 		}
+
+	public LinkInventory Inventory
+        {
+            get { return inventory; }
+        }
 	public Color Col
     {
 		get { return col; }
@@ -145,6 +151,7 @@ namespace Sprint0 {
 			collisionOffsetY = new Vector2(0, 0);
 			playerHp = maxHp;
 			isDead = false;
+			inventory = new LinkInventory(this);
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -222,7 +229,7 @@ namespace Sprint0 {
 		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
-			Console.WriteLine(playerHp);
+			//Console.WriteLine(playerHp);
 
 
 

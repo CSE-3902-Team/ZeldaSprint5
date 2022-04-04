@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Sprint0.ItemClass;
+using Sprint0.DoorClass;
 
 
 
@@ -109,6 +110,7 @@ namespace Sprint0.Collision
 
                         }
 
+
                     }
                 }
 
@@ -180,12 +182,15 @@ namespace Sprint0.Collision
             }
             else if (other is AItem)
             {
-                handler = new CollisionHandlerPlayerItem(player,other as AItem);
+                handler = new CollisionHandlerPlayerItem(player, other as AItem);
             }
-            else if (other is IProjectile) 
+            else if (other is IProjectile)
             {
 
                 handler = new CollisionHandlerPlayerProjectile(player, other as IProjectile, dir);
+            }
+            else if (other is ADoor) {
+                handler = new CollisionHandlerPlayerDoor(player, other as ADoor, dir, magnitude);
             }
             else
             {
@@ -246,12 +251,17 @@ namespace Sprint0.Collision
             {
                 return;
             }
+            else if (other is ADoor)
+            {
+                ICollisionHandler handler = new CollisionHandlerProjectileDoor(projectile,other as ADoor);
+                handler.HandleCollision();
+            }
             else if (other is IEnemySprite)
             {
-                
+
                 ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
                 handler.HandleCollision();
-                Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
+                //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
                 //The logic when a player projectile hit an enemy is same as hit a tile
             }
             else if (other is ITile)
@@ -290,6 +300,14 @@ namespace Sprint0.Collision
                 else if (collisionPoints[x].Parent is IProjectile)
                 {
                     if (!(collisionPoints[x].Parent as IProjectile).IsRunning)
+                    {
+                        collisionPoints.RemoveAt(x);
+                        x--;
+                    }
+                }
+                else if (collisionPoints[x].Parent is ADoor)
+                {
+                    if (!(collisionPoints[x].Parent as ADoor).IsRunning)
                     {
                         collisionPoints.RemoveAt(x);
                         x--;
@@ -349,6 +367,8 @@ namespace Sprint0.Collision
                 Console.WriteLine();
             }
         }
+
+
     }
 
         

@@ -19,6 +19,8 @@ namespace Sprint0 {
 	
 		private KeyboardState kstate;
 		private KeyboardState previousState;
+
+		
 		public KeyboardController(Game1 g, Vector2 center)
 		{
 			myGame = g;

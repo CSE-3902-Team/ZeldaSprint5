@@ -22,7 +22,8 @@ namespace Sprint0.enemy
 			{"hand", Enemy.Hand},
 			{"skeleton", Enemy.Skeleton},
 			{"oldMan", Enemy.OldMan},
-			{"dragon", Enemy.BossDragon}
+			{"dragon", Enemy.BossDragon},
+			{"trap",Enemy.trap}
 		};
 
 		public enum Enemy
@@ -33,7 +34,8 @@ namespace Sprint0.enemy
 			Hand		= 3,
 			Skeleton	= 4,
 			OldMan		= 5,
-			BossDragon	= 6
+			BossDragon	= 6,
+			trap        = 7
 
 		}
 
@@ -92,6 +94,8 @@ namespace Sprint0.enemy
 					return new oldMan(npcTexture, batch, pos);
 				case Enemy.BossDragon:
 					return new bossDragon(dragonTexture, batch, pos, addcommand);
+				case Enemy.trap:
+					return new trap(enemyTexture, batch, pos, _player);
 				default:
 					return new enemyGel(enemyTexture, batch, pos, _player);
 			}
