@@ -313,6 +313,12 @@ namespace Sprint0.Collision
                         x--;
                     }
                 }
+                else if (collisionPoints[x].Parent is IEnemySprite)
+                    if (!(collisionPoints[x].Parent as IEnemySprite).IsAlive)
+                    {
+                        collisionPoints.RemoveAt(x);
+                        x--;
+                    }
             }
         }
 

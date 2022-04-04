@@ -70,7 +70,7 @@ namespace Sprint0.LevelClass
                 {Sound.LowHp,    content.Load<SoundEffect>("LowHp").CreateInstance()}, 
                 {Sound.LinkDie,  content.Load<SoundEffect>("LinkDie").CreateInstance()},
                 {Sound.NewItem,  content.Load<SoundEffect>("NewItem").CreateInstance()},
-                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem").CreateInstance()} //Complete,
+                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem").CreateInstance()}, //Complete,
                 {Sound.GetHeartKey, content.Load<SoundEffect>("GetHeartKey").CreateInstance()}, //Complete
                 {Sound.GetRupee,   content.Load<SoundEffect>("GetRupee").CreateInstance()}, //Complete
                 {Sound.KeyAppear,  content.Load<SoundEffect>("KeyAppear").CreateInstance()}, 
