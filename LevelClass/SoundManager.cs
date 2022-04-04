@@ -70,7 +70,7 @@ namespace Sprint0.LevelClass
                 {Sound.LowHp,    content.Load<SoundEffect>("LowHp").CreateInstance()}, 
                 {Sound.LinkDie,  content.Load<SoundEffect>("LinkDie").CreateInstance()},
                 {Sound.NewItem,  content.Load<SoundEffect>("NewItem").CreateInstance()},
-                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem").CreateInstance()},
+                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem").CreateInstance()} //Complete,
                 {Sound.GetHeartKey, content.Load<SoundEffect>("GetHeartKey").CreateInstance()}, //Complete
                 {Sound.GetRupee,   content.Load<SoundEffect>("GetRupee").CreateInstance()}, //Complete
                 {Sound.KeyAppear,  content.Load<SoundEffect>("KeyAppear").CreateInstance()}, 
@@ -78,9 +78,9 @@ namespace Sprint0.LevelClass
                 {Sound.PuzzleSolved, content.Load<SoundEffect>("PuzzleSolved").CreateInstance()},
                 {Sound.DoMagic, content.Load<SoundEffect>("LOZ_MagicalRod").CreateInstance() }, //Complete
                 {Sound.UseArrowBoomerang, content.Load<SoundEffect>("LOZ_Arrow_Boomerang").CreateInstance() }, //Complete
-                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSIC").CreateInstance() },
-                {Sound.Triforce, content.Load<SoundEffect>("Triforce").CreateInstance() },
-                {Sound.GameOver, content.Load<SoundEffect>("GameOver").CreateInstance() },
+                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSIC").CreateInstance() }, //Complete
+                {Sound.Triforce, content.Load<SoundEffect>("Triforce").CreateInstance() }, //Complete
+                {Sound.GameOver, content.Load<SoundEffect>("GameOver").CreateInstance() }, //Complete
             };
             soundDict[Sound.LowHp].IsLooped = true;
             soundDict[Sound.BG_MUSIC].IsLooped = true;
