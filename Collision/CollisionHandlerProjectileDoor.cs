@@ -21,7 +21,7 @@ namespace Sprint0.Collision
 
         public void HandleCollision()
         {
-            if (projectile is ProjectilePlayerBomb && door is DoorLocked)
+            if (projectile is ProjectilePlayerBomb && door is WeakWall)
             {
                 BlowUpDoor();
             }

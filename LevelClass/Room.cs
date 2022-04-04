@@ -110,12 +110,21 @@ namespace Sprint0.LevelClass
         }
 
         public void updateRoom() {
-            foreach(IEnemySprite currentEnemy in enemyList) {
-                currentEnemy.Update();
-            }
+            UpdateEnemies();
             UpdateProjectiles();
             Player.Update();
             colliderDetector.HandleCollisions();
+            if (enemyList.Count == 0)
+            {
+                UnlockDoors();
+            }
+            Console.Write("[");
+            for(int x = 0; x < enemyList.Count; x++)
+            {
+                Console.Write(enemyList[x]);
+            }
+            Console.Write("]");
+            Console.WriteLine();
         }
 
         public void UpdateProjectiles()
@@ -146,6 +155,18 @@ namespace Sprint0.LevelClass
                 else
                 {
                     enemyList[x].Update();
+                }
+            }
+        }
+
+        public void UnlockDoors()
+        {
+            DoorFactory factory = DoorFactory.Instance;
+            for (int x = 0; x < doorList.Length; x++)
+            {
+                if (doorList[x] is DoorLocked) {
+                    doorList[x].IsRunning = false;
+                    doorList[x] = DoorFactory.Instance.CreateDoorSprite(DoorFactory.Door.Open, doorList[x].DoorSide);
                 }
             }
         }
