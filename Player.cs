@@ -28,11 +28,11 @@ namespace Sprint0 {
 		private Vector2 collisionOffsetY;
 		private Color col;
 		public const int KNOCKBACK_FRAMES = 5;
-		public const int STARTING_PLAYER_HP = 3;
+		private int maxHp = 6;
 		public int HPFRAMES = 1;
 		private readonly ICommand addProjectileCommand;
 		private int playerHp;
-		
+		private bool isDead;
 		
 
 		public ProjectilePlayerSword SwordProjectile
@@ -46,6 +46,7 @@ namespace Sprint0 {
 		public float Speed { get { return speed; } set { speed = value; } }
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
+		public bool IsDead { get { return isDead; } set { isDead = value; } }
 		public Vector2 Position { 
 			get 
 			{ 
@@ -75,10 +76,38 @@ namespace Sprint0 {
 			set { _state = value; }
 		}
 
+	public int MaxHp
+        {
+			get { return maxHp; }
+			set { maxHp = value; }
+		}
 	public int PlayerHp
 		{
 			get { return playerHp; }
-			set { playerHp = value; }
+			set 
+			{
+				playerHp = value > maxHp ? maxHp : value;
+
+				if (playerHp > 1)
+				{
+					SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
+
+				}
+				if (playerHp == 1)
+				{
+					SoundManager.Instance.Play(SoundManager.Sound.LowHp);
+				}
+				else if (playerHp == 0)
+				{
+					SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
+					SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
+					SoundManager.Instance.Play(SoundManager.Sound.GameOver);
+					//Change to playerDeadState: isDead will be changed within the state.
+					isDead = true;
+
+
+				}
+			}
 		}
 	public Color Col
     {
@@ -114,7 +143,8 @@ namespace Sprint0 {
 			addProjectileCommand = c;
 			collisionOffsetX = new Vector2(0, 0);
 			collisionOffsetY = new Vector2(0, 0);
-			playerHp = STARTING_PLAYER_HP;
+			playerHp = maxHp;
+			isDead = false;
 		}
 
 		public void ChangeDirection(Directions dir)
@@ -138,16 +168,6 @@ namespace Sprint0 {
 		public void DamageLink(Player.Directions dir)
 		{
 			_state.DamageLink(dir);
-			if (playerHp == 1)
-			{
-				LevelManager.Instance.SoundManager.PlayLowHpBGM();
-			}
-			else if (playerHp == 0)
-			{
-				LevelManager.Instance.SoundManager.StopLowHpBGM();
-				//Player dead state
-			}
-
 		}
 
 		public void UseItem(IProjectile proj)
@@ -185,6 +205,11 @@ namespace Sprint0 {
 				HPFRAMES = 1;
 				col = Color.White;
 			}
+			else if (playerHp > 1)
+			{
+				col = Color.White;
+				HPFRAMES = 1;
+			}
 		}
 		
 
@@ -197,7 +222,7 @@ namespace Sprint0 {
 		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
-			Console.WriteLine(playerHp);
+			//Console.WriteLine(playerHp);
 
 
 

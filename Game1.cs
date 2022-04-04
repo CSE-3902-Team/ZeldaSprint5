@@ -1,16 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Sprint0.TileClass;
 using Sprint0.ItemClass;
-using Sprint0.Collision;
-using Sprint0.PlayerClass;
-using System.Collections.Generic;
-using System.Linq;
-using System.Diagnostics;
-using Sprint0.enemy;
-using Sprint0.DoorClass;
 using Sprint0.LevelClass;
+using Sprint0.StateClass;
 
 namespace Sprint0
 {
@@ -19,21 +12,16 @@ namespace Sprint0
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        private ITile roomWalls;
-
         private IController kController;
-
-        private ICollision colliderDector;
-
-        private LevelManager levelManager;
-
         private IController mController;
 
+        private AState _currentState;
+        private AState _nextState;
+
+        private SoundManager soundLibrary;
 
         private AItem item;
-        private ITile tile1; 
-        private ITile tile2;
-        private Room _currentRoom;
+        
 
 
 
@@ -52,27 +40,19 @@ namespace Sprint0
             _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
             // TODO: Add your initialization logic here
-            levelManager = LevelManager.Instance;
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this);
-
+            soundLibrary = new SoundManager();
             base.Initialize();
         }
 
         protected override void LoadContent()
-        { 
+        {
+            soundLibrary.LoadAllSounds(Content);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            
-
-            Vector2 center = new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2);
-            levelManager.initialize(_spriteBatch, Content, colliderDector, center);
-            levelManager.LoadRooms();
-            _currentRoom = levelManager.StartRoom();
-
-
-
-
-
+            _currentState = new GameState(this, Content);
+            _currentState.loadContent();
+            _nextState = null;
 
         }
 
@@ -81,20 +61,40 @@ namespace Sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            if(_nextState != null)
+            {
+                _currentState = _nextState;
+                _nextState = null;
+                _currentState.loadContent();
+
+            }
             kController.handleInput();
-            _currentRoom.updateRoom();
             mController.handleInput();
+            _currentState.update(gameTime);
             base.Update(gameTime);
+        }
+
+        public void ChangeState(AState state)
+        {
+            _nextState = state;
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            _currentRoom.drawRoom();
-            
+            _currentState.Draw(gameTime);
+            //_currentRoom.drawRoom();
+
             base.Draw(gameTime);
 
+        }
+
+        public void reset()
+        {
+            _currentState = null;
+            _nextState = null;
+            soundLibrary.Dispose();
+            LoadContent();
         }
 
         public SpriteBatch SpriteBatch
@@ -102,21 +102,36 @@ namespace Sprint0
             get { return _spriteBatch; } 
         }
         
+        public AState NextState
+        {
+            get { return _nextState; }
+        }
 
+        public AState CurrentState
+        {
+            get { return _currentState; }
+        }
         
         public AItem shownItem
         {
             get { return item; }
             set { item = value; }
         }
-    
-        public void reset() {
-            LoadContent();
+
+        
+        public KeyboardController KeyboardController
+        {
+            get { return (KeyboardController)kController; }
         }
 
-        public Room CurrentRoom {
-            get { return _currentRoom; }
-            set { _currentRoom = value; }
+        public MouseController MouseController
+        {
+            get { return (MouseController)mController; }
+        }
+
+        public GraphicsDeviceManager GraphicsDeviceManager
+        {
+            get { return _graphics; }
         }
 
     }

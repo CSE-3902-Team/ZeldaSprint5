@@ -10,6 +10,8 @@ public class MouseController : IController
 	private MouseState mState;
 	private MouseState previousState;
 
+	
+
 	public MouseController(Game1 thisGame)
 	{
 		this.game = thisGame;
@@ -28,7 +30,7 @@ public class MouseController : IController
 
 		if (LeftButtonHasBeenPressed())
 			{
-				game.CurrentRoom = levelManger.SwitchRoom();
+				game.CurrentState.CurrentRoom = levelManger.SwitchRoom();
 			}
 	}
 

@@ -41,7 +41,7 @@ namespace Sprint0.Collision
                 default:
                     break;
             }
-            LevelManager.Instance.SoundManager.Play(SoundManager.Sound.LinkHurt);
+           SoundManager.Instance.Play(SoundManager.Sound.LinkHurt);
 
             //Console.WriteLine("yDirection=" + yDirection);
         }

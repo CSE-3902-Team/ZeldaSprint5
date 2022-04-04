@@ -8,30 +8,43 @@ namespace Sprint0.Collision
     public class CollisionHandlerPlayerItem : ICollisionHandler
     {
         private AItem item;
+        private Player player;
 
 
-        public CollisionHandlerPlayerItem(AItem item)
+        public CollisionHandlerPlayerItem(Player p, AItem item)
         {
             this.item = item;
-
+            player = p;
         }
         public void HandleCollision()
         {
-            if (item is ItemHeart || item is ItemKey || item is ItemHeartContainer)
+            if (item is ItemHeartContainer)
             {
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetHeartKey);
+                player.MaxHp += 2;
+               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
+            }
+            else if (item is ItemHeart)
+            {
+                player.PlayerHp += 2;
+               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
+            }
+            else if (item is ItemKey) 
+            {
+               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
             }
             else if (item is ItemRupee)
             {
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetRupee);
+               SoundManager.Instance.Play(SoundManager.Sound.GetRupee);
             }
-            else if(item is ItemTriforcePiece) 
+            else if (item is ItemTriforcePiece)
             {
-                LevelManager.Instance.SoundManager.PlayWinMusic();
+               SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
+               SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
+               SoundManager.Instance.Play(SoundManager.Sound.Triforce);
             }
-            else 
-            { 
-                LevelManager.Instance.SoundManager.Play(SoundManager.Sound.GetInventoryItem);
+            else
+            {
+               SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
             }
 
             item.IsPickedUp = true;
