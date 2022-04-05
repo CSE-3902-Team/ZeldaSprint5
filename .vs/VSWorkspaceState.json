@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LevelClass",
+    "\\StateClass"
   ],
-  "SelectedNode": "\\HUD.cs",
+  "SelectedNode": "\\LevelClass\\LevelManager.cs",
   "PreviewInSolutionExplorer": false
 }

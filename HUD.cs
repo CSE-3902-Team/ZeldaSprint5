@@ -50,7 +50,6 @@ namespace Sprint0
 
             levelNumber = 1;
 
-
             hudRectangle = new Rectangle(0, 0, 1024, 256);
             emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 0, heartWidth, heartHeight);
             halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 0, heartWidth, heartHeight);
@@ -74,9 +73,25 @@ namespace Sprint0
             spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
             for(int i = 0; i < maxHeartCount; i++)
             {
-                if(i < heartContainerCount)
+                int remainingHalfHearts = health;
+
+                if (i < heartContainerCount)
                 {
-                    spriteBatch.Draw(hearts, new Rectangle(705 + (heartWidth * i), 146, heartWidth, heartHeight), heartSourceRect, Color.White);
+                    if(remainingHalfHearts>=2)
+                    {
+                        currentHeartNeeded = heartSourceRect;
+                        remainingHalfHearts -= 2;
+                    }
+                    else if(remainingHalfHearts == 1)
+                    {
+                        currentHeartNeeded = halfHeartSourceRect;
+                        remainingHalfHearts -= 1;
+                    }
+                    else
+                    {
+                        currentHeartNeeded = emptyHeartSourceRect;
+                    }
+                    spriteBatch.Draw(hearts, new Rectangle(705 + (heartWidth * i), 146, heartWidth, heartHeight), currentHeartNeeded, Color.White);
                 }
                 else
                 {
