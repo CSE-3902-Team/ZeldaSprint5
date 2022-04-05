@@ -12,6 +12,7 @@ namespace Sprint0.StateClass
     {
             private LevelManager levelManager;
             private ICollision colliderDetector;
+            private int roomNum;
 
             public GameState(Game1 game, ContentManager content) : base(game, content)
             {
@@ -26,10 +27,16 @@ namespace Sprint0.StateClass
                 levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
                 levelManager.LoadRooms();
                 _currentRoom = levelManager.StartRoom();
+                roomNum = levelManager.currentRoomNum;
             }
 
             public override void update(GameTime gameTime)
             {
+            
+                if (roomNum != levelManager.currentRoomNum)
+                {
+                    _currentRoom = levelManager.CurrentRoom;            
+                }
                 //_game.MouseController.handleInput();
                 //_game.KeyboardController.handleInput();
                 if(levelManager.Player.IsDead)

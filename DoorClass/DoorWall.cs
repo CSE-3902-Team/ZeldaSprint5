@@ -9,7 +9,7 @@ namespace Sprint0.DoorClass
 	{
 		private static int spriteColumn = 0;
 
-		public DoorWall(Texture2D tileSheet, SpriteBatch batch, DoorFactory.Side side) : base(tileSheet, batch, spriteColumn, side)
+		public DoorWall(Texture2D tileSheet, SpriteBatch batch, DoorFactory.Side side) : base(tileSheet, batch, spriteColumn, side, 0)
 		{
 
 		}

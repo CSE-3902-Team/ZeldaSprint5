@@ -122,6 +122,7 @@ namespace Sprint0.LevelClass
             Vector2 position;
             string enemy;
             string item;
+            int roomConnection;
             Vector2 position1;
             tileDoor = fields[0];
             position = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+OFFSET);
@@ -143,11 +144,19 @@ namespace Sprint0.LevelClass
             {
                 item = "";
             }
+            if (fields.Length >= 6)
+            {
+                roomConnection = int.Parse(fields[5]);
+            }
+            else
+            {
+                roomConnection = 0;
+            }
 
 
             if (doorFactory.isADoor(tileDoor))
             {
-                doorList.Add(doorFactory.CreateDoorSprite(doorFactory.getDoor(tileDoor), doorFactory.getSide(tileDoor)));
+                doorList.Add(doorFactory.CreateDoorSprite(doorFactory.getDoor(tileDoor), doorFactory.getSide(tileDoor), roomConnection));
             }
             else if(tileFactory.IsTile(tileDoor))
             {
@@ -195,10 +204,19 @@ namespace Sprint0.LevelClass
             }
         }
 
+        public void RoomTransition(int destination)
+        {
+            currentRoom = destination;
+        }
+
 
 
         public Room StartRoom() {
-            return roomList[0];
+            return roomList[17];
+        }
+
+        public int currentRoomNum {
+            get { return currentRoom; }
         }
 
 
@@ -214,6 +232,5 @@ namespace Sprint0.LevelClass
             }
             return roomList[currentRoom];
 		}
-
 	}
 }

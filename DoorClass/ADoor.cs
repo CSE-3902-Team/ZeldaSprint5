@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Sprint0.LevelClass;
 
 namespace Sprint0.DoorClass
 {
@@ -14,6 +15,7 @@ namespace Sprint0.DoorClass
         private static Vector2 bottomDoorLocation = new Vector2(448, 576+OFFSET);
 
         public Vector2 myPos;
+        private static LevelManager levelManager = LevelManager.Instance;
         protected Texture2D mySheet;
         protected SpriteBatch myBatch;
         protected Rectangle sourceRect;
@@ -23,6 +25,7 @@ namespace Sprint0.DoorClass
         protected static int height = 132;
         protected static int width = 132;
         protected bool isRunning;
+        protected int roomConnection;
 
         public TopLeft TopLeft
         {
@@ -45,7 +48,7 @@ namespace Sprint0.DoorClass
             set { isRunning = value; }
         }
 
-        public ADoor(Texture2D tileSheet, SpriteBatch batch, int spriteColumn, DoorFactory.Side side)
+        public ADoor(Texture2D tileSheet, SpriteBatch batch, int spriteColumn, DoorFactory.Side side, int roomConnection)
         {
             this.side = side;
             mySheet = tileSheet;
@@ -71,6 +74,7 @@ namespace Sprint0.DoorClass
             bottomRight = new BottomRight((int)myPos.X + width, (int)myPos.Y + height, this);
             sourceRect = new Rectangle(spriteColumn * width, (int)side * height, 127, 127);
             isRunning = true;
+            this.roomConnection = roomConnection;
         }
         public void draw()
         {
@@ -83,6 +87,14 @@ namespace Sprint0.DoorClass
                 Color.White
                 );
             myBatch.End();
+        }
+
+        public void ChangeRoom() {
+            levelManager.RoomTransition(roomConnection);
+        }
+
+        public int connection {
+        get { return this.roomConnection; }
         }
 
         public Texture2D Texture
