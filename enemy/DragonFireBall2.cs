@@ -67,8 +67,8 @@ namespace Sprint0.enemy
         {
             if (projectilePos.X == 0)
             {
-                projectilePos.X = Direction.X-15;
-                projectilePos.Y = Direction.Y;
+                projectilePos.X = Direction.X-35;
+                projectilePos.Y = Direction.Y+12;
                 isRunning = true;
             }
 
