@@ -31,9 +31,9 @@ namespace Sprint0.Collision
             {
                 return;
             }
-            enemy.IsAlive = false;
+      
             projectile.IsRunning = false;
-         
+            enemy.IsAlive = false;
 
         }
 

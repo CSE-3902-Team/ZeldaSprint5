@@ -126,7 +126,7 @@ namespace Sprint0.enemy
             {
                 topLeft.X = (int)currentPos.X;
                 topLeft.Y = (int)currentPos.Y;
-                botRight.X = (int)currentPos.X + 40;
+                botRight.X = (int)currentPos.X + 60;
                 botRight.Y = (int)currentPos.Y + 40;
             }
             else

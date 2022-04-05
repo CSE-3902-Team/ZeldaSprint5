@@ -110,8 +110,9 @@ namespace Sprint0.enemy
 
 
 
-            frame++;
-        }
+                frame++;
+                         
+            }
             else
             {
                 currentPos.X = 0;
@@ -134,10 +135,11 @@ namespace Sprint0.enemy
            
                 topLeft.X = (int)currentPos.X;
                 topLeft.Y = (int)currentPos.Y;
-                bottomRight.X = (int)currentPos.X + 60;
-                bottomRight.Y = (int)currentPos.Y +60;
+                bottomRight.X = (int)currentPos.X + 80;
+                bottomRight.Y = (int)currentPos.Y +80;
             
         
         }
     }
 }
+ 
