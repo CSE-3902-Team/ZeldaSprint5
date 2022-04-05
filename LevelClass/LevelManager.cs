@@ -126,7 +126,6 @@ namespace Sprint0.LevelClass
             Vector2 position1;
             tileDoor = fields[0];
             position = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+OFFSET);
-            position1 = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+50+OFFSET);
             if (fields.Length >= 4)
             {
                 enemy = fields[3];
@@ -163,7 +162,7 @@ namespace Sprint0.LevelClass
                 tileList.Add(tileFactory.CreateTileSprite(tileFactory.GetTile(tileDoor), position));
             }
             if (enemy.Length > 0) {
-                enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position1, command));
+                enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position, command));
             }
             if (item.Length > 0) {
                 itemList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));

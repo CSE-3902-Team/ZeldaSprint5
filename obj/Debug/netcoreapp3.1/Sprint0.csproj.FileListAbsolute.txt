@@ -688,7 +688,6 @@ C:\Users\austi\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.csproj.C
 C:\Users\austi\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\austi\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\austi\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
-=======
 C:\Users\tingy\source\repos\ZeldaGameS4(3)\bin\Debug\netcoreapp3.1\Sprint0.exe
 C:\Users\tingy\source\repos\ZeldaGameS4(3)\bin\Debug\netcoreapp3.1\Sprint0.deps.json
 C:\Users\tingy\source\repos\ZeldaGameS4(3)\bin\Debug\netcoreapp3.1\Sprint0.runtimeconfig.json
