@@ -27,7 +27,7 @@ namespace Sprint0.StateClass
                 levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
                 levelManager.LoadRooms();
                 _currentRoom = levelManager.StartRoom();
-                headsUpDisplay = new HUD(levelManager.Player, _game.SpriteBatch, _content.Load<Texture2D>("HUD"));
+                headsUpDisplay = new HUD(levelManager.Player, _game.SpriteBatch, _content.Load<Texture2D>("HUD"), _content.Load<Texture2D>("Hearts"));
             }
 
             public override void update(GameTime gameTime)
