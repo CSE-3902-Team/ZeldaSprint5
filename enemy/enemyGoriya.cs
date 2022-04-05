@@ -82,8 +82,8 @@ namespace Sprint0.enemy
             currentFrame = 0;
             currentPos.X = (int)location.X;
             currentPos.Y = (int)location.Y;
-            topLeft = new TopLeft(400, 200, this);
-            botRight = new BottomRight(440, 240, this);
+            topLeft = new TopLeft ((int)location.X, (int)location.Y, this);
+            botRight = new BottomRight((int)location.X+40, (int)location.Y+40, this);
             isAlive = true;
             destination = location;
              fireCount =fireSomething.Next(150, 500);

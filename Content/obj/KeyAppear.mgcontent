@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/KeyAppear.wav</SourceFile>
   <SourceTime>2022-03-30T10:33:31.7835814-04:00</SourceTime>
   <DestFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/KeyAppear.xnb</DestFile>
-  <DestTime>2022-04-04T16:26:08.3171119-04:00</DestTime>
+  <DestTime>2022-04-04T21:05:00.437924-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

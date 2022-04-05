@@ -75,17 +75,17 @@ namespace Sprint0.enemy
             Texture = texture;
             this.batch = batch;
             currentFrame = 0;
-            currentPos.Y = 500;
-            currentPos.X = 400;
+            currentPos.Y = location.Y;
+            currentPos.X = location.X;
             destination.X = 400;
             destination.Y = 200;
-            topLeft = new TopLeft(400, 200,this);
-            botRight = new BottomRight(480, 300, this);
+            topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
+            botRight = new BottomRight((int)currentPos.X + 160, (int)currentPos.Y +200, this);
             isAlive = true;
             command = c;
             FireballCurrent1.X = 400;
             FireballCurrent1.Y = 200;
-       dragonBreath1 = new DragonFireBall(Texture, batch,FireballCurrent1, direction, destination, FireBallCurrentFrame, frame1, currentPos);
+       dragonBreath1 = new DragonFireBall(Texture, batch,FireballCurrent1, direction, destination, FireBallCurrentFrame, frame1, currentPos,isAlive);
           dragonBreath2 = new DragonFireBall1(Texture, batch,FireballCurrent2, direction, destination, FireBallCurrentFrame, frame1, currentPos);
              dragonBreath3 = new DragonFireBall2(Texture, batch,FireballCurrent3, direction, destination, FireBallCurrentFrame, frame1, currentPos);
         }
@@ -151,6 +151,10 @@ namespace Sprint0.enemy
             frame++;
             frame1++;
             UpdateCollisionBox();
+            Console.WriteLine(topLeft.X);
+            Console.WriteLine(topLeft.Y);
+            Console.WriteLine(botRight.X);
+            Console.WriteLine(botRight.Y);
         }
 
 
@@ -165,7 +169,10 @@ namespace Sprint0.enemy
             Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 160, 200);
       
             batch.Begin();
-            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            if (isAlive)
+            {
+                batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            }
             batch.End();
          
 
