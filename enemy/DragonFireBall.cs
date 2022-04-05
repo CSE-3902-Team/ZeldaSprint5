@@ -23,7 +23,7 @@ namespace Sprint0.enemy
         private bool isRunning=true;
         private int fireBallFrame;
         private Vector2 currentPos;
-
+        private Boolean isalive;
 
         public TopLeft TopLeft
         {
@@ -45,7 +45,7 @@ namespace Sprint0.enemy
             get { return projectilePos; }
             set { projectilePos = value; }
         }
-        public DragonFireBall(Texture2D texture, SpriteBatch batch, Vector2 projectilePos, Vector2 direction, Vector2 destination, int projectileFrame,int frameCount,Vector2 currentPos)
+        public DragonFireBall(Texture2D texture, SpriteBatch batch, Vector2 projectilePos, Vector2 direction, Vector2 destination, int projectileFrame,int frameCount,Vector2 currentPos,Boolean isalive)
 
         {
             this.Texture = texture;
@@ -57,7 +57,7 @@ namespace Sprint0.enemy
             fireBallFrame = projectileFrame;
             this.currentPos = currentPos;
             this.result = projectileFrame;
-
+            this.isalive = isalive;
             FrameCount = frameCount;
     
             topLeft = new TopLeft(400, 200, this);
@@ -68,14 +68,13 @@ namespace Sprint0.enemy
 
         { if (projectilePos.X == 0)
             {
-                projectilePos.X = Direction.X;
-                projectilePos.Y = Direction.Y;
+                projectilePos.X = Direction.X-42;
+                projectilePos.Y = Direction.Y+23;
                 isRunning = true;
             }
 
             if (isRunning)
             {
-                UpdateCollisionBox();
 
                 if (projectilePos.X>0)
                 {
@@ -89,6 +88,8 @@ namespace Sprint0.enemy
                 projectilePos.X = 0;
                 projectilePos.Y = 0;
             }
+
+            UpdateCollisionBox();
             return;
         }
         public void Draw()
@@ -101,8 +102,11 @@ namespace Sprint0.enemy
 
             Rectangle FireBallDestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, 40, 40);
             batch.Begin();
-            if (isRunning)
-                batch.Draw(Texture, FireBallDestinationRectangle, FireballSourceRectangle, Color.White);
+            if (isalive)
+            {
+                if (isRunning)
+                    batch.Draw(Texture, FireBallDestinationRectangle, FireballSourceRectangle, Color.White);
+            }
             batch.End();
         }
         public void Draw1()
@@ -123,8 +127,8 @@ namespace Sprint0.enemy
         {
             topLeft.X = (int)projectilePos.X;
             topLeft.Y = (int)projectilePos.Y;
-            botRight.X = (int)projectilePos.X + 20;
-            botRight.Y = (int)projectilePos.Y + 20;
+            botRight.X = (int)projectilePos.X +40;
+            botRight.Y = (int)projectilePos.Y + 60;
 
         }
     }

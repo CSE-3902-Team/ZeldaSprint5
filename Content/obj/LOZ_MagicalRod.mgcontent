@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LOZ_MagicalRod.wav</SourceFile>
-  <SourceTime>2022-03-28T18:02:55.9331129-04:00</SourceTime>
-  <DestFile>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/bin/LOZ_MagicalRod.xnb</DestFile>
-  <DestTime>2022-04-04T19:55:32.1221898-04:00</DestTime>
+  <SourceFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LOZ_MagicalRod.wav</SourceFile>
+  <SourceTime>2022-03-30T10:33:31.7845813-04:00</SourceTime>
+  <DestFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/LOZ_MagicalRod.xnb</DestFile>
+  <DestTime>2022-04-04T21:05:01.1165818-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

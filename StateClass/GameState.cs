@@ -12,6 +12,8 @@ namespace Sprint0.StateClass
     {
             private LevelManager levelManager;
             private ICollision colliderDetector;
+            private int roomNum;
+            private HUD headsUpDisplay;
 
             public GameState(Game1 game, ContentManager content) : base(game, content)
             {
@@ -26,10 +28,16 @@ namespace Sprint0.StateClass
                 levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
                 levelManager.LoadRooms();
                 _currentRoom = levelManager.StartRoom();
+                roomNum = levelManager.currentRoomNum;
+                headsUpDisplay = new HUD(levelManager.Player, _game.SpriteBatch, _content.Load<Texture2D>("HUD"), _content.Load<Texture2D>("Hearts"));
             }
 
             public override void update(GameTime gameTime)
-            {
+            {            
+                if (roomNum != levelManager.currentRoomNum)
+                {
+                    _currentRoom = levelManager.CurrentRoom;            
+                }
                 _game.MouseController.handleInput();
                 _game.KeyboardController.handleInput();
                 if(levelManager.Player.IsDead)
@@ -43,6 +51,7 @@ namespace Sprint0.StateClass
             public override void Draw(GameTime gameTime)
             {
                 _currentRoom.drawRoom();
+            headsUpDisplay.Draw();
             }
         }
     }

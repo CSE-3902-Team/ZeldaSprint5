@@ -37,7 +37,7 @@ namespace Sprint0.Collision
             {
                 if (doorlist[x].DoorSide == targetSide) {
                     doorlist[x].IsRunning = false;
-                    doorlist[x] = factory.CreateDoorSprite(factory.getDoor("Hole"), targetSide);
+                    doorlist[x] = factory.CreateDoorSprite(factory.getDoor("Hole"), targetSide, doorlist[x].connection);
                 }
             }
         }

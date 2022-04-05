@@ -124,22 +124,22 @@ namespace Sprint0.DoorClass
 		}
 
 
-		public ADoor CreateDoorSprite(Door doorNum, Side doorSide)
+		public ADoor CreateDoorSprite(Door doorNum, Side doorSide, int roomConnection)
 		{
 			switch (doorNum)
 			{
 				case Door.Wall:
 					return new DoorWall(doorSheet, batch, doorSide);
 				case Door.Open:
-					return new DoorOpen(doorSheet, batch, doorSide);
+					return new DoorOpen(doorSheet, batch, doorSide, roomConnection);
 				case Door.Locked:
-					return new DoorLocked(doorSheet, batch, doorSide);
+					return new DoorLocked(doorSheet, batch, doorSide, roomConnection);
 				case Door.Closed:
-					return new DoorClosed(doorSheet, batch, doorSide);
+					return new DoorClosed(doorSheet, batch, doorSide, roomConnection);
 				case Door.Hole:
-					return new DoorHole(doorSheet, batch, doorSide);
+					return new DoorHole(doorSheet, batch, doorSide, roomConnection);
 				case Door.WeakWall:
-					return new WeakWall(doorSheet, batch, doorSide);
+					return new WeakWall(doorSheet, batch, doorSide, roomConnection);
 				default:
 					return new DoorWall(doorSheet, batch, doorSide);
 			}

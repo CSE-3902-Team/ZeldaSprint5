@@ -1,8 +1,8 @@
 roomwalls,0,0,,
-leftDoorNormal,0,288,,
+leftDoorNormal,0,288,,,9
 topDoorWall,488,0,,
-rightDoorNormal,896,288,,
-WeakWall,488,576,,
+rightDoorNormal,896,288,,,11
+WeakWall,488,576,,,14
 solid blue tile,128,128,,
 solid blue tile,192,128,,
 solid blue tile,256,128,,

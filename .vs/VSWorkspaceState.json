@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LevelClass"
+    "\\LevelClass",
+    "\\StateClass"
   ],
-  "SelectedNode": "\\Sprint0.sln",
+  "SelectedNode": "\\LevelClass\\LevelManager.cs",
   "PreviewInSolutionExplorer": false
 }

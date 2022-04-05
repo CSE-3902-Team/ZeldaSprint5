@@ -90,7 +90,7 @@ namespace Sprint0
             int row = currentFrame;
 
             Rectangle sourceRectangle = new Rectangle(444, 266, 26, 40);
-            Rectangle destinationRectangle = new Rectangle(400, 200, 80, 100);
+            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 80, 100);
 
             batch.Begin();
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);

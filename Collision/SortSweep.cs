@@ -224,7 +224,7 @@ namespace Sprint0.Collision
             {
 
                 handler = new CollisionHandlerEnemyProjectile(enemy, other as IProjectile , dir, magnitude);
-    
+         
                 handler.HandleCollision();
             }
             else
@@ -259,8 +259,8 @@ namespace Sprint0.Collision
             else if (other is IEnemySprite)
             {
 
-                ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
-                handler.HandleCollision();
+                //ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
+                //handler.HandleCollision();
                 //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
                 //The logic when a player projectile hit an enemy is same as hit a tile
             }

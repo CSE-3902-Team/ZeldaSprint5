@@ -1,8 +1,8 @@
 roomwalls,0,0,,
 leftDoorWall,0,288,,
-topDoorKey,488,0,,
+topDoorKey,488,0,,,3
 rightDoorWall,896,288,,
-bottomDoorNormal,488,576,,
+bottomDoorNormal,488,576,,,9
 solid navy tile,128,128,,
 solid navy tile,192,128,,
 solid navy tile,256,128,,

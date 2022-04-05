@@ -166,7 +166,7 @@ namespace Sprint0.LevelClass
             {
                 if (doorList[x] is DoorLocked) {
                     doorList[x].IsRunning = false;
-                    doorList[x] = DoorFactory.Instance.CreateDoorSprite(DoorFactory.Door.Open, doorList[x].DoorSide);
+                    doorList[x] = DoorFactory.Instance.CreateDoorSprite(DoorFactory.Door.Open, doorList[x].DoorSide, doorList[x].connection);
                 }
             }
         }

@@ -122,10 +122,10 @@ namespace Sprint0.LevelClass
             Vector2 position;
             string enemy;
             string item;
+            int roomConnection;
             Vector2 position1;
             tileDoor = fields[0];
             position = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+OFFSET);
-            position1 = new Vector2(Int32.Parse(fields[1]), Int32.Parse(fields[2])+50+OFFSET);
             if (fields.Length >= 4)
             {
                 enemy = fields[3];
@@ -143,18 +143,26 @@ namespace Sprint0.LevelClass
             {
                 item = "";
             }
+            if (fields.Length >= 6)
+            {
+                roomConnection = int.Parse(fields[5]);
+            }
+            else
+            {
+                roomConnection = 0;
+            }
 
 
             if (doorFactory.isADoor(tileDoor))
             {
-                doorList.Add(doorFactory.CreateDoorSprite(doorFactory.getDoor(tileDoor), doorFactory.getSide(tileDoor)));
+                doorList.Add(doorFactory.CreateDoorSprite(doorFactory.getDoor(tileDoor), doorFactory.getSide(tileDoor), roomConnection));
             }
             else if(tileFactory.IsTile(tileDoor))
             {
                 tileList.Add(tileFactory.CreateTileSprite(tileFactory.GetTile(tileDoor), position));
             }
             if (enemy.Length > 0) {
-                enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position1, command));
+                enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position, command));
             }
             if (item.Length > 0) {
                 itemList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
@@ -195,10 +203,19 @@ namespace Sprint0.LevelClass
             }
         }
 
+        public void RoomTransition(int destination)
+        {
+            currentRoom = destination;
+        }
+
 
 
         public Room StartRoom() {
-            return roomList[0];
+            return roomList[17];
+        }
+
+        public int currentRoomNum {
+            get { return currentRoom; }
         }
 
 
@@ -214,6 +231,5 @@ namespace Sprint0.LevelClass
             }
             return roomList[currentRoom];
 		}
-
 	}
 }

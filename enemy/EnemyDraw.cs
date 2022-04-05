@@ -182,7 +182,7 @@ namespace Sprint0.enemy
             int row = currentFrame;
             if (isRunning)
             {
-                Rectangle sourceRectangle = new Rectangle(324,115, 32, 32);
+                Rectangle sourceRectangle = new Rectangle(329,119, 32, 32);
                 Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 64, 64);
 
                 batch.Begin();

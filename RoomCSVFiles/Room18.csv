@@ -1,5 +1,5 @@
 roomwalls,0,0,,
-leftDoorNormal,0,288,,
+leftDoorNormal,0,288,,,17
 topDoorWall,488,0,,
 rightDoorWall,896,288,,
 bottomDoorWall,488,576,,
