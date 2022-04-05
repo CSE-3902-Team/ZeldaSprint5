@@ -42,7 +42,7 @@ namespace Sprint0.enemy
         public bool IsAlive
         {
             get { return isAlive; }
-            set { isAlive = value; }
+            set { isAlive = value; UpdateCollisionBox(); }
         }
 
         public Vector2 Destination
@@ -79,8 +79,8 @@ namespace Sprint0.enemy
             currentPos = location;
             destination = location;
             link = player;
-            topLeft = new TopLeft((int)currentPos.X, (int)currentPos.Y, this);
-            bottomRight = new BottomRight((int)currentPos.X+40, (int)currentPos.Y+40, this);
+            topLeft = new TopLeft(400, 200, this);
+            bottomRight = new BottomRight(440, 240, this);
             isAlive = true;
 
         }
@@ -134,8 +134,8 @@ namespace Sprint0.enemy
            
                 topLeft.X = (int)currentPos.X;
                 topLeft.Y = (int)currentPos.Y;
-                bottomRight.X = (int)currentPos.X + 40;
-                bottomRight.Y = (int)currentPos.Y + 40;
+                bottomRight.X = (int)currentPos.X + 60;
+                bottomRight.Y = (int)currentPos.Y +60;
             
         
         }

@@ -20,7 +20,7 @@ solid black tile,192,192
 solid black tile,256,192
 solid black tile,320,192
 solid black tile,384,192
-solid black tile,448,192
+solid black tile,448,192,oldMan
 solid black tile,512,192
 solid black tile,576,192
 solid black tile,640,192
@@ -35,7 +35,7 @@ LeftFire,320,256
 solid black tile,384,256
 solid black tile,448,256
 solid black tile,512,256
-solid black tile,576,256,oldMan
+solid black tile,576,256
 solid black tile,640,256
 RightFire,640,256
 solid black tile,704,256

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LinkDie.wav</SourceFile>
-  <SourceTime>2022-03-30T10:33:31.7853067-04:00</SourceTime>
-  <DestFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/LinkDie.xnb</DestFile>
-  <DestTime>2022-04-04T16:26:08.4346169-04:00</DestTime>
+  <SourceFile>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/LinkDie.wav</SourceFile>
+  <SourceTime>2022-03-28T18:02:55.9351066-04:00</SourceTime>
+  <DestFile>C:/Users/tingy/source/repos/ZeldaGameS4(3)/Content/bin/LinkDie.xnb</DestFile>
+  <DestTime>2022-04-04T19:55:27.2614776-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
