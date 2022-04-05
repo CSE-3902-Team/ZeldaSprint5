@@ -21,6 +21,7 @@ namespace Sprint0
         private int levelNumber;
         private int keyCount;
         private int bombCount;
+        private int arrowCount;
 
         public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
@@ -33,6 +34,7 @@ namespace Sprint0
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;
+            arrowCount = player.Inventory.ArrowCount;
 
             levelNumber = 1;
 
