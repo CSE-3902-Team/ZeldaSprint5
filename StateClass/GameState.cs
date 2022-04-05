@@ -12,6 +12,7 @@ namespace Sprint0.StateClass
     {
             private LevelManager levelManager;
             private ICollision colliderDetector;
+            private HUD headsUpDisplay;
 
             public GameState(Game1 game, ContentManager content) : base(game, content)
             {
@@ -26,6 +27,7 @@ namespace Sprint0.StateClass
                 levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
                 levelManager.LoadRooms();
                 _currentRoom = levelManager.StartRoom();
+                headsUpDisplay = new HUD(levelManager.Player, _game.SpriteBatch, _content.Load<Texture2D>("HUD"));
             }
 
             public override void update(GameTime gameTime)
@@ -43,6 +45,7 @@ namespace Sprint0.StateClass
             public override void Draw(GameTime gameTime)
             {
                 _currentRoom.drawRoom();
+            headsUpDisplay.Draw();
             }
         }
     }

@@ -12,35 +12,40 @@ namespace Sprint0
         private Player player;
         private LinkInventory inventory;
         private SpriteBatch spriteBatch;
+        private Texture2D headsUpDisplay;
+        private Rectangle hudRectangle;
 
         private int health;
+        private int heartContainerCount;
         private int rupeeCount;
         private int levelNumber;
         private int keyCount;
         private int bombCount;
+        private int arrowCount;
 
-        public HUD(Player player, SpriteBatch spritebatch)
+        public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
             this.player = player;
             this.spriteBatch = spritebatch;
+            this.headsUpDisplay = headsUpDisplay;
 
-            health = player.PlayerHp;
-   //         rupeeCount = player.Inventory.RupeeCount;
-  //          keyCount = player.Inventory.KeyCount;
-  //          bombCount = player.Inventory.BombCount;
+            health = player.Inventory.HeartCount;
+            heartContainerCount = player.Inventory.HeartContainerCount;
+            rupeeCount = player.Inventory.RupeeCount;
+            keyCount = player.Inventory.KeyCount;
+            bombCount = player.Inventory.BombCount;
+            arrowCount = player.Inventory.ArrowCount;
 
             levelNumber = 1;
 
-        }
-
-        public void Update()
-        {
-
+            hudRectangle = new Rectangle(0, 0, 1024, 256);
         }
 
         public void Draw()
         {
-
+            spriteBatch.Begin();
+            spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
+            spriteBatch.End();
         }
     }
 }
