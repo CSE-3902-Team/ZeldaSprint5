@@ -29,9 +29,16 @@ namespace Sprint0.Collision
             }
             else if (item is ItemHeart)
             {
-                player.PlayerHp += 2;
+                if((player.PlayerHp + 2) <= player.MaxHp)
+                {
+                    player.PlayerHp += 2;
+                }else if((player.PlayerHp + 1) <= player.MaxHp){
+                    player.PlayerHp += 1;
+                }
+                
                SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
                 inventory.FirstHeart = false;
+                inventory.HeartCount += 2;
             }
             else if (item is ItemKey) 
             {

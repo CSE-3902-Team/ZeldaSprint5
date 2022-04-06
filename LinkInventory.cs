@@ -171,7 +171,7 @@ namespace Sprint0
             bombCount = 0;
             arrowCount = 0;
             heartCount = player.PlayerHp;
-            heartContainerCount = 3;
+            heartContainerCount = (player.MaxHp)/2;
 
             firstRupee = true;
             firstKey = true; 

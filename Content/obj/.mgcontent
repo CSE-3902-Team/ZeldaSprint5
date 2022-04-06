@@ -22,8 +22,7 @@
     <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetHeartKey.wav</File>
     <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetInventoryItem.wav</File>
     <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetRupee.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/Hearts.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/HUD.png</File>
+    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/HUDandInventory.png</File>
     <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons.png</File>
     <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons1.png</File>
     <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/KeyAppear.wav</File>
@@ -62,7 +61,6 @@
     <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
