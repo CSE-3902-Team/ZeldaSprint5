@@ -1,6 +1,7 @@
 roomwalls,0,0
-leftDoorNormal,0,288,,,16
 topDoorKey,488,0,,,15
+
+leftDoorNormal,0,288,,,16
 rightDoorNormal,896,288,,,18
 bottomDoorNormal,488,576,,,0
 solid blue tile,128,128

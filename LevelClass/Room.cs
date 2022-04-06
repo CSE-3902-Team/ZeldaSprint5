@@ -164,9 +164,10 @@ namespace Sprint0.LevelClass
             DoorFactory factory = DoorFactory.Instance;
             for (int x = 0; x < doorList.Length; x++)
             {
-                if (doorList[x] is DoorLocked) {
+                if (doorList[x] is DoorClosed) {
                     doorList[x].IsRunning = false;
                     doorList[x] = DoorFactory.Instance.CreateDoorSprite(DoorFactory.Door.Open, doorList[x].DoorSide, doorList[x].connection);
+                    colliderDetector.AddToList(doorList[x] as IBoxCollider);
                 }
             }
         }

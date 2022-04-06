@@ -36,6 +36,7 @@ namespace Sprint0.StateClass
             {            
                 if (roomNum != levelManager.currentRoomNum)
                 {
+                    roomNum = levelManager.currentRoomNum;
                     _currentRoom = levelManager.CurrentRoom;            
                 }
                 _game.MouseController.handleInput();

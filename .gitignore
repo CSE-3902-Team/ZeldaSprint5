@@ -71,3 +71,10 @@ obj/Debug/netcoreapp3.1/Sprint0.dll
 obj/Debug/netcoreapp3.1/Sprint0.csproj.FileListAbsolute.txt
 obj/Debug/netcoreapp3.1/Sprint0.assets.cache
 bin/Debug/netcoreapp3.1/Sprint0.runtimeconfig.dev.json
+bin/Debug/netcoreapp3.1/Sprint0.runtimeconfig.dev.json
+bin/Debug/netcoreapp3.1/Sprint0.dll
+bin/Debug/netcoreapp3.1/Sprint0.pdb
+.vs/VSWorkspaceState.json
+.vs/Sprint0/v16/.suo
+.vs/Sprint0/DesignTimeBuild/.dtbcache.v2
+.vs/slnx.sqlite
