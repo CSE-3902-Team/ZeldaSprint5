@@ -2,7 +2,7 @@ roomwalls,0,0,
 leftDoorNormal,0,288,,,8
 topDoorNormal,488,0,,,4
 rightDoorKey,896,288,,,10
-WeakWall,488,576,,,13
+bottomWeakWall,488,576,,,13
 solid blue tile,128,128,trap
 solid blue tile,192,128,
 solid blue tile,256,128,

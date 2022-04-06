@@ -19,7 +19,7 @@ namespace Sprint0.PlayerClass
 
 		public void ChangeDirection(Player.Directions dir)
 		{
-			KeyboardState kstate = Keyboard.GetState();
+			
 			if (dir == Player.Directions.Up)
 			{
 				player.State = new PlayerUpMove(player);

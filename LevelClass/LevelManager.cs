@@ -47,7 +47,11 @@ namespace Sprint0.LevelClass
             get { return projectileTexture; }
         }
         
-        
+        public List<Room> RoomList
+        {
+            get { return roomList; }
+        }
+
         public Player Player
         {
             get { return _player; }

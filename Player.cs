@@ -28,7 +28,7 @@ namespace Sprint0 {
 		private Vector2 collisionOffsetY;
 		private Color col;
 		public const int KNOCKBACK_FRAMES = 5;
-		private int maxHp = 6;
+		private int maxHp = 10;
 		public int HPFRAMES = 1;
 		private readonly ICommand addProjectileCommand;
 		private int playerHp;

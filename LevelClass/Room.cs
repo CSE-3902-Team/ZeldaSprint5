@@ -118,13 +118,7 @@ namespace Sprint0.LevelClass
             {
                 UnlockDoors();
             }
-            Console.Write("[");
-            for(int x = 0; x < enemyList.Count; x++)
-            {
-                Console.Write(enemyList[x]);
-            }
-            Console.Write("]");
-            Console.WriteLine();
+            
         }
 
         public void UpdateProjectiles()

@@ -1,8 +1,8 @@
-SPRINT 3 README
+SPRINT 4 README
 Group name: I Link therefore I am
 Group members: Craig Cirino, Ting Feng, Austin Motz, Zening Teng, Luke Wingert
 
-SEE THE "Sprint 2 Deliverables" FOLDER FOR:
+SEE THE "Sprint 4 Deliverables" FOLDER FOR:
 Code reviews, team reflection, and completed task tracking excel sheet.
 
 Features/Bugs: All functionality for a team 5 of has been implemented, no extra features, no bugs
@@ -12,41 +12,26 @@ Controls:
 "z" and "n" - attack with sword
 "1,2,3,4,5" - Have link shoot different projectiles
 "e" - cause link to become damaged
-
+"mouse controls" - switches rooms
 "q" - quits game
 "r" - resets game
 
-New Features for Sprint3:
-Level switching
-Level generation from csv's
-enemy-projectile collisions
-player-projectile collisions
-player-enemy collisions
-playerAttack-enemy collisions
-player-tile and player-wall
-Collision Detection with sort and sweep
+Known Bugs:
+-Some doors don't transition
+-Hitboxes are off
+-Dragon can't be killed
 
+Features:
+-Most sounds implemented, except rare ones like puzzle solved and new item
+-Game states created [death, victory, gamestate]
+-Some level transitions
+-Placeholder hud
 
-Known Bugs and Unimplemented features:
--Some enemy-player collisions don't register because of small collision boxes
--Link-Doors [unimplemented]
--Link-Pushable-Blocks [unimplemented]
--Collision Detection needs to be segmented into different classes
--Boomerang doesn't return to player's current position
-
-Code analysis suggestions:
--Use switch expresions instead of return statements inside switches
--Several unused variables + instance variables + parameters
--Several naming convention violations + with lowercase function names
--Several suggestions to make fields readonly
--Suggestions to make variable declarations and definitions in the same line.
-
-Code Metrics results:
--Mainainability index:	82
--Cyclomatic Complexity:	1334
--Depth of inheirtance:	2
--Class coupling:		162
--Lines of executable
+Unimplemented:
+-Inventory state with map
+-Room transitions
+-New item pickup animation
+-Death and victory animations
 
 
 
