@@ -28,7 +28,7 @@ namespace Sprint0.Collision
             {
                 MovePlayerAwayFromDoor();
             }
-            else if (door is DoorOpen) {
+            else if (door is DoorOpen || door is DoorHole) {
                 Console.WriteLine("Room transition");
                 door.ChangeRoom();
                 player.Position = new Vector2(540,609);

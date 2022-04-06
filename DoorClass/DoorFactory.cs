@@ -29,6 +29,7 @@ namespace Sprint0.DoorClass
 			Right = 2,
 			Bottom = 3
 		}
+		
 
 		private static DoorFactory instance = new DoorFactory();
 
@@ -57,9 +58,9 @@ namespace Sprint0.DoorClass
 
 		public DoorFactory.Door getDoor(string key)
 		{
-			if (key.Contains("Wall"))
+			if (key.Contains("WeakWall"))
 			{
-				return Door.Wall;
+				return Door.WeakWall;
 			}
 			else if (key.Contains("Normal"))
 			{
@@ -77,9 +78,9 @@ namespace Sprint0.DoorClass
 			{
 				return Door.Closed;
 			}
-			else if (key.Contains("WeakWall")) 
+			else if (key.Contains("Wall")) 
 			{
-				return Door.WeakWall;
+				return Door.Wall;
 			}
 			else
 			{
@@ -113,7 +114,7 @@ namespace Sprint0.DoorClass
 
 		public bool isADoor(string key)
 		{
-			if (key.Contains("Door"))
+			if (key.Contains("Door") || key.Contains("WeakWall"))
 			{
 				return true;
 			}
@@ -145,5 +146,24 @@ namespace Sprint0.DoorClass
 			}
 		}
 
+		public static Side InvertSide(Side target)
+		{
+			if (target == Side.Top)
+			{
+				return Side.Bottom;
+			}
+			else if (target == Side.Bottom)
+			{
+				return Side.Top;
+			}
+			else if (target == Side.Left)
+			{
+				return Side.Right;
+			}
+			else
+			{
+				return Side.Left;
+			}
+		}
 	}
 }
