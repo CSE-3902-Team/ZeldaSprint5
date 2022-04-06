@@ -32,7 +32,7 @@ namespace Sprint0
         const int heartWidth = 64;
         const int heartHeight = 73;
         const int spaceBetweenHearts = 8;
-        const int maxHeartCount = 4;
+        const int maxHeartCount = 5;
 
         public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay, Texture2D hearts)
         {
@@ -41,7 +41,7 @@ namespace Sprint0
             this.headsUpDisplay = headsUpDisplay;
             this.hearts = hearts;
 
-            health = player.Inventory.HeartCount;
+            health = player.PlayerHp;
             heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
@@ -54,12 +54,12 @@ namespace Sprint0
             emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 0, heartWidth, heartHeight);
             halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 0, heartWidth, heartHeight);
             heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 0, heartWidth, heartHeight);
-            heartDestRect = new Rectangle(705, 146, heartWidth, heartHeight);
+            heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
         }
 
         public void Update()
         {
-            health = player.Inventory.HeartCount;
+            health = player.PlayerHp;
             heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
@@ -71,10 +71,10 @@ namespace Sprint0
             Update();
             spriteBatch.Begin();
             spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
-            for(int i = 0; i < maxHeartCount; i++)
-            {
-                int remainingHalfHearts = health;
 
+            int remainingHalfHearts = health;
+            for (int i = 0; i < maxHeartCount; i++)
+            {
                 if (i < heartContainerCount)
                 {
                     if(remainingHalfHearts>=2)
@@ -91,11 +91,11 @@ namespace Sprint0
                     {
                         currentHeartNeeded = emptyHeartSourceRect;
                     }
-                    spriteBatch.Draw(hearts, new Rectangle(705 + (heartWidth * i), 146, heartWidth, heartHeight), currentHeartNeeded, Color.White);
+                    spriteBatch.Draw(hearts, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), currentHeartNeeded, Color.White);
                 }
                 else
                 {
-                    spriteBatch.Draw(hearts, new Rectangle(705 + (heartWidth * i), 146, heartWidth, heartHeight), new Rectangle((heartWidth*3),0,heartWidth,heartHeight), Color.Black);
+                    spriteBatch.Draw(hearts, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), new Rectangle((heartWidth*3),0,heartWidth,heartHeight), Color.Black);
                 }
             }
             spriteBatch.End();
