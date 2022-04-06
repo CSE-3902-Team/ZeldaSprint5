@@ -33,7 +33,21 @@ namespace Sprint0.Collision
             else if (door is DoorOpen || door is DoorHole) {
                 Console.WriteLine("Room transition");
                 door.ChangeRoom();
-                player.Position = new Vector2(540,609);
+                if (door.DoorSide == DoorFactory.Side.Top)
+                {
+                    player.Position = new Vector2(512,796);
+                }
+                else if (door.DoorSide == DoorFactory.Side.Left) {
+                    player.Position = new Vector2(857, 603);
+                }
+                else if (door.DoorSide == DoorFactory.Side.Right)
+                {
+                    player.Position = new Vector2(167, 603);
+                }
+                else if (door.DoorSide == DoorFactory.Side.Bottom)
+                {
+                    player.Position = new Vector2(512, 427);
+                }
             }
 
             if (door is DoorLocked)//TODO Check for key
