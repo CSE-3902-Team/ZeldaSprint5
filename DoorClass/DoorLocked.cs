@@ -13,5 +13,10 @@ namespace Sprint0.DoorClass
 		{
 
 		}
+
+		public void UnlockDoor() 
+		{
+		
+		}
 	}
 }

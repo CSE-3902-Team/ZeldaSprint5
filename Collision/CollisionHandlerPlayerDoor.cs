@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Sprint0.DoorClass;
 using Microsoft.Xna.Framework;
+using Sprint0.LevelClass;
+
 
 namespace Sprint0.Collision
 {
@@ -34,7 +36,29 @@ namespace Sprint0.Collision
                 player.Position = new Vector2(540,609);
             }
 
+            if (door is DoorLocked)//TODO Check for key
+            {
+                UnlockDoor(LevelManager.Instance.currentRoomNum, door.DoorSide);
+            }
+
         }
+
+        public void UnlockDoor(int roomNum, DoorFactory.Side targetSide)
+        {
+            ADoor[] doorlist = LevelManager.Instance.RoomList[roomNum].DoorList;
+            DoorFactory factory = DoorFactory.Instance;
+            for (int x = 0; x < doorlist.Length; x++)
+            {
+                if (doorlist[x].DoorSide == targetSide)
+                {
+                    doorlist[x].IsRunning = false;
+                    doorlist[x] = factory.CreateDoorSprite(factory.getDoor("Normal"), targetSide, doorlist[x].connection);
+                    LevelManager.Instance.RoomList[roomNum].ColliderDetector.AddToList(doorlist[x] as IBoxCollider);
+                }
+            }
+        }
+
+
         public void MovePlayerAwayFromDoor() { 
             int xDirection;
             int yDirection;
