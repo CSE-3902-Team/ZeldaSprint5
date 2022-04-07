@@ -34,12 +34,11 @@ namespace Sprint0
         const int spaceBetweenHearts = 8;
         const int maxHeartCount = 5;
 
-        public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay, Texture2D hearts)
+        public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
             this.player = player;
             this.spriteBatch = spritebatch;
             this.headsUpDisplay = headsUpDisplay;
-            this.hearts = hearts;
 
             health = player.PlayerHp;
             heartContainerCount = player.Inventory.HeartContainerCount;
@@ -51,9 +50,9 @@ namespace Sprint0
             levelNumber = 1;
 
             hudRectangle = new Rectangle(0, 0, 1024, 256);
-            emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 0, heartWidth, heartHeight);
-            halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 0, heartWidth, heartHeight);
-            heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 0, heartWidth, heartHeight);
+            emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 255, heartWidth, heartHeight);
+            halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 255, heartWidth, heartHeight);
+            heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 255, heartWidth, heartHeight);
             heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
         }
 
@@ -91,11 +90,11 @@ namespace Sprint0
                     {
                         currentHeartNeeded = emptyHeartSourceRect;
                     }
-                    spriteBatch.Draw(hearts, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), currentHeartNeeded, Color.White);
+                    spriteBatch.Draw(headsUpDisplay, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), currentHeartNeeded, Color.White);
                 }
                 else
                 {
-                    spriteBatch.Draw(hearts, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), new Rectangle((heartWidth*3),0,heartWidth,heartHeight), Color.Black);
+                    spriteBatch.Draw(headsUpDisplay, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), new Rectangle(heartWidth,0,heartWidth,heartHeight), Color.Black);
                 }
             }
             spriteBatch.End();
