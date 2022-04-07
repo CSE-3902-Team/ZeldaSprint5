@@ -158,7 +158,11 @@ namespace Sprint0.enemy
         }
 
 
-        public Vector2 draw()
+        public void draw() {
+            draw(0, 0);
+        }
+
+        public void draw(int xOffset, int yOffset)
         {
 
             Vector2 temp = new Vector2();
@@ -166,7 +170,7 @@ namespace Sprint0.enemy
         
             Rectangle sourceRectangle = new Rectangle(50 * row+3, 11, 48,82);
 
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X, (int)currentPos.Y, 160, 200);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X + xOffset, (int)currentPos.Y + yOffset, 160, 200);
       
             batch.Begin();
             if (isAlive)
@@ -174,11 +178,6 @@ namespace Sprint0.enemy
                 batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             }
             batch.End();
-         
-
-     
-
-            return temp;
         }
 
         private void UpdateCollisionBox()

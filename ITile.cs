@@ -36,5 +36,6 @@ namespace Sprint0
             
         }
         void draw();
+        void draw(int xOffset, int yOffset);
 	}
 }

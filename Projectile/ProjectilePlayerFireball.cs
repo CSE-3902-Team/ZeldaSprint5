@@ -98,10 +98,19 @@ namespace Sprint0
         }
         public void Draw()
         {
+            Draw(0, 0);
+        }
+
+        public void Draw(int xOffset, int yOffset)
+        {
+
+            Rectangle destination = new Rectangle(destinationRect.X + xOffset, destinationRect.Y + yOffset, destinationRect.Width, destinationRect.Height);
+
             batch.Begin();
+
             batch.Draw(
                  texture,
-                 destinationRect,
+                 destination,
                  sourceRect,
                 Color.White,
                 rotation,
@@ -110,7 +119,6 @@ namespace Sprint0
                 0f
                 );
             batch.End();
-            UpdateCollisionBox();
         }
 
         private void UpdateCollisionBox()

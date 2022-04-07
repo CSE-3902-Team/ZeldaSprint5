@@ -218,10 +218,14 @@ namespace Sprint0 {
 				HPFRAMES = 1;
 			}
 		}
-		
 
-       
-		public void Draw()
+
+		public void Draw() 
+		{
+			Draw(0, 0);
+		}
+
+		public void Draw(int xScrollOffset, int yScrollOffset)
 		{
 		Rectangle CollisionRect = new Rectangle(TopLeft.X, topLeft.Y, BottomRight.X - TopLeft.X, bottomRight.Y - topLeft.Y);
 		Rectangle CollisionRectTL = new Rectangle(TopLeft.X, topLeft.Y,20,20);
@@ -234,9 +238,9 @@ namespace Sprint0 {
 
 
 			LinkLowHpColor();
-			Rectangle destRect = new Rectangle((int)position.X, (int)position.Y, (int)(src.Width * scale), (int)(src.Height * scale));
+			Rectangle destRect = new Rectangle((int)position.X+xScrollOffset, (int)position.Y+yScrollOffset, (int)(src.Width * scale), (int)(src.Height * scale));
 			_spriteBatch.Begin();
-			_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 - xOffset, src.Height / 2 - yOffset), SpriteEffects.None, 0f);
+			_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 - xOffset +xScrollOffset, src.Height / 2 - yOffset + yScrollOffset), SpriteEffects.None, 0f);
 			//_spriteBatch.Draw(texture, destRect, src, col,0f, new Vector2(0,0) , SpriteEffects.None, 0f);
 			//_spriteBatch.Draw(colT, CollisionRectTL, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
 			//_spriteBatch.Draw(colT, CollisionRectBR, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);

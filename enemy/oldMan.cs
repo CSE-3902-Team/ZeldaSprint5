@@ -82,23 +82,23 @@ namespace Sprint0
             currentPos.Y = currentY;
         }
 
+        public void draw() 
+        {
+            draw(0, 0);
+        }
 
-        public Vector2 draw()
+        public void draw(int xOffset, int yOffset)
         {
 
-            Vector2 temp = new Vector2();
             int row = currentFrame;
 
             Rectangle sourceRectangle = new Rectangle(444, 266, 26, 40);
-            Rectangle destinationRectangle = new Rectangle(currentX, currentY, 80, 100);
+            Rectangle destinationRectangle = new Rectangle(currentX+xOffset, currentY+yOffset, 80, 100);
 
             batch.Begin();
             batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
 
             batch.End();
-            temp.X = currentX;
-            temp.Y = currentY;
-            return temp;
         }
 
 

@@ -28,10 +28,16 @@ namespace Sprint0.TileClass
             myPos = new Vector2(512,352 + OFFSET);
             sourceRect = new Rectangle(0, 0, 1024, 704);
 
-    }
+        }
+
         public void draw()
         {
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 1024, 704);
+            draw(0, 0);
+        }
+
+        public void draw(int xOffset, int yOffset)
+        {
+            Rectangle destinationRectangle = new Rectangle((int)myPos.X+xOffset, (int)myPos.Y+yOffset, 1024, 704);
             myBatch.Begin();
             myBatch.Draw(
                  myTile,

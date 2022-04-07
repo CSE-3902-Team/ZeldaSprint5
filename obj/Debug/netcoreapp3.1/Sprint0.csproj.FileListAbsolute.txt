@@ -663,7 +663,6 @@ C:\Users\cciri\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.csproj.C
 C:\Users\cciri\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.dll
 C:\Users\cciri\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\cciri\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
-
 C:\Users\austi\Source\Repos\ZeldaGameS4\bin\Debug\netcoreapp3.1\Sprint0.exe
 C:\Users\austi\Source\Repos\ZeldaGameS4\bin\Debug\netcoreapp3.1\Sprint0.deps.json
 C:\Users\austi\Source\Repos\ZeldaGameS4\bin\Debug\netcoreapp3.1\Sprint0.runtimeconfig.json
@@ -737,7 +736,6 @@ C:\Users\10717\Source\Repos\CSE-3902-Team\ZeldaGameS43\obj\Debug\netcoreapp3.1\S
 C:\Users\10717\Source\Repos\CSE-3902-Team\ZeldaGameS43\obj\Debug\netcoreapp3.1\Sprint0.pdb
 C:\Users\10717\Source\Repos\CSE-3902-Team\ZeldaGameS43\obj\Debug\netcoreapp3.1\Sprint0.genruntimeconfig.cache
 C:\Users\cciri\Source\Repos\ZeldaGameS4\obj\Debug\netcoreapp3.1\Sprint0.csproj.AssemblyReference.cache
-
 C:\Users\lukes\ZeldaGameS4\bin\Debug\netcoreapp3.1\Sprint0.exe
 C:\Users\lukes\ZeldaGameS4\bin\Debug\netcoreapp3.1\Sprint0.deps.json
 C:\Users\lukes\ZeldaGameS4\bin\Debug\netcoreapp3.1\Sprint0.runtimeconfig.json

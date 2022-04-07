@@ -24,9 +24,15 @@ namespace Sprint0.TileClass
             bRight = new BottomRight((int)position.X + 64, (int)position.Y+64, this);
 
         }
+
         public void draw()
         {
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 64, 64);
+            draw(0, 0);
+        }
+
+        public void draw(int xOffset, int yOffset)
+        {
+            Rectangle destinationRectangle = new Rectangle((int)myPos.X+xOffset, (int)myPos.Y+yOffset, 64, 64);
             myBatch.Begin();
             myBatch.Draw(
                  myTile,

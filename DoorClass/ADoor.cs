@@ -78,7 +78,12 @@ namespace Sprint0.DoorClass
         }
         public void draw()
         {
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, 128, 128);
+            draw(0, 0);
+        }
+
+        public void draw(int xOffset, int yOffset)
+        {
+            Rectangle destinationRectangle = new Rectangle((int)myPos.X+xOffset, (int)myPos.Y + yOffset, 128, 128);
             myBatch.Begin();
             myBatch.Draw(
                  mySheet,

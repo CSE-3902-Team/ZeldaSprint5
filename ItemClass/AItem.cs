@@ -38,11 +38,17 @@ namespace Sprint0.ItemClass
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
             bottomRight = new BottomRight((int)position.X + WIDTH_HEIGHT, (int)position.Y + WIDTH_HEIGHT, this);
         }
-        public void draw()
+
+        public void draw() 
+        {
+            draw(0, 0);
+        }
+
+        public void draw(int xOffset, int yOffset)
         {
             if (!isPickedUp)
             {
-                Rectangle destinationRectangle = new Rectangle((int)myPos.X, (int)myPos.Y, WIDTH_HEIGHT, WIDTH_HEIGHT);
+                Rectangle destinationRectangle = new Rectangle((int)myPos.X+xOffset, (int)myPos.Y+yOffset, WIDTH_HEIGHT, WIDTH_HEIGHT);
                 myBatch.Begin();
                 myBatch.Draw(
                      mySheet,

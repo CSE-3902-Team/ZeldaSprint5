@@ -90,6 +90,11 @@ namespace Sprint0
 
         }
 
+        public void Draw(int xOffset, int yOffset)
+        {
+        
+        }
+
         private void UpdateCollisionBox()
         {
             topLeft.X = (int)position.X;

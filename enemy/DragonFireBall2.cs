@@ -91,7 +91,12 @@ namespace Sprint0.enemy
             }
             return;
         }
-        public void Draw()
+
+        public void Draw() {
+            Draw(0, 0);
+        }
+
+        public void Draw(int xOffset, int yOffset)
         {
             int rowFireBall = fireBallFrame;
 
@@ -99,7 +104,7 @@ namespace Sprint0.enemy
             Rectangle FireballSourceRectangle = new Rectangle(18 * rowFireBall + 200, 22, 16, 30);
 
 
-            Rectangle FireBallDestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, 40, 40);
+            Rectangle FireBallDestinationRectangle = new Rectangle((int)Position.X + xOffset, (int)Position.Y + yOffset, 40, 40);
             batch.Begin();
             if (isRunning)
                 batch.Draw(Texture, FireBallDestinationRectangle, FireballSourceRectangle, Color.White);

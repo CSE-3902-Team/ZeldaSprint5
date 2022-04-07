@@ -122,13 +122,30 @@ namespace Sprint0.enemy
 
 
         }
+
+        public void draw() {
+            draw(0, 0);
+        }
     
-        public Vector2 draw()
+        public void draw(int xOffset, int yOffset)
         {
-            Vector2 temp = new Vector2();
-            EnemyDraw draw = new EnemyDraw(Texture, batch, new Vector2(0, 0), direction, destination, 0, 0, currentFrame, currentPos, isAlive,false);
-            draw.DrawSkeleton();
-            return temp;
+            Vector2 location = new Vector2((int)currentPos.X+xOffset, (int)currentPos.Y+yOffset);
+            Vector2 origin = new Vector2(0, 0);
+            Rectangle sourceRectangle = new Rectangle(2, 118, 32, 32);
+            if (isAlive)
+            { 
+                batch.Begin();
+
+                if (currentFrame % 2 == 0)
+                {
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
+                }
+                else
+                {
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 2f, SpriteEffects.None, 1);
+                }
+                batch.End();
+            }
         }
 
         private void UpdateCollisionBox() {

@@ -183,17 +183,7 @@ namespace Sprint0.enemy
                  
                     }
                 }
-
-
-
-
-
-
-         
-
-
                 frame++;
-     
                     }
             else
             {
@@ -204,29 +194,58 @@ namespace Sprint0.enemy
             frame3++;
         }
 
+        public void draw() 
+        {
+            draw(0, 0);
+        }
 
-            public Vector2 draw()
+        public void draw(int xOffset, int yOffset)
+        { 
+            Vector2 origin = new Vector2(0, 0);
+            Vector2 location = new Vector2(currentPos.X+xOffset, currentPos.Y+yOffset);
+            int row = currentFrame;
+            int row1 = projectileFrame;
+
+            Rectangle sourceRectangle = new Rectangle(35 * row + 444, 24, 32, 33);
+            Rectangle sourceRectangleProjectile = new Rectangle(18 * row1 + 580, 20, 18, 35);
+
+            Vector2 location1 = new Vector2(pCurrentPos.X, pCurrentPos.Y);
+
+
+            if (isAlive)
             {
-                Vector2 temp = new Vector2();
-       
+                batch.Begin();
 
-            EnemyDraw draw = new EnemyDraw(Texture, batch, pCurrentPos, direction, destination, projectileFrame, 0, currentFrame, currentPos, isAlive, flipHorizontal);
-            
-       
-            draw.DrawGoriya(proj.IsRunning);
+                if (proj.IsRunning)
+                {
 
 
-                return temp;
+                    batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
+                }
+                if (flipHorizontal)
+                {
+
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
+                }
+
+                else
+                {
+
+                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 2f, SpriteEffects.None, 1);
+                }
+
+                batch.End();
             }
+        }
 
-            private void UpdateCollisionBox()
-            {
-              topLeft.X = (int)currentPos.X;
-              topLeft.Y = (int)currentPos.Y;
-              botRight.X = (int)currentPos.X +40;
-              botRight.Y = (int)currentPos.Y + 40;
+        private void UpdateCollisionBox()
+        {
+            topLeft.X = (int)currentPos.X;
+            topLeft.Y = (int)currentPos.Y;
+            botRight.X = (int)currentPos.X +40;
+            botRight.Y = (int)currentPos.Y + 40;
 
-            }
+        }
 
 
 

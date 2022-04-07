@@ -6,7 +6,8 @@ namespace Sprint0
     public interface IEnemySprite
     {
 
-        Vector2 draw();
+        void draw();
+        void draw(int xOffset, int yOffset);
         void Update();
         bool IsAlive { get; set; }
         public Vector2 position

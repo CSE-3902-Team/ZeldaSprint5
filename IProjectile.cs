@@ -6,6 +6,8 @@ namespace Sprint0
     public interface IProjectile
     {
         public void Draw();
+
+        public void Draw(int xOffset, int yOffset);
         public void Update();
 
         // Used by the Player class to know if the projectile is still in animation

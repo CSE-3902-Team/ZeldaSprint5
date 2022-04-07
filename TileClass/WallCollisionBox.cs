@@ -62,5 +62,9 @@ namespace Sprint0.TileClass
         {
             return;
         }
+
+        public void draw(int xOffset, int yOffset) {
+        
+        }
     }
 }

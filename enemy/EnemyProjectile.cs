@@ -130,6 +130,11 @@ namespace Sprint0.enemy
 
         }
 
+        public void Draw(int xOffset, int yOffset) 
+        {
+        
+        }
+
         public int ProjectileFrameChange()
         {
             if (FrameCount % 3 == 0)

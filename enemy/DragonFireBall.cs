@@ -92,7 +92,13 @@ namespace Sprint0.enemy
             UpdateCollisionBox();
             return;
         }
+
         public void Draw()
+        {
+            Draw(0, 0);
+        }
+
+        public void Draw(int xOffset, int yOffset)
         {
             int rowFireBall = fireBallFrame;
 
@@ -100,7 +106,7 @@ namespace Sprint0.enemy
             Rectangle FireballSourceRectangle = new Rectangle(18 * rowFireBall + 200, 22,16, 30);
 
 
-            Rectangle FireBallDestinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, 40, 40);
+            Rectangle FireBallDestinationRectangle = new Rectangle((int)Position.X + xOffset, (int)Position.Y + yOffset, 40, 40);
             batch.Begin();
             if (isalive)
             {
@@ -109,10 +115,7 @@ namespace Sprint0.enemy
             }
             batch.End();
         }
-        public void Draw1()
-        {
-        
-        }
+
 
         public int ProjectileFrameChange()
         {

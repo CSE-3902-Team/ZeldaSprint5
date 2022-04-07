@@ -83,26 +83,30 @@ namespace Sprint0.LevelClass
 
 
         public void drawRoom() {
+            drawRoom(0, 0);
+        }
+
+        public void drawRoom(int xOffset, int yOffset) {
             foreach (ITile currentTile in tileList)
             {
-                currentTile.draw();
+                currentTile.draw(xOffset, yOffset);
             }
             foreach (ADoor currentDoor in doorList)
             {
-                currentDoor.draw();
+                currentDoor.draw(xOffset, yOffset);
             }
             foreach (AItem currentItem in itemList)
             {
-                currentItem.draw();
+                currentItem.draw(xOffset, yOffset);
             }
 
             foreach (IEnemySprite currentEnemy in enemyList) {
-                currentEnemy.draw();
+                currentEnemy.draw(xOffset, yOffset);
             }
 
             foreach (IProjectile currentProjectile in projectileList)
             {
-                currentProjectile.Draw();
+                currentProjectile.Draw(xOffset, yOffset);
             }
 
 
