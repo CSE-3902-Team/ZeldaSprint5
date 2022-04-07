@@ -13,13 +13,14 @@ namespace Sprint0
         private LinkInventory inventory;
         private SpriteBatch spriteBatch;
         private Texture2D headsUpDisplay;
-        private Texture2D hearts;
+
         private Rectangle hudRectangle;
         private Rectangle heartSourceRect;
         private Rectangle halfHeartSourceRect;
         private Rectangle emptyHeartSourceRect;
         private Rectangle heartDestRect;
         private Rectangle currentHeartNeeded;
+        private Rectangle numberSourceRect;
 
         private int health;
         private int heartContainerCount;
@@ -34,11 +35,22 @@ namespace Sprint0
         const int spaceBetweenHearts = 8;
         const int maxHeartCount = 5;
 
+        const int numberWidth = 32;
+        const int numberHeight = 37;
+        const int spaceBetweenNumbers = 5;
+
+        const int heartAndNumberYLocation = 255;
+        const int numberXLocation = 213;
+        const int rupeeYLocation = 73;
+        const int keyYLocation = 146;
+        const int bombYLocation = 182;
+
         public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
             this.player = player;
             this.spriteBatch = spritebatch;
             this.headsUpDisplay = headsUpDisplay;
+            inventory = player.Inventory;
 
             health = player.PlayerHp;
             heartContainerCount = player.Inventory.HeartContainerCount;
@@ -53,6 +65,7 @@ namespace Sprint0
             emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 255, heartWidth, heartHeight);
             halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 255, heartWidth, heartHeight);
             heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 255, heartWidth, heartHeight);
+
             heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
         }
 
@@ -70,6 +83,10 @@ namespace Sprint0
             Update();
             spriteBatch.Begin();
             spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
+
+           // for(int i = 0; i < 3; i++)
+          //  {
+         //   }
 
             int remainingHalfHearts = health;
             for (int i = 0; i < maxHeartCount; i++)
