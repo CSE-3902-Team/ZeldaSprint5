@@ -27,7 +27,12 @@ namespace Sprint0.enemy
         private BottomRight botRight;
 
         private bool isAlive;
-
+        private int DeathCount;
+        public int deathCount
+        {
+            get { return DeathCount; }
+            set { DeathCount = value; }
+        }   
         public bool IsAlive
         {
             get { return isAlive; }

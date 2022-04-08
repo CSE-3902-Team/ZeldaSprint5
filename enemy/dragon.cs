@@ -8,7 +8,7 @@ namespace Sprint0.enemy
     {
 
         public Texture2D Texture;
-
+        private static Texture2D rect;
         private int currentFrame;
         private int FireBallCurrentFrame;
         private int total;
@@ -33,7 +33,12 @@ namespace Sprint0.enemy
         private TopLeft topLeft;
         private BottomRight botRight;
         private bool isAlive;
-
+        private int DeathCount;
+        public int deathCount
+        {
+            get { return DeathCount; }
+            set { DeathCount = value; }
+        }
         public bool IsAlive
         {
             get { return isAlive; }
@@ -91,65 +96,72 @@ namespace Sprint0.enemy
         }
 
         public void Update()
-        {
-            dragonBreath1.Direction = currentPos;
-            dragonBreath2.Direction = currentPos;
-            dragonBreath3.Direction = currentPos;
-            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-            dragonBreath1.Update();
-            dragonBreath2.Update();
-            dragonBreath3.Update();
-            MoveEnemy dragonMove = new MoveEnemy(direction, currentPos, destination);
-            Vector2 result = dragonMove.DragonMove();
-            if (frame == 5)
+        { if (isAlive)
             {
+                dragonBreath1.Direction = currentPos;
+                dragonBreath2.Direction = currentPos;
+                dragonBreath3.Direction = currentPos;
+                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                dragonBreath1.Update();
+                dragonBreath2.Update();
+                dragonBreath3.Update();
+                MoveEnemy dragonMove = new MoveEnemy(direction, currentPos, destination);
+                Vector2 result = dragonMove.DragonMove();
+                if (frame == 5)
+                {
 
-                currentFrame = action.dragon();
+                    currentFrame = action.dragon();
 
-                FireBallCurrentFrame = dragonBreath1.ProjectileFrameChange();
-                FireBallCurrentFrame = dragonBreath2.ProjectileFrameChange();
-                FireBallCurrentFrame = dragonBreath3.ProjectileFrameChange();
-
-
-                frame = 0;
-            }
-       
-            currentPos.X = result.Y;
-            destination.X = result.X;
-
-        
-            if (frame1 % 15 == 0 )
-            {
-                command.LoadCommand(dragonBreath1);
-                command.Execute();
-                command.LoadCommand(dragonBreath2);
-                command.Execute();
-                command.LoadCommand(dragonBreath3);
-                command.Execute();
-            }
-         
-            if (frame1 == 200)
-            {
-       
-                fire = true;
-                frame1 = 0;
-         
+                    FireBallCurrentFrame = dragonBreath1.ProjectileFrameChange();
+                    FireBallCurrentFrame = dragonBreath2.ProjectileFrameChange();
+                    FireBallCurrentFrame = dragonBreath3.ProjectileFrameChange();
 
 
-            }
-            if (fire)
-            {
+                    frame = 0;
+                }
 
-              
+                currentPos.X = result.Y;
+                destination.X = result.X;
+
+
+                if (frame1 % 15 == 0)
+                {
+                    command.LoadCommand(dragonBreath1);
+                    command.Execute();
+                    command.LoadCommand(dragonBreath2);
+                    command.Execute();
+                    command.LoadCommand(dragonBreath3);
+                    command.Execute();
+                }
+
                 if (frame1 == 200)
                 {
 
-                    fire = false;
-             
+                    fire = true;
+                    frame1 = 0;
+
+
+
                 }
+                if (fire)
+                {
+
+
+                    if (frame1 == 200)
+                    {
+
+                        fire = false;
+
+                    }
+                }
+                frame++;
+                frame1++;
             }
-            frame++;
-            frame1++;
+            else
+            {
+                currentPos.X = 0;
+                currentPos.Y = 0;
+            }
             UpdateCollisionBox();
             Console.WriteLine(topLeft.X);
             Console.WriteLine(topLeft.Y);
@@ -175,6 +187,13 @@ namespace Sprint0.enemy
             batch.Begin();
             if (isAlive)
             {
+                if (rect == null)
+                {
+                    rect = new Texture2D(batch.GraphicsDevice, 1, 1);
+                    rect.SetData(new[] { Color.White });
+                }
+                batch.Draw(rect, new Rectangle((int)topLeft.X, (int)topLeft.Y, 20, 20), Color.Fuchsia);
+                batch.Draw(rect, new Rectangle((int)botRight.X, (int)botRight.Y, 20, 20), Color.Fuchsia);
                 batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             }
             batch.End();
@@ -182,10 +201,10 @@ namespace Sprint0.enemy
 
         private void UpdateCollisionBox()
         {
-            topLeft.X = (int)currentPos.X;
-            topLeft.Y = (int)currentPos.Y;
-            botRight.X = (int)currentPos.X + 160;
-            botRight.Y = (int)currentPos.Y + 200;
+            topLeft.X = (int)currentPos.X+10;
+            topLeft.Y = (int)currentPos.Y+30;
+            botRight.X = (int)currentPos.X +160;
+            botRight.Y = (int)currentPos.Y + 180;
 
         }
 

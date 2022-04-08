@@ -21,7 +21,12 @@ namespace Sprint0
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
         private bool isAlive;
-
+        private int DeathCount;
+        public int deathCount
+        {
+            get { return DeathCount; }
+            set { DeathCount = value; }
+        }
         public bool IsAlive
         {
             get { return isAlive; }

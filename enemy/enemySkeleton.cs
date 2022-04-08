@@ -11,18 +11,21 @@ namespace Sprint0.enemy
     {
 
         public Texture2D Texture;
-
+        private static Texture2D rect;
         private int currentFrame;
-
+        private int trigger;
+     
+        private int hit;
         private SpriteBatch batch;
         Random getDistance = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
         private int flipHorizontally;
         public  Vector2 direction;
-
+        private int change;
+        public int explosionFrame;
         private Vector2 currentPos;
-
+        private int row;
         public Game1 game;
         Player link;
 
@@ -38,6 +41,12 @@ namespace Sprint0.enemy
                 UpdateCollisionBox();
 
             }
+        }
+        private int DeathCount;
+        public int deathCount
+        {
+            get { return DeathCount; }
+            set { DeathCount = value; }
         }
         public bool IsAlive
         {
@@ -87,39 +96,37 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            if (isAlive) { 
-
-            FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-            MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
-            NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-
-
-            if (frame == 5)
+            if (isAlive && deathCount < 3)
             {
-       
-                currentFrame = action.frameReturn();
-                frame = 0;
-            }
+
+                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
+                NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
 
 
-            currentPos = move.Move();
+                if (frame == 5)
+                {
 
-            direction = makeNextMove.RollingDice1();
+                    currentFrame = action.frameReturn();
+                    frame = 0;
+                }
 
-            destination = makeNextMove.RollingDice();
+
+                currentPos = move.Move();
+
+                direction = makeNextMove.RollingDice1();
+
+                destination = makeNextMove.RollingDice();
 
 
 
                 frame++;
-                         
-            }
-            else
-            {
-                currentPos.X = 0;
-                currentPos.Y = 0;
-            }
-            UpdateCollisionBox();
 
+
+
+                UpdateCollisionBox();
+            }
+            
 
         }
 
@@ -131,29 +138,91 @@ namespace Sprint0.enemy
         {
             Vector2 location = new Vector2((int)currentPos.X+xOffset, (int)currentPos.Y+yOffset);
             Vector2 origin = new Vector2(0, 0);
-            Rectangle sourceRectangle = new Rectangle(2, 118, 32, 32);
+            Rectangle sourceRectangle = new Rectangle(2, 140, 32, 45);
             if (isAlive)
             { 
                 batch.Begin();
+                if (deathCount < 3)
+                {
+                    if (rect == null)
+                    {
+                        rect = new Texture2D(batch.GraphicsDevice, 1, 1);
+                        rect.SetData(new[] { Color.White });
+                    }
+                    batch.Draw(rect, new Rectangle((int)topLeft.X, (int)topLeft.Y, 20, 20), Color.Fuchsia);
+                    batch.Draw(rect, new Rectangle((int)bottomRight.X, (int)bottomRight.Y, 20, 20), Color.Fuchsia);
+                    if (trigger != deathCount && hit < 50)
+                    {
+                        if (currentFrame % 2 == 0)
+                        {
+                            batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
+                        }
+                        else
+                        {
+                            batch.Draw(Texture, location, sourceRectangle, Color.Red, 0.01f, origin, 1.5f, SpriteEffects.None, 1);
+                        }
 
-                if (currentFrame % 2 == 0)
-                {
-                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 2f, SpriteEffects.FlipHorizontally, 1);
+                        hit++;
+                    }
+                    else
+                    {
+                        if (currentFrame % 2 == 0)
+                        {
+                            batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
+                        }
+                        else
+                        {
+                            batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.None, 1);
+                        }
+                    }
+
+                    if (hit == 50)
+                    {
+                        trigger++;
+                        hit = 0;
+                    }
                 }
-                else
+                if (deathCount >= 3)
                 {
-                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 2f, SpriteEffects.None, 1);
+
+                    topLeft.X = 0;
+                    topLeft.Y = 0;
+                    bottomRight.X = 0;
+                    bottomRight.Y = 0;
+
+                    if (explosionFrame < 200)
+                    {
+
+
+                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row + 820, 338, 18, 23), Color.White, 0.01f, origin, 1f, SpriteEffects.None, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset+25, (int)currentPos.Y - change + yOffset+25), new Rectangle(18 * row + 820, 338, 18, 23), Color.White,135f, origin, 1f, SpriteEffects.FlipVertically, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y- change + yOffset), new Rectangle(18 * row + 820, 338, 18, 23), Color.White, 0.01f, origin, 1f, SpriteEffects.None, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row + 820, 338, 18, 23), Color.White, 0.01f, origin, 1f, SpriteEffects.FlipHorizontally, 1);
+                    }
+                    else if(explosionFrame >= 200 && explosionFrame%5==0)
+                    {
+                        isAlive = false;
+                        deathCount = 0;
+                    }
+                    row++;
+                    if (row == 5)
+                    {
+                        row = 0;
+                    }
+                    explosionFrame++;
+                    change += 2;
                 }
                 batch.End();
             }
+       
         }
 
         private void UpdateCollisionBox() {
-           
-                topLeft.X = (int)currentPos.X;
+
+            topLeft.X = (int)currentPos.X ;
                 topLeft.Y = (int)currentPos.Y;
-                bottomRight.X = (int)currentPos.X + 80;
-                bottomRight.Y = (int)currentPos.Y +80;
+                bottomRight.X = (int)currentPos.X +30;
+                bottomRight.Y = (int)currentPos.Y +45;
             
         
         }

@@ -33,13 +33,13 @@ namespace Sprint0.enemy
                         {
                             result.X = (int)Pos.X + randomNum;
                             if (result.X >= 800)
-                                result.X = 799;
+                                result.X = 750;
                         }
                         else
                         {
                             result.X = (int)Pos.X - randomNum;
                             if (result.X <= 128)
-                                result.X = 130;
+                                result.X = 150;
                         }
                         break;
                     case 1:
@@ -47,13 +47,13 @@ namespace Sprint0.enemy
                         {
                             result.Y = (int)Pos.Y + randomNum;
                             if (result.Y >= 800)
-                                result.Y = 800;
+                                result.Y = 750;
                         }
                         else
                         {
                             result.Y = (int)Pos.Y - randomNum;
                             if (result.Y <= 400)
-                                result.Y = 400;
+                                result.Y = 350;
                         }
                         break;
                 }
