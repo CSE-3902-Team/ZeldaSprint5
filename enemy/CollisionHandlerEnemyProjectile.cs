@@ -12,6 +12,7 @@ namespace Sprint0.Collision
         private int overlap;
         private CollisionDirections collisionDirections;
         private int deathcount;
+        private int overlapblock;
         Random getDistance = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
@@ -31,7 +32,11 @@ namespace Sprint0.Collision
             {
                 return;
             }
-            enemy.deathCount++;
+            if (overlapblock % 15 == 0)
+            {
+                enemy.deathCount++;
+            }
+            overlapblock++;
          
        
           
