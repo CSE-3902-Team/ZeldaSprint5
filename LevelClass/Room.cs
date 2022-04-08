@@ -83,10 +83,10 @@ namespace Sprint0.LevelClass
 
 
         public void drawRoom() {
-            drawRoom(0, 0);
+            drawRoom(0, 0, false);
         }
 
-        public void drawRoom(int xOffset, int yOffset) {
+        public void drawRoom(int xOffset, int yOffset, bool transition) {
             foreach (ITile currentTile in tileList)
             {
                 currentTile.draw(xOffset, yOffset);
@@ -109,8 +109,10 @@ namespace Sprint0.LevelClass
                 currentProjectile.Draw(xOffset, yOffset);
             }
 
-
-            Player.Draw();
+            if (!transition)
+            {
+                Player.Draw();
+            }
         }
 
         public void updateRoom() {

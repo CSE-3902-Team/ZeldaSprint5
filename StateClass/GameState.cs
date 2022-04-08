@@ -19,6 +19,7 @@ namespace Sprint0.StateClass
         private int nextRoom;
         private int offset;
         private static int screenWidth = 1024;
+        private static int screenHeight = 960-256;
 
         public GameState(Game1 game, ContentManager content) : base(game, content)
         {
@@ -59,14 +60,50 @@ namespace Sprint0.StateClass
             }
         }
 
-        public void transitionRoom() {
-            levelManager.RoomList[previousRoom].drawRoom(offset, 0);
-            levelManager.RoomList[nextRoom].drawRoom(offset-screenWidth, 0);
-            offset = offset + 8;
-            if (offset >= screenWidth) 
+        public void transitionRoom()
+        {
+            if (nextRoom == previousRoom - 1)//left room
             {
-                isTransitioning = false;
-                offset = 0;
+                levelManager.RoomList[previousRoom].drawRoom(offset, 0, isTransitioning);
+                levelManager.RoomList[nextRoom].drawRoom(offset - screenWidth, 0, isTransitioning);
+                offset = offset + 8;
+                if (offset >= screenWidth)
+                {
+                    isTransitioning = false;
+                    offset = 0;
+                }
+            }
+            else if (nextRoom == previousRoom + 1)//right room
+            {
+                levelManager.RoomList[previousRoom].drawRoom(offset, 0, isTransitioning);
+                levelManager.RoomList[nextRoom].drawRoom(offset + screenWidth, 0, isTransitioning);
+                offset = offset - 8;
+                if (offset <= -screenWidth)
+                {
+                    isTransitioning = false;
+                    offset = 0;
+                }
+            }
+            else if (nextRoom < previousRoom - 1)//top room
+            {
+                levelManager.RoomList[previousRoom].drawRoom(0, offset, isTransitioning);
+                levelManager.RoomList[nextRoom].drawRoom(0, offset - screenHeight, isTransitioning);
+                offset = offset + 8;
+                if (offset >= screenHeight)
+                {
+                    isTransitioning = false;
+                    offset = 0;
+                }
+            }
+            else if (nextRoom > previousRoom + 1) {
+                levelManager.RoomList[previousRoom].drawRoom(0, offset, isTransitioning);
+                levelManager.RoomList[nextRoom].drawRoom(0, offset + screenHeight, isTransitioning);
+                offset = offset - 8;
+                if (offset <= -screenHeight)
+                {
+                    isTransitioning = false;
+                    offset = 0;
+                }
             }
         }
 
