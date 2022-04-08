@@ -25,7 +25,17 @@ namespace Sprint0.enemy
         private TopLeft topLeft;
         private BottomRight botRight;
         private bool isAlive;
-
+        private int trigger;
+        private int hit;
+        private int DeathCount;
+        private int change;
+        public int explosionFrame;
+        private int row1;
+        public int deathCount
+        {
+            get { return DeathCount; }
+            set { DeathCount = value; }
+        }
         public bool IsAlive
         {
             get { return isAlive; }
@@ -78,7 +88,7 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            if (isAlive)
+            if (isAlive&& deathCount<3)
             {
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                 MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
@@ -98,15 +108,11 @@ namespace Sprint0.enemy
                 direction = makeNextMove.RollingDice1();
 
                 destination = makeNextMove.RollingDice();
-            }
-            else
-            {
-                currentPos.X = 0;
-                currentPos.Y = 0;
-            }
 
-            frame++;
-            UpdateCollisionBox();
+                frame++;
+                UpdateCollisionBox();
+            }
+            
 
         }
 
@@ -121,13 +127,68 @@ namespace Sprint0.enemy
             int row = currentFrame;
             if (isAlive)
             {
-                Rectangle sourceRectangle = new Rectangle(32 * row + 847, 388, 32, 32);
+                Rectangle sourceRectangle = new Rectangle(32 * row + 846, 480, 32, 45);
                 Rectangle destinationRectangle = new Rectangle((int)currentPos.X+xOffset, (int)currentPos.Y+yOffset, 40, 40);
 
                 batch.Begin();
-                batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+                if (deathCount < 3)
+                {
+                    if (trigger != deathCount && hit < 50)
+                    {
+                        if (hit % 2 == 0)
+                        {
+                            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+                        }
+                        else
+                        {
+                            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.Red);
+                        }
+
+                        hit++;
+                    }
+                    else
+                    {
+
+
+                        batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+                    }
+                }
+                if (deathCount >= 3)
+                {
+
+                    topLeft.X = 0;
+                    topLeft.Y = 0;
+                    botRight.X = 0;
+                    botRight.Y = 0;
+
+                    if (explosionFrame < 200)
+                    {
+
+
+                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
+                    }
+                    else
+                    {
+                        isAlive = false;
+                    }
+                    row1++;
+                    if (row1 == 5)
+                    {
+                        row1 = 0;
+                    }
+                    explosionFrame++;
+                    change += 2;
+                }
 
                 batch.End();
+                if (hit == 50)
+                {
+                    trigger++;
+                    hit = 0;
+                }
             }
         }
 

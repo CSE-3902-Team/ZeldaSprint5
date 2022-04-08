@@ -11,7 +11,8 @@ namespace Sprint0.Collision
         private IProjectile projectile;
         private int overlap;
         private CollisionDirections collisionDirections;
-
+        private int deathcount;
+        private int overlapblock;
         Random getDistance = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForAxis = new Random((int)DateTime.Now.Ticks);
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
@@ -27,13 +28,21 @@ namespace Sprint0.Collision
         }
         public void HandleCollision()
         {
-            if(this.projectile is Sprint0.enemy.EnemyProjectile)
+            if (this.projectile is Sprint0.enemy.EnemyProjectile)
             {
                 return;
             }
-      
+            if (overlapblock % 15 == 0)
+            {
+                enemy.deathCount++;
+            }
+            overlapblock++;
+         
+       
+          
+            Console.WriteLine(enemy.deathCount);
+        
             projectile.IsRunning = false;
-            enemy.IsAlive = false;
 
         }
 

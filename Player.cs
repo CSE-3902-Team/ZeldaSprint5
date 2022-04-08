@@ -241,9 +241,8 @@ namespace Sprint0 {
 			Rectangle destRect = new Rectangle((int)position.X+xScrollOffset, (int)position.Y+yScrollOffset, (int)(src.Width * scale), (int)(src.Height * scale));
 			_spriteBatch.Begin();
 			_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 - xOffset +xScrollOffset, src.Height / 2 - yOffset + yScrollOffset), SpriteEffects.None, 0f);
-			//_spriteBatch.Draw(texture, destRect, src, col,0f, new Vector2(0,0) , SpriteEffects.None, 0f);
-			//_spriteBatch.Draw(colT, CollisionRectTL, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
-			//_spriteBatch.Draw(colT, CollisionRectBR, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
+			_spriteBatch.Draw(colT, CollisionRectTL, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
+			_spriteBatch.Draw(colT, CollisionRectBR, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
 			_spriteBatch.End();
 
 		

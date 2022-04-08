@@ -8,7 +8,7 @@ namespace Sprint0
     {
         private Vector2 position;
         private Vector2 direction;
-
+        private static Texture2D rect;
         private Texture2D texture;
         private SpriteBatch batch;
         private Rectangle sourceRect;
@@ -127,7 +127,12 @@ namespace Sprint0
             Rectangle destination = new Rectangle(destinationRect.X + xOffset, destinationRect.Y + yOffset, destinationRect.Width, destinationRect.Height);
 
             batch.Begin();
-
+            if (rect == null)
+            {
+                rect = new Texture2D(batch.GraphicsDevice, 1, 1);
+                rect.SetData(new[] { Color.White });
+            }
+            batch.Draw(rect, new Rectangle((int)destinationRect.X-10, (int)destinationRect.Y-10,20, 20), Color.Fuchsia);
             batch.Draw(
                  texture,
                  destination,
@@ -143,8 +148,8 @@ namespace Sprint0
 
         private void UpdateCollisionBox()
         {
-            topLeft.X = (int)position.X;
-            topLeft.Y = (int)position.Y;
+            topLeft.X = (int)position.X-10;
+            topLeft.Y = (int)position.Y-10;
             bottomRight.X = (int)position.X + 20;
             BottomRight.Y = (int)position.Y + 20;
         }
