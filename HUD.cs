@@ -96,6 +96,15 @@ namespace Sprint0
             spriteBatch.Draw(headsUpDisplay, bombNumberDestRect, numberSourceRect, Color.White);
             spriteBatch.Draw(headsUpDisplay, keyNumberDestRect, numberSourceRect, Color.White);
 
+            int remainingNumberSpaces = 2;
+            for(int i = 1; i <= remainingNumberSpaces; i++)
+            {
+                if(rupeeCount < 10)
+                {
+                    spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * i), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle((numberXSourceLocation + numberWidth) + ((rupeeCount) * numberWidth) + (rupeeCount * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                }
+            }
+
             int remainingHalfHearts = health;
             for (int i = 0; i < maxHeartCount; i++)
             {
