@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Sprint0.ItemClass;
 using Sprint0.DoorClass;
+using Sprint0.enemy;
 
 
 
@@ -25,6 +26,7 @@ namespace Sprint0.Collision
 
             PruneProjectilesAndItems();
             FindCollisionsX();
+            //PrintList();
             //PrintCollisions();
             ProcessCollisions();
             targets.Clear();
@@ -90,10 +92,12 @@ namespace Sprint0.Collision
                         }
                         if (targets[listInd][handlerTarget] is IEnemySprite)
                         {
+                            
                             List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
                             CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
                             if (direction != CollisionDirections.None)
                             {
+                                
                                 AssignEnemyHandler(targets[listInd][handlerTarget] as IEnemySprite, targets[listInd][x], direction, (int)result[1]);
                             }
 
@@ -203,6 +207,7 @@ namespace Sprint0.Collision
 
         private void AssignEnemyHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
         {
+           // Console.Write("enemy" + enemy.GetType() + " other=" + other.GetType());
             ICollisionHandler handler;
             if (other is ITile)
             {
@@ -258,11 +263,9 @@ namespace Sprint0.Collision
             }
             else if (other is IEnemySprite)
             {
+                ICollisionHandler handler = new CollisionHandlerEnemyProjectile(other as IEnemySprite, projectile, dir, magnitude);
 
-                //ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
-                //handler.HandleCollision();
-                //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
-                //The logic when a player projectile hit an enemy is same as hit a tile
+                handler.HandleCollision();
             }
             else if (other is ITile)
             {
@@ -352,7 +355,10 @@ namespace Sprint0.Collision
         {
             for (int x = 0; x < collisionPoints.Count; x++)
             {
-                Console.Write(collisionPoints[x].Parent.GetType() + ": " + collisionPoints[x].X + " |");
+                if (collisionPoints[x].Parent.GetType() == typeof(bossDragon) || (collisionPoints[x].Parent.GetType() == typeof(ProjectilePlayerNormalArrow))) {
+                    String type = collisionPoints[x].GetType() == typeof(TopLeft)?"TopLeft":"BotRight";
+                    Console.Write(collisionPoints[x].Parent.GetType() + " : " + " cornerType= "+type+" "+collisionPoints[x].X + " |");
+                }
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -366,6 +372,9 @@ namespace Sprint0.Collision
                 Console.Write("[");
                 for (int x = 0; x < ListItem.Count; x++)
                 {
+                    
+
+
                     Console.Write(ListItem[x].GetType() + " ");
                 }
                 Console.Write("]");
