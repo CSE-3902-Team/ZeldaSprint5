@@ -113,7 +113,7 @@ namespace Sprint0 {
 				//myGame.shownItem = myGame.itemFactoryPublic.nextItem();
 			}
 
-			if (HasBeenPressed(Keys.Q))
+			if (HasBeenPressed(Keys.E))
 			{
 				//return val of 0, exit the game
 				myGame.Exit();

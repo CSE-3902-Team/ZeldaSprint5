@@ -11,9 +11,8 @@ Controls:
 "wasd" - move link and change his facing direection
 "z" and "n" - attack with sword
 "1,2,3,4,5" - Have link shoot different projectiles
-"e" - cause link to become damaged
 "mouse controls" - switches rooms
-"q" - quits game
+"e" - quits game
 "r" - resets game
 
 Known Bugs:
