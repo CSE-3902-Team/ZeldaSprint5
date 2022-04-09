@@ -127,12 +127,7 @@ namespace Sprint0
             Rectangle destination = new Rectangle(destinationRect.X + xOffset, destinationRect.Y + yOffset, destinationRect.Width, destinationRect.Height);
 
             batch.Begin();
-            if (rect == null)
-            {
-                rect = new Texture2D(batch.GraphicsDevice, 1, 1);
-                rect.SetData(new[] { Color.White });
-            }
-            batch.Draw(rect, new Rectangle((int)destinationRect.X-10, (int)destinationRect.Y-10,20, 20), Color.Fuchsia);
+
             batch.Draw(
                  texture,
                  destination,

@@ -96,7 +96,7 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            if (isAlive && deathCount < 3)
+            if (isAlive && deathCount < 6)
             {
 
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
@@ -142,15 +142,9 @@ namespace Sprint0.enemy
             if (isAlive)
             { 
                 batch.Begin();
-                if (deathCount < 3)
+                if (deathCount < 6)
                 {
-                    if (rect == null)
-                    {
-                        rect = new Texture2D(batch.GraphicsDevice, 1, 1);
-                        rect.SetData(new[] { Color.White });
-                    }
-                    batch.Draw(rect, new Rectangle((int)topLeft.X, (int)topLeft.Y, 20, 20), Color.Fuchsia);
-                    batch.Draw(rect, new Rectangle((int)bottomRight.X, (int)bottomRight.Y, 20, 20), Color.Fuchsia);
+              
                     if (trigger != deathCount && hit < 50)
                     {
                         if (currentFrame % 2 == 0)
@@ -182,7 +176,7 @@ namespace Sprint0.enemy
                         hit = 0;
                     }
                 }
-                if (deathCount >= 3)
+                if (deathCount >= 6)
                 {
 
                     topLeft.X = 0;
