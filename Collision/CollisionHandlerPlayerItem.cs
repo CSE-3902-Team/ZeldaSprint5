@@ -45,6 +45,7 @@ namespace Sprint0.Collision
                SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
                 inventory.KeyCount++;
                 inventory.FirstKey = false;
+                Console.WriteLine(inventory.KeyCount);
             }
             else if (item is ItemRupee)
             {
