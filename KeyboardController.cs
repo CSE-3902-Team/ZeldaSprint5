@@ -19,6 +19,7 @@ namespace Sprint0 {
 	
 		private KeyboardState kstate;
 		private KeyboardState previousState;
+		private Boolean inventoryOpen = false;
 
 		
 		public KeyboardController(Game1 g, Vector2 center)
@@ -110,7 +111,16 @@ namespace Sprint0 {
 			}
 			else if (HasBeenPressed(Keys.I))
 			{
-				myGame.ChangeState(new GameInventoryState(myGame, myGame.Content));
+				if (inventoryOpen)
+				{
+					myGame.ChangeState(0);
+					inventoryOpen = false;
+				}
+				else if (!inventoryOpen)
+                {
+					myGame.ChangeState(1);
+					inventoryOpen = true;
+				}
 			}
 
 			if (HasBeenPressed(Keys.E))

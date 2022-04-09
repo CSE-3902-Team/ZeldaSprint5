@@ -33,6 +33,7 @@ namespace Sprint0.StateClass
             Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
             screen = _content.Load<Texture2D>("BlackBackground");
             text = _content.Load<Texture2D>("VictoryText");
+            isVictory = true;
         }
 
         public override void update(GameTime gameTime)

@@ -30,6 +30,7 @@ namespace Sprint0.StateClass
         {
             Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
             screen = _content.Load<Texture2D>("BlackBackground");
+            isInventory = true;
         }
 
         public override void update(GameTime gameTime)
@@ -44,7 +45,6 @@ namespace Sprint0.StateClass
 
         public override void Draw(GameTime gameTime)
         {
-
             Rectangle screenDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle screenSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
 

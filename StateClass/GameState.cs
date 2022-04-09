@@ -28,16 +28,17 @@ namespace Sprint0.StateClass
             levelManager = LevelManager.Instance;
         }
             
-            public override void loadContent()
-            {
-                Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
-                levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
-                levelManager.LoadRooms();
-                _currentRoom = levelManager.StartRoom();
-                roomNum = levelManager.currentRoomNum;
-                headsUpDisplay = new HUD(levelManager.Player, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
-				isTransitioning = false;
-            }
+        public override void loadContent()
+        {
+            Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
+            levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
+            levelManager.LoadRooms();
+            _currentRoom = levelManager.StartRoom();
+            roomNum = levelManager.currentRoomNum;
+            headsUpDisplay = new HUD(levelManager.Player, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
+	        isTransitioning = false;
+            isGameState = true;
+        }
 
         public override void update(GameTime gameTime)
         {
@@ -54,7 +55,11 @@ namespace Sprint0.StateClass
                 _game.KeyboardController.handleInput();
                 if (levelManager.Player.IsDead)
                 {
-                    _game.ChangeState(new GameOverState(_game, _content));
+                    _game.ChangeState(2);
+                }
+                if (levelManager.Player.HasTriforce)
+                {
+                    _game.ChangeState(3);
                 }
                 _currentRoom.updateRoom();
             }

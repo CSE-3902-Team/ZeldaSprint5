@@ -21,11 +21,39 @@ namespace Sprint0
         protected Game1 _game;
         protected ContentManager _content;
         protected Room _currentRoom;
+        protected bool isInventory = false;
+        protected bool isGameOver = false;
+        protected bool isVictory = false;
+        protected bool isGameState = false;
 
         public Room CurrentRoom
         {
             get { return _currentRoom;  }
             set { _currentRoom = value; }
+        }
+
+        public bool IsInventory
+        {
+            get { return isInventory; }
+            set { isInventory = value; }
+        }
+
+        public bool IsGameOver
+        {
+            get { return isGameOver; }
+            set { isGameOver = value; }
+        }
+
+        public bool IsVictory
+        {
+            get { return isVictory; }
+            set { isVictory = value; }
+        }
+
+        public bool IsGameState
+        {
+            get { return isGameState; }
+            set { isGameOver = value; }
         }
 
         public AState(Game1 game, ContentManager content)

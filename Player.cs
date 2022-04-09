@@ -33,6 +33,7 @@ namespace Sprint0 {
 		private readonly ICommand addProjectileCommand;
 		private int playerHp;
 		private bool isDead;
+		private bool hasTriforce = false;
 		private LinkInventory inventory;
 		
 
@@ -48,6 +49,9 @@ namespace Sprint0 {
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 		public bool IsDead { get { return isDead; } set { isDead = value; } }
+
+		public bool HasTriforce { get { return hasTriforce; } set { hasTriforce = value; } }
+		
 		public Vector2 Position { 
 			get 
 			{ 
