@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using Sprint0.ItemClass;
 using Sprint0.LevelClass;
 using Sprint0.StateClass;
+using System;
+using System.Collections.Generic;
 
 namespace Sprint0
 {
@@ -16,12 +18,18 @@ namespace Sprint0
         private IController mController;
 
         private AState _currentState;
-        private AState _nextState;
+        private AState gameOver;
+        private AState gameVictory;
+        private AState gameInventory;
+        private AState gameState;
+        //private AState _nextState;
+        //private AState _previousState;
 
         private SoundManager soundLibrary;
 
         private AItem item;
-        
+
+        private List<AState> stateList = new List<AState>();
 
 
 
@@ -43,6 +51,9 @@ namespace Sprint0
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this);
             soundLibrary = new SoundManager();
+
+            
+
             base.Initialize();
         }
 
@@ -50,9 +61,24 @@ namespace Sprint0
         {
             soundLibrary.LoadAllSounds(Content);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _currentState = new GameState(this, Content);
-            _currentState.loadContent();
-            _nextState = null;
+
+            gameState = new GameState(this, Content);
+            gameState.loadContent();
+            gameOver = new GameOverState(this, Content);
+            gameOver.loadContent();
+            gameVictory = new GameVictoryState(this, Content);
+            gameVictory.loadContent();
+            gameInventory = new GameInventoryState(this, Content);
+            gameInventory.loadContent();
+
+            stateList.Add(gameState);
+            stateList.Add(gameInventory);
+            stateList.Add(gameOver);
+            stateList.Add(gameVictory);
+
+            _currentState = stateList[0];
+            //_currentState.loadContent();
+            //_nextState = null;
 
         }
 
@@ -61,22 +87,31 @@ namespace Sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            if(_nextState != null)
+            /*
+            if(_nextState != null && !_nextState.IsGameState)
             {
+                Console.WriteLine("loading again");
                 _currentState = _nextState;
                 _nextState = null;
                 _currentState.loadContent();
-
+            }
+            else if(_nextState != null)
+            {
+                _currentState = _nextState;
+                _nextState = null;
             }
             //kController.handleInput();
             //mController.handleInput();
+            */
+
             _currentState.update(gameTime);
             base.Update(gameTime);
         }
 
-        public void ChangeState(AState state)
+        public void ChangeState(int i)
         {
-            _nextState = state;
+            _currentState = stateList[i];
+            
         }
 
         protected override void Draw(GameTime gameTime)
@@ -92,7 +127,7 @@ namespace Sprint0
         public void reset()
         {
             _currentState = null;
-            _nextState = null;
+            //_nextState = null;
             soundLibrary.Dispose();
             LoadContent();
         }
@@ -102,10 +137,12 @@ namespace Sprint0
             get { return _spriteBatch; } 
         }
         
+        /*
         public AState NextState
         {
             get { return _nextState; }
         }
+        */
 
         public AState CurrentState
         {
