@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.LevelClass;
-
+using Sprint0.StateClass;
 
 namespace Sprint0 {
 
@@ -110,7 +110,7 @@ namespace Sprint0 {
 			}
 			else if (HasBeenPressed(Keys.I))
 			{
-				//myGame.shownItem = myGame.itemFactoryPublic.nextItem();
+				myGame.ChangeState(new GameInventoryState(myGame, myGame.Content));
 			}
 
 			if (HasBeenPressed(Keys.E))
