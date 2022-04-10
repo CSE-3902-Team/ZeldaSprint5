@@ -188,13 +188,13 @@ namespace Sprint0.enemy
                 }
                 if (deathCount >= 6)
                 {
-                    isAlive = false;
+                  
                     topLeft.X = 0;
                     topLeft.Y = 0;
                     bottomRight.X = 0;
                     bottomRight.Y = 0;
 
-                    if (explosionFrame < 200)
+                    if (explosionFrame < 100)
                     {
 
 
@@ -203,9 +203,9 @@ namespace Sprint0.enemy
                         batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y- change + yOffset), new Rectangle(18 * row + 820, 338, 18, 23), Color.White, 0.01f, origin, 1f, SpriteEffects.None, 1);
                         batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row + 820, 338, 18, 23), Color.White, 0.01f, origin, 1f, SpriteEffects.FlipHorizontally, 1);
                     }
-                    else if(explosionFrame >= 200)
+                    else if(explosionFrame >= 100)
                     {
-                       
+                        isAlive = false;
                         deathCount = 0;
                                 }
                     row++;

@@ -218,7 +218,7 @@ namespace Sprint0.enemy
                     botRight.X = 0;
                     botRight.Y = 0;
 
-                    if (explosionFrame < 200)
+                    if (explosionFrame < 100)
                     {
 
 
