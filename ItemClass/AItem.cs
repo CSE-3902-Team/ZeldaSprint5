@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 
 namespace Sprint0.ItemClass
 {
@@ -17,10 +18,12 @@ namespace Sprint0.ItemClass
         public TopLeft TopLeft
         {
             get { return topLeft; }
+            set { TopLeft = value; }
         }
         public BottomRight BottomRight
         {
             get { return bottomRight; }
+            set { BottomRight = value; }
         }
 
         public bool IsPickedUp
@@ -46,8 +49,11 @@ namespace Sprint0.ItemClass
 
         public void draw(int xOffset, int yOffset)
         {
+            
+       
             if (!isPickedUp)
             {
+
                 Rectangle destinationRectangle = new Rectangle((int)myPos.X+xOffset, (int)myPos.Y+yOffset, WIDTH_HEIGHT, WIDTH_HEIGHT);
                 myBatch.Begin();
                 myBatch.Draw(
@@ -59,6 +65,7 @@ namespace Sprint0.ItemClass
                 myBatch.End();
             }
         }
+
 
         public Texture2D Texture
         {

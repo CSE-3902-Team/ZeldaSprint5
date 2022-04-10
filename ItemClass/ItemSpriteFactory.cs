@@ -59,7 +59,7 @@ namespace Sprint0.ItemClass
 			}
 		}
 
-		private ItemSpriteFactory()
+		public ItemSpriteFactory()
 		{
 		}
 
@@ -81,6 +81,7 @@ namespace Sprint0.ItemClass
 
 		public AItem CreateItemSprite(Item itemNum, Vector2 pos)
 		{
+		
 			position = pos;
 			switch (itemNum)
             {

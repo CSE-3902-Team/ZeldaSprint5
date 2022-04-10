@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Sprint0.ItemClass;
+using static Sprint0.ItemClass.ItemSpriteFactory;
 
 namespace Sprint0.enemy
 {
@@ -32,6 +34,8 @@ namespace Sprint0.enemy
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
         private bool isAlive;
+
+   
         public Vector2 position
         {
             get { return currentPos; }
@@ -91,6 +95,7 @@ namespace Sprint0.enemy
             topLeft = new TopLeft(400, 200, this);
             bottomRight = new BottomRight(440, 240, this);
             isAlive = true;
+        
 
         }
 
@@ -139,12 +144,17 @@ namespace Sprint0.enemy
             Vector2 location = new Vector2((int)currentPos.X+xOffset, (int)currentPos.Y+yOffset);
             Vector2 origin = new Vector2(0, 0);
             Rectangle sourceRectangle = new Rectangle(2, 140, 32, 45);
+
+            
+
             if (isAlive)
             { 
                 batch.Begin();
                 if (deathCount < 6)
                 {
               
+                     
+
                     if (trigger != deathCount && hit < 50)
                     {
                         if (currentFrame % 2 == 0)
@@ -178,7 +188,7 @@ namespace Sprint0.enemy
                 }
                 if (deathCount >= 6)
                 {
-
+                    isAlive = false;
                     topLeft.X = 0;
                     topLeft.Y = 0;
                     bottomRight.X = 0;
@@ -195,9 +205,9 @@ namespace Sprint0.enemy
                     }
                     else if(explosionFrame >= 200)
                     {
-                        isAlive = false;
+                       
                         deathCount = 0;
-                    }
+                                }
                     row++;
                     if (row == 5)
                     {
@@ -215,7 +225,7 @@ namespace Sprint0.enemy
 
             topLeft.X = (int)currentPos.X ;
                 topLeft.Y = (int)currentPos.Y;
-                bottomRight.X = (int)currentPos.X +20;
+                bottomRight.X = (int)currentPos.X +30;
                 bottomRight.Y = (int)currentPos.Y +35;
             
         

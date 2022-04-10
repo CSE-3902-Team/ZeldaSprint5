@@ -192,8 +192,7 @@ namespace Sprint0.enemy
                         rect = new Texture2D(batch.GraphicsDevice, 1, 1);
                         rect.SetData(new[] { Color.White });
                     }
-                    batch.Draw(rect, new Rectangle((int)topLeft.X, (int)topLeft.Y, 20, 20), Color.Fuchsia);
-                    batch.Draw(rect, new Rectangle((int)botRight.X, (int)botRight.Y, 20, 20), Color.Fuchsia);
+          
                     if (trigger != deathCount && hit < 50)
                     {
 

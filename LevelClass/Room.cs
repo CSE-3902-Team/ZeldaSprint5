@@ -20,10 +20,11 @@ namespace Sprint0.LevelClass
 
         private ADoor[] doorList;
         private ICollision colliderDetector;
-
+    
         private readonly List<IEnemySprite> enemyList;
         private AItem[] itemList;
         private ITile[] tileList;
+        private AItem[] combineList;
         private readonly List<IProjectile> projectileList;
         private Player _player;
 
@@ -46,11 +47,12 @@ namespace Sprint0.LevelClass
         {
             get { return doorList; }
         }
-        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player) {
+        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player, AItem[] combineList) {
             this.doorList = doorList;
             this.enemyList = enemyList;
             this.itemList = itemList;
             this.tileList = tileList;
+            this.combineList = combineList;
             projectileList = new List<IProjectile>();
             _player = player;
             colliderDetector = new SortSweep();
@@ -66,6 +68,11 @@ namespace Sprint0.LevelClass
             }
 
             foreach (AItem currentItem in itemList)
+            {
+                colliderDetector.AddToList(currentItem as IBoxCollider);
+            }
+    
+            foreach (AItem currentItem in combineList)
             {
                 colliderDetector.AddToList(currentItem as IBoxCollider);
             }
@@ -87,6 +94,7 @@ namespace Sprint0.LevelClass
         }
 
         public void drawRoom(int xOffset, int yOffset, bool transition) {
+    
             foreach (ITile currentTile in tileList)
             {
                 currentTile.draw(xOffset, yOffset);
@@ -107,6 +115,30 @@ namespace Sprint0.LevelClass
             foreach (IProjectile currentProjectile in projectileList)
             {
                 currentProjectile.Draw(xOffset, yOffset);
+            }
+            foreach(AItem currentItem1 in combineList)
+            {
+              
+                  
+                
+            
+                Console.WriteLine(enemyList.Count);
+                if (enemyList.Count <= 0)
+                {
+                    currentItem1.TopLeft.X = (int)currentItem1.myPos.X;
+                    currentItem1.TopLeft.Y = (int)currentItem1.myPos.Y;
+                    currentItem1.BottomRight.X = (int)currentItem1.myPos.X+64;
+                    currentItem1.BottomRight.Y = (int)currentItem1.myPos.Y+64;
+                    currentItem1.draw(xOffset, yOffset);
+                }
+                else
+                {
+                    currentItem1.TopLeft.X = 0;
+                    currentItem1.TopLeft.Y = 0;
+                    currentItem1.BottomRight.X = 0;
+                    currentItem1.BottomRight.Y = 0;
+                }
+              
             }
 
             if (!transition)
