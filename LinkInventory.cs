@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.ItemClass;
 
 namespace Sprint0
@@ -36,6 +37,7 @@ namespace Sprint0
         private Boolean compass;
         private Boolean boomerang;
         private Boolean clock;
+
         public int RupeeCount
         {
             get { return rupeeCount; }
@@ -199,7 +201,7 @@ namespace Sprint0
 
         }
 
-        public void Update()
+        public void Draw()
         {
             
         }
