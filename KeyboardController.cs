@@ -3,12 +3,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.LevelClass;
-using Sprint0.PlayerClass;
-
+using Sprint0.StateClass;
 
 namespace Sprint0 {
 
-	public class KeyboardController : IControllers
+	public class KeyboardController : IController
 	{
 		Game1 myGame;
 		Vector2 center;
@@ -20,6 +19,7 @@ namespace Sprint0 {
 	
 		private KeyboardState kstate;
 		private KeyboardState previousState;
+		private Boolean inventoryOpen = false;
 
 		
 		public KeyboardController(Game1 g, Vector2 center)
@@ -111,10 +111,19 @@ namespace Sprint0 {
 			}
 			else if (HasBeenPressed(Keys.I))
 			{
-				//myGame.shownItem = myGame.itemFactoryPublic.nextItem();
+				if (inventoryOpen)
+				{
+					myGame.ChangeState(0);
+					inventoryOpen = false;
+				}
+				else if (!inventoryOpen)
+                {
+					myGame.ChangeState(1);
+					inventoryOpen = true;
+				}
 			}
 
-			if (HasBeenPressed(Keys.Q))
+			if (HasBeenPressed(Keys.E))
 			{
 				//return val of 0, exit the game
 				myGame.Exit();
@@ -151,7 +160,7 @@ namespace Sprint0 {
 				levelManager.Player.Attack();
 				
 			}
-
+			
 
 			//player projectile controls
 			if (HasBeenPressed(Keys.D1))
@@ -159,38 +168,25 @@ namespace Sprint0 {
 				levelManager.Player.UseItem(new ProjectilePlayerFireball(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 				SoundManager.Instance.Play(SoundManager.Sound.DoMagic);
 			}
-			else if (HasBeenPressed(Keys.D2))
-			{
+			else if(HasBeenPressed(Keys.D2)) {
 				levelManager.Player.UseItem(new ProjectilePlayerBomb(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 				SoundManager.Instance.Play(SoundManager.Sound.BombDrop);
 			}
-			else if (HasBeenPressed(Keys.D3))
-			{
+			else if(HasBeenPressed(Keys.D3)) {
 				levelManager.Player.UseItem(new ProjectilePlayerNormalArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
 			}
-			else if (HasBeenPressed(Keys.D4))
-			{
+			else if(HasBeenPressed(Keys.D4)) {
 				levelManager.Player.UseItem(new ProjectilePlayerBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
 			}
-			else if (HasBeenPressed(Keys.D5))
-			{
+			else if(HasBeenPressed(Keys.D5)) {
 				levelManager.Player.UseItem(new ProjectilePlayerSpecialArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-			}
-			else if (HasBeenPressed(Keys.D6))
-			{
+			}		
+			else if(HasBeenPressed(Keys.D6)) {
 				levelManager.Player.UseItem(new ProjectilePlayerSpecialBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
 				SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-			}
-			else if (HasBeenPressed(Keys.D8))
-			{
-				levelManager.Player.PlayerHp = 0;
-			}
-			else if (HasBeenPressed(Keys.D9)) {
-				levelManager.Player.State = new PlayerDownIdle(levelManager.Player);
-				levelManager.Player.PlayerHp = 1;
 			}
 		}
 

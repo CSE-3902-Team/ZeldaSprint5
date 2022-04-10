@@ -53,6 +53,7 @@ namespace Sprint0.StateClass
             replayText = _content.Load<Texture2D>("ReplayText");
             exitText = _content.Load<Texture2D>("ExitText");
             skull = _content.Load <Texture2D>("Skull");
+            IsGameOver = true;
         }
 
         public override void update(GameTime gameTime)

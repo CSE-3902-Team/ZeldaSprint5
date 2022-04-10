@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Sprint0.StateClass
 {
-    public class GameVictoryState : AState
+    public class GameInventoryState : AState
     {
         private const int WIDTH = 1024;
         private const int HEIGHT = 960;
@@ -21,19 +21,16 @@ namespace Sprint0.StateClass
         //private MouseController mController;
 
 
-        public GameVictoryState(Game1 game, ContentManager content) : base(game, content)
+        public GameInventoryState(Game1 game, ContentManager content) : base(game, content)
         {
             _game = game;
             _content = content;
-            //kController = new KeyboardController(_game, new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2));
-            //mController = new MouseController(_game);
         }
         public override void loadContent()
         {
             Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
             screen = _content.Load<Texture2D>("BlackBackground");
-            text = _content.Load<Texture2D>("VictoryText");
-            isVictory = true;
+            isInventory = true;
         }
 
         public override void update(GameTime gameTime)
@@ -50,30 +47,19 @@ namespace Sprint0.StateClass
         {
             Rectangle screenDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle screenSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
-            Rectangle textDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
-            Rectangle textSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
 
             _game.SpriteBatch.Begin();
+
             _game.SpriteBatch.Draw(
-                 screen,
-                 screenDestRect,
-                 screenSrcRect,
-                Color.White,
-                0f,
-                new Vector2(0, 0),
-                SpriteEffects.None,
-                0f
-                );
-            _game.SpriteBatch.Draw(
-                 text,
-                 textDestRect,
-                 textSrcRect,
-                Color.White,
-                0f,
-                new Vector2(0, 0),
-                SpriteEffects.None,
-                0f
-                );
+                     screen,
+                     screenDestRect,
+                     screenSrcRect,
+                    Color.White,
+                    0f,
+                    new Vector2(0, 0),
+                    SpriteEffects.None,
+                    0f
+                    );
 
             _game.SpriteBatch.End();
         }
