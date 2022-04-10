@@ -48,6 +48,8 @@ namespace Sprint0 {
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 		public bool IsDead { get { return isDead; } set { isDead = value; } }
+
+		public float Scale { get { return scale; } set { scale = value; } }
 		public Vector2 Position { 
 			get 
 			{ 
@@ -104,9 +106,7 @@ namespace Sprint0 {
 					SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
 					SoundManager.Instance.Play(SoundManager.Sound.GameOver);
 					//Change to playerDeadState: isDead will be changed within the state.
-					isDead = true;
-
-
+					//isDead = true;
 				}
 			}
 		}
@@ -163,6 +163,10 @@ namespace Sprint0 {
 		public void Update()
 		{
 			//Updates relevant variables in player class, calls draw in player
+			if (playerHp == 0 && _state.GetType() != typeof(PlayerDead))
+            {
+				_state = new PlayerDead(this);
+            }
 			_state.Update();
 			UpdateCollisionBox();
 		}
@@ -197,6 +201,9 @@ namespace Sprint0 {
 		}
 
 		public void LinkLowHpColor() {
+			if (State.GetType() == typeof(PlayerDead)) {
+				col = Color.White;
+			}
 			if (playerHp == 1 && HPFRAMES <= 12)
 			{
 				col = Color.Red;
