@@ -94,6 +94,8 @@ namespace Sprint0.LevelClass
         }
 
         public void drawRoom(int xOffset, int yOffset, bool transition) {
+            Console.WriteLine("number of items that not hold by enemy"+itemList.Length);
+            Console.WriteLine("number of items that hold by enemy" + enemyHoldItem.Count) ;
             for (int x = 0; x < tileList.Length; x++)
             {
                 tileList[x].draw(xOffset, yOffset);
@@ -105,6 +107,7 @@ namespace Sprint0.LevelClass
             foreach (AItem currentItem in itemList)
             {
                 currentItem.draw(xOffset, yOffset);
+             
             }
 
             foreach (IEnemySprite currentEnemy in enemyList) {
@@ -119,7 +122,7 @@ namespace Sprint0.LevelClass
             {
                 enemyHoldItem.ElementAt(x).Key.draw(xOffset, yOffset);
                 if (!enemyHoldItem.ElementAt(x).Key.IsAlive)
-                {
+                {//if enemy dies, update position and collision box of items they hold, and draw it
                     enemyHoldItem.ElementAt(x).Value.myPos.X = enemyHoldItem.ElementAt(x).Key.position.X;
                     enemyHoldItem.ElementAt(x).Value.myPos.Y = enemyHoldItem.ElementAt(x).Key.position.Y;
                     enemyHoldItem.ElementAt(x).Value.TopLeft.X = (int)enemyHoldItem.ElementAt(x).Key.position.X;
@@ -131,7 +134,7 @@ namespace Sprint0.LevelClass
 
                 }
                 else
-                {
+                {//else, hide the items until the enemy who holds it dies
                     enemyHoldItem.ElementAt(x).Value.TopLeft.X = 0;
                     enemyHoldItem.ElementAt(x).Value.TopLeft.Y =0;
                     enemyHoldItem.ElementAt(x).Value.BottomRight.X =0;
@@ -191,6 +194,7 @@ namespace Sprint0.LevelClass
                 }
             }
         }
+        
         public void UpdateEnemiesHoldItem()
         {
             for (int x = 0; x < enemyHoldItem.Count; x++)
