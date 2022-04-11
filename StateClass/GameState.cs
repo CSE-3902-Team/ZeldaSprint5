@@ -51,11 +51,13 @@ namespace Sprint0.StateClass
                     roomNum = levelManager.currentRoomNum;
                     _currentRoom = levelManager.CurrentRoom;
                 }
+
                 _game.MouseController.handleInput();
                 _game.KeyboardController.handleInput();
+
                 if (levelManager.Player.IsDead)
                 {
-                    _game.ChangeState(2);
+                    _game.ChangeState(3);
                 }
                 if (levelManager.Player.HasTriforce)
                 {
