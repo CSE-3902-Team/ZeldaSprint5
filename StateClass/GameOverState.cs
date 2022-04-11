@@ -64,10 +64,6 @@ namespace Sprint0.StateClass
 
             if (animate)
             {
-                if ( currentFrame > 100)
-                {
-                    currentFrame = 1;
-                }
                 if (count > 100)
                 {
                     animate = false;

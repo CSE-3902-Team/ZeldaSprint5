@@ -1,10 +1,18 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "DPBNy6tmqm8m7cm5dQeoIf5/CLDZinokNCU04mqk4d4qixEiHz0pHhJa/07iXstQCq2ej2aRQxGeQfqk0EUiLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\cciri\\Source\\Repos\\ZeldaGameS4\\Sprint0.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cciri\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+=======
+  "dgSpecHash": "iAjI9t0P9MJr4NYV7NXb7aHD/lcDplbJLoIq4tVxdD1uJ6NNAG/Rx92+qhtHhQ8E/MZXpeU8sQyRI/d4W1NUAg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tingy\\Source\\Repos\\ZeldaGameS4(4)\\Sprint0.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tingy\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+>>>>>>> victory
   ],
   "logs": []
 }

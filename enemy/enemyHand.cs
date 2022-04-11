@@ -31,6 +31,8 @@ namespace Sprint0.enemy
         private int change;
         public int explosionFrame;
         private int row1;
+        private int row2;
+        private int cloudAppear;
         public int deathCount
         {
             get { return DeathCount; }
@@ -88,31 +90,33 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            if (isAlive&& deathCount<3)
+            if (cloudAppear >= 150)
             {
-                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-                MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
-                NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-
-
-                if (frame == 5)
+                if (isAlive && deathCount < 3)
                 {
+                    FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                    MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
+                    NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
 
-                    currentFrame = action.frameReturn();
-                    frame = 0;
+
+                    if (frame == 5)
+                    {
+
+                        currentFrame = action.frameReturn();
+                        frame = 0;
+                    }
+
+
+                    currentPos = move.Move();
+
+                    direction = makeNextMove.RollingDice1();
+
+                    destination = makeNextMove.RollingDice();
+
+                    frame++;
+                    UpdateCollisionBox();
                 }
-
-
-                currentPos = move.Move();
-
-                direction = makeNextMove.RollingDice1();
-
-                destination = makeNextMove.RollingDice();
-
-                frame++;
-                UpdateCollisionBox();
             }
-            
 
         }
 
@@ -131,58 +135,68 @@ namespace Sprint0.enemy
                 Rectangle destinationRectangle = new Rectangle((int)currentPos.X+xOffset, (int)currentPos.Y+yOffset, 40, 40);
 
                 batch.Begin();
-                if (deathCount < 3)
+                if (cloudAppear < 150)
                 {
-                    if (trigger != deathCount && hit < 50)
+                    batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset, (int)currentPos.Y + yOffset), new Rectangle(35 * row2 + 639, 25, 35, 40), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                    cloudAppear++;
+                    row2++;
+                    if (row2 == 5)
+                        row2 = 0;
+                }
+                else
+                {
+                    if (deathCount < 3)
                     {
-                        if (hit % 2 == 0)
+                        if (trigger != deathCount && hit < 50)
                         {
-                            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+                            if (hit % 2 == 0)
+                            {
+                                batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+                            }
+                            else
+                            {
+                                batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.Red);
+                            }
+
+                            hit++;
                         }
                         else
                         {
-                            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.Red);
+
+
+                            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
                         }
-
-                        hit++;
                     }
-                    else
+                    if (deathCount >= 3)
                     {
 
+                        topLeft.X = 0;
+                        topLeft.Y = 0;
+                        botRight.X = 0;
+                        botRight.Y = 0;
 
-                        batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+                        if (explosionFrame < 50)
+                        {
+
+
+                            batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
+                        }
+                        else
+                        {
+                            isAlive = false;
+                        }
+                        row1++;
+                        if (row1 == 5)
+                        {
+                            row1 = 0;
+                        }
+                        explosionFrame++;
+                        change += 2;
                     }
                 }
-                if (deathCount >= 3)
-                {
-
-                    topLeft.X = 0;
-                    topLeft.Y = 0;
-                    botRight.X = 0;
-                    botRight.Y = 0;
-
-                    if (explosionFrame < 50)
-                    {
-
-
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
-                    }
-                    else
-                    {
-                        isAlive = false;
-                    }
-                    row1++;
-                    if (row1 == 5)
-                    {
-                        row1 = 0;
-                    }
-                    explosionFrame++;
-                    change += 2;
-                }
-
                 batch.End();
                 if (hit == 50)
                 {

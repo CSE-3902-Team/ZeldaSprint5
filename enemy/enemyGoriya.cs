@@ -33,7 +33,8 @@ namespace Sprint0.enemy
         private int frame1;
         private int frame2;
         private bool temp=true;
-     
+        private int cloudAppear;
+        private int row2;
         bool flipHorizontal = false;
         bool fire = false;
         private TopLeft topLeft;
@@ -101,102 +102,106 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            if (isAlive && deathCount < 3) {
-                // the goriya will fire every 210 frames, and reset frame counts
-                if (frame1 == fireCount)
+            if (cloudAppear >= 150)
+            {
+                if (isAlive && deathCount < 3)
                 {
-                    fire = true;
-                    pCurrentPos.X = currentPos.X;
-                    pCurrentPos.Y = currentPos.Y;
-                    frame1 = 0;
-                    frame2 = 0;
-                    
-                 
-                 
-                }
-                if (frame3 == 15)
-                {
-
-                    command.LoadCommand(proj);
-                    command.Execute();
-
-                    frame3 = 0;
-                }
-                    proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
-
-                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-                NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
-              
-                direction = makeNextMove.RollingDice1();
-
-                destination = makeNextMove.RollingDice();
-                MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
-
-                //every 5 frames,change goriya's action frame
-                if (frame == 5)
-                {
-                    currentFrame = action.goriya();
-
-                    frame = 0;
-                }
-
-                if (!fire)
-                {
-                    proj.IsRunning = false;
-                    switch (direction.X)
+                    // the goriya will fire every 210 frames, and reset frame counts
+                    if (frame1 == fireCount)
                     {
+                        fire = true;
+                        pCurrentPos.X = currentPos.X;
+                        pCurrentPos.Y = currentPos.Y;
+                        frame1 = 0;
+                        frame2 = 0;
 
-                        case 1:
-                            if (currentPos.X < destination.X)
-                            {
 
-                                flipHorizontal = false;
-                            }
-                            else if (currentPos.X > destination.X)
-                            {
-
-                                flipHorizontal = true;
-                            }
-                            break;
-                        default:
-                            break;
 
                     }
-                    currentPos = move.Move();
+                    if (frame3 == 15)
+                    {
+
+                        command.LoadCommand(proj);
+                        command.Execute();
+
+                        frame3 = 0;
+                    }
+                    proj = new EnemyProjectile(direction, currentPos, destination, pCurrentPos, frame2, projectileFrame);
+
+                    FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                    NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
 
                     direction = makeNextMove.RollingDice1();
 
                     destination = makeNextMove.RollingDice();
-                    frame1++;
-                }
-                else
-                {
-         
-                    frame2++;
+                    MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
 
-                    projectileFrame = proj.ProjectileFrameChange();
-                  proj.Update();
-        
+                    //every 5 frames,change goriya's action frame
+                    if (frame == 5)
+                    {
+                        currentFrame = action.goriya();
 
-                    pCurrentPos = proj.Position;
+                        frame = 0;
+                    }
 
+                    if (!fire)
+                    {
+                        proj.IsRunning = false;
+                        switch (direction.X)
+                        {
 
+                            case 1:
+                                if (currentPos.X < destination.X)
+                                {
 
+                                    flipHorizontal = false;
+                                }
+                                else if (currentPos.X > destination.X)
+                                {
 
-                    if (frame2 == 200)
+                                    flipHorizontal = true;
+                                }
+                                break;
+                            default:
+                                break;
+
+                        }
+                        currentPos = move.Move();
+
+                        direction = makeNextMove.RollingDice1();
+
+                        destination = makeNextMove.RollingDice();
+                        frame1++;
+                    }
+                    else
                     {
 
+                        frame2++;
 
-                        fire = false;
-                 
+                        projectileFrame = proj.ProjectileFrameChange();
+                        proj.Update();
+
+
+                        pCurrentPos = proj.Position;
+
+
+
+
+                        if (frame2 == 200)
+                        {
+
+
+                            fire = false;
+
+                        }
                     }
+                    frame++;
+                    UpdateCollisionBox();
                 }
-                frame++;
-                UpdateCollisionBox();
+
+
+                frame3++;
             }
-        
-        
-            frame3++;
         }
 
         public void draw() 
@@ -220,11 +225,64 @@ namespace Sprint0.enemy
             if (isAlive)
             {
                 batch.Begin();
-                if (deathCount < 3)
+                if (cloudAppear < 150)
                 {
-                    if (trigger != deathCount && hit < 50)
+                    batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset, (int)currentPos.Y + yOffset), new Rectangle(35 * row2 + 639, 25, 35, 40), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                    cloudAppear++;
+                    row2++;
+                    if (row2 == 5)
+                        row2 = 0;
+                }
+                else
+                {
+                    if (deathCount < 3)
                     {
-                        if (hit % 2 == 0)
+                        if (trigger != deathCount && hit < 50)
+                        {
+                            if (hit % 2 == 0)
+                            {
+                                if (proj.IsRunning)
+                                {
+
+
+                                    batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
+                                }
+                                if (flipHorizontal)
+                                {
+
+                                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
+                                }
+
+                                else
+                                {
+
+                                    batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.None, 1);
+                                }
+                            }
+                            else
+                            {
+                                if (proj.IsRunning)
+                                {
+
+
+                                    batch.Draw(Texture, location1, sourceRectangleProjectile, Color.Red, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
+                                }
+                                if (flipHorizontal)
+                                {
+
+                                    batch.Draw(Texture, location, sourceRectangle, Color.Red, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
+                                }
+
+                                else
+                                {
+
+                                    batch.Draw(Texture, location, sourceRectangle, Color.Red, 0.01f, origin, 1.5f, SpriteEffects.None, 1);
+                                }
+                            }
+
+                            hit++;
+                        }
+                        else
                         {
                             if (proj.IsRunning)
                             {
@@ -244,78 +302,36 @@ namespace Sprint0.enemy
                                 batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.None, 1);
                             }
                         }
+                    }
+                    if (deathCount >= 3)
+                    {
+
+                        topLeft.X = 0;
+                        topLeft.Y = 0;
+                        botRight.X = 0;
+                        botRight.Y = 0;
+
+                        if (explosionFrame < 50)
+                        {
+
+
+                            batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
+                        }
                         else
                         {
-                            if (proj.IsRunning)
-                            {
-
-
-                                batch.Draw(Texture, location1, sourceRectangleProjectile, Color.Red, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
-                            }
-                            if (flipHorizontal)
-                            {
-
-                                batch.Draw(Texture, location, sourceRectangle, Color.Red, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
-                            }
-
-                            else
-                            {
-
-                                batch.Draw(Texture, location, sourceRectangle, Color.Red, 0.01f, origin, 1.5f, SpriteEffects.None, 1);
-                            }
+                            isAlive = false;
                         }
-
-                        hit++;
-                    }
-                    else
-                    {
-                        if (proj.IsRunning)
+                        rowdeathExplosion++;
+                        if (rowdeathExplosion == 5)
                         {
-
-
-                            batch.Draw(Texture, location1, sourceRectangleProjectile, Color.White, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
+                            rowdeathExplosion = 0;
                         }
-                        if (flipHorizontal)
-                        {
-
-                            batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.FlipHorizontally, 1);
-                        }
-
-                        else
-                        {
-
-                            batch.Draw(Texture, location, sourceRectangle, Color.White, 0.01f, origin, 1.5f, SpriteEffects.None, 1);
-                        }
+                        explosionFrame++;
+                        change += 2;
                     }
-                }
-                if (deathCount >= 3)
-                {
-
-                    topLeft.X = 0;
-                    topLeft.Y = 0;
-                    botRight.X = 0;
-                    botRight.Y = 0;
-
-                    if (explosionFrame < 50)
-                    {
-
-
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * rowdeathExplosion + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
-                    }
-                    else
-                    {
-                        isAlive = false;
-                    }
-                    rowdeathExplosion++;
-                    if (rowdeathExplosion == 5)
-                    {
-                        rowdeathExplosion = 0;
-                    }
-                    explosionFrame++;
-                    change += 2;
                 }
                 batch.End();
                 if (hit == 50)

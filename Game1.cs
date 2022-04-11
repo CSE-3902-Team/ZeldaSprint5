@@ -116,7 +116,7 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            //GraphicsDevice.Clear(Color.CornflowerBlue);
             _currentState.Draw(gameTime);
             //_currentRoom.drawRoom();
 
