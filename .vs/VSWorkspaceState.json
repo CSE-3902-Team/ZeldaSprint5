@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\enemy"
+    "\\Collision",
+    "\\LevelClass",
+    "\\PlayerClass",
+    "\\StateClass"
   ],
-  "SelectedNode": "\\enemy\\CollisionBox.cs",
+  "SelectedNode": "\\HUD.cs",
   "PreviewInSolutionExplorer": false
 }

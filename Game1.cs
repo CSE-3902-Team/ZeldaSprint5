@@ -68,7 +68,7 @@ namespace Sprint0
             gameOver.loadContent();
             gameVictory = new GameVictoryState(this, Content);
             gameVictory.loadContent();
-            gameInventory = new GameInventoryState(this, Content);
+            gameInventory = new GameInventoryState(this, Content, LevelManager.Instance.Player.Inventory);
             gameInventory.loadContent();
 
             stateList.Add(gameState);
@@ -108,9 +108,9 @@ namespace Sprint0
             base.Update(gameTime);
         }
 
-        public void ChangeState(int i)
+        public void ChangeState(int stateNumber)
         {
-            _currentState = stateList[i];
+            _currentState = stateList[stateNumber];
             
         }
 

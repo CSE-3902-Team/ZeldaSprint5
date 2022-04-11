@@ -18,6 +18,7 @@ namespace Sprint0
         private int arrowCount;
         private int heartCount;
         private int heartContainerCount;
+        private int levelNumber;
 
         private Boolean firstRupee;
         private Boolean firstKey;
@@ -38,6 +39,11 @@ namespace Sprint0
         private Boolean boomerang;
         private Boolean clock;
 
+        public int LevelNumber
+        {
+            get { return levelNumber; }
+            set { rupeeCount = value; }
+        }
         public int RupeeCount
         {
             get { return rupeeCount; }
@@ -174,6 +180,7 @@ namespace Sprint0
             arrowCount = 0;
             heartCount = player.PlayerHp;
             heartContainerCount = (player.MaxHp)/2;
+            levelNumber = 1;
 
             firstRupee = true;
             firstKey = true; 
@@ -192,15 +199,14 @@ namespace Sprint0
             clock = false;
 
             itemCounts = new List<int>();
-            itemCounts.Add(RupeeCount);
-            itemCounts.Add(KeyCount);
-            itemCounts.Add(BombCount);
-            itemCounts.Add(ArrowCount);
-            itemCounts.Add(HeartCount);
-            itemCounts.Add(HeartContainerCount);
 
         }
 
+        public void Update()
+        {
+            heartContainerCount = (player.MaxHp) / 2;
+            heartCount = player.PlayerHp;
+        }
         public void Draw()
         {
             

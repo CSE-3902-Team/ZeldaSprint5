@@ -59,14 +59,14 @@ namespace Sprint0
             this.headsUpDisplay = headsUpDisplay;
             inventory = player.Inventory;
 
-            health = player.PlayerHp;
+            health = player.Inventory.HeartCount;
             heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;
             arrowCount = player.Inventory.ArrowCount;
 
-            levelNumber = 1;
+            levelNumber = player.Inventory.LevelNumber;
 
             hudRectangle = new Rectangle(0, 0, 1024, 256);
             emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 255, heartWidth, heartHeight);
@@ -76,21 +76,23 @@ namespace Sprint0
             timesSymbolSourceRect = new Rectangle(numberXSourceLocation, (heartAndNumberYSourceLocation + numberHeight), numberWidth, numberHeight);
 
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
-            heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
-            rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth + 1, numberHeight);
-            bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth + 1, numberHeight);
-            keyNumberDestRect = new Rectangle(numberXDestLocation, keyYDestLocation, numberWidth + 1, numberHeight);
+            //heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
+            rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
+            bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
+            keyNumberDestRect = new Rectangle(numberXDestLocation, keyYDestLocation, numberWidth, numberHeight);
 
         }
 
         public void Update()
         {
-            health = player.PlayerHp;
+            inventory.Update();
+            health = player.Inventory.HeartCount;
             heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;
             arrowCount = player.Inventory.ArrowCount;
+            levelNumber = player.Inventory.LevelNumber;
         }
         public void Draw()
         {
@@ -110,14 +112,12 @@ namespace Sprint0
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((rupeeCount % 10) * numberWidth) + (rupeeCount * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
-            remainingNumberSpaces = 2;
             for (int i = 1; i <= remainingNumberSpaces; i++)
             {
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount / 10) * numberWidth) + ((keyCount / 10)* spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount % 10) * numberWidth) + (keyCount * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);  
             }
 
-            remainingNumberSpaces = 2;
             for (int i = 1; i <= remainingNumberSpaces; i++)
             {
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((bombCount / 10) * numberWidth) + ((bombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);

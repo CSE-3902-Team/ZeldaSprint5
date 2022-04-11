@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BG_MUSIC.wav</SourceFile>
   <SourceTime>2022-03-30T10:33:31.7559461-04:00</SourceTime>
   <DestFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/BG_MUSIC.xnb</DestFile>
-  <DestTime>2022-04-10T14:45:09.4025293-04:00</DestTime>
+  <DestTime>2022-04-11T11:39:04.4503765-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
