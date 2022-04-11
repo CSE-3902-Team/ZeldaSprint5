@@ -25,7 +25,10 @@ namespace Sprint0
         protected bool isGameOver = false;
         protected bool isVictory = false;
         protected bool isGameState = false;
+        protected bool animate = false;
 
+
+        
         public Room CurrentRoom
         {
             get { return _currentRoom;  }

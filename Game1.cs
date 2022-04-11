@@ -18,10 +18,12 @@ namespace Sprint0
         private IController mController;
 
         private AState _currentState;
+       
         private AState gameOver;
         private AState gameVictory;
         private AState gameInventory;
         private AState gameState;
+        
         //private AState _nextState;
         //private AState _previousState;
 
@@ -29,7 +31,7 @@ namespace Sprint0
 
         private AItem item;
 
-        private List<AState> stateList = new List<AState>();
+        private List<AState> stateList;
 
 
 
@@ -59,6 +61,7 @@ namespace Sprint0
 
         protected override void LoadContent()
         {
+            stateList = new List<AState>();
             soundLibrary.LoadAllSounds(Content);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -68,7 +71,7 @@ namespace Sprint0
             gameOver.loadContent();
             gameVictory = new GameVictoryState(this, Content);
             gameVictory.loadContent();
-            gameInventory = new GameInventoryState(this, Content, LevelManager.Instance.Player.Inventory);
+            gameInventory = new GameInventoryState(this, Content);
             gameInventory.loadContent();
 
             stateList.Add(gameState);
@@ -110,6 +113,7 @@ namespace Sprint0
 
         public void ChangeState(int stateNumber)
         {
+           
             _currentState = stateList[stateNumber];
             
         }
@@ -127,7 +131,6 @@ namespace Sprint0
         public void reset()
         {
             _currentState = null;
-            //_nextState = null;
             soundLibrary.Dispose();
             LoadContent();
         }

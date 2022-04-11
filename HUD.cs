@@ -18,7 +18,6 @@ namespace Sprint0
         private Rectangle heartSourceRect;
         private Rectangle halfHeartSourceRect;
         private Rectangle emptyHeartSourceRect;
-        private Rectangle heartDestRect;
         private Rectangle currentHeartNeeded;
         private Rectangle numberSourceRect;
         private Rectangle rupeeNumberDestRect;
@@ -26,6 +25,9 @@ namespace Sprint0
         private Rectangle keyNumberDestRect;
         private Rectangle timesSymbolSourceRect;
         private Rectangle levelNumberDestRect;
+        private Rectangle mapSourceRect;
+        private Rectangle mapDestRect;
+
 
         private int health;
         private int heartContainerCount;
@@ -52,6 +54,13 @@ namespace Sprint0
         const int numberXDestLocation = 383;
         const int levelNumberXDestLocation = 131;
 
+        const int mapYSourceLocation = 518;
+        const int mapWidth = 295;
+        const int mapHeight = 200;
+        const int mapXDestLocation = 30;
+        const int mapYDestLocation = 37;
+
+
         public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
             this.player = player;
@@ -74,12 +83,13 @@ namespace Sprint0
             heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 255, heartWidth, heartHeight);
             numberSourceRect = new Rectangle(numberXSourceLocation, heartAndNumberYSourceLocation, numberWidth, numberHeight);
             timesSymbolSourceRect = new Rectangle(numberXSourceLocation, (heartAndNumberYSourceLocation + numberHeight), numberWidth, numberHeight);
+            mapSourceRect = new Rectangle(0, mapYSourceLocation, mapWidth, mapHeight);
 
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
-            //heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
             bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
             keyNumberDestRect = new Rectangle(numberXDestLocation, keyYDestLocation, numberWidth, numberHeight);
+            mapDestRect = new Rectangle(mapXDestLocation, mapYDestLocation, mapWidth, mapHeight);
 
         }
 
@@ -149,6 +159,11 @@ namespace Sprint0
                 {
                     spriteBatch.Draw(headsUpDisplay, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), new Rectangle(heartWidth,0,heartWidth,heartHeight), Color.Black);
                 }
+            }
+
+            if(player.Inventory.Map == true)
+            {
+                spriteBatch.Draw(headsUpDisplay, mapDestRect, mapSourceRect, Color.White);
             }
             spriteBatch.End();
         }
