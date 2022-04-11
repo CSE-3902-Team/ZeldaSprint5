@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/playerSheetV4.png.png</SourceFile>
   <SourceTime>2022-04-11T12:23:34.1635384-04:00</SourceTime>
   <DestFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/playerSheetV4.png.xnb</DestFile>
-  <DestTime>2022-04-11T15:33:45.5433197-04:00</DestTime>
-=======
-  <SourceFile>C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/playerSheetV4.png.png</SourceFile>
-  <SourceTime>2022-04-11T15:00:04.9312856-04:00</SourceTime>
-  <DestFile>C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/playerSheetV4.png.xnb</DestFile>
-  <DestTime>2022-04-11T15:59:56.1837936-04:00</DestTime>
->>>>>>> victory
+  <DestTime>2022-04-11T17:14:12.5894283-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
