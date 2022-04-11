@@ -31,9 +31,12 @@ namespace Sprint0.StateClass
         private Texture2D exitText;
         private Texture2D skull;
         private Texture2D animation;
-        private bool animate = true;
+
         private int currentFrame = 1;
         private int count = 0;
+
+        
+
         //private KeyboardController kController;
         //private MouseController mController;
 
@@ -54,6 +57,7 @@ namespace Sprint0.StateClass
             exitText = _content.Load<Texture2D>("ExitText");
             skull = _content.Load <Texture2D>("Skull");
             IsGameOver = true;
+            animate = true;
         }
 
         public override void update(GameTime gameTime)

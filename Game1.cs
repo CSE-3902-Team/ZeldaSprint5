@@ -18,10 +18,12 @@ namespace Sprint0
         private IController mController;
 
         private AState _currentState;
+       
         private AState gameOver;
         private AState gameVictory;
         private AState gameInventory;
         private AState gameState;
+        
         //private AState _nextState;
         //private AState _previousState;
 
@@ -110,7 +112,10 @@ namespace Sprint0
 
         public void ChangeState(int stateNumber)
         {
+           
+            
             _currentState = stateList[stateNumber];
+            
             
         }
 
@@ -127,7 +132,6 @@ namespace Sprint0
         public void reset()
         {
             _currentState = null;
-            //_nextState = null;
             soundLibrary.Dispose();
             LoadContent();
         }

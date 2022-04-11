@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Collision",
-    "\\LevelClass",
-    "\\PlayerClass",
-    "\\StateClass"
+    ""
   ],
-  "SelectedNode": "\\HUD.cs",
+  "SelectedNode": "\\Sprint0.sln",
   "PreviewInSolutionExplorer": false
 }
