@@ -18,6 +18,7 @@ namespace Sprint0.StateClass
         private ContentManager _content;
         private Texture2D screen;
         private LinkInventory _inventory;
+        private LevelManager _levelManager;
 
         private Rectangle heartSourceRect;
         private Rectangle halfHeartSourceRect;
@@ -93,11 +94,13 @@ namespace Sprint0.StateClass
         //private MouseController mController;
 
 
-        public GameInventoryState(Game1 game, ContentManager content, LinkInventory inventory) : base(game, content)
+        public GameInventoryState(Game1 game, ContentManager content) : base(game, content)
         {
             _game = game;
             _content = content;
-            _inventory = inventory;
+            _levelManager = LevelManager.Instance;
+            _inventory = _levelManager.Player.Inventory;
+            
 
             heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), heartAndNumberYSourceLocation, heartWidth, heartHeight);
             halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), heartAndNumberYSourceLocation, heartWidth, heartHeight);

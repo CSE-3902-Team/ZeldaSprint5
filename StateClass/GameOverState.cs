@@ -32,8 +32,8 @@ namespace Sprint0.StateClass
         private Texture2D skull;
         private Texture2D animation;
 
-        private int currentFrame = 1;
-        private int count = 0;
+        private int currentFrame;
+        private int count;
 
         
 
@@ -58,6 +58,8 @@ namespace Sprint0.StateClass
             skull = _content.Load <Texture2D>("Skull");
             IsGameOver = true;
             animate = true;
+            count = 0;
+            currentFrame = 1;
         }
 
         public override void update(GameTime gameTime)
