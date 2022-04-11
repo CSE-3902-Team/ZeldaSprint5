@@ -67,7 +67,7 @@ namespace Sprint0.StateClass
         const int slotA_XDestLocation = 605;
         const int slotB_XDestLocation = 509;
         const int numberXDestLocation = 384;
-        const int mapAndCompassXDestLocation = 160;
+        const int mapAndCompassXDestLocation = 180;
         const int mapDesignXDestLocation = 500;
         const int levelNumberXDestLocation = 135;
 
