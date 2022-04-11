@@ -2,6 +2,7 @@
 using System;
 using Sprint0.ItemClass;
 using Sprint0.LevelClass;
+using Sprint0.PlayerClass;
 
 namespace Sprint0.Collision
 {
@@ -56,6 +57,7 @@ namespace Sprint0.Collision
             }
             else if (item is ItemTriforcePiece)
             {
+               player.State = new PlayerTriforce(player);
                SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
                SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
                SoundManager.Instance.Play(SoundManager.Sound.Triforce);

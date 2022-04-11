@@ -116,11 +116,6 @@ namespace Sprint0.LevelClass
             }
             foreach(AItem currentItem1 in combineList)
             {
-              
-                  
-                
-            
-               
                 if (enemyList.Count <= 0)
                 {
                     currentItem1.TopLeft.X = (int)currentItem1.myPos.X;
@@ -136,7 +131,6 @@ namespace Sprint0.LevelClass
                     currentItem1.BottomRight.X = 0;
                     currentItem1.BottomRight.Y = 0;
                 }
-              
             }
 
             if (!transition)
