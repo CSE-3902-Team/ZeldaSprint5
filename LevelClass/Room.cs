@@ -56,8 +56,7 @@ namespace Sprint0.LevelClass
             projectileList = new List<IProjectile>();
             _player = player;
             colliderDetector = new SortSweep();
-
-           
+            SortTilesByDrawOrder();
 
             for (int x = 0; x < doorList.Length; x++) { 
                 colliderDetector.AddToList(doorList[x] as IBoxCollider);
@@ -94,10 +93,9 @@ namespace Sprint0.LevelClass
         }
 
         public void drawRoom(int xOffset, int yOffset, bool transition) {
-    
-            foreach (ITile currentTile in tileList)
+            for (int x = 0; x < tileList.Length; x++)
             {
-                currentTile.draw(xOffset, yOffset);
+                tileList[x].draw(xOffset, yOffset);
             }
             foreach (ADoor currentDoor in doorList)
             {
@@ -122,7 +120,7 @@ namespace Sprint0.LevelClass
                   
                 
             
-                Console.WriteLine(enemyList.Count);
+               
                 if (enemyList.Count <= 0)
                 {
                     currentItem1.TopLeft.X = (int)currentItem1.myPos.X;
@@ -156,7 +154,9 @@ namespace Sprint0.LevelClass
             {
                 UnlockDoors();
             }
-            
+            CheckPressurePlate();
+
+
         }
 
         public void UpdateProjectiles()
@@ -191,6 +191,25 @@ namespace Sprint0.LevelClass
             }
         }
 
+        private void SortTilesByDrawOrder()
+        {
+            Array.Sort(tileList, delegate (ITile a, ITile b)
+            {
+                if (a.GetType() == typeof(PushableTile) || a.GetType() == typeof(RightFire) || a.GetType() == typeof(LeftFire))
+                {
+                    return 1;
+                }
+                else if (b.GetType() == typeof(PushableTile)|| b.GetType() == typeof(RightFire) || b.GetType() == typeof(LeftFire))
+                {
+                    return -1;
+                }
+                else {
+                    return ((int)a.Position.X + (int)a.Position.Y * -1).CompareTo((int)a.Position.X + (int)a.Position.Y * -1);
+                }
+                
+            });
+        }
+
         public void UnlockDoors()
         {
             DoorFactory factory = DoorFactory.Instance;
@@ -201,6 +220,30 @@ namespace Sprint0.LevelClass
                     doorList[x] = DoorFactory.Instance.CreateDoorSprite(DoorFactory.Door.Open, doorList[x].DoorSide, doorList[x].connection);
                     colliderDetector.AddToList(doorList[x] as IBoxCollider);
                 }
+            }
+        }
+
+        private void CheckPressurePlate()
+        {
+            Vector2 platePos = Vector2.Zero;
+            Vector2 pushablePos = Vector2.Zero;
+            for (int x = 0; x < tileList.Length; x++)
+            {
+                if (tileList[x] is PressurePlate)
+                {
+                    platePos = tileList[x].Position;
+                }
+                if (tileList[x] is PushableTile)
+                {
+                    pushablePos = tileList[x].Position;
+                }
+            }
+            if (platePos.Equals(Vector2.Zero) || pushablePos.Equals(Vector2.Zero)) return;
+
+            if ((int)platePos.X == (int)pushablePos.X && (int)platePos.Y == (int)pushablePos.Y)
+            {
+                Console.WriteLine("pressure plate triggered");
+                UnlockDoors();
             }
         }
 

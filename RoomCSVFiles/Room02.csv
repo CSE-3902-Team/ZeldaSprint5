@@ -43,7 +43,8 @@ solid blue tile,128,320
 solid blue tile,192,320
 solid blue tile,256,320
 solid blue tile,320,320
-tile with square in middle,384,320
+solid blue tile,384,320
+pushable square,384,320
 solid blue tile,448,320
 stairs,512,320
 solid blue tile,576,320

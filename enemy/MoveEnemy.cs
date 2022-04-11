@@ -59,111 +59,114 @@ namespace Sprint0.enemy
         }
         public Vector2 trapMove(int frame, Vector2 location)
         {
+           
 
-        
-         if (movement.X == 1)
-            {
-                if (location.Y < 500 && location.X>400)
+                if (movement.X == 1 && movement.Y == 0)
                 {
-                    if (frame <= 50)
-                    {
-                        Pos.Y += 3;
-                    }
-                    if (frame > 50 && frame <= 100)
-                    {
-                        Pos.Y -= 3;
-                    }
-                }
-                if (location.Y > 500 && location.X > 400)
-                {
-                    if (frame <= 50)
-                    {
-                        Pos.Y -= 3;
-                    }
-                    if (frame > 50 && frame <= 100)
-                    {
-                        Pos.Y += 3;
-                    }
-                }
-            }
-            else if (movement.X == 0)
-            {
-                if (location.Y < 500 && location.X < 200)
-                {
-                    if (frame <= 50)
-                    {
-                        Pos.Y += 3;
-                    }
-                    if (frame > 50 && frame <= 100)
-                    {
-                        Pos.Y -= 3;
-                    }
-                }
-                if (location.Y > 500 && location.X < 200)
-                {
-                    if (frame <= 50)
-                    {
-                        Pos.Y -= 3;
-                    }
-                    if (frame > 50 && frame <= 100)
-                    {
-                        Pos.Y += 3;
-                    }
-                }
-            }
-         /*
-            else  if (movement.Y == 0)
-            {
-                if (location.Y < 500 && location.X < 200)
-                {
-                    if (frame <= 50)
-                    {
-                        Pos.X += 6;
-                    }
-                    if (frame > 50 && frame <= 100)
-                    {
-                        Pos.X -= 6;
-                    }
-                }
-                if (location.Y < 500 && location.X > 200)
-                {
-                    if (frame <= 50)
-                    {
-                        Pos.X -= 6;
-                    }
-                    if (frame > 50 && frame <= 100)
-                    {
-                        Pos.X += 6;
-                    }
-                }
-            }
 
-            else if (movement.Y == 1)
-            {
-                if (location.Y > 500 && location.X < 200)
-                {
-                    if (frame <= 50)
+                    if (location.Y < 500 && location.X < 200)
                     {
-                        Pos.X += 6;
+                        if (frame <= 50)
+                        {
+                            Pos.X += 6;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.X -=6;
+                        }
                     }
-                    if (frame > 50 && frame <= 100)
+                    if (location.Y < 500 && location.X > 200)
                     {
-                        Pos.X -= 6;
+                        if (frame <= 50)
+                        {
+                            Pos.X -= 6;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.X += 6;
+                        }
                     }
                 }
-                if (location.Y > 500 && location.X > 200)
+                else if (movement.X == 0 && movement.Y == 0)
                 {
-                    if (frame <= 50)
+                    if (location.Y < 500 && location.X < 200)
                     {
-                        Pos.X -= 6;
+                        if (frame <= 50)
+                        {
+                            Pos.Y += 4;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.Y -= 4;
+                        }
                     }
-                    if (frame > 50 && frame <= 100)
+                    if (location.Y > 500 && location.X < 200)
                     {
-                        Pos.X += 6;
+                        if (frame <= 50)
+                        {
+                            Pos.Y -= 4;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.Y += 4;
+                        }
                     }
                 }
-            }*/
-         
+
+                else if (movement.Y == 1 && movement.X == 1)
+                {
+                    if (location.Y > 500 && location.X < 200)
+                    {
+                        if (frame <= 50)
+                        {
+                            Pos.X += 6;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.X-= 6;
+                        }
+                    }
+                    if (location.Y > 500 && location.X > 200)
+                    {
+                        if (frame <= 50)
+                        {
+                            Pos.X -= 6;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.X+= 6;
+                        }
+                    }
+                }
+
+                else if (movement.Y == 1 && movement.X == 0)
+                {
+                    if (location.Y < 500 && location.X > 400)
+                    {
+                        if (frame <= 50)
+                        {
+                            Pos.Y += 4;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.Y -= 4;
+                        }
+                    }
+                    if (location.Y > 500 && location.X > 400)
+                    {
+                        if (frame <= 50)
+                        {
+                            Pos.Y -= 4;
+                        }
+                        if (frame > 50 && frame <= 100)
+                        {
+                            Pos.Y += 4;
+                        }
+                    }
+
+                }
+
+            
     
 
             return Pos;

@@ -175,6 +175,7 @@ namespace Sprint0.LevelClass
             if (item.Length > 0 && enemy.Length > 0)
             {
                 combineList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
+          
             }
         }
 

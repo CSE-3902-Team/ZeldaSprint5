@@ -21,11 +21,11 @@ solid blue tile,256,192,,
 solid blue tile,320,192,,
 solid blue tile,384,192,,
 solid blue tile,448,192,,
-solid blue tile,512,192,,key
+solid blue tile,512,192,,
 solid blue tile,576,192,,
 solid blue tile,640,192,,
 solid blue tile,704,192,,
-solid blue tile,768,192,skeleton,
+solid blue tile,768,192,skeleton,key
 solid blue tile,832,192,,
 solid blue tile,128,256,,
 solid blue tile,192,256,,

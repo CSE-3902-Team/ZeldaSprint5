@@ -29,6 +29,7 @@ namespace Sprint0.enemy
         private Vector2 currentPos;
         private int row;
         public Game1 game;
+        public int cloudAppear;
         Player link;
 
         private readonly TopLeft topLeft;
@@ -194,7 +195,7 @@ namespace Sprint0.enemy
                     bottomRight.X = 0;
                     bottomRight.Y = 0;
 
-                    if (explosionFrame < 100)
+                    if (explosionFrame < 50)
                     {
 
 
@@ -203,7 +204,7 @@ namespace Sprint0.enemy
                         batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y- change + yOffset), new Rectangle(18 * row + 820, 338, 18, 23), Color.White, 0.01f, origin, 1f, SpriteEffects.None, 1);
                         batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row + 820, 338, 18, 23), Color.White, 0.01f, origin, 1f, SpriteEffects.FlipHorizontally, 1);
                     }
-                    else if(explosionFrame >= 100)
+                    else if(explosionFrame >= 50)
                     {
                         isAlive = false;
                         deathCount = 0;

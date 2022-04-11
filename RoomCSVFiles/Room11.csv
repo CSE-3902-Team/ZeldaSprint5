@@ -79,12 +79,12 @@ solid blue tile,128,512,hand,
 solid blue tile,192,512,,
 solid blue tile,256,512,,
 solid blue tile,320,512,hand,rupee
-solid blue tile,384,512,hand,rupee
-solid blue tile,448,512,,
+solid blue tile,384,512,hand,
+solid blue tile,448,512,,rupee
 solid blue tile,512,512,,
 solid blue tile,576,512,,
-solid blue tile,640,512,,key
-solid blue tile,704,512,hand,
+solid blue tile,640,512,,
+solid blue tile,704,512,hand,key
 solid blue tile,768,512,,
 solid blue tile,832,512,,
 leftWallTop,0,128,,
