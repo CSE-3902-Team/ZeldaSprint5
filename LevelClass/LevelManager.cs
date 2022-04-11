@@ -34,7 +34,7 @@ namespace Sprint0.LevelClass
         private TileFactory tileFactory;
 		private Player _player;
         private Vector2 center;
-
+        private List<AItem> combineList;
         private List<ADoor> doorList;
         private List<AItem> itemList;
         private List<IEnemySprite> enemyList;
@@ -68,9 +68,9 @@ namespace Sprint0.LevelClass
 
         private Texture2D playerTexture;
         private Texture2D projectileTexture;
+  
 
-        
-        
+
 
 
         private static LevelManager instance = new LevelManager();
@@ -168,8 +168,13 @@ namespace Sprint0.LevelClass
             if (enemy.Length > 0) {
                 enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position, command));
             }
-            if (item.Length > 0) {
+            if (item.Length > 0 && enemy.Length<=0) {
+                
                 itemList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
+            }
+            if (item.Length > 0 && enemy.Length > 0)
+            {
+                combineList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
             }
         }
 
@@ -184,6 +189,7 @@ namespace Sprint0.LevelClass
             itemList = new List<AItem>();
             enemyList = new List<IEnemySprite>();
             tileList = new List<ITile>();
+            combineList= new List<AItem>();
 
             return parser;
     }
@@ -203,7 +209,7 @@ namespace Sprint0.LevelClass
                     fields = parser.ReadFields();
                     parseFields(fields);
                 }
-                roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player));
+                roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player,combineList.ToArray()));
             }
         }
 

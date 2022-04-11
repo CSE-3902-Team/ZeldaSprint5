@@ -92,7 +92,7 @@ namespace Sprint0.enemy
 
         public void Update()
         {
-            if (isAlive && deathCount < 3)
+            if (isAlive && deathCount < 6)
             {
                 FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                 MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
@@ -132,7 +132,7 @@ namespace Sprint0.enemy
                     Rectangle destinationRectangle = new Rectangle((int)currentPos.X + xOffset, (int)currentPos.Y + yOffset, 40, 40);
 
                     batch.Begin();
-                if (deathCount < 3)
+                if (deathCount < 6)
                 {
                     if (trigger != deathCount && hit < 50)
                     {
@@ -156,7 +156,7 @@ namespace Sprint0.enemy
                 }
 
 
-                if (deathCount >= 3)
+                if (deathCount >= 6)
                 {
 
                     topLeft.X = 0;
@@ -164,7 +164,7 @@ namespace Sprint0.enemy
                     botRight.X = 0;
                     botRight.Y = 0;
 
-                    if (explosionFrame < 200)
+                    if (explosionFrame < 100)
                     {
 
 

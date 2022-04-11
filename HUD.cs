@@ -25,6 +25,7 @@ namespace Sprint0
         private Rectangle bombNumberDestRect;
         private Rectangle keyNumberDestRect;
         private Rectangle timesSymbolSourceRect;
+        private Rectangle levelNumberDestRect;
 
         private int health;
         private int heartContainerCount;
@@ -49,6 +50,7 @@ namespace Sprint0
         const int keyYDestLocation = 146;
         const int bombYDestLocation = 182;
         const int numberXDestLocation = 383;
+        const int levelNumberXDestLocation = 131;
 
         public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
@@ -73,7 +75,7 @@ namespace Sprint0
             numberSourceRect = new Rectangle(numberXSourceLocation, heartAndNumberYSourceLocation, numberWidth, numberHeight);
             timesSymbolSourceRect = new Rectangle(numberXSourceLocation, (heartAndNumberYSourceLocation + numberHeight), numberWidth, numberHeight);
 
-
+            levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
             heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth + 1, numberHeight);
             bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth + 1, numberHeight);
@@ -98,6 +100,8 @@ namespace Sprint0
             spriteBatch.Draw(headsUpDisplay, rupeeNumberDestRect, timesSymbolSourceRect, Color.White);
             spriteBatch.Draw(headsUpDisplay, bombNumberDestRect, timesSymbolSourceRect, Color.White);
             spriteBatch.Draw(headsUpDisplay, keyNumberDestRect, timesSymbolSourceRect, Color.White);
+            spriteBatch.Draw(headsUpDisplay, levelNumberDestRect, new Rectangle(numberXSourceLocation + (levelNumber*numberWidth) + (levelNumber*spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+
 
             int remainingNumberSpaces = 2;
             for(int i = 1; i <= remainingNumberSpaces; i++)
