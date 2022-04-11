@@ -31,6 +31,7 @@ namespace Sprint0.TileClass
 
         public void draw(int xOffset, int yOffset)
         {
+            
             Rectangle destinationRectangle = new Rectangle((int)myPos.X + xOffset, (int)myPos.Y + yOffset, 64, 64);
             myBatch.Begin();
             myBatch.Draw(
@@ -61,7 +62,9 @@ namespace Sprint0.TileClass
         public Vector2 Position
         {
             get { return myPos; }
-            set { myPos = value; }
+            set { myPos = value;
+                UpdateCollisionBox();
+            }
         }
 
         public TopLeft TopLeft
@@ -87,6 +90,15 @@ namespace Sprint0.TileClass
             get { return isPushable; }
             
         }
+
+        private void UpdateCollisionBox()
+        {
+            tLeft.X = (int)myPos.X;
+            tLeft.Y = (int)myPos.Y;
+            bRight.X = (int)myPos.X+64;
+            bRight.Y = (int)myPos.Y + 64;
+        }
+
     }
 
 }

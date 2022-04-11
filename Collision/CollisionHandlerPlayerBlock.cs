@@ -55,8 +55,8 @@ namespace Sprint0.Collision
             }
             else
             {
-                player.Position = new Vector2(player.Position.X + (xDirection * -1), player.Position.Y + (yDirection * -1));
-                block.Position = new Vector2(player.Position.X + (xDirection * -1), player.Position.Y + (yDirection * -1));
+                player.Position = new Vector2(player.Position.X + overlap*(xDirection), player.Position.Y + overlap *(yDirection));
+                block.Position = new Vector2(block.Position.X + overlap*(xDirection * -1), block.Position.Y + overlap*(yDirection * -1));
             }
 
             //Console.WriteLine("yDirection=" + yDirection);

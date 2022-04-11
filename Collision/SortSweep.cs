@@ -114,6 +114,17 @@ namespace Sprint0.Collision
 
                         }
 
+                        if (targets[listInd][handlerTarget] is ITile)
+                        {
+                            List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
+                            CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
+                            if (direction != CollisionDirections.None)
+                            {
+                                AssignBlockHandler(targets[listInd][handlerTarget] as ITile, targets[listInd][x], direction, (int)result[1]);
+                            }
+
+                        }
+
 
                     }
                 }
@@ -280,6 +291,18 @@ namespace Sprint0.Collision
                 //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }
             
+        }
+
+        private void AssignBlockHandler(ITile agiatorBlock, Object other, CollisionDirections dir, int magnitude)
+        {
+            if (other is ITile)
+            {
+                new CollisionHandlerBlockBlock(agiatorBlock, other as ITile, dir, magnitude).HandleCollision();
+            }
+            else if (other is ADoor)
+            {
+                new CollisionHandlerTileDoor(agiatorBlock, other as ADoor, dir, magnitude).HandleCollision();
+            }
         }
 
         public void AddToList(IBoxCollider box)
