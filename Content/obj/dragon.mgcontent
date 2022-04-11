@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/dragon.png</SourceFile>
-  <SourceTime>2022-04-08T10:51:34.8270739-04:00</SourceTime>
-  <DestFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/dragon.xnb</DestFile>
-  <DestTime>2022-04-10T14:45:09.8835868-04:00</DestTime>
+  <SourceFile>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS413/Content/dragon.png</SourceFile>
+  <SourceTime>2022-04-11T07:56:41.0095135-04:00</SourceTime>
+  <DestFile>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS413/Content/bin/dragon.xnb</DestFile>
+  <DestTime>2022-04-11T07:57:31.4737667-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

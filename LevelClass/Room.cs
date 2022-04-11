@@ -122,7 +122,7 @@ namespace Sprint0.LevelClass
                   
                 
             
-                Console.WriteLine(enemyList.Count);
+               
                 if (enemyList.Count <= 0)
                 {
                     currentItem1.TopLeft.X = (int)currentItem1.myPos.X;

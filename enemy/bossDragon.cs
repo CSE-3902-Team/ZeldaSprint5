@@ -218,14 +218,14 @@ namespace Sprint0.enemy
                     botRight.X = 0;
                     botRight.Y = 0;
 
-                    if (explosionFrame < 100)
+                    if (explosionFrame < 200)
                     {
 
 
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 2f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 135f, new Vector2(0, 0), 2f, SpriteEffects.FlipVertically, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 2f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 820, 338, 18, 23), Color.White, 0.01f, new Vector2(0, 0), 2f, SpriteEffects.FlipHorizontally, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18* row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
                     }
                     else
                     {
@@ -250,7 +250,7 @@ namespace Sprint0.enemy
                 trigger++;
                 hit = 0;
             }
-            if (currentFrameHurt == 4)
+            if (currentFrameHurt ==3)
             {
                 currentFrameHurt = 0;
             }

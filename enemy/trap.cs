@@ -25,9 +25,10 @@ namespace Sprint0.enemy
         private int frame;
         private TopLeft topLeft;
         private BottomRight botRight;
-
+        private Vector2 savePos;
         private bool isAlive;
         private int DeathCount;
+        private bool rightSpot;
         public int deathCount
         {
             get { return DeathCount; }
@@ -73,17 +74,24 @@ namespace Sprint0.enemy
             botRight = new BottomRight((int)currentPos.X + 64, (int)currentPos.Y + 64, this);
             isAlive = true;
             this.location = location;
+            savePos = location;
 
         }
 
         public void Update()
         {
+    
 
-       
-                MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
+            MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
             NewDestination target = new NewDestination(direction, currentPos, destination);
-
-            if (link.Position.X < 250 || link.Position.X > 750)
+            if ((link.Position.X < 250 || link.Position.Y < 450) || (link.Position.X > 750 || link.Position.Y > 733))
+            {
+           
+                rightSpot = true;
+           if(frame==0)
+                    direction = target.trap1(link);
+            }
+            if (frame<100&&rightSpot)
             {
                 trigger = true;
 
@@ -91,12 +99,18 @@ namespace Sprint0.enemy
 
             if (frame > 100)
             {
+       
+                rightSpot = false;
                 trigger = false;
                 frame = 0;
-              
+                if (currentPos.X != savePos.X || currentPos.Y != savePos.Y) {
+                    currentPos.X = savePos.X;
+                    currentPos.Y = savePos.Y;
+                        }
+                direction = target.trap1(link);
+
             }
            
-                direction = target.trap1(link);
             
     
             if (trigger==true)
@@ -104,8 +118,11 @@ namespace Sprint0.enemy
                 currentPos = move.trapMove(frame,location);
                 frame++;
             }
+            Console.WriteLine("X:"+link.Position.X);
+            Console.WriteLine("Y:"+link.Position.Y);
+            Console.WriteLine("direction X" + direction.X);
+            Console.WriteLine("direction Y" + direction.Y);
 
-       
 
 
 
@@ -125,7 +142,7 @@ namespace Sprint0.enemy
             int row = currentFrame;
             if (isAlive)
             {
-                Rectangle sourceRectangle = new Rectangle(329, 119, 32, 32);
+                Rectangle sourceRectangle = new Rectangle(329, 140, 32, 48);
                 Rectangle destinationRectangle = new Rectangle((int)currentPos.X+xOffset, (int)currentPos.Y+yOffset, 64, 64);
 
                 batch.Begin();

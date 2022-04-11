@@ -82,22 +82,22 @@ namespace Sprint0.enemy
     
         public Vector2 trap1(Player player)
         {
-             if (player.Position.X < 250)
+             if (player.Position.X < 250|| player.Position.X>750)
             {
                 movement.X = 0;
 
             }
-           else if (player.Position.X > 750)
+           else if ((player.Position.Y <= 456 ||player.Position.Y>733)&& player.Position.X>250 &&player.Position.X < 750)
             {
                 movement.X = 1;
 
             }
-           else if (player.Position.Y< 500 && player.Position.X>200 && player.Position.X<700)
+           if (player.Position.X<250|| player.Position.Y < 450)
             {
                 movement.Y = 0;
 
             }
-           else if (player.Position.Y > 700 && player.Position.X > 200 && player.Position.X < 700)
+           else if (player.Position.X > 750 ||player.Position.Y > 733)
             {
                 movement.Y = 1;
 

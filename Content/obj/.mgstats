@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS413/Content/dragon.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaGameS413/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",38013,2339669,0.3180258
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/ball.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.116753
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/BG_MUSIC.wav","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/BG_MUSIC.xnb","SoundEffectProcessor","SoundEffectContent",6002120,6002025,0.2030921
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/BombBlow.wav","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/BombBlow.xnb","SoundEffectProcessor","SoundEffectContent",16126,16186,0.1183045
