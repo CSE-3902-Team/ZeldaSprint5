@@ -169,13 +169,14 @@ namespace Sprint0.LevelClass
             if (enemy.Length > 0 && item.Length<=0) {
                 enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position, command));
             }
-            if (item.Length > 0 && enemy.Length<=0) {
+          else  if (item.Length > 0 && enemy.Length<=0) {
                 
                 itemList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
             }
-            if (item.Length > 0 && enemy.Length > 0)
+            else if (item.Length > 0 && enemy.Length > 0)
             {
                 enemyHoldItem.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position, command), itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
+               
           
             }
         }
