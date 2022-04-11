@@ -295,8 +295,13 @@ namespace Sprint0.Collision
 
         private void AssignBlockHandler(ITile agiatorBlock, Object other, CollisionDirections dir, int magnitude)
         {
-            if (other is ITile) {
+            if (other is ITile)
+            {
                 new CollisionHandlerBlockBlock(agiatorBlock, other as ITile, dir, magnitude).HandleCollision();
+            }
+            else if (other is ADoor)
+            {
+                new CollisionHandlerTileDoor(agiatorBlock, other as ADoor, dir, magnitude).HandleCollision();
             }
         }
 

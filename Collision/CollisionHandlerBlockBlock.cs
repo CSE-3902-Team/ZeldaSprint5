@@ -25,7 +25,7 @@ namespace Sprint0.Collision
             float xDirection;
             float yDirection;
 
-            if(orginBlock is SolidNavyTile)
+            if(orginBlock is SolidNavyTile || orginBlock is PressurePlate)
             {
                 return;
             }

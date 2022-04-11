@@ -154,7 +154,9 @@ namespace Sprint0.LevelClass
             {
                 UnlockDoors();
             }
-            
+            CheckPressurePlate();
+
+
         }
 
         public void UpdateProjectiles()
@@ -218,6 +220,30 @@ namespace Sprint0.LevelClass
                     doorList[x] = DoorFactory.Instance.CreateDoorSprite(DoorFactory.Door.Open, doorList[x].DoorSide, doorList[x].connection);
                     colliderDetector.AddToList(doorList[x] as IBoxCollider);
                 }
+            }
+        }
+
+        private void CheckPressurePlate()
+        {
+            Vector2 platePos = Vector2.Zero;
+            Vector2 pushablePos = Vector2.Zero;
+            for (int x = 0; x < tileList.Length; x++)
+            {
+                if (tileList[x] is PressurePlate)
+                {
+                    platePos = tileList[x].Position;
+                }
+                if (tileList[x] is PushableTile)
+                {
+                    pushablePos = tileList[x].Position;
+                }
+            }
+            if (platePos.Equals(Vector2.Zero) || pushablePos.Equals(Vector2.Zero)) return;
+
+            if ((int)platePos.X == (int)pushablePos.X && (int)platePos.Y == (int)pushablePos.Y)
+            {
+                Console.WriteLine("pressure plate triggered");
+                UnlockDoors();
             }
         }
 
