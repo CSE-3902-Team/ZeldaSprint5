@@ -35,7 +35,7 @@ namespace Sprint0.Collision
          
        
           
-            Console.WriteLine(enemy.deathCount);
+     
         
             projectile.IsRunning = false;
 
