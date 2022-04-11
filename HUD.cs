@@ -59,7 +59,7 @@ namespace Sprint0
             this.headsUpDisplay = headsUpDisplay;
             inventory = player.Inventory;
 
-            health = player.PlayerHp;
+            health = player.Inventory.HeartCount;
             heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
@@ -85,7 +85,8 @@ namespace Sprint0
 
         public void Update()
         {
-            health = player.PlayerHp;
+            inventory.Update();
+            health = player.Inventory.HeartCount;
             heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
@@ -110,14 +111,12 @@ namespace Sprint0
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((rupeeCount % 10) * numberWidth) + (rupeeCount * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
-            remainingNumberSpaces = 2;
             for (int i = 1; i <= remainingNumberSpaces; i++)
             {
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount / 10) * numberWidth) + ((keyCount / 10)* spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount % 10) * numberWidth) + (keyCount * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);  
             }
 
-            remainingNumberSpaces = 2;
             for (int i = 1; i <= remainingNumberSpaces; i++)
             {
                 spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((bombCount / 10) * numberWidth) + ((bombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);

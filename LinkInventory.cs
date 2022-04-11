@@ -192,15 +192,14 @@ namespace Sprint0
             clock = false;
 
             itemCounts = new List<int>();
-            itemCounts.Add(RupeeCount);
-            itemCounts.Add(KeyCount);
-            itemCounts.Add(BombCount);
-            itemCounts.Add(ArrowCount);
-            itemCounts.Add(HeartCount);
-            itemCounts.Add(HeartContainerCount);
 
         }
 
+        public void Update()
+        {
+            heartContainerCount = (player.MaxHp) / 2;
+            heartCount = player.PlayerHp;
+        }
         public void Draw()
         {
             

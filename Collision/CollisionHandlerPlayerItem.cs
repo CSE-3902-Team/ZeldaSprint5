@@ -24,21 +24,22 @@ namespace Sprint0.Collision
             {
                 player.MaxHp += 2;
                SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
-                inventory.HeartContainerCount++;
                 inventory.FirstHeartContainer = false;
+
             }
             else if (item is ItemHeart)
             {
                 if((player.PlayerHp + 2) <= player.MaxHp)
                 {
                     player.PlayerHp += 2;
-                }else if((player.PlayerHp + 1) <= player.MaxHp){
-                    player.PlayerHp += 1;
+
                 }
-                
-               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
+                else if((player.PlayerHp + 1) <= player.MaxHp){
+                    player.PlayerHp++;
+                }
+
+                SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
                 inventory.FirstHeart = false;
-                inventory.HeartCount += 2;
             }
             else if (item is ItemKey) 
             {
@@ -50,8 +51,8 @@ namespace Sprint0.Collision
             else if (item is ItemRupee)
             {
                SoundManager.Instance.Play(SoundManager.Sound.GetRupee);
-                inventory.FirstRupee = false;
                 inventory.RupeeCount++;
+                inventory.FirstRupee = false;
             }
             else if (item is ItemTriforcePiece)
             {
