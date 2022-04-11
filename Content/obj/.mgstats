@@ -1,5 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/ball.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1547462
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/dragon.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",38013,2339669,0.0794878
-"C:/Users/cciri/source/repos/ZeldaGameS4/Content/Inventory.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",20026,6467669,0.1818064
+"C:/Users/cciri/source/repos/ZeldaGameS4/Content/Inventory.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",63162,6467669,1.1577628
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/playerSheetV4.png.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/playerSheetV4.png.xnb","TextureProcessor","Texture2DContent",399495,37263325,0.9281085
