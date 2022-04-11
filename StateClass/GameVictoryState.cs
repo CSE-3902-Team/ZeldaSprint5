@@ -13,10 +13,28 @@ namespace Sprint0.StateClass
     {
         private const int WIDTH = 1024;
         private const int HEIGHT = 960;
-        private Game1 _game;
-        private ContentManager _content;
+        private const int YCENTER = 960 / 2;
+        private const int XCENTER = 1024 / 2;
+        private const int REPLAYX = 416;
+        private const int REPLAYY = 48;
+        private const int EXITX = 283;
+        private const int EXITY = 48;
+        private const int VICTORYX = 468;
+        private const int VICTORYY = 48;
+        private const int ANIMATIONX = 64;
+
         private Texture2D screen;
-        private Texture2D text;
+        private Texture2D victoryText;
+        private Texture2D replayText;
+        private Texture2D exitText;
+        private Texture2D lAnimation;
+        private Texture2D rAnimation;
+        private bool animate = true;
+        private int currentFrame = 1;
+        private int count = 0;
+        private int rightStart = WIDTH - 64;
+        private int leftStart = 0;
+
         //private KeyboardController kController;
         //private MouseController mController;
 
@@ -32,7 +50,11 @@ namespace Sprint0.StateClass
         {
             Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
             screen = _content.Load<Texture2D>("BlackBackground");
-            text = _content.Load<Texture2D>("VictoryText");
+            victoryText = _content.Load<Texture2D>("VictoryText");
+            replayText = _content.Load<Texture2D>("ReplayText");
+            exitText = _content.Load<Texture2D>("ExitText");
+            lAnimation = _content.Load<Texture2D>("blackColumn");
+            rAnimation = _content.Load<Texture2D>("blackColumn");
             isVictory = true;
         }
 
@@ -40,6 +62,18 @@ namespace Sprint0.StateClass
         {
             _game.MouseController.handleInput();
             _game.KeyboardController.handleInput();
+
+            if (animate)
+            {
+
+                if (count > 80)
+                {
+                    animate = false;
+                }
+                
+                currentFrame++;
+            }
+            count++;
             //if(player presses "play again")
             //reset the game
             //if(player presses "exit game")
@@ -48,32 +82,108 @@ namespace Sprint0.StateClass
 
         public override void Draw(GameTime gameTime)
         {
+            
+
             Rectangle screenDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle screenSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
-            Rectangle textDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
-            Rectangle textSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
+            Rectangle victoryTextDestRect = new Rectangle(XCENTER - VICTORYX / 2, YCENTER - 48 * 1, VICTORYX, VICTORYY);
+            Rectangle victoryTextSrcRect = new Rectangle(0, 0, VICTORYX, VICTORYY);
+            Rectangle replayTextDestRect = new Rectangle(XCENTER - REPLAYX / 2, YCENTER + 48, REPLAYX, REPLAYY);
+            Rectangle replayTextSrcRect = new Rectangle(0, 0, REPLAYX, REPLAYY);
+            Rectangle exitTextDestRect = new Rectangle(XCENTER - EXITX / 2, YCENTER + 48 * 3, EXITX, EXITY);
+            Rectangle exitTextSrcRect = new Rectangle(0, 0, EXITX, EXITY);
+
+            Rectangle lAnimationDestRect = new Rectangle(leftStart, 0, ANIMATIONX, HEIGHT);
+            Rectangle rAnimationDestRect = new Rectangle(rightStart, 0, ANIMATIONX, HEIGHT);
+            Rectangle AimationSrcRect = new Rectangle(0, 0, ANIMATIONX, HEIGHT);
 
             _game.SpriteBatch.Begin();
-            _game.SpriteBatch.Draw(
-                 screen,
-                 screenDestRect,
-                 screenSrcRect,
-                Color.White,
-                0f,
-                new Vector2(0, 0),
-                SpriteEffects.None,
-                0f
-                );
-            _game.SpriteBatch.Draw(
-                 text,
-                 textDestRect,
-                 textSrcRect,
-                Color.White,
-                0f,
-                new Vector2(0, 0),
-                SpriteEffects.None,
-                0f
-                );
+
+            if (animate)
+            {
+                if (currentFrame % 10 == 0)
+                {
+                    lAnimationDestRect = new Rectangle(leftStart, 0, ANIMATIONX, HEIGHT);
+                    rAnimationDestRect = new Rectangle(rightStart, 0, ANIMATIONX, HEIGHT);
+
+                    leftStart += 64;
+                    rightStart -= 64;
+                    
+                }
+                
+                _game.SpriteBatch.Draw(
+                     lAnimation,
+                     lAnimationDestRect,
+                     AimationSrcRect,
+                    Color.White,
+                    0f,
+                    new Vector2(0, 0),
+                    SpriteEffects.None,
+                    0f
+                    );
+                
+
+                
+                _game.SpriteBatch.Draw(
+                     rAnimation,
+                     rAnimationDestRect,
+                     AimationSrcRect,
+                    Color.White,
+                    0f,
+                    new Vector2(0, 0),
+                    SpriteEffects.None,
+                    0f
+                    );
+                
+
+            }
+            else
+            {
+                
+                _game.SpriteBatch.Draw(
+                     screen,
+                     screenDestRect,
+                     screenSrcRect,
+                    Color.White,
+                    0f,
+                    new Vector2(0, 0),
+                    SpriteEffects.None,
+                    0f
+                    );
+
+                _game.SpriteBatch.Draw(
+                     victoryText,
+                     victoryTextDestRect,
+                     victoryTextSrcRect,
+                    Color.White,
+                    0f,
+                    new Vector2(0, 0),
+                    SpriteEffects.None,
+                    0f
+                    );
+
+                _game.SpriteBatch.Draw(
+                         replayText,
+                         replayTextDestRect,
+                         replayTextSrcRect,
+                        Color.White,
+                        0f,
+                        new Vector2(0, 0),
+                        SpriteEffects.None,
+                        0f
+                        );
+
+                _game.SpriteBatch.Draw(
+                     exitText,
+                     exitTextDestRect,
+                     exitTextSrcRect,
+                    Color.White,
+                    0f,
+                    new Vector2(0, 0),
+                    SpriteEffects.None,
+                    0f
+                    );
+            }
 
             _game.SpriteBatch.End();
         }

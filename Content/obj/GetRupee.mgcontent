@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetRupee.wav</SourceFile>
-  <SourceTime>2022-03-30T10:33:31.7835814-04:00</SourceTime>
-  <DestFile>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/GetRupee.xnb</DestFile>
-  <DestTime>2022-04-11T11:39:06.2986983-04:00</DestTime>
+  <SourceFile>C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/GetRupee.wav</SourceFile>
+  <SourceTime>2022-04-11T15:00:04.1693213-04:00</SourceTime>
+  <DestFile>C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/GetRupee.xnb</DestFile>
+  <DestTime>2022-04-11T15:59:44.316557-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
