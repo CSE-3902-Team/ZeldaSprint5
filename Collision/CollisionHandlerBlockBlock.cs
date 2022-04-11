@@ -4,18 +4,18 @@ using Sprint0.TileClass;
 
 namespace Sprint0.Collision
 {
-    public class CollisionHandlerPlayerBlock : ICollisionHandler
+    public class CollisionHandlerBlockBlock : ICollisionHandler
     {
-        private Player player;
-        private ITile block;
+        private ITile agiatorBlock;
+        private ITile orginBlock;
         private int overlap;
         private CollisionDirections collisionDirections;
 
 
-        public CollisionHandlerPlayerBlock(Player player, ITile block, CollisionDirections collisionDirections, int overlap)
+        public CollisionHandlerBlockBlock(ITile agiatorBlock, ITile orginBlock, CollisionDirections collisionDirections, int overlap)
         {
-            this.player = player;
-            this.block = block;
+            this.agiatorBlock = agiatorBlock;
+            this.orginBlock = orginBlock;
             this.overlap = overlap;
             this.collisionDirections = collisionDirections;
 
@@ -24,6 +24,15 @@ namespace Sprint0.Collision
         {
             float xDirection;
             float yDirection;
+
+            if(orginBlock is SolidNavyTile)
+            {
+                return;
+            }
+
+            if (!(agiatorBlock is PushableTile)) {
+                return;
+            }
 
             switch (collisionDirections)
             {
@@ -48,18 +57,8 @@ namespace Sprint0.Collision
                     xDirection = 0;
                     break;
             }
+            agiatorBlock.Position = new Vector2(agiatorBlock.Position.X + overlap*(xDirection), agiatorBlock.Position.Y + overlap*(yDirection));
 
-            if (!(block is PushableTile))
-            {
-                player.Position = new Vector2(player.Position.X + (xDirection * overlap), player.Position.Y + yDirection * (float)overlap);
-            }
-            else
-            {
-                player.Position = new Vector2(player.Position.X + overlap*(xDirection), player.Position.Y + overlap *(yDirection));
-                block.Position = new Vector2(block.Position.X + overlap*(xDirection * -1), block.Position.Y + overlap*(yDirection * -1));
-            }
-
-            //Console.WriteLine("yDirection=" + yDirection);
         }
     }
 }

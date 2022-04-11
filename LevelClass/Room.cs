@@ -54,8 +54,7 @@ namespace Sprint0.LevelClass
             projectileList = new List<IProjectile>();
             _player = player;
             colliderDetector = new SortSweep();
-
-           
+            SortTilesByDrawOrder();
 
             for (int x = 0; x < doorList.Length; x++) { 
                 colliderDetector.AddToList(doorList[x] as IBoxCollider);
@@ -87,9 +86,9 @@ namespace Sprint0.LevelClass
         }
 
         public void drawRoom(int xOffset, int yOffset, bool transition) {
-            foreach (ITile currentTile in tileList)
+            for (int x = 0; x < tileList.Length; x++)
             {
-                currentTile.draw(xOffset, yOffset);
+                tileList[x].draw(xOffset, yOffset);
             }
             foreach (ADoor currentDoor in doorList)
             {
@@ -157,6 +156,25 @@ namespace Sprint0.LevelClass
                     enemyList[x].Update();
                 }
             }
+        }
+
+        private void SortTilesByDrawOrder()
+        {
+            Array.Sort(tileList, delegate (ITile a, ITile b)
+            {
+                if (a.GetType() == typeof(PushableTile) || a.GetType() == typeof(RightFire) || a.GetType() == typeof(LeftFire))
+                {
+                    return 1;
+                }
+                else if (b.GetType() == typeof(PushableTile)|| b.GetType() == typeof(RightFire) || b.GetType() == typeof(LeftFire))
+                {
+                    return -1;
+                }
+                else {
+                    return ((int)a.Position.X + (int)a.Position.Y * -1).CompareTo((int)a.Position.X + (int)a.Position.Y * -1);
+                }
+                
+            });
         }
 
         public void UnlockDoors()

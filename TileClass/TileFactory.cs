@@ -53,6 +53,7 @@ namespace Sprint0.TileClass
 			{"rightWallBottom", Tile.RightWallBottom },
 			{"botWallLeft", Tile.BotWallLeft },
 			{"botWallRight", Tile.BotWallRight },
+			{"pushable square", Tile.PushableSquare }
 
 		};
 
@@ -79,7 +80,8 @@ namespace Sprint0.TileClass
 			BotWallLeft = 18,
 			BotWallRight = 19,
 			LeftWallTop = 20,
-			LeftWallBot = 21
+			LeftWallBot = 21,
+			PushableSquare = 22
 		}
 
 		private static TileFactory instance = new TileFactory();
@@ -183,6 +185,8 @@ namespace Sprint0.TileClass
 					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, BOUNDARY_THICKNESS, VERTICAL_BOUNDARY_LENGTH));
 				case Tile.LeftWallBot:
 					return new WallCollisionBox(new Rectangle((int)pos.X, (int)pos.Y, BOUNDARY_THICKNESS, VERTICAL_BOUNDARY_LENGTH));
+				case Tile.PushableSquare:
+					return new PushableTile(tileWithSquareTexture, batch, pos);
 				default:
 					return new BrickTile(bricksTexture, batch, pos);
 			}
