@@ -87,7 +87,7 @@ namespace Sprint0.LevelClass
             numRooms = 5;
             roomList = new List<Room>();
 
-            playerTexture = Content.Load<Texture2D>("playerSheetV3");
+            playerTexture = Content.Load<Texture2D>("playerSheetV4.png");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
             
             _player = new Player(playerTexture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200+OFFSET), new Vector2(1, 0)), new Vector2(200, 200+OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
