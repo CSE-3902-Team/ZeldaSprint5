@@ -1,3 +1,7 @@
 is_global = true
 build_property.RootNamespace = Sprint0
+<<<<<<< HEAD
+build_property.ProjectDir = C:\Users\cciri\Source\Repos\ZeldaGameS4\
+=======
 build_property.ProjectDir = C:\Users\tingy\Source\Repos\ZeldaGameS4(4)\
+>>>>>>> victory

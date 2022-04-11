@@ -33,7 +33,8 @@ namespace Sprint0.enemy
         public int explosionFrame;
         private int frame;
         private int frame1=200;
-
+        private int cloudAppear;
+        private int row2=4;
         private TopLeft topLeft;
         private BottomRight botRight;
         private bool isAlive;
@@ -100,69 +101,72 @@ namespace Sprint0.enemy
         }
 
         public void Update()
-        { if (isAlive && deathCount < 10)
+        {
+            if (cloudAppear >= 300)
             {
-                dragonBreath1.Direction = currentPos;
-                dragonBreath2.Direction = currentPos;
-                dragonBreath3.Direction = currentPos;
-                FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
-                dragonBreath1.Update();
-                dragonBreath2.Update();
-                dragonBreath3.Update();
-                MoveEnemy dragonMove = new MoveEnemy(direction, currentPos, destination);
-                Vector2 result = dragonMove.DragonMove();
-                if (frame == 5)
+                if (isAlive && deathCount < 10)
                 {
+                    dragonBreath1.Direction = currentPos;
+                    dragonBreath2.Direction = currentPos;
+                    dragonBreath3.Direction = currentPos;
+                    FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
+                    dragonBreath1.Update();
+                    dragonBreath2.Update();
+                    dragonBreath3.Update();
+                    MoveEnemy dragonMove = new MoveEnemy(direction, currentPos, destination);
+                    Vector2 result = dragonMove.DragonMove();
+                    if (frame == 5)
+                    {
 
-                    currentFrame = action.dragon();
+                        currentFrame = action.dragon();
 
-                    FireBallCurrentFrame = dragonBreath1.ProjectileFrameChange();
-                    FireBallCurrentFrame = dragonBreath2.ProjectileFrameChange();
-                    FireBallCurrentFrame = dragonBreath3.ProjectileFrameChange();
-
-
-                    frame = 0;
-                }
-
-                currentPos.X = result.Y;
-                destination.X = result.X;
-
-
-                if (frame1 % 15 == 0)
-                {
-                    command.LoadCommand(dragonBreath1);
-                    command.Execute();
-                    command.LoadCommand(dragonBreath2);
-                    command.Execute();
-                    command.LoadCommand(dragonBreath3);
-                    command.Execute();
-                }
-
-                if (frame1 == 200)
-                {
-
-                    fire = true;
-                    frame1 = 0;
+                        FireBallCurrentFrame = dragonBreath1.ProjectileFrameChange();
+                        FireBallCurrentFrame = dragonBreath2.ProjectileFrameChange();
+                        FireBallCurrentFrame = dragonBreath3.ProjectileFrameChange();
 
 
+                        frame = 0;
+                    }
 
-                }
-                if (fire)
-                {
+                    currentPos.X = result.Y;
+                    destination.X = result.X;
 
+
+                    if (frame1 % 15 == 0)
+                    {
+                        command.LoadCommand(dragonBreath1);
+                        command.Execute();
+                        command.LoadCommand(dragonBreath2);
+                        command.Execute();
+                        command.LoadCommand(dragonBreath3);
+                        command.Execute();
+                    }
 
                     if (frame1 == 200)
                     {
 
-                        fire = false;
+                        fire = true;
+                        frame1 = 0;
+
+
 
                     }
+                    if (fire)
+                    {
+
+
+                        if (frame1 == 200)
+                        {
+
+                            fire = false;
+
+                        }
+                    }
+                    frame++;
+                    frame1++;
+                    UpdateCollisionBox();
                 }
-                frame++;
-                frame1++;
-                UpdateCollisionBox();
             }
-   
  
       
         }
@@ -185,64 +189,75 @@ namespace Sprint0.enemy
             batch.Begin();
             if (isAlive)
             {
-                if (deathCount < 10)
+                if (cloudAppear <300)
                 {
-                    if (rect == null)
-                    {
-                        rect = new Texture2D(batch.GraphicsDevice, 1, 1);
-                        rect.SetData(new[] { Color.White });
-                    }
-          
-                    if (trigger != deathCount && hit < 50)
-                    {
-
-                        batch.Draw(Texture, new Rectangle((int)currentPos.X + xOffset - 15, (int)currentPos.Y + yOffset + 15, 200, 200), new Rectangle(61 * currentFrameHurt + 515, 444, 64, 90), Color.White);
-
-
-
-
-                        hit++;
-                    }
-                    else
-                    {
-
-
-                        batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
-                    }
+                    batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset+50, (int)currentPos.Y + yOffset+75), new Rectangle(33 * row2 + 624, 304, 33, 34), Color.White, 0.01f, new Vector2(0, 0), 3f, SpriteEffects.None, 1);
+                    cloudAppear++;
+                    if(cloudAppear%60==0)
+                    row2--;
+                    if (row2 == -1)
+                        row2 = 4;
                 }
-                if (deathCount >= 10)
+                else
                 {
+                    if (deathCount < 10)
+                    {
+                        if (rect == null)
+                        {
+                            rect = new Texture2D(batch.GraphicsDevice, 1, 1);
+                            rect.SetData(new[] { Color.White });
+                        }
 
-                    topLeft.X = 0;
-                    topLeft.Y = 0;
-                    botRight.X = 0;
-                    botRight.Y = 0;
+                        if (trigger != deathCount && hit < 50)
+                        {
 
-                    if (explosionFrame < 200)
+                            batch.Draw(Texture, new Rectangle((int)currentPos.X + xOffset - 15, (int)currentPos.Y + yOffset + 15, 200, 200), new Rectangle(61 * currentFrameHurt + 515, 444, 64, 90), Color.White);
+
+
+
+
+                            hit++;
+                        }
+                        else
+                        {
+
+
+                            batch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+                        }
+                    }
+                    if (deathCount >= 10)
                     {
 
+                        topLeft.X = 0;
+                        topLeft.Y = 0;
+                        botRight.X = 0;
+                        botRight.Y = 0;
 
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18* row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
-                        batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
+                        if (explosionFrame < 200)
+                        {
+
+
+                            batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X + change + xOffset + 25, (int)currentPos.Y - change + yOffset + 25), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 135f, new Vector2(0, 0), 1f, SpriteEffects.FlipVertically, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y - change + yOffset), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                            batch.Draw(Texture, new Vector2((int)currentPos.X - change + xOffset, (int)currentPos.Y + change + yOffset), new Rectangle(18 * row1 + 721, 478, 18, 32), Color.White, 0.01f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 1);
+                        }
+                        else
+                        {
+                            isAlive = false;
+                        }
+                        row1++;
+                        if (row1 == 5)
+                        {
+                            row1 = 0;
+                        }
+                        explosionFrame++;
+                        change += 2;
                     }
-                    else
-                    {
-                        isAlive = false;
-                    }
-                    row1++;
-                    if (row1 == 5)
-                    {
-                        row1 = 0;
-                    }
-                    explosionFrame++;
-                    change += 2;
+
                 }
 
             }
-
-
             batch.End();
             currentFrameHurt++;
             if (hit == 50)

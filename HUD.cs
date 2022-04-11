@@ -66,7 +66,7 @@ namespace Sprint0
             bombCount = player.Inventory.BombCount;
             arrowCount = player.Inventory.ArrowCount;
 
-            levelNumber = 1;
+            levelNumber = player.Inventory.LevelNumber;
 
             hudRectangle = new Rectangle(0, 0, 1024, 256);
             emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 255, heartWidth, heartHeight);
@@ -76,10 +76,10 @@ namespace Sprint0
             timesSymbolSourceRect = new Rectangle(numberXSourceLocation, (heartAndNumberYSourceLocation + numberHeight), numberWidth, numberHeight);
 
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
-            heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
-            rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth + 1, numberHeight);
-            bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth + 1, numberHeight);
-            keyNumberDestRect = new Rectangle(numberXDestLocation, keyYDestLocation, numberWidth + 1, numberHeight);
+            //heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
+            rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
+            bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
+            keyNumberDestRect = new Rectangle(numberXDestLocation, keyYDestLocation, numberWidth, numberHeight);
 
         }
 
@@ -92,6 +92,7 @@ namespace Sprint0
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;
             arrowCount = player.Inventory.ArrowCount;
+            levelNumber = player.Inventory.LevelNumber;
         }
         public void Draw()
         {

@@ -1,62 +1,72 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/lukes/ZeldaGameS4/Content/ball.png","C:/Users/lukes/ZeldaGameS4/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.3447791
-"C:/Users/lukes/ZeldaGameS4/Content/BG_MUSIC.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/BG_MUSIC.xnb","SoundEffectProcessor","SoundEffectContent",6002120,6002025,1.3998008
-"C:/Users/lukes/ZeldaGameS4/Content/BlackBackground.png","C:/Users/lukes/ZeldaGameS4/Content/bin/BlackBackground.xnb","TextureProcessor","Texture2DContent",19266,3932245,0.1024522
-"C:/Users/lukes/ZeldaGameS4/Content/BombBlow.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/BombBlow.xnb","SoundEffectProcessor","SoundEffectContent",16126,16186,1.220154
-"C:/Users/lukes/ZeldaGameS4/Content/BombDrop.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/BombDrop.xnb","SoundEffectProcessor","SoundEffectContent",6740,6800,1.212371
-"C:/Users/lukes/ZeldaGameS4/Content/bricks.png","C:/Users/lukes/ZeldaGameS4/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",392,16469,0.0025216
-"C:/Users/lukes/ZeldaGameS4/Content/creditsEdited.png","C:/Users/lukes/ZeldaGameS4/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0180365
-"C:/Users/lukes/ZeldaGameS4/Content/doors.png","C:/Users/lukes/ZeldaGameS4/Content/bin/doors.xnb","TextureProcessor","Texture2DContent",24583,1375061,0.0311569
-"C:/Users/lukes/ZeldaGameS4/Content/DoorUnlock.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/DoorUnlock.xnb","SoundEffectProcessor","SoundEffectContent",55154,55214,1.2108686
-"C:/Users/lukes/ZeldaGameS4/Content/dragon.png","C:/Users/lukes/ZeldaGameS4/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",35481,2339669,0.0694225
-"C:/Users/lukes/ZeldaGameS4/Content/DungeonEnemy.png","C:/Users/lukes/ZeldaGameS4/Content/bin/DungeonEnemy.xnb","TextureProcessor","Texture2DContent",19899,416869,0.0146074
-"C:/Users/lukes/ZeldaGameS4/Content/enemy.png","C:/Users/lukes/ZeldaGameS4/Content/bin/enemy.xnb","TextureProcessor","Texture2DContent",85679,2062069,0.0682246
-"C:/Users/lukes/ZeldaGameS4/Content/EnemyDie.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/EnemyDie.xnb","SoundEffectProcessor","SoundEffectContent",9282,9343,1.2106032
-"C:/Users/lukes/ZeldaGameS4/Content/EnemyHit.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/EnemyHit.xnb","SoundEffectProcessor","SoundEffectContent",10984,11044,1.2211078
-"C:/Users/lukes/ZeldaGameS4/Content/ExitText.png","C:/Users/lukes/ZeldaGameS4/Content/bin/ExitText.xnb","TextureProcessor","Texture2DContent",2657,54421,0.0039419
-"C:/Users/lukes/ZeldaGameS4/Content/GameOverText.png","C:/Users/lukes/ZeldaGameS4/Content/bin/GameOverText.xnb","TextureProcessor","Texture2DContent",15702,359509,0.0110911
-"C:/Users/lukes/ZeldaGameS4/Content/GameOverText2.png","C:/Users/lukes/ZeldaGameS4/Content/bin/GameOverText2.xnb","TextureProcessor","Texture2DContent",11280,89941,0.0043233
-"C:/Users/lukes/ZeldaGameS4/Content/GetHeartKey.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/GetHeartKey.xnb","SoundEffectProcessor","SoundEffectContent",7248,7308,1.2267549
-"C:/Users/lukes/ZeldaGameS4/Content/GetInventoryItem.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/GetInventoryItem.xnb","SoundEffectProcessor","SoundEffectContent",27284,27345,1.2123525
-"C:/Users/lukes/ZeldaGameS4/Content/GetRupee.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/GetRupee.xnb","SoundEffectProcessor","SoundEffectContent",19814,19875,1.2115088
-"C:/Users/lukes/ZeldaGameS4/Content/HUDandInventory.png","C:/Users/lukes/ZeldaGameS4/Content/bin/HUDandInventory.xnb","TextureProcessor","Texture2DContent",24832,8022741,0.1828132
-"C:/Users/lukes/ZeldaGameS4/Content/Inventory.png","C:/Users/lukes/ZeldaGameS4/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",10645,3932245,0.1010655
-"C:/Users/lukes/ZeldaGameS4/Content/itemsAndWeapons.png","C:/Users/lukes/ZeldaGameS4/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0535465
-"C:/Users/lukes/ZeldaGameS4/Content/itemsAndWeapons1.png","C:/Users/lukes/ZeldaGameS4/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.0303034
-"C:/Users/lukes/ZeldaGameS4/Content/KeyAppear.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/KeyAppear.xnb","SoundEffectProcessor","SoundEffectContent",35974,36035,1.2128305
-"C:/Users/lukes/ZeldaGameS4/Content/LeftFire.png","C:/Users/lukes/ZeldaGameS4/Content/bin/LeftFire.xnb","TextureProcessor","Texture2DContent",627,16469,0.0018891
-"C:/Users/lukes/ZeldaGameS4/Content/LinkDie.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/LinkDie.xnb","SoundEffectProcessor","SoundEffectContent",83992,84052,1.2112676
-"C:/Users/lukes/ZeldaGameS4/Content/LinkHurt.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/LinkHurt.xnb","SoundEffectProcessor","SoundEffectContent",5416,5477,1.2092566
-"C:/Users/lukes/ZeldaGameS4/Content/LowHp.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/LowHp.xnb","SoundEffectProcessor","SoundEffectContent",10160,10220,1.2141838
-"C:/Users/lukes/ZeldaGameS4/Content/LOZ_Arrow_Boomerang.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/LOZ_Arrow_Boomerang.xnb","SoundEffectProcessor","SoundEffectContent",5388,5449,1.2057385
-"C:/Users/lukes/ZeldaGameS4/Content/LOZ_MagicalRod.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/LOZ_MagicalRod.xnb","SoundEffectProcessor","SoundEffectContent",16832,16892,1.2065963
-"C:/Users/lukes/ZeldaGameS4/Content/LOZ_Sword_Slash.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/LOZ_Sword_Slash.xnb","SoundEffectProcessor","SoundEffectContent",8598,8658,1.2033772
-"C:/Users/lukes/ZeldaGameS4/Content/NES - The Legend of Zelda - Dungeon Tileset.png","C:/Users/lukes/ZeldaGameS4/Content/bin/NES - The Legend of Zelda - Dungeon Tileset.xnb","TextureProcessor","Texture2DContent",74652,5826381,0.1487567
-"C:/Users/lukes/ZeldaGameS4/Content/NES - The Legend of Zelda - HUD & Pause Screen.png","C:/Users/lukes/ZeldaGameS4/Content/bin/NES - The Legend of Zelda - HUD & Pause Screen.xnb","TextureProcessor","Texture2DContent",9615,625749,0.0144963
-"C:/Users/lukes/ZeldaGameS4/Content/NewItem.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/NewItem.xnb","SoundEffectProcessor","SoundEffectContent",49082,49143,1.2030625
-"C:/Users/lukes/ZeldaGameS4/Content/oldman.png","C:/Users/lukes/ZeldaGameS4/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.0142045
-"C:/Users/lukes/ZeldaGameS4/Content/oldman1.png","C:/Users/lukes/ZeldaGameS4/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.0109134
-"C:/Users/lukes/ZeldaGameS4/Content/playerSheetV3.png","C:/Users/lukes/ZeldaGameS4/Content/bin/playerSheetV3.xnb","TextureProcessor","Texture2DContent",373197,37263325,1.1855118
-"C:/Users/lukes/ZeldaGameS4/Content/playerSheetV4.png.png","C:/Users/lukes/ZeldaGameS4/Content/bin/playerSheetV4.png.xnb","TextureProcessor","Texture2DContent",399495,37263325,1.2132567
-"C:/Users/lukes/ZeldaGameS4/Content/PuzzleSolved.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/PuzzleSolved.xnb","SoundEffectProcessor","SoundEffectContent",20920,20980,1.2596203
-"C:/Users/lukes/ZeldaGameS4/Content/ReplayText.png","C:/Users/lukes/ZeldaGameS4/Content/bin/ReplayText.xnb","TextureProcessor","Texture2DContent",4132,79957,0.0031452
-"C:/Users/lukes/ZeldaGameS4/Content/RightFire.png","C:/Users/lukes/ZeldaGameS4/Content/bin/RightFire.xnb","TextureProcessor","Texture2DContent",646,16469,0.0017865
-"C:/Users/lukes/ZeldaGameS4/Content/roomwalls original.png","C:/Users/lukes/ZeldaGameS4/Content/bin/roomwalls original.xnb","TextureProcessor","Texture2DContent",12394,198913,0.006919
-"C:/Users/lukes/ZeldaGameS4/Content/roomwalls.png","C:/Users/lukes/ZeldaGameS4/Content/bin/roomwalls.xnb","TextureProcessor","Texture2DContent",13166,2883669,0.0708813
-"C:/Users/lukes/ZeldaGameS4/Content/sandtile.png","C:/Users/lukes/ZeldaGameS4/Content/bin/sandtile.xnb","TextureProcessor","Texture2DContent",490,16469,0.0017205
-"C:/Users/lukes/ZeldaGameS4/Content/silverlines.png","C:/Users/lukes/ZeldaGameS4/Content/bin/silverlines.xnb","TextureProcessor","Texture2DContent",253,16469,0.0013785
-"C:/Users/lukes/ZeldaGameS4/Content/Skull.png","C:/Users/lukes/ZeldaGameS4/Content/bin/Skull.xnb","TextureProcessor","Texture2DContent",4467,325285,0.0097789
-"C:/Users/lukes/ZeldaGameS4/Content/SkullResized.png","C:/Users/lukes/ZeldaGameS4/Content/bin/SkullResized.xnb","TextureProcessor","Texture2DContent",39324,3932245,0.1139522
-"C:/Users/lukes/ZeldaGameS4/Content/solid black tile.png","C:/Users/lukes/ZeldaGameS4/Content/bin/solid black tile.xnb","TextureProcessor","Texture2DContent",219,16469,0.0014558
-"C:/Users/lukes/ZeldaGameS4/Content/solid blue tile.png","C:/Users/lukes/ZeldaGameS4/Content/bin/solid blue tile.xnb","TextureProcessor","Texture2DContent",325,16469,0.0015276
-"C:/Users/lukes/ZeldaGameS4/Content/solid navy tile.png","C:/Users/lukes/ZeldaGameS4/Content/bin/solid navy tile.xnb","TextureProcessor","Texture2DContent",224,16469,0.0015392
-"C:/Users/lukes/ZeldaGameS4/Content/Sprint 2 Tiles.png","C:/Users/lukes/ZeldaGameS4/Content/bin/Sprint 2 Tiles.xnb","TextureProcessor","Texture2DContent",45523,478485,0.0105496
-"C:/Users/lukes/ZeldaGameS4/Content/sprint-2-items.png","C:/Users/lukes/ZeldaGameS4/Content/bin/sprint-2-items.xnb","TextureProcessor","Texture2DContent",4554,213077,0.0050268
-"C:/Users/lukes/ZeldaGameS4/Content/stairs.png","C:/Users/lukes/ZeldaGameS4/Content/bin/stairs.xnb","TextureProcessor","Texture2DContent",397,16469,0.0014616
-"C:/Users/lukes/ZeldaGameS4/Content/statue1.png","C:/Users/lukes/ZeldaGameS4/Content/bin/statue1.xnb","TextureProcessor","Texture2DContent",695,16469,0.0023021
-"C:/Users/lukes/ZeldaGameS4/Content/statue2.png","C:/Users/lukes/ZeldaGameS4/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",660,16469,0.0015435
-"C:/Users/lukes/ZeldaGameS4/Content/textsprite.png","C:/Users/lukes/ZeldaGameS4/Content/bin/textsprite.xnb","TextureProcessor","Texture2DContent",30099,154837,0.0038299
-"C:/Users/lukes/ZeldaGameS4/Content/tile with square in middle.png","C:/Users/lukes/ZeldaGameS4/Content/bin/tile with square in middle.xnb","TextureProcessor","Texture2DContent",450,16469,0.0018058
-"C:/Users/lukes/ZeldaGameS4/Content/VictoryText.png","C:/Users/lukes/ZeldaGameS4/Content/bin/VictoryText.xnb","TextureProcessor","Texture2DContent",34983,3840085,0.0904515
-"C:/Users/lukes/ZeldaGameS4/Content/WalkStairs.wav","C:/Users/lukes/ZeldaGameS4/Content/bin/WalkStairs.xnb","SoundEffectProcessor","SoundEffectContent",30134,30195,1.2105763
-"C:/Users/lukes/ZeldaGameS4/Content/zelda.png","C:/Users/lukes/ZeldaGameS4/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.001615
+<<<<<<< HEAD
+"C:/Users/cciri/source/repos/ZeldaGameS4/Content/ball.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1547462
+"C:/Users/cciri/source/repos/ZeldaGameS4/Content/dragon.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",38013,2339669,0.0794878
+"C:/Users/cciri/source/repos/ZeldaGameS4/Content/Inventory.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",20026,6467669,0.1818064
+"C:/Users/cciri/source/repos/ZeldaGameS4/Content/playerSheetV4.png.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/playerSheetV4.png.xnb","TextureProcessor","Texture2DContent",399495,37263325,0.9281085
+=======
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/../../../../Downloads/blackColumn.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/blackColumn.xnb","TextureProcessor","Texture2DContent",1564,245845,0.1314414
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/../../../../Downloads/VictoryText.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/VictoryText.xnb","TextureProcessor","Texture2DContent",4929,89941,0.0052123
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/ball.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.0026644
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/BG_MUSIC.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/BG_MUSIC.xnb","SoundEffectProcessor","SoundEffectContent",6002120,6002025,1.352231
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/BlackBackground.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/BlackBackground.xnb","TextureProcessor","Texture2DContent",19266,3932245,0.0924406
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/blackColumn.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/blackColumn.xnb","TextureProcessor","Texture2DContent",1564,245845,0.0078345
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/BombBlow.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/BombBlow.xnb","SoundEffectProcessor","SoundEffectContent",16126,16186,1.2179493
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/BombDrop.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/BombDrop.xnb","SoundEffectProcessor","SoundEffectContent",6740,6800,1.212442
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bricks.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",392,16469,0.0024569
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/creditsEdited.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0195445
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/doors.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/doors.xnb","TextureProcessor","Texture2DContent",24583,1375061,0.0297322
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/DoorUnlock.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/DoorUnlock.xnb","SoundEffectProcessor","SoundEffectContent",55154,55214,1.2430278
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/dragon.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",38013,2339669,0.0431934
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/DungeonEnemy.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/DungeonEnemy.xnb","TextureProcessor","Texture2DContent",19899,416869,0.0127862
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/enemy.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/enemy.xnb","TextureProcessor","Texture2DContent",85679,2062069,0.0625511
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/EnemyDie.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/EnemyDie.xnb","SoundEffectProcessor","SoundEffectContent",9282,9343,1.1949792
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/EnemyHit.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/EnemyHit.xnb","SoundEffectProcessor","SoundEffectContent",10984,11044,1.1955692
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/ExitText.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/ExitText.xnb","TextureProcessor","Texture2DContent",2657,54421,0.0028756
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/GameOverText.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/GameOverText.xnb","TextureProcessor","Texture2DContent",15702,359509,0.0077287
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/GameOverText2.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/GameOverText2.xnb","TextureProcessor","Texture2DContent",11280,89941,0.0033051
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/GetHeartKey.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/GetHeartKey.xnb","SoundEffectProcessor","SoundEffectContent",7248,7308,1.2556103
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/GetInventoryItem.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/GetInventoryItem.xnb","SoundEffectProcessor","SoundEffectContent",27284,27345,1.2058553
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/GetRupee.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/GetRupee.xnb","SoundEffectProcessor","SoundEffectContent",19814,19875,1.1835215
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/HUDandInventory.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/HUDandInventory.xnb","TextureProcessor","Texture2DContent",20245,8022741,0.1846786
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/Inventory.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",10645,3932245,0.081769
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/itemsAndWeapons.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0675753
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/itemsAndWeapons1.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.0411913
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/KeyAppear.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/KeyAppear.xnb","SoundEffectProcessor","SoundEffectContent",35974,36035,1.224634
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/LeftFire.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/LeftFire.xnb","TextureProcessor","Texture2DContent",627,16469,0.0025291
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/LinkDie.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/LinkDie.xnb","SoundEffectProcessor","SoundEffectContent",83992,84052,1.2052107
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/LinkHurt.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/LinkHurt.xnb","SoundEffectProcessor","SoundEffectContent",5416,5477,1.2047666
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/LowHp.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/LowHp.xnb","SoundEffectProcessor","SoundEffectContent",10160,10220,1.2421751
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/LOZ_Arrow_Boomerang.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/LOZ_Arrow_Boomerang.xnb","SoundEffectProcessor","SoundEffectContent",5388,5449,1.2056715
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/LOZ_MagicalRod.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/LOZ_MagicalRod.xnb","SoundEffectProcessor","SoundEffectContent",16832,16892,1.2211405
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/LOZ_Sword_Slash.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/LOZ_Sword_Slash.xnb","SoundEffectProcessor","SoundEffectContent",8598,8658,1.202568
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/NES - The Legend of Zelda - Dungeon Tileset.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/NES - The Legend of Zelda - Dungeon Tileset.xnb","TextureProcessor","Texture2DContent",74652,5826381,0.1413735
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/NES - The Legend of Zelda - HUD & Pause Screen.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/NES - The Legend of Zelda - HUD & Pause Screen.xnb","TextureProcessor","Texture2DContent",9615,625749,0.0271678
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/NewItem.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/NewItem.xnb","SoundEffectProcessor","SoundEffectContent",49082,49143,1.2524941
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/oldman.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.0124006
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/oldman1.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.0098077
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/playerSheetV3.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/playerSheetV3.xnb","TextureProcessor","Texture2DContent",373197,37263325,0.7266288
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/playerSheetV4.png.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/playerSheetV4.png.xnb","TextureProcessor","Texture2DContent",399495,37263325,0.8042122
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/PuzzleSolved.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/PuzzleSolved.xnb","SoundEffectProcessor","SoundEffectContent",20920,20980,1.2334582
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/ReplayText.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/ReplayText.xnb","TextureProcessor","Texture2DContent",4132,79957,0.0032125
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/RightFire.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/RightFire.xnb","TextureProcessor","Texture2DContent",646,16469,0.0027223
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/roomwalls original.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/roomwalls original.xnb","TextureProcessor","Texture2DContent",12394,198913,0.007774
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/roomwalls.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/roomwalls.xnb","TextureProcessor","Texture2DContent",13166,2883669,0.0756888
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/sandtile.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/sandtile.xnb","TextureProcessor","Texture2DContent",490,16469,0.0016467
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/silverlines.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/silverlines.xnb","TextureProcessor","Texture2DContent",253,16469,0.0019838
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/Skull.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/Skull.xnb","TextureProcessor","Texture2DContent",4467,325285,0.0108335
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/SkullResized.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/SkullResized.xnb","TextureProcessor","Texture2DContent",39324,3932245,0.1125384
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/solid black tile.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/solid black tile.xnb","TextureProcessor","Texture2DContent",219,16469,0.0023533
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/solid blue tile.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/solid blue tile.xnb","TextureProcessor","Texture2DContent",325,16469,0.0019376
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/solid navy tile.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/solid navy tile.xnb","TextureProcessor","Texture2DContent",224,16469,0.001992
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/Sprint 2 Tiles.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/Sprint 2 Tiles.xnb","TextureProcessor","Texture2DContent",45523,478485,0.0106841
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/sprint-2-items.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/sprint-2-items.xnb","TextureProcessor","Texture2DContent",4554,213077,0.0063937
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/stairs.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/stairs.xnb","TextureProcessor","Texture2DContent",397,16469,0.0023979
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/statue1.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/statue1.xnb","TextureProcessor","Texture2DContent",695,16469,0.0033283
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/statue2.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",660,16469,0.0032644
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/textsprite.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/textsprite.xnb","TextureProcessor","Texture2DContent",30099,154837,0.0050835
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/tile with square in middle.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/tile with square in middle.xnb","TextureProcessor","Texture2DContent",450,16469,0.0026059
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/VictoryText.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/VictoryText.xnb","TextureProcessor","Texture2DContent",4929,89941,0.0046015
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/WalkStairs.wav","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/WalkStairs.xnb","SoundEffectProcessor","SoundEffectContent",30134,30195,1.2846214
+"C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/zelda.png","C:/Users/tingy/source/repos/ZeldaGameS4(4)/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0016805
+>>>>>>> victory
