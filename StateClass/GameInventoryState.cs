@@ -18,6 +18,9 @@ namespace Sprint0.StateClass
         private ContentManager _content;
         private Texture2D screen;
         private LinkInventory _inventory;
+        private LevelManager _levelManager;
+        private int locationSquareX;
+        private int locationSquareY;
 
         private Rectangle heartSourceRect;
         private Rectangle halfHeartSourceRect;
@@ -37,6 +40,10 @@ namespace Sprint0.StateClass
         private Rectangle mapDestRect;
         private Rectangle mapDesignDestRect;
         private Rectangle compassDestRect;
+        private Rectangle otherMapSourceRect;
+        private Rectangle otherMapDestRect;
+        private Rectangle locationSquareSourceRect;
+        private Rectangle locationSquareDestRect;
 
         const int heartWidth = 64;
         const int heartHeight = 73;
@@ -50,6 +57,10 @@ namespace Sprint0.StateClass
         const int mapAndCompassHeight = 83;
         const int compassWidth = 74;
         const int mapDesignHeightAndWidth = 275;
+        const int otherMapWidth = 278;
+        const int otherMapHeight = 200;
+
+        const int locationSquareSize = 20;
 
         const int slotWidth = 40;
         const int slotHeight = 75;
@@ -58,10 +69,12 @@ namespace Sprint0.StateClass
         const int timesSymbolYSourceLocation = 1178;
         const int compassAndMapYSourceLocation = 1059;
         const int mapDesignYSourceLocation = 1215;
-
         const int numberXSourceLocation = 208;
         const int mapXSourceLocation = 403;
         const int compassXSourceLocation = 457;
+        const int otherMapXSourceLocation = 288;
+        const int locationSquareXSourceLocation = 395;
+        const int locationSquareYSourceLocation = 1440;
 
         const int heartXDestLocation = 706;
         const int slotA_XDestLocation = 605;
@@ -70,7 +83,7 @@ namespace Sprint0.StateClass
         const int mapAndCompassXDestLocation = 180;
         const int mapDesignXDestLocation = 500;
         const int levelNumberXDestLocation = 135;
-
+        const int otherMapXDestLocation = 26;
         const int heartYDestLocation = 854;
         const int slotsYDestLocation = 819;
         const int rupeeYDestLocation = 781;
@@ -80,16 +93,24 @@ namespace Sprint0.StateClass
         const int compassYDestLocation = 590;
         const int mapDesignYDestLocation = 370;
         const int levelNumberYDestLocation = 707;
+        const int otherMapYDestLocation = 748;
+
+        const int locationSquareXOffset = 45;
+        const int locationSquareYOffset = 28;
+
 
         //private KeyboardController kController;
         //private MouseController mController;
 
 
-        public GameInventoryState(Game1 game, ContentManager content, LinkInventory inventory) : base(game, content)
+        public GameInventoryState(Game1 game, ContentManager content) : base(game, content)
         {
             _game = game;
             _content = content;
-            _inventory = inventory;
+            _levelManager = LevelManager.Instance;
+            _inventory = _levelManager.Player.Inventory;
+            locationSquareX = _inventory.MapLocationX;
+            locationSquareY = _inventory.MapLocationY;
 
             heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), heartAndNumberYSourceLocation, heartWidth, heartHeight);
             halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), heartAndNumberYSourceLocation, heartWidth, heartHeight);
@@ -98,6 +119,8 @@ namespace Sprint0.StateClass
             mapSourceRect = new Rectangle(mapXSourceLocation, compassAndMapYSourceLocation, mapWidth, mapAndCompassHeight);
             mapDesignSourceRect = new Rectangle(0,mapDesignYSourceLocation, mapDesignHeightAndWidth, mapDesignHeightAndWidth);
             compassSourceRect = new Rectangle(compassXSourceLocation, compassAndMapYSourceLocation, compassWidth, mapAndCompassHeight);
+            otherMapSourceRect = new Rectangle(otherMapXSourceLocation, mapDesignYSourceLocation, otherMapWidth, otherMapHeight);
+            locationSquareSourceRect = new Rectangle(locationSquareXSourceLocation, locationSquareYSourceLocation, locationSquareSize, locationSquareSize);
 
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
             bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
@@ -108,8 +131,10 @@ namespace Sprint0.StateClass
             mapDestRect = new Rectangle(mapAndCompassXDestLocation, mapYDestLocation, mapWidth, mapAndCompassHeight);
             mapDesignDestRect = new Rectangle(mapDesignXDestLocation, mapDesignYDestLocation, mapDesignHeightAndWidth, mapDesignHeightAndWidth);
             compassDestRect = new Rectangle(mapAndCompassXDestLocation, compassYDestLocation, compassWidth, mapAndCompassHeight);
+            otherMapDestRect = new Rectangle(otherMapXDestLocation, otherMapYDestLocation, otherMapWidth, otherMapHeight);
+            locationSquareDestRect = new Rectangle(locationSquareX, locationSquareY, locationSquareSize, locationSquareSize);
 
-    }
+        }
         public override void loadContent()
         {
             screen = _content.Load<Texture2D>("Inventory");
@@ -203,7 +228,9 @@ namespace Sprint0.StateClass
             {
                 _game.SpriteBatch.Draw(screen, mapDestRect, mapSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, mapDesignDestRect, mapDesignSourceRect, Color.White);
+                _game.SpriteBatch.Draw(screen, otherMapDestRect, otherMapSourceRect, Color.White);
             }
+            _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapLocationX, _inventory.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
 
             _game.SpriteBatch.End();
         }

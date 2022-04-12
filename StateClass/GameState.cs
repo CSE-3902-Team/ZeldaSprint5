@@ -57,7 +57,7 @@ namespace Sprint0.StateClass
 
                 if (levelManager.Player.IsDead)
                 {
-                    _game.ChangeState(3);
+                    _game.ChangeState(2);
                 }
                 if (levelManager.Player.HasTriforce)
                 {

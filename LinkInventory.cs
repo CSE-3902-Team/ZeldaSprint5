@@ -10,8 +10,6 @@ namespace Sprint0
     {
         private Player player;
 
-        private List<int> itemCounts;
-
         private int rupeeCount;
         private int keyCount;
         private int bombCount;
@@ -19,6 +17,8 @@ namespace Sprint0
         private int heartCount;
         private int heartContainerCount;
         private int levelNumber;
+        private int locationSquareX;
+        private int locationSquareY;
 
         private Boolean firstRupee;
         private Boolean firstKey;
@@ -168,7 +168,17 @@ namespace Sprint0
             get { return clock; }
             set { clock = value; }
         }
+        public int MapLocationX
+        {
+            get { return locationSquareX; }
+            set { locationSquareX = value; }
+        }
 
+        public int MapLocationY
+        {
+            get { return locationSquareY; }
+            set { locationSquareY = value; }
+        }
 
         public LinkInventory(Player player)
         {
@@ -181,6 +191,8 @@ namespace Sprint0
             heartCount = player.PlayerHp;
             heartContainerCount = (player.MaxHp)/2;
             levelNumber = 1;
+            locationSquareX = 135;
+            locationSquareY = 921;
 
             firstRupee = true;
             firstKey = true; 
@@ -200,18 +212,12 @@ namespace Sprint0
             boomerang = false;
             clock = false;
 
-            itemCounts = new List<int>();
-
         }
 
         public void Update()
         {
             heartContainerCount = (player.MaxHp) / 2;
             heartCount = player.PlayerHp;
-        }
-        public void Draw()
-        {
-            
         }
 
     }

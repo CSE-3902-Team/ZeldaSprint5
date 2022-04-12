@@ -190,7 +190,7 @@ namespace Sprint0.TileClass
 				case Tile.PushableSquare:
 					return new PushableTile(tileWithSquareTexture, batch, pos);
 				case Tile.PressurePlate:
-					return new PressurePlate(silverLinesTexture, batch, pos);
+					return new PressurePlate(solidBlueTileTexture, batch, pos);
 				default:
 					return new BrickTile(bricksTexture, batch, pos);
 			}

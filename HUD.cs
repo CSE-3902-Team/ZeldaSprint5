@@ -18,7 +18,6 @@ namespace Sprint0
         private Rectangle heartSourceRect;
         private Rectangle halfHeartSourceRect;
         private Rectangle emptyHeartSourceRect;
-        private Rectangle heartDestRect;
         private Rectangle currentHeartNeeded;
         private Rectangle numberSourceRect;
         private Rectangle rupeeNumberDestRect;
@@ -26,6 +25,12 @@ namespace Sprint0
         private Rectangle keyNumberDestRect;
         private Rectangle timesSymbolSourceRect;
         private Rectangle levelNumberDestRect;
+        private Rectangle mapSourceRect;
+        private Rectangle mapDestRect;
+        private Rectangle locationSquareSourceRect;
+        private Rectangle locationSquareDestRect;
+
+
 
         private int health;
         private int heartContainerCount;
@@ -34,6 +39,8 @@ namespace Sprint0
         private int keyCount;
         private int bombCount;
         private int arrowCount;
+        private int locationSquareX;
+        private int locationSquareY;
 
         const int heartWidth = 64;
         const int heartHeight = 73;
@@ -52,6 +59,28 @@ namespace Sprint0
         const int numberXDestLocation = 383;
         const int levelNumberXDestLocation = 131;
 
+        const int mapYSourceLocation = 518;
+        const int mapWidth = 295;
+        const int mapHeight = 200;
+        const int mapXDestLocation = 30;
+        const int mapYDestLocation = 37;
+
+        const int locationSquareSize = 20;
+        const int locationSquareXSourceLocation = 120;
+        const int locationSquareYSourceLocation = 750;
+
+        public int MapLocationX
+        {
+            get { return locationSquareX; }
+            set { locationSquareX = value; }
+        }
+
+        public int MapLocationY
+        {
+            get { return locationSquareY; }
+            set { locationSquareY = value; }
+        }
+
         public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
             this.player = player;
@@ -67,19 +96,24 @@ namespace Sprint0
             arrowCount = player.Inventory.ArrowCount;
 
             levelNumber = player.Inventory.LevelNumber;
+            locationSquareX = player.Inventory.MapLocationX + 16;
+            locationSquareY = player.Inventory.MapLocationY - 712;
 
-            hudRectangle = new Rectangle(0, 0, 1024, 256);
+            hudRectangle = new Rectangle(0, 0, 1024, 255);
             emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts*0), 255, heartWidth, heartHeight);
             halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 255, heartWidth, heartHeight);
             heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 255, heartWidth, heartHeight);
             numberSourceRect = new Rectangle(numberXSourceLocation, heartAndNumberYSourceLocation, numberWidth, numberHeight);
             timesSymbolSourceRect = new Rectangle(numberXSourceLocation, (heartAndNumberYSourceLocation + numberHeight), numberWidth, numberHeight);
+            mapSourceRect = new Rectangle(0, mapYSourceLocation, mapWidth, mapHeight);
 
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
-            //heartDestRect = new Rectangle(650, 146, heartWidth, heartHeight);
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
             bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
             keyNumberDestRect = new Rectangle(numberXDestLocation, keyYDestLocation, numberWidth, numberHeight);
+            mapDestRect = new Rectangle(mapXDestLocation, mapYDestLocation, mapWidth, mapHeight);
+            locationSquareSourceRect = new Rectangle(locationSquareXSourceLocation, locationSquareYSourceLocation, locationSquareSize, locationSquareSize);
+            locationSquareDestRect = new Rectangle(locationSquareX, locationSquareY, locationSquareSize, locationSquareSize);
 
         }
 
@@ -93,6 +127,8 @@ namespace Sprint0
             bombCount = player.Inventory.BombCount;
             arrowCount = player.Inventory.ArrowCount;
             levelNumber = player.Inventory.LevelNumber;
+            locationSquareX = player.Inventory.MapLocationX + 16;
+            locationSquareY = player.Inventory.MapLocationY - 712;
         }
         public void Draw()
         {
@@ -150,6 +186,13 @@ namespace Sprint0
                     spriteBatch.Draw(headsUpDisplay, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), new Rectangle(heartWidth,0,heartWidth,heartHeight), Color.Black);
                 }
             }
+
+            if(player.Inventory.Map == true)
+            {
+                spriteBatch.Draw(headsUpDisplay, mapDestRect, mapSourceRect, Color.White);
+            }
+
+            spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             spriteBatch.End();
         }
     }

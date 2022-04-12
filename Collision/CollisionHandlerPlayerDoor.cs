@@ -15,7 +15,8 @@ namespace Sprint0.Collision
         ADoor door;
         CollisionDirections direction;
         int overlap;
-
+        const int locationSquareOffsetX = 45;
+        const int locationSquareOffsetY = 28;
         public CollisionHandlerPlayerDoor(Player p, ADoor d, CollisionDirections dir, int o)
         {
             player = p;
@@ -36,17 +37,23 @@ namespace Sprint0.Collision
                 if (door.DoorSide == DoorFactory.Side.Top)
                 {
                     player.Position = new Vector2(512,796);
+                    player.Inventory.MapLocationY = (player.Inventory.MapLocationY - locationSquareOffsetY);
                 }
                 else if (door.DoorSide == DoorFactory.Side.Left) {
                     player.Position = new Vector2(857, 603);
+                    player.Inventory.MapLocationX = (player.Inventory.MapLocationX - locationSquareOffsetX);
+
                 }
                 else if (door.DoorSide == DoorFactory.Side.Right)
                 {
                     player.Position = new Vector2(167, 603);
+                    player.Inventory.MapLocationX = (player.Inventory.MapLocationX + locationSquareOffsetX);
+
                 }
                 else if (door.DoorSide == DoorFactory.Side.Bottom)
                 {
                     player.Position = new Vector2(512, 427);
+                    player.Inventory.MapLocationY = (player.Inventory.MapLocationY + locationSquareOffsetY);
                 }
             }
 

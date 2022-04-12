@@ -29,11 +29,13 @@ namespace Sprint0.StateClass
         private Texture2D exitText;
         private Texture2D lAnimation;
         private Texture2D rAnimation;
-        private bool animate = true;
-        private int currentFrame = 1;
-        private int count = 0;
-        private int rightStart = WIDTH - 64;
-        private int leftStart = 0;
+
+        private int currentFrame;
+        private int count;
+        private int rightStart;
+        private int leftStart;
+
+        
 
         //private KeyboardController kController;
         //private MouseController mController;
@@ -56,7 +58,13 @@ namespace Sprint0.StateClass
             lAnimation = _content.Load<Texture2D>("blackColumn");
             rAnimation = _content.Load<Texture2D>("blackColumn");
             isVictory = true;
-        }
+
+            animate = true;
+            currentFrame = 1;
+            count = 0;
+            rightStart = WIDTH - 64;
+            leftStart = 0;
+    }
 
         public override void update(GameTime gameTime)
         {
@@ -74,16 +82,12 @@ namespace Sprint0.StateClass
                 currentFrame++;
             }
             count++;
-            //if(player presses "play again")
-            //reset the game
-            //if(player presses "exit game")
-            //quit the game
+            
         }
 
         public override void Draw(GameTime gameTime)
         {
             
-
             Rectangle screenDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle screenSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle victoryTextDestRect = new Rectangle(XCENTER - VICTORYX / 2, YCENTER - 48 * 1, VICTORYX, VICTORYY);
