@@ -138,7 +138,7 @@ namespace Sprint0 {
 		}
 		public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile, Vector2 p,Texture2D colT, ICommand c)
 		{
-			_state = new PlayerRightIdle(this);
+			_state = new PlayerUpIdle(this);
 			_spriteBatch = batch;
 			this.texture = texture;
 			position = p;

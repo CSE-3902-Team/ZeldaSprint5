@@ -236,7 +236,6 @@ namespace Sprint0.LevelClass
 
             if ((int)platePos.X == (int)pushablePos.X && (int)platePos.Y == (int)pushablePos.Y)
             {
-                Console.WriteLine("pressure plate triggered");
                 UnlockDoors();
             }
         }
