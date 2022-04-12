@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Collision",
+    "\\LevelClass",
+    "\\PlayerClass",
+    "\\StateClass"
   ],
-  "SelectedNode": "\\Sprint0.sln",
+  "SelectedNode": "\\Game1.cs",
   "PreviewInSolutionExplorer": false
 }
