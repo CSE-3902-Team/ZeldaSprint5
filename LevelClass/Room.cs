@@ -20,14 +20,14 @@ namespace Sprint0.LevelClass
 
         private ADoor[] doorList;
         private ICollision colliderDetector;
-    
+        private int enemyKillCount;
         private readonly List<IEnemySprite> enemyList;
         private AItem[] itemList;
         private ITile[] tileList;
         private AItem[] combineList;
         private readonly List<IProjectile> projectileList;
         private Player _player;
-
+        private Dictionary<IEnemySprite, AItem> enemyHoldItem;
         public List<IProjectile> ProjectileList
         {
             get { return projectileList; }
@@ -47,12 +47,12 @@ namespace Sprint0.LevelClass
         {
             get { return doorList; }
         }
-        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player, AItem[] combineList) {
+        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player, Dictionary<IEnemySprite,AItem> enemyHoldItem) {
             this.doorList = doorList;
             this.enemyList = enemyList;
             this.itemList = itemList;
             this.tileList = tileList;
-            this.combineList = combineList;
+            this.enemyHoldItem = enemyHoldItem;
             projectileList = new List<IProjectile>();
             _player = player;
             colliderDetector = new SortSweep();
@@ -70,10 +70,11 @@ namespace Sprint0.LevelClass
             {
                 colliderDetector.AddToList(currentItem as IBoxCollider);
             }
-    
-            foreach (AItem currentItem in combineList)
+
+            for (int x = 0; x < enemyHoldItem.Count; x++)
             {
-                colliderDetector.AddToList(currentItem as IBoxCollider);
+                colliderDetector.AddToList(enemyHoldItem.ElementAt(x).Key as IBoxCollider);
+                colliderDetector.AddToList(enemyHoldItem.ElementAt(x).Value as IBoxCollider);
             }
 
 
@@ -93,6 +94,8 @@ namespace Sprint0.LevelClass
         }
 
         public void drawRoom(int xOffset, int yOffset, bool transition) {
+            Console.WriteLine("number of items that not hold by enemy"+itemList.Length);
+            Console.WriteLine("number of items that hold by enemy" + enemyHoldItem.Count) ;
             for (int x = 0; x < tileList.Length; x++)
             {
                 tileList[x].draw(xOffset, yOffset);
@@ -104,6 +107,7 @@ namespace Sprint0.LevelClass
             foreach (AItem currentItem in itemList)
             {
                 currentItem.draw(xOffset, yOffset);
+             
             }
 
             foreach (IEnemySprite currentEnemy in enemyList) {
@@ -114,22 +118,27 @@ namespace Sprint0.LevelClass
             {
                 currentProjectile.Draw(xOffset, yOffset);
             }
-            foreach(AItem currentItem1 in combineList)
+            for (int x = 0; x < enemyHoldItem.Count; x++)
             {
-                if (enemyList.Count <= 0)
-                {
-                    currentItem1.TopLeft.X = (int)currentItem1.myPos.X;
-                    currentItem1.TopLeft.Y = (int)currentItem1.myPos.Y;
-                    currentItem1.BottomRight.X = (int)currentItem1.myPos.X+64;
-                    currentItem1.BottomRight.Y = (int)currentItem1.myPos.Y+64;
-                    currentItem1.draw(xOffset, yOffset);
+                enemyHoldItem.ElementAt(x).Key.draw(xOffset, yOffset);
+                if (!enemyHoldItem.ElementAt(x).Key.IsAlive)
+                {//if enemy dies, update position and collision box of items they hold, and draw it
+                    enemyHoldItem.ElementAt(x).Value.myPos.X = enemyHoldItem.ElementAt(x).Key.position.X;
+                    enemyHoldItem.ElementAt(x).Value.myPos.Y = enemyHoldItem.ElementAt(x).Key.position.Y;
+                    enemyHoldItem.ElementAt(x).Value.TopLeft.X = (int)enemyHoldItem.ElementAt(x).Key.position.X;
+                    enemyHoldItem.ElementAt(x).Value.TopLeft.Y = (int)enemyHoldItem.ElementAt(x).Key.position.Y;
+                    enemyHoldItem.ElementAt(x).Value.BottomRight.X = (int)enemyHoldItem.ElementAt(x).Key.position.X + 64;
+                    enemyHoldItem.ElementAt(x).Value.BottomRight.Y = (int)enemyHoldItem.ElementAt(x).Key.position.Y + 64;
+                    enemyHoldItem.ElementAt(x).Value.draw(xOffset, yOffset);
+
+
                 }
                 else
-                {
-                    currentItem1.TopLeft.X = 0;
-                    currentItem1.TopLeft.Y = 0;
-                    currentItem1.BottomRight.X = 0;
-                    currentItem1.BottomRight.Y = 0;
+                {//else, hide the items until the enemy who holds it dies
+                    enemyHoldItem.ElementAt(x).Value.TopLeft.X = 0;
+                    enemyHoldItem.ElementAt(x).Value.TopLeft.Y =0;
+                    enemyHoldItem.ElementAt(x).Value.BottomRight.X =0;
+                    enemyHoldItem.ElementAt(x).Value.BottomRight.Y = 0;
                 }
             }
 
@@ -142,9 +151,10 @@ namespace Sprint0.LevelClass
         public void updateRoom() {
             UpdateEnemies();
             UpdateProjectiles();
+            UpdateEnemiesHoldItem();
             Player.Update();
             colliderDetector.HandleCollisions();
-            if (enemyList.Count == 0)
+            if (enemyList.Count ==0 && (enemyKillCount>=enemyHoldItem.Count))
             {
                 UnlockDoors();
             }
@@ -181,6 +191,21 @@ namespace Sprint0.LevelClass
                 else
                 {
                     enemyList[x].Update();
+                }
+            }
+        }
+        
+        public void UpdateEnemiesHoldItem()
+        {
+            for (int x = 0; x < enemyHoldItem.Count; x++)
+            {
+                if (!enemyHoldItem.ElementAt(x).Key.IsAlive)
+                {
+                    enemyKillCount++;
+                }
+                else
+                {
+                    enemyHoldItem.ElementAt(x).Key.Update();
                 }
             }
         }
