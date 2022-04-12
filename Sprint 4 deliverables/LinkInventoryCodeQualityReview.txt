@@ -1,0 +1,18 @@
+﻿In the plaintext file for a code quality review, include the following information:
+
+Author of the code review: Ting Feng
+Date of the code review: 4/11/2022
+Sprint number: 4
+Name of the .cs file being reviewed: LinkInventory.cs
+Author of the .cs file being reviewed: Craig Cirino
+
+Comments on code quality:
+
+I don't think know why Link's health as part of his inventory. I guess its because you are going to draw the HUD and inventory later, so you can just draw the hearts along with the inventory.
+Coupling wise, it doesnt use many types, only booleans and ints, which makes sense because you only need to keep track of number of items. 
+Cohesion wise, I think it is great because you can always just change this class when new items can be obtained in the inventory, it doesn't really serve any other purpose than to keep track of numbers.
+
+Hypothetical Change: 
+
+Unless I am mistaken, I think you could just initialize the items to equal one instead of setting a boolean called first(item), and when using the property, you can know if they have had their first item 
+if it is greater than one.

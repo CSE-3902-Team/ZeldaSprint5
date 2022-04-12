@@ -19,6 +19,8 @@ namespace Sprint0
         private int levelNumber;
         private int locationSquareX;
         private int locationSquareY;
+        private int mapSquareX;
+        private int mapSquareY;
 
         private Boolean firstRupee;
         private Boolean firstKey;
@@ -179,6 +181,17 @@ namespace Sprint0
             get { return locationSquareY; }
             set { locationSquareY = value; }
         }
+        public int MapSquareLocationX
+        {
+            get { return mapSquareX; }
+            set { mapSquareX = value; }
+        }
+
+        public int MapSquareLocationY
+        {
+            get { return mapSquareY; }
+            set { mapSquareY = value; }
+        }
 
         public LinkInventory(Player player)
         {
@@ -193,6 +206,9 @@ namespace Sprint0
             levelNumber = 1;
             locationSquareX = 135;
             locationSquareY = 921;
+            mapSquareX = 623;
+            mapSquareY = 578;
+
 
             firstRupee = true;
             firstKey = true; 

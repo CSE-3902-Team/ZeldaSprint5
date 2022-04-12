@@ -21,7 +21,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetInventoryItem.wav","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/GetInventoryItem.xnb","SoundEffectProcessor","SoundEffectContent",27284,27345,0.1688002
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetRupee.wav","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/GetRupee.xnb","SoundEffectProcessor","SoundEffectContent",19814,19875,0.1719172
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/HUDandInventory.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/HUDandInventory.xnb","TextureProcessor","Texture2DContent",61242,8022741,0.3496569
-"C:/Users/cciri/source/repos/ZeldaGameS4/Content/Inventory.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",64401,6467669,0.2544271
+"C:/Users/cciri/source/repos/ZeldaGameS4/Content/Inventory.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",64812,6467669,0.2596015
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0611107
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons1.png","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.0325224
 "C:/Users/cciri/source/repos/ZeldaGameS4/Content/KeyAppear.wav","C:/Users/cciri/source/repos/ZeldaGameS4/Content/bin/KeyAppear.xnb","SoundEffectProcessor","SoundEffectContent",35974,36035,0.1537736
