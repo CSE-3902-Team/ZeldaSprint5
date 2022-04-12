@@ -1,0 +1,18 @@
+﻿Author of the code review: Austin Motz
+
+Date of the code review: 4/11/2022
+
+Sprint number: 4
+
+Name of the .cs file being reviewed: trap
+
+Author of the .cs file being reviewed: Zening
+
+Number of minutes taken to complete the review: 10
+
+Specific comments on what is readable and what is not:
+	-Line 83-133: There is a lot of whitespace between lines for no reason. The rightSpot variable name is vauge. I am not sure what this is supposed to be doing. 
+	Naming your if statemant cases to show what it is checking for (ie link above, to the side) would make it easier to debug and read.
+
+	-line 85-86: creating a new object for moving the enemy seems unnecisary. This would be good to have in a method, but I do not see what makes it need a new class.
+
