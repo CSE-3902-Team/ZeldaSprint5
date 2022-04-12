@@ -69,6 +69,10 @@ namespace Sprint0.Collision
                     UnlockDoor(LevelManager.Instance.currentRoomNum, door.DoorSide);
                     player.Inventory.KeyCount--;
                 }
+                else
+                {
+                    MovePlayerAwayFromDoor();
+                }
             }
 
         }
