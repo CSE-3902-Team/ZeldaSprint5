@@ -1,0 +1,6 @@
+﻿Reflection: This sprint was not as hard as Sprint 3, but there were a lot of bugs that needed to be fixed after, which required refactoring throughout the entire sprint. We
+still did not manage to fix all the bugs, and more bugs kept showing up as we created game states to switch between the victory state, the game over state, inventory state(pause), and the actual game state.
+The hardest to implement was most likely the states, because much of the code needed to be refactored due to our low cohesion, so we needed to shift a lot of code around and make new classes and 
+properties to get the states working. Creating a sound manager to load all the sounds and play them was very straightforward. One thing we will probably work on next sprint is to set deadlines
+for completion because we had to rush a lot more to finish our tasks. All we did was just assign tasks and told everyone to get it done before it was due, which brought up a lot of bugs when everyone
+started test the game near the end of the sprint. This could have been easily avoided if the work was done sooner so we had more time to fix bugs. 
