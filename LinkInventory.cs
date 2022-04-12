@@ -219,6 +219,8 @@ namespace Sprint0
             firstArrow = true;
             firstHeart = true;
             firstHeartContainer = true;
+            firstMap = true;
+            firstFairy = true;
 
             bow = false;
             map = false;

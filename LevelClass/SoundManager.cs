@@ -12,7 +12,7 @@ namespace Sprint0.LevelClass
         public static SoundManager instance;
        
         static SoundManager(){
-            SoundEffect.MasterVolume = 0.0f;
+            SoundEffect.MasterVolume = 1f;
         }
         
         public static SoundManager Instance { get { return instance; } }

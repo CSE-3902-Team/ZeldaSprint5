@@ -94,8 +94,8 @@ namespace Sprint0.LevelClass
         }
 
         public void drawRoom(int xOffset, int yOffset, bool transition) {
-            Console.WriteLine("number of items that not hold by enemy"+itemList.Length);
-            Console.WriteLine("number of items that hold by enemy" + enemyHoldItem.Count) ;
+           // Console.WriteLine("number of items that not hold by enemy"+itemList.Length);
+          //  Console.WriteLine("number of items that hold by enemy" + enemyHoldItem.Count) ;
             for (int x = 0; x < tileList.Length; x++)
             {
                 tileList[x].draw(xOffset, yOffset);
@@ -261,7 +261,6 @@ namespace Sprint0.LevelClass
 
             if ((int)platePos.X == (int)pushablePos.X && (int)platePos.Y == (int)pushablePos.Y)
             {
-                Console.WriteLine("pressure plate triggered");
                 UnlockDoors();
             }
         }
