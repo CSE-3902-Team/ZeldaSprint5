@@ -27,19 +27,21 @@ namespace Sprint0.Collision
 
         public void HandleCollision()
         {
-            if (door is DoorClosed || door is DoorLocked || door is DoorWall)
+            if (door is DoorClosed || door is DoorWall)
             {
                 MovePlayerAwayFromDoor();
             }
-            else if (door is DoorOpen || door is DoorHole) {
+            else if (door is DoorOpen || door is DoorHole)
+            {
                 Console.WriteLine("Room transition");
                 door.ChangeRoom();
                 if (door.DoorSide == DoorFactory.Side.Top)
                 {
-                    player.Position = new Vector2(512,796);
+                    player.Position = new Vector2(512, 796);
                     player.Inventory.MapLocationY = (player.Inventory.MapLocationY - locationSquareOffsetY);
                 }
-                else if (door.DoorSide == DoorFactory.Side.Left) {
+                else if (door.DoorSide == DoorFactory.Side.Left)
+                {
                     player.Position = new Vector2(857, 603);
                     player.Inventory.MapLocationX = (player.Inventory.MapLocationX - locationSquareOffsetX);
 
@@ -56,10 +58,13 @@ namespace Sprint0.Collision
                     player.Inventory.MapLocationY = (player.Inventory.MapLocationY + locationSquareOffsetY);
                 }
             }
-
-            if (door is DoorLocked)//TODO Check for key
+            else if (door is DoorLocked)
             {
-                UnlockDoor(LevelManager.Instance.currentRoomNum, door.DoorSide);
+                if (player.Inventory.KeyCount > 0)
+                {
+                    UnlockDoor(LevelManager.Instance.currentRoomNum, door.DoorSide);
+                    player.Inventory.KeyCount--;
+                }
             }
 
         }

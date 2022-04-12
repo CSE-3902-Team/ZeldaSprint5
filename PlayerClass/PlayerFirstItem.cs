@@ -8,7 +8,7 @@ namespace Sprint0.PlayerClass
     {
         private Player player;
         private int currentFrame;
-        private int TOTAL_FRAMES = 120;
+        private int TOTAL_FRAMES = 90;
         private static Dictionary<ItemType, Rectangle> dict = new Dictionary<ItemType, Rectangle>
         {
             {ItemType.Rupee, new Rectangle(2894,2444,134,298) },
