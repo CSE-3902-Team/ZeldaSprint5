@@ -1,0 +1,20 @@
+﻿Author of the code review: Craig Cirino
+
+Date of the code review: 4/11/2022
+
+Sprint number: 4
+
+Name of the .cs file being reviewed: CollisionHandlerPlayerDoor.cs
+
+Author of the .cs file being reviewed: Luke Wingert
+
+Number of minutes taken to complete the review: 15
+
+Specific comments on what is readable and what is not: 
+	- The HandleCollision() method is very easy to read. The if statements are extremely intuitive, almost as if it were written in plain English.
+
+	- The UnlockDoor() method is difficult to read because of the large number of methods being called in a row. In particular, I had a very hard time understanding line 86 because of how many method calls there are.
+
+	- Lastly, the MovePlayerAwatFromDoor() method was also very easy to read because of its simplicity and its similarity to other collision Handler methods.
+	
+Proposed change: I would just focus on cleaning up the UnlockDoor() method by breaking things up into variables/fields in order to make it easier to understand. Also in the HandleCollision() method, add that if a door is locked and keyCount <= 0, move the player away from the door. It should not be difficult to make this change with the current implementation.

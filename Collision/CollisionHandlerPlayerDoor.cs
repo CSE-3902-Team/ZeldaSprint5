@@ -34,7 +34,6 @@ namespace Sprint0.Collision
             }
             else if (door is DoorOpen || door is DoorHole)
             {
-                Console.WriteLine("Room transition");
                 door.ChangeRoom();
                 if (door.DoorSide == DoorFactory.Side.Top)
                 {

@@ -1,0 +1,20 @@
+﻿Author of the code review: Craig Cirino
+
+Date of the code review: 4/11/2022
+
+Sprint number: 4
+
+Name of the .cs file being reviewed: CollisionHandlerProjectileDoor.cs
+
+Author of the .cs file being reviewed: Luke Wingert
+
+Number of minutes taken to complete the review: 17
+
+Specific comments on code quality:
+
+- very low coupling because the class only gets two types that are involved in the collision and nothing more.
+
+- Along with low coupling there is high cohesion because like I said above, the class only gets a door and a projectile which makes sense for a class that handles a collision between a door and a projectile.
+	
+
+Proposed change: Maybe just get rid of the KillProjectile method because it only has 1 single line of code. Also, in the HandleCollision method, we could add an if statement to check if the projectile is a boomerang and write logic to have it "bounce" off the wall. The first suggestion would be extremely easy to do but the second one might be more difficult because it could mean making changes to the boomerang class and even the CollisionHandlerProjectileTile class.
