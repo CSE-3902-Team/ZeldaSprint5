@@ -17,6 +17,7 @@ namespace Sprint0.Collision
         int overlap;
         const int locationSquareOffsetX = 45;
         const int locationSquareOffsetY = 28;
+        const int mapSquareOffset = 40;
         public CollisionHandlerPlayerDoor(Player p, ADoor d, CollisionDirections dir, int o)
         {
             player = p;
@@ -38,22 +39,26 @@ namespace Sprint0.Collision
                 {
                     player.Position = new Vector2(512,796);
                     player.Inventory.MapLocationY = (player.Inventory.MapLocationY - locationSquareOffsetY);
+                    player.Inventory.MapSquareLocationY = (player.Inventory.MapSquareLocationY - mapSquareOffset);
+
                 }
                 else if (door.DoorSide == DoorFactory.Side.Left) {
                     player.Position = new Vector2(857, 603);
                     player.Inventory.MapLocationX = (player.Inventory.MapLocationX - locationSquareOffsetX);
-
+                    player.Inventory.MapSquareLocationX = (player.Inventory.MapSquareLocationX - mapSquareOffset);
                 }
                 else if (door.DoorSide == DoorFactory.Side.Right)
                 {
                     player.Position = new Vector2(167, 603);
                     player.Inventory.MapLocationX = (player.Inventory.MapLocationX + locationSquareOffsetX);
-
+                    player.Inventory.MapSquareLocationX = (player.Inventory.MapSquareLocationX + mapSquareOffset);
                 }
                 else if (door.DoorSide == DoorFactory.Side.Bottom)
                 {
                     player.Position = new Vector2(512, 427);
                     player.Inventory.MapLocationY = (player.Inventory.MapLocationY + locationSquareOffsetY);
+                    player.Inventory.MapSquareLocationY = (player.Inventory.MapSquareLocationY + mapSquareOffset);
+
                 }
             }
 
