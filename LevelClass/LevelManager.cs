@@ -39,6 +39,7 @@ namespace Sprint0.LevelClass
         private List<AItem> itemList;
         private List<IEnemySprite> enemyList;
         private List<ITile> tileList;
+        private Dictionary<IEnemySprite, AItem> enemyHoldItem;
         ICommand command;
         
 
@@ -165,16 +166,17 @@ namespace Sprint0.LevelClass
             {
                 tileList.Add(tileFactory.CreateTileSprite(tileFactory.GetTile(tileDoor), position));
             }
-            if (enemy.Length > 0) {
+            if (enemy.Length > 0 && item.Length<=0) {
                 enemyList.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position, command));
             }
-            if (item.Length > 0 && enemy.Length<=0) {
+          else  if (item.Length > 0 && enemy.Length<=0) {
                 
                 itemList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
             }
-            if (item.Length > 0 && enemy.Length > 0)
+            else if (item.Length > 0 && enemy.Length > 0)
             {
-                combineList.Add(itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
+                enemyHoldItem.Add(enemyFactory.CreateEnemySprite(enemyFactory.GetEnemy(enemy), position, command), itemFactory.CreateItemSprite(itemFactory.GetItem(item), position));
+               
           
             }
         }
@@ -190,7 +192,7 @@ namespace Sprint0.LevelClass
             itemList = new List<AItem>();
             enemyList = new List<IEnemySprite>();
             tileList = new List<ITile>();
-            combineList= new List<AItem>();
+            enemyHoldItem = new Dictionary<IEnemySprite, AItem>();
 
             return parser;
     }
@@ -210,7 +212,7 @@ namespace Sprint0.LevelClass
                     fields = parser.ReadFields();
                     parseFields(fields);
                 }
-                roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player,combineList.ToArray()));
+                roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player,enemyHoldItem));
             }
         }
 

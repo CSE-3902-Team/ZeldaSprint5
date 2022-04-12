@@ -23,10 +23,17 @@ namespace Sprint0.Collision
         {
             if (item is ItemHeartContainer)
             {
+                if (player.Inventory.FirstHeartContainer)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.HeartCountainer);
+                    inventory.FirstHeartContainer = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
+                }
                 player.MaxHp += 2;
-               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
-                inventory.FirstHeartContainer = false;
-
             }
             else if (item is ItemHeart)
             {
@@ -39,21 +46,46 @@ namespace Sprint0.Collision
                     player.PlayerHp++;
                 }
 
-                SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
-                inventory.FirstHeart = false;
+                if (player.Inventory.FirstHeart)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Heart);
+                    inventory.FirstHeart = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
+                }
+                
             }
             else if (item is ItemKey) 
             {
-               SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
+                if (player.Inventory.FirstKey)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Key);
+                    inventory.FirstKey = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
+                }
                 inventory.KeyCount++;
-                inventory.FirstKey = false;
-                Console.WriteLine(inventory.KeyCount);
+                
             }
             else if (item is ItemRupee)
             {
-               SoundManager.Instance.Play(SoundManager.Sound.GetRupee);
+                if (player.Inventory.FirstRupee)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Rupee);
+                    inventory.FirstRupee = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetRupee);
+                }
                 inventory.RupeeCount++;
-                inventory.FirstRupee = false;
             }
             else if (item is ItemTriforcePiece)
             {
@@ -64,49 +96,114 @@ namespace Sprint0.Collision
             }
             else if (item is ItemArrow)
             {
-                SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstArrow = false;
+                if (player.Inventory.FirstArrow)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Arrow);
+                    inventory.FirstArrow = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 inventory.ArrowCount++;
             }
             else if (item is ItemBomb)
             {
-               SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstBomb = false;
+                if (player.Inventory.FirstBomb)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Bomb);
+                    inventory.FirstBomb = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 inventory.BombCount++;
             }
             else if (item is ItemBow)
             {
-                SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstBow = false;
+                if (player.Inventory.FirstBow)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Arrow);
+                    inventory.FirstBow = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 inventory.Bow = true;
             }
             else if (item is ItemClock)
             {
-                SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstClock = false;
+                if (player.Inventory.FirstClock)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Clock);
+                    inventory.FirstClock = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 inventory.Clock = true;
             }
             else if (item is ItemCompass)
             {
-                SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstCompass = false;
+                if (player.Inventory.FirstCompass)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Clock);
+                    inventory.FirstCompass = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 inventory.Compass = true;
             }
             else if (item is ItemFairy)
             {
+                if (player.Inventory.FirstFairy)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Fairy);
+                    inventory.FirstFairy = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstFairy = false;
             }
             else if (item is ItemMap)
             {
-                SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstMap = false;
+                if (player.Inventory.FirstMap)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Map);
+                    inventory.FirstMap = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 inventory.Map = true;
             }
             else if (item is ItemWoodenBoomerang)
             {
-                SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
-                inventory.FirstBoomerang = false;
+                if (player.Inventory.FirstBoomerang)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Boomerang);
+                    inventory.FirstBoomerang = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
                 inventory.Boomerang = true;
             }
 
