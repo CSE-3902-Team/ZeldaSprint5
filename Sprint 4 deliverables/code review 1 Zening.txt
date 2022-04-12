@@ -1,0 +1,9 @@
+Author of the code review：Zening Teng
+Date of the code review:2022/04/11
+Sprint number:4
+Name of the .cs file being reviewed:LevelManager.CS
+Author of the .cs file being reviewed:Austin Motz
+Number of minutes taken to complete the review:15 mins
+Specific comments on what is readable and what is not:
+I would say the code got high readbility, with high cohesion and low coupling. All parts in this file are easily to understand. When I was implementing in this file, basically nothing stops me from understand the codes.
+

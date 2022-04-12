@@ -1,0 +1,9 @@
+Author of the code review:Zening Teng
+Date of the code review:2022/04/11
+Sprint number:4
+Name of the .cs file being reviewed:Room.cs
+Author of the .cs file being reviewed:Austin Motz
+Specific comments on code quality:
+Code got high quality. It is easy to maintain, and cohesion is high. Complexity of the code in this file is quite low, that makes reuse become an easy job here. Meanwhile, variables, methods and fields names are pretty straight forward and understandable.
+A hypothetical change to make to the game related to file being reviewed and how the current implementation could or could not easily support that change
+Overall, the reusebility and matainbility of the code are both high. Also the complexity of the code is pretty low. Thus it will support most implementation, for now I couldn't find any change the code will difficult to support.
