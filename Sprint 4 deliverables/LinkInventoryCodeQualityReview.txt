@@ -1,19 +1,4 @@
-﻿In the plaintext file for a readability review, include the following information:
-
-Author of the code review: Ting Feng
-Date of the code review: 4/11/2022
-Sprint number: 4
-Name of the .cs file being reviewed: LinkInventory.cs
-Author of the .cs file being reviewed: Craig Cirino
-Number of minutes taken to complete the review: 15
-
-Comments on Readability: 
-
-Readability wise, everything is clear and understandable. The blocking of code is good and it can be understood. The names of variables, fields, and methods are understandable. 
-
-
-
-In the plaintext file for a code quality review, include the following information:
+﻿In the plaintext file for a code quality review, include the following information:
 
 Author of the code review: Ting Feng
 Date of the code review: 4/11/2022
