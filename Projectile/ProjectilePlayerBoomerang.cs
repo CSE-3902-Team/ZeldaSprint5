@@ -190,8 +190,8 @@ namespace Sprint0
         {
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
-            bottomRight.X = (int)position.X + 25;
-            BottomRight.Y = (int)position.Y + 25;
+            bottomRight.X = (int)position.X + 24;
+            BottomRight.Y = (int)position.Y + 28;
         }
 
     }

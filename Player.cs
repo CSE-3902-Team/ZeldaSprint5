@@ -143,7 +143,7 @@ namespace Sprint0 {
 			this.texture = texture;
 			position = p;
 			speed = MOVE_SPEED;
-			attackFrames = 15;
+			attackFrames = 18;
 			scale = 0.35f;
             topLeft = new TopLeft((int)(position.X - (src.Width * scale)/2), (int)((position.Y - (src.Height * scale)/2)), this);
             bottomRight = new BottomRight(((int)(position.X+(src.Width * scale)/2)), (int)((position.Y+(src.Height * scale)/2)), this);
