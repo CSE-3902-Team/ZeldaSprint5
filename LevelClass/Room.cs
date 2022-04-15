@@ -158,6 +158,7 @@ namespace Sprint0.LevelClass
         }
 
         public void updateRoom() {
+
             UpdateEnemies();
             UpdateProjectiles();
             UpdateEnemiesHoldItem();

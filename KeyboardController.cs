@@ -163,7 +163,7 @@ namespace Sprint0 {
 				
 			}
 
-			/*
+			
 			if (kstate.IsKeyDown(Keys.Up))
 			{
 				levelManager.Player2.ChangeDirection(Player.Directions.Up);
@@ -191,7 +191,7 @@ namespace Sprint0 {
 				levelManager.Player2.Attack();
 
 			}
-			*/
+			
 
 
 			//player1 projectile controls
