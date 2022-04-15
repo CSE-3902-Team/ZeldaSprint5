@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.PlayerClass
 {
-	public class PlayerLeftAttack : IState
+	public class PlayerLeftAttack : IPlayerState
 	{
 		private Player player;
 		private int currentFrame;

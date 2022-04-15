@@ -3,7 +3,7 @@ using System;
 
 namespace Sprint0.PlayerClass
 {
-    public class PlayerTriforce : IState
+    public class PlayerTriforce : IPlayerState
     {
         private Player player;
         private int currentFrame;

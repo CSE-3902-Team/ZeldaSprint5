@@ -17,7 +17,8 @@ namespace Sprint0.StateClass
         private Game1 _game;
         private ContentManager _content;
         private Texture2D screen;
-        private LinkInventory _inventory;
+        private LinkInventory _inventory1;
+        private LinkInventory _inventory2;
         private LevelManager _levelManager;
         private int locationSquareX;
         private int locationSquareY;
@@ -104,9 +105,9 @@ namespace Sprint0.StateClass
             _game = game;
             _content = content;
             _levelManager = LevelManager.Instance;
-            _inventory = _levelManager.Player.Inventory;
-            locationSquareX = _inventory.MapLocationX;
-            locationSquareY = _inventory.MapLocationY;
+            _inventory1 = _levelManager.Player1.Inventory;
+            locationSquareX = _inventory1.MapLocationX;
+            locationSquareY = _inventory1.MapLocationY;
 
             heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), heartAndNumberYSourceLocation, heartWidth, heartHeight);
             halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), heartAndNumberYSourceLocation, heartWidth, heartHeight);
@@ -146,7 +147,7 @@ namespace Sprint0.StateClass
 
         public override void Draw(GameTime gameTime)
         {
-            _inventory.Update();
+            _inventory1.Update();
             Rectangle screenDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle screenSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
 
@@ -165,32 +166,32 @@ namespace Sprint0.StateClass
             _game.SpriteBatch.Draw(screen, rupeeNumberDestRect, timesSymbolSourceRect, Color.White);
             _game.SpriteBatch.Draw(screen, bombNumberDestRect, timesSymbolSourceRect, Color.White);
             _game.SpriteBatch.Draw(screen, keyNumberDestRect, timesSymbolSourceRect, Color.White);
-            _game.SpriteBatch.Draw(screen, levelNumberDestRect, new Rectangle(numberXSourceLocation + (_inventory.LevelNumber * numberWidth) + (_inventory.LevelNumber * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            _game.SpriteBatch.Draw(screen, levelNumberDestRect, new Rectangle(numberXSourceLocation + (_inventory1.LevelNumber * numberWidth) + (_inventory1.LevelNumber * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
 
 
             int remainingNumberSpaces = 2;
             for (int i = 1; i <= remainingNumberSpaces; i++)
             {
-                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory.RupeeCount / 10) * numberWidth) + ((_inventory.RupeeCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory.RupeeCount % 10) * numberWidth) + ((_inventory.RupeeCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory1.RupeeCount / 10) * numberWidth) + ((_inventory1.RupeeCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory1.RupeeCount % 10) * numberWidth) + ((_inventory1.RupeeCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
             for (int i = 1; i <= remainingNumberSpaces; i++)
             {
-                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory.KeyCount / 10) * numberWidth) + ((_inventory.KeyCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory.KeyCount % 10) * numberWidth) + ((_inventory.KeyCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory1.KeyCount / 10) * numberWidth) + ((_inventory1.KeyCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory1.KeyCount % 10) * numberWidth) + ((_inventory1.KeyCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
             for (int i = 1; i <= remainingNumberSpaces; i++)
             {
-                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory.BombCount / 10) * numberWidth) + ((_inventory.BombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory.BombCount % 10) * numberWidth) + ((_inventory.BombCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory1.BombCount / 10) * numberWidth) + ((_inventory1.BombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory1.BombCount % 10) * numberWidth) + ((_inventory1.BombCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
-            int remainingHalfHearts = _inventory.HeartCount;
+            int remainingHalfHearts = _inventory1.HeartCount;
             for (int i = 0; i < MAX_HEART_COUNT; i++)
             {
-                if (i < _inventory.HeartContainerCount)
+                if (i < _inventory1.HeartContainerCount)
                 {
                     if (remainingHalfHearts >= 2)
                     {
@@ -214,20 +215,20 @@ namespace Sprint0.StateClass
                 }
             }
 
-            if(_inventory.Compass == true)
+            if(_inventory1.Compass == true)
             {
                 _game.SpriteBatch.Draw(screen,compassDestRect, compassSourceRect, Color.White);
 
             }
 
-            if (_inventory.Map == true)
+            if (_inventory1.Map == true)
             {
                 _game.SpriteBatch.Draw(screen, mapDestRect, mapSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, mapDesignDestRect, mapDesignSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, otherMapDestRect, otherMapSourceRect, Color.White);
             }
-            _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapLocationX, _inventory.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
-            _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapSquareLocationX, _inventory.MapSquareLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
+            _game.SpriteBatch.Draw(screen, new Rectangle(_inventory1.MapLocationX, _inventory1.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
+            _game.SpriteBatch.Draw(screen, new Rectangle(_inventory1.MapSquareLocationX, _inventory1.MapSquareLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
 
             _game.SpriteBatch.End();
         }

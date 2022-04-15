@@ -4,70 +4,72 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/ball.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BG_MUSIC.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BlackBackground.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/blackColumn.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BombBlow.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/BombDrop.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/bricks.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/creditsEdited.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/doors.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/DoorUnlock.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/dragon.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/DungeonEnemy.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/enemy.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/EnemyDie.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/EnemyHit.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/ExitText.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GameOverText.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GameOverText2.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetHeartKey.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetInventoryItem.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/GetRupee.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/HUDandInventory.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/Inventory.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/itemsAndWeapons1.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/KeyAppear.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LeftFire.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LinkDie.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LinkHurt.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LowHp.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LOZ_Arrow_Boomerang.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LOZ_MagicalRod.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/LOZ_Sword_Slash.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/NES - The Legend of Zelda - Dungeon Tileset.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/NES - The Legend of Zelda - HUD &amp; Pause Screen.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/NewItem.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/oldman.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/oldman1.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/playerSheetV3.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/playerSheetV4.png.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/PuzzleSolved.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/ReplayText.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/RightFire.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/roomwalls original.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/roomwalls.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/sandtile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/silverlines.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/Skull.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/SkullResized.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/solid black tile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/solid blue tile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/solid navy tile.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/Sprint 2 Tiles.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/sprint-2-items.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/stairs.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/statue1.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/statue2.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/textsprite.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/tile with square in middle.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/VictoryText.png</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/WalkStairs.wav</File>
-    <File>C:/Users/cciri/source/repos/ZeldaGameS4/Content/zelda.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/ball.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/BG_MUSIC.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/BlackBackground.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/blackColumn.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/BombBlow.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/BombDrop.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/bricks.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/creditsEdited.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/doors.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/DoorUnlock.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/dragon.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/DungeonEnemy.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/enemy.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/EnemyDie.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/EnemyHit.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/ExitText.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/GameOverText.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/GameOverText2.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/GetHeartKey.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/GetInventoryItem.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/GetRupee.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/HUDandInventory.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/Inventory.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/itemsAndWeapons.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/itemsAndWeapons1.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/KeyAppear.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/LeftFire.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/LinkDie.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/LinkHurt.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/LowHp.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/LOZ_Arrow_Boomerang.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/LOZ_MagicalRod.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/LOZ_Sword_Slash.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/NES - The Legend of Zelda - Dungeon Tileset.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/NES - The Legend of Zelda - HUD &amp; Pause Screen.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/NewItem.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/oldman.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/oldman1.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/player2SheetV4.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/playerSheetV3.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/playerSheetV4.png.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/PuzzleSolved.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/ReplayText.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/RightFire.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/roomwalls original.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/roomwalls.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/sandtile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/silverlines.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/Skull.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/SkullResized.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/solid black tile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/solid blue tile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/solid navy tile.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/Sprint 2 Tiles.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/sprint-2-items.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/stairs.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/statue1.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/statue2.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/textsprite.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/tile with square in middle.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/VictoryText.png</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/WalkStairs.wav</File>
+    <File>C:/Users/tingy/source/repos/ZeldaSprint5/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

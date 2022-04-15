@@ -6,7 +6,7 @@ using Sprint0;
 
 namespace Sprint0.PlayerClass
 {
-	public class PlayerRightMove : IState
+	public class PlayerRightMove : IPlayerState
 	{
 		private Player player;
 		private int moveFrame;

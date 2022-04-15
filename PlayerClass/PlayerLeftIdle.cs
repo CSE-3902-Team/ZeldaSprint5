@@ -6,7 +6,7 @@ using Sprint0;
 
 namespace Sprint0.PlayerClass
 {
-	public class PlayerLeftIdle : IState
+	public class PlayerLeftIdle : IPlayerState
 	{
 		private Player player;
 

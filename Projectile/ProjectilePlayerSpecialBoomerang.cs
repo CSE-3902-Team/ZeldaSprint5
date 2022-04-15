@@ -92,8 +92,15 @@ namespace Sprint0
         public void Update()
         {
             GetRotation(direction);
-            int PlayerProjectileDistanceX = (int)(LevelManager.Instance.Player.Position.X - position.X);
-            int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player.Position.Y - position.Y);
+            int PlayerProjectileDistanceX = (int)(LevelManager.Instance.Player1.Position.X - position.X);
+            int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player1.Position.Y - position.Y);
+
+            /*
+             * player2
+             * int PlayerProjectileDistanceX = (int)(LevelManager.Instance.Player2.Position.X - position.X);
+                int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player2.Position.Y - position.Y);
+             * 
+             */
             if (IsRunning == true)
             {
                 destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);

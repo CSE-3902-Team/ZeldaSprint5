@@ -10,7 +10,7 @@ namespace Sprint0 {
 
 	public class Player : IBoxCollider
 	{
-		private IState _state;
+		private IPlayerState _state;
 		private Texture2D texture;
 		private Vector2 position;
 		private float speed;
@@ -76,7 +76,7 @@ namespace Sprint0 {
         }
 	
 
-	public IState State
+	public IPlayerState State
 		{
 			get { return _state; }
 			set { _state = value; }
@@ -109,7 +109,7 @@ namespace Sprint0 {
 					SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
 					SoundManager.Instance.Play(SoundManager.Sound.GameOver);
 					//Change to playerDeadState: isDead will be changed within the state.
-					//isDead = true;
+					isDead = true;
 				}
 			}
 		}

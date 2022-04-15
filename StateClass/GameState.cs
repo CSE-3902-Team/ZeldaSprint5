@@ -35,8 +35,9 @@ namespace Sprint0.StateClass
             levelManager.LoadRooms();
             _currentRoom = levelManager.StartRoom();
             roomNum = levelManager.currentRoomNum;
-            headsUpDisplay = new HUD(levelManager.Player, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
-	        isTransitioning = false;
+            headsUpDisplay = new HUD(levelManager.Player1, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
+            //headsUpDisplay = new HUD(levelManager.Player2, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
+            isTransitioning = false;
             isGameState = true;
         }
 
@@ -55,11 +56,11 @@ namespace Sprint0.StateClass
                 _game.MouseController.handleInput();
                 _game.KeyboardController.handleInput();
 
-                if (levelManager.Player.IsDead)
+                if (levelManager.Player1.IsDead && levelManager.Player2.IsDead)
                 {
                     _game.ChangeState(2);
                 }
-                if (levelManager.Player.HasTriforce)
+                if (levelManager.Player1.HasTriforce || levelManager.Player2.HasTriforce)
                 {
                     _game.ChangeState(3);
                 }

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.PlayerClass
 {
-	public class PlayerUpDamaged : IState
+	public class PlayerUpDamaged : IPlayerState
 	{
 		private Player player;
 		private int currentFrame;

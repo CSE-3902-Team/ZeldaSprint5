@@ -26,7 +26,8 @@ namespace Sprint0.LevelClass
         private ITile[] tileList;
         private AItem[] combineList;
         private readonly List<IProjectile> projectileList;
-        private Player _player;
+        private Player _player1;
+        private Player _player2;
         private Dictionary<IEnemySprite, AItem> enemyHoldItem;
         public List<IProjectile> ProjectileList
         {
@@ -38,23 +39,29 @@ namespace Sprint0.LevelClass
             get { return colliderDetector; }
         }
 
-        public Player Player
+        public Player Player1
         {
-            get { return _player; }
+            get { return _player1; }
+        }
+
+        public Player Player2
+        {
+            get { return _player2; }
         }
 
         public ADoor[] DoorList
         {
             get { return doorList; }
         }
-        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player, Dictionary<IEnemySprite,AItem> enemyHoldItem) {
+        public Room(ADoor[] doorList, List<IEnemySprite> enemyList, AItem[] itemList, ITile[] tileList, Player player1, Player player2, Dictionary<IEnemySprite,AItem> enemyHoldItem) {
             this.doorList = doorList;
             this.enemyList = enemyList;
             this.itemList = itemList;
             this.tileList = tileList;
             this.enemyHoldItem = enemyHoldItem;
             projectileList = new List<IProjectile>();
-            _player = player;
+            _player1 = player1;
+            _player2 = player2;
             colliderDetector = new SortSweep();
             SortTilesByDrawOrder();
 
@@ -85,7 +92,8 @@ namespace Sprint0.LevelClass
                 }
             }
 
-            colliderDetector.AddToList(_player);
+            colliderDetector.AddToList(_player1);
+            colliderDetector.AddToList(_player2);
         }
 
 
@@ -144,7 +152,8 @@ namespace Sprint0.LevelClass
 
             if (!transition)
             {
-                Player.Draw();
+                _player1.Draw();
+                _player2.Draw();
             }
         }
 
@@ -152,7 +161,8 @@ namespace Sprint0.LevelClass
             UpdateEnemies();
             UpdateProjectiles();
             UpdateEnemiesHoldItem();
-            Player.Update();
+            _player1.Update();
+            _player2.Update();
             colliderDetector.HandleCollisions();
             if (enemyList.Count ==0 && (enemyKillCount>=enemyHoldItem.Count))
             {

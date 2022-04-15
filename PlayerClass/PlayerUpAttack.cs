@@ -2,7 +2,7 @@
 
 namespace Sprint0.PlayerClass
 {
-    public class PlayerUpAttack : IState
+    public class PlayerUpAttack : IPlayerState
     {
         private Player player;
         private int currentFrame;

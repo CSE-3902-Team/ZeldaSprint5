@@ -3,7 +3,7 @@ using System;
 
 namespace Sprint0.PlayerClass
 {
-    public class PlayerDead : IState
+    public class PlayerDead : IPlayerState
     {
         private Player player;
         private int currentFrame;

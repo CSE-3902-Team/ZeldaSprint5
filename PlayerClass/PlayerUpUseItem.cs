@@ -6,7 +6,7 @@ using Sprint0;
 
 namespace Sprint0.PlayerClass
 {
-	public class PlayerUpUseItem : IState
+	public class PlayerUpUseItem : IPlayerState
 	{
 		private Player player;
 		private int currentFrame;

@@ -4,7 +4,7 @@ using System;
 
 namespace Sprint0.PlayerClass
 {
-    public class PlayerFirstItem : IState
+    public class PlayerFirstItem : IPlayerState
     {
         private Player player;
         private int currentFrame;
