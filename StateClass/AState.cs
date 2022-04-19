@@ -25,6 +25,7 @@ namespace Sprint0
         protected bool isGameOver = false;
         protected bool isVictory = false;
         protected bool isGameState = false;
+        protected bool isMenu = false;
         protected bool animate = false;
 
 
