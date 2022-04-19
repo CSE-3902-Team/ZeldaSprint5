@@ -11,7 +11,8 @@ namespace Sprint0.Collision
 
     class CollisionHandlerPlayerDoor : ICollisionHandler
     {
-        Player player;
+        Player Player1;
+
         ADoor door;
         CollisionDirections direction;
         int overlap;
@@ -20,10 +21,11 @@ namespace Sprint0.Collision
         const int mapSquareOffset = 40;
         public CollisionHandlerPlayerDoor(Player p, ADoor d, CollisionDirections dir, int o)
         {
-            player = p;
+            Player1 = p;
             door = d;
             overlap = o;
             direction = dir;
+
         }
 
         public void HandleCollision()
@@ -37,37 +39,79 @@ namespace Sprint0.Collision
                 door.ChangeRoom();
                 if (door.DoorSide == DoorFactory.Side.Top)
                 {
-                    player.Position = new Vector2(512, 796);
-                    player.Inventory.MapLocationY = (player.Inventory.MapLocationY - locationSquareOffsetY);
-                    player.Inventory.MapSquareLocationY = (player.Inventory.MapSquareLocationY - mapSquareOffset);
+                    LevelManager.Instance.Player1.Position = new Vector2(512, 796);
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Position = new Vector2(512, 796);
+                    }
 
+                    LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY - locationSquareOffsetY);
+                    LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY - mapSquareOffset);
+
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
+                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
+                    }
                 }
                 else if (door.DoorSide == DoorFactory.Side.Left)
                 {
-                    player.Position = new Vector2(857, 603);
-                    player.Inventory.MapLocationX = (player.Inventory.MapLocationX - locationSquareOffsetX);
-                    player.Inventory.MapSquareLocationX = (player.Inventory.MapSquareLocationX - mapSquareOffset);
+                    LevelManager.Instance.Player1.Position = new Vector2(857, 603);
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Position = new Vector2(857, 603);
+                    }
+                    LevelManager.Instance.Player1.Inventory.MapLocationX = (LevelManager.Instance.Player1.Inventory.MapLocationX - locationSquareOffsetX);
+                    LevelManager.Instance.Player1.Inventory.MapSquareLocationX = (LevelManager.Instance.Player1.Inventory.MapSquareLocationX - mapSquareOffset);
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
+                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
+                    }
                 }
                 else if (door.DoorSide == DoorFactory.Side.Right)
                 {
-                    player.Position = new Vector2(167, 603);
-                    player.Inventory.MapLocationX = (player.Inventory.MapLocationX + locationSquareOffsetX);
-                    player.Inventory.MapSquareLocationX = (player.Inventory.MapSquareLocationX + mapSquareOffset);
+                    LevelManager.Instance.Player1.Position = new Vector2(167, 603);
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Position = new Vector2(167, 603);
+                    }
+
+                    LevelManager.Instance.Player1.Inventory.MapLocationX = (LevelManager.Instance.Player1.Inventory.MapLocationX + locationSquareOffsetX);
+                    LevelManager.Instance.Player1.Inventory.MapSquareLocationX = (LevelManager.Instance.Player1.Inventory.MapSquareLocationX + mapSquareOffset);
+
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
+                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
+                    }
                 }
                 else if (door.DoorSide == DoorFactory.Side.Bottom)
                 {
-                    player.Position = new Vector2(512, 427);
-                    player.Inventory.MapLocationY = (player.Inventory.MapLocationY + locationSquareOffsetY);
-                    player.Inventory.MapSquareLocationY = (player.Inventory.MapSquareLocationY + mapSquareOffset);
+                    LevelManager.Instance.Player1.Position = new Vector2(512, 427);
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Position = new Vector2(512, 427);
+                    }
+
+                    LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY + locationSquareOffsetY);
+                    LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY + mapSquareOffset);
+
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
+                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
+                    }
 
                 }
+
             }
             else if (door is DoorLocked)
             {
-                if (player.Inventory.KeyCount > 0)
+                if (Player1.Inventory.KeyCount > 0)
                 {
                     UnlockDoor(LevelManager.Instance.currentRoomNum, door.DoorSide);
-                    player.Inventory.KeyCount--;
+                    Player1.Inventory.KeyCount--;
                 }
                 else
                 {
@@ -119,7 +163,8 @@ namespace Sprint0.Collision
                     xDirection = 0;
                     break;
             }
-            player.Position = new Vector2(player.Position.X + (xDirection * overlap), player.Position.Y + (yDirection * overlap));
+            Player1.Position = new Vector2(Player1.Position.X + (xDirection * overlap), Player1.Position.Y + (yDirection * overlap));
+
         }
 
 

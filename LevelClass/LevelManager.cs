@@ -27,6 +27,7 @@ namespace Sprint0.LevelClass
         private int currentRoom;
         private int numRooms;
         private const int OFFSET = 256; //used in sprint4 because we need to push the level down to have the inventory/map on the top of the screen
+        private bool _2player;
 
 		private ItemSpriteFactory itemFactory;
 		private DoorFactory doorFactory;
@@ -42,6 +43,7 @@ namespace Sprint0.LevelClass
         private List<ITile> tileList;
         private Dictionary<IEnemySprite, AItem> enemyHoldItem;
         ICommand command;
+
         
 
         public Texture2D ProjectileTexture
@@ -61,14 +63,17 @@ namespace Sprint0.LevelClass
 
         public Player Player2
         {
-            get { return _player1; }
+            get { return _player2; }
         }
 
         public Room CurrentRoom
         {
             get { return roomList[currentRoom]; }
         }
-
+        public bool TwoPlayer
+        {
+            get { return _2player; }
+        }
         
 
         //these need to be gotten rid of
@@ -81,7 +86,7 @@ namespace Sprint0.LevelClass
 
         private static LevelManager instance = new LevelManager();
 
-		public void initialize(SpriteBatch aBatch, ContentManager Content, ICollision collider, Vector2 center)
+		public void initialize(SpriteBatch aBatch, ContentManager Content, ICollision collider, Vector2 center, bool twoPlayer)
 		{
 			itemFactory = ItemSpriteFactory.Instance;
 			doorFactory = DoorFactory.Instance;
@@ -96,11 +101,15 @@ namespace Sprint0.LevelClass
             player1Texture = Content.Load<Texture2D>("playerSheetV4.png");
             player2Texture = Content.Load<Texture2D>("player2SheetV4");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
+
+            _2player = twoPlayer;
             
             _player1 = new Player(player1Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200+OFFSET), new Vector2(1, 0)), new Vector2(515, 500+OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
-            _player2 = new Player(player2Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200 + OFFSET), new Vector2(1, 0)), new Vector2(515, 500 + OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
-
-
+            if (_2player)
+            {
+                _player2 = new Player(player2Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200 + OFFSET), new Vector2(1, 0)), new Vector2(515, 500 + OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
+            }
+            
 
             //load everything with the items shown on screen
             itemFactory.LoadAllTextures(Content);
@@ -218,7 +227,16 @@ namespace Sprint0.LevelClass
                     fields = parser.ReadFields();
                     parseFields(fields);
                 }
-                roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player1, _player2, enemyHoldItem));
+
+                if (_2player)
+                {
+                    roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player1, _player2, enemyHoldItem));
+                }
+                else
+                {
+                    roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player1, enemyHoldItem));
+                }
+
                 //roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player2, enemyHoldItem));
             }
         }

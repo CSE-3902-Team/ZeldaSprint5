@@ -49,7 +49,6 @@ namespace Sprint0 {
 		public Vector2 DrawOffset {get { return drawOffset; } set { drawOffset = value; } }
 		public int AttackFrames { get { return attackFrames; } set { attackFrames = value; } }
 		public bool IsDead { get { return isDead; } set { isDead = value; } }
-
 		public float Scale { get { return scale; } set { scale = value; } }
 		public bool HasTriforce { get { return hasTriforce; } set { hasTriforce = value; } }
 		

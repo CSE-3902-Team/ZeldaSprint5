@@ -33,6 +33,8 @@ namespace Sprint0
 
         private List<AState> stateList;
 
+        private bool isTwoPlayer = true;
+
 
 
         public Game1()
@@ -80,8 +82,7 @@ namespace Sprint0
             stateList.Add(gameVictory);
 
             _currentState = stateList[0];
-            //_currentState.loadContent();
-            //_nextState = null;
+            //add main menu state to choose 1 or 2 player
 
         }
 
@@ -174,5 +175,9 @@ namespace Sprint0
             get { return _graphics; }
         }
 
+        public bool TwoPlayer
+        {
+            get { return isTwoPlayer; }
+        }
     }
 }

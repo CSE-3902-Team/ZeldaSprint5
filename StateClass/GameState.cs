@@ -31,7 +31,7 @@ namespace Sprint0.StateClass
         public override void loadContent()
         {
             Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
-            levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center);
+            levelManager.initialize(_game.SpriteBatch, _content, colliderDetector, center, _game.TwoPlayer);
             levelManager.LoadRooms();
             _currentRoom = levelManager.StartRoom();
             roomNum = levelManager.currentRoomNum;
@@ -64,6 +64,7 @@ namespace Sprint0.StateClass
                 {
                     _game.ChangeState(3);
                 }
+
                 _currentRoom.updateRoom();
             }
         }

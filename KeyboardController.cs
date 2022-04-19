@@ -137,7 +137,6 @@ namespace Sprint0 {
 			if (kstate.IsKeyDown(Keys.W))
 			{
 				levelManager.Player1.ChangeDirection(Player.Directions.Up);
-
 			}
 			else if (kstate.IsKeyDown(Keys.A))
 			{
