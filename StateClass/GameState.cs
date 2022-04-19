@@ -56,13 +56,27 @@ namespace Sprint0.StateClass
                 _game.MouseController.handleInput();
                 _game.KeyboardController.handleInput();
 
-                if (levelManager.Player1.IsDead && levelManager.Player2.IsDead)
+                if (_game.TwoPlayer == true)
                 {
-                    _game.ChangeState(2);
+                    if (levelManager.Player1.IsDead && levelManager.Player2.IsDead)
+                    {
+                        _game.ChangeState(3);
+                    }
+                    if (levelManager.Player1.HasTriforce || levelManager.Player2.HasTriforce)
+                    {
+                        _game.ChangeState(4);
+                    }
                 }
-                if (levelManager.Player1.HasTriforce || levelManager.Player2.HasTriforce)
+                else
                 {
-                    _game.ChangeState(3);
+                    if (levelManager.Player1.IsDead)
+                    {
+                        _game.ChangeState(3);
+                    }
+                    if (levelManager.Player1.HasTriforce)
+                    {
+                        _game.ChangeState(4);
+                    }
                 }
 
                 _currentRoom.updateRoom();
