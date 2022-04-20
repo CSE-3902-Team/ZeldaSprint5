@@ -30,6 +30,18 @@ namespace Sprint0.Collision
                 DoorFactory.Side linkedDoorDirection = DoorFactory.InvertSide(door.DoorSide);
                 BlowUpDoor(linkedDoorRoom, linkedDoorDirection);
             }
+            if (projectile is ProjectilePlayerBoomerang)
+            {
+                ProjectilePlayerBoomerang boomerang = projectile as ProjectilePlayerBoomerang;
+                boomerang.IsReturning = true;
+                return;
+            }
+            else if (projectile is ProjectilePlayerSpecialBoomerang)
+            {
+                ProjectilePlayerSpecialBoomerang boomerang = projectile as ProjectilePlayerSpecialBoomerang;
+                boomerang.IsReturning = true;
+                return;
+            }
             KillProjectile();
         }
 

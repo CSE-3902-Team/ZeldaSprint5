@@ -30,7 +30,7 @@ namespace Sprint0.Collision
 
         public void HandleCollision()
         {
-            if (door is DoorClosed || door is DoorWall)
+            if (door is DoorClosed || door is DoorWall || door is WeakWall)
             {
                 MovePlayerAwayFromDoor();
             }

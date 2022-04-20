@@ -18,6 +18,7 @@ namespace Sprint0
 
         private int frame;
         private float rotation;
+        private Boolean isReturning;
         // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
         private readonly TopLeft topLeft;
@@ -29,6 +30,13 @@ namespace Sprint0
             get { return isRunning; }
             set { isRunning = value; }
         }
+
+        public Boolean IsReturning
+        {
+            get { return isReturning; }
+            set { if (value) { frame = 35; } else { frame = 0; } }
+        }
+
         public Vector2 Position
         {
             get { return position; }
@@ -59,7 +67,7 @@ namespace Sprint0
 
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
             bottomRight = new BottomRight((int)position.X + 25, (int)position.Y + 25, this);
-
+            isReturning = false;
             sourceRect = new Rectangle(97, 280, 12, 19);
 
             isRunning = true;
