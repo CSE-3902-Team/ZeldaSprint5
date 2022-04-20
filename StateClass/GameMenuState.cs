@@ -16,19 +16,25 @@ namespace Sprint0.StateClass
         private const int YCENTER = 960 / 2;
         private const int XCENTER = 1024 / 2;
 
+        private const int ONEPLAYERX = 468;
+        private const int ONEPLAYERY = 48;
+
+        private const int TWOPLAYERX = 468;
+        private const int TWOPLAYERY = 48;
+
         private const int EXITX = 283;
         private const int EXITY = 48;
 
 
         
-        private Texture2D screen;
+        private Texture2D titleScreen;
         private Texture2D exitText;
+        private Texture2D onePlayer;
+        private Texture2D twoPlayer;
 
 
 
 
-
-        
 
         //private KeyboardController kController;
         //private MouseController mController;
@@ -38,14 +44,15 @@ namespace Sprint0.StateClass
         {
             _game = game;
             _content = content;
-            //kController = new KeyboardController(_game, new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2));
-            //mController = new MouseController(_game);
+
         }
         public override void loadContent()
         {
             Vector2 center = new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2);
-            screen = _content.Load<Texture2D>("BlackBackground");
-            exitText = _content.Load<Texture2D>("ExitText");
+            titleScreen = _content.Load<Texture2D>("TitleScreen");
+            exitText = _content.Load<Texture2D>("ExitTextBlack");
+            onePlayer = _content.Load<Texture2D>("1Player");
+            twoPlayer = _content.Load<Texture2D>("2Player");
             isMenu = true;
         }
 
@@ -59,8 +66,14 @@ namespace Sprint0.StateClass
         {
             Rectangle screenDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle screenSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
-            
-            Rectangle exitTextDestRect = new Rectangle(XCENTER - EXITX / 2, YCENTER + 48 * 3, EXITX, EXITY);
+
+            Rectangle onePDestRect = new Rectangle(XCENTER - ONEPLAYERX / 2, YCENTER + 48, ONEPLAYERX, ONEPLAYERY);
+            Rectangle onePSrcRect = new Rectangle(0, 0, ONEPLAYERX, ONEPLAYERY);
+
+            Rectangle twoPDestRect = new Rectangle(XCENTER - TWOPLAYERX / 2, YCENTER + 48 * 3, TWOPLAYERX, TWOPLAYERY);
+            Rectangle twoPSrcRect = new Rectangle(0, 0, TWOPLAYERX, TWOPLAYERY);
+
+            Rectangle exitTextDestRect = new Rectangle(XCENTER - EXITX / 2, YCENTER + 48 * 5, EXITX, EXITY);
             Rectangle exitTextSrcRect = new Rectangle(0, 0, EXITX, EXITY);
          
             
@@ -68,7 +81,7 @@ namespace Sprint0.StateClass
 
            
                 _game.SpriteBatch.Draw(
-                     screen,
+                     titleScreen,
                      screenDestRect,
                      screenSrcRect,
                     Color.White,
@@ -77,9 +90,31 @@ namespace Sprint0.StateClass
                     SpriteEffects.None,
                     0f
                     );
-             
-              
-                _game.SpriteBatch.Draw(
+
+            _game.SpriteBatch.Draw(
+                 onePlayer,
+                 onePDestRect,
+                 onePSrcRect,
+                Color.White,
+                0f,
+                new Vector2(0, 0),
+                SpriteEffects.None,
+                0f
+                );
+
+            _game.SpriteBatch.Draw(
+                     twoPlayer,
+                     twoPDestRect,
+                     twoPSrcRect,
+                    Color.White,
+                    0f,
+                    new Vector2(0, 0),
+                    SpriteEffects.None,
+                    0f
+                    );
+
+
+            _game.SpriteBatch.Draw(
                      exitText,
                      exitTextDestRect,
                      exitTextSrcRect,

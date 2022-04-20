@@ -7,11 +7,24 @@ Code reviews, team reflection, and completed task tracking excel sheet.
 
 Features/Bugs: All functionality for a team 5 of has been implemented, no extra features, there may be bugs not discovered
 
-Controls:
-"wasd" - move link and change his facing direection
-"z" and "n" - attack with sword
-"1,2,3,4,5,6" - Have link shoot different projectiles
+Menu Controls:
+H - 1 player gameplay
+J - 2 player gameplay
+e - exits game
+
+Game Controls:
+"wasd" - move green link and change his facing direction
+"arrow keys" - move red link and change his facing direction
+
+"z" - green link attack with sword
+"n" - red link attack with sword
+
+"1,2,3,4,5,6" - Have all links shoot different projectiles
+
 "mouse controls" - manually switches rooms
+"esc" - force quits game
+
+GameOver/GameVictory Controls:
 "e" - quits game
 "r" - resets game
 

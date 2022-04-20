@@ -280,7 +280,7 @@ namespace Sprint0.Collision
             }
             else if (other is ITile)
             {
-                ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile);
+                ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile,other as ITile);
                 handler.HandleCollision();
                 //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }

@@ -24,6 +24,8 @@ namespace Sprint0
         private AState gameInventory;
         private AState gameState;
         
+        private AState menuState;
+
         //private AState _nextState;
         //private AState _previousState;
 
@@ -33,7 +35,7 @@ namespace Sprint0
 
         private List<AState> stateList;
 
-        private bool isTwoPlayer = true;
+        private bool isTwoPlayer = false;
 
 
 
@@ -67,20 +69,10 @@ namespace Sprint0
             soundLibrary.LoadAllSounds(Content);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            gameState = new GameState(this, Content);
-            gameState.loadContent();
-            gameOver = new GameOverState(this, Content);
-            gameOver.loadContent();
-            gameVictory = new GameVictoryState(this, Content);
-            gameVictory.loadContent();
-            gameInventory = new GameInventoryState(this, Content);
-            gameInventory.loadContent();
+            menuState = new GameMenuState(this, Content);
+            menuState.loadContent();
 
-            stateList.Add(gameState);
-            stateList.Add(gameInventory);
-            stateList.Add(gameOver);
-            stateList.Add(gameVictory);
-
+            stateList.Add(menuState);
             _currentState = stateList[0];
             //add main menu state to choose 1 or 2 player
 
@@ -112,6 +104,23 @@ namespace Sprint0
             base.Update(gameTime);
         }
 
+        public void LoadStates()
+        {
+            gameState = new GameState(this, Content);
+            gameState.loadContent();
+            gameOver = new GameOverState(this, Content);
+            gameOver.loadContent();
+            gameVictory = new GameVictoryState(this, Content);
+            gameVictory.loadContent();
+            gameInventory = new GameInventoryState(this, Content);
+            gameInventory.loadContent();
+
+            stateList.Add(gameState);
+            stateList.Add(gameInventory);
+            stateList.Add(gameOver);
+            stateList.Add(gameVictory);
+
+        }
         public void ChangeState(int stateNumber)
         {
            
@@ -178,6 +187,7 @@ namespace Sprint0
         public bool TwoPlayer
         {
             get { return isTwoPlayer; }
+            set { isTwoPlayer = value; }
         }
     }
 }

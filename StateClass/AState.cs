@@ -60,6 +60,12 @@ namespace Sprint0
             set { isGameOver = value; }
         }
 
+        public bool IsMenuState
+        {
+            get { return isMenu; }
+            set { isMenu = value; }
+        }
+
         public AState(Game1 game, ContentManager content)
         {
             _game = game;

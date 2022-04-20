@@ -16,6 +16,7 @@ namespace Sprint0
         private readonly BottomRight bottomRight;
         private Texture2D texture;
         private SpriteBatch batch;
+        private Boolean isReturning;
 
         private int frame;
         private float rotation;
@@ -38,7 +39,12 @@ namespace Sprint0
             get { return direction; }
             set { direction = value; }
         }
-        
+        public Boolean IsReturning
+        {
+            get { return isReturning; }
+            set { if (value) { frame = 35; } else { frame = 0; } }
+        }
+
 
         public TopLeft TopLeft
         {
@@ -58,7 +64,7 @@ namespace Sprint0
             sourceRect = new Rectangle(137, 280, 12, 19);
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
             bottomRight = new BottomRight((int)position.X + 25, (int)position.Y + 25, this);
-
+            isReturning = false;
             frame = 0;
             isRunning = true;
             rotation = 0f;
