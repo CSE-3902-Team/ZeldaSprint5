@@ -15,6 +15,7 @@ using Microsoft.VisualBasic.FileIO;
 using System.IO;
 using System;
 using Sprint0.Command;
+using Sprint0.StateClass;
 
 namespace Sprint0.LevelClass
 {
@@ -42,9 +43,14 @@ namespace Sprint0.LevelClass
         private List<IEnemySprite> enemyList;
         private List<ITile> tileList;
         private Dictionary<IEnemySprite, AItem> enemyHoldItem;
+        private GameState _gameState;
         ICommand command;
 
         
+        public GameState gameState 
+        {
+            set { _gameState = value; }
+        }
 
         public Texture2D ProjectileTexture
         {
@@ -241,9 +247,10 @@ namespace Sprint0.LevelClass
             }
         }
 
-        public void RoomTransition(int destination)
+        public void RoomTransition(int destination, DoorClass.DoorFactory.Side side)
         {
             currentRoom = destination;
+            _gameState.startTransition(side, destination, roomList[currentRoom]);
         }
 
 

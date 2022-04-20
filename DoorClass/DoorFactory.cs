@@ -19,7 +19,8 @@ namespace Sprint0.DoorClass
 			Locked = 2,
 			Closed = 3,
 			Hole = 4,
-			WeakWall = 5
+			WeakWall = 5,
+			Invisible = 6
 		}
 
 		public enum Side
@@ -27,7 +28,9 @@ namespace Sprint0.DoorClass
 			Top = 0,
 			Left = 1,
 			Right = 2,
-			Bottom = 3
+			Bottom = 3,
+			Floor = 4,
+			Ceiling = 5
 		}
 		
 
@@ -82,6 +85,10 @@ namespace Sprint0.DoorClass
 			{
 				return Door.Wall;
 			}
+			else if (key.Contains("Invisible"))
+			{
+				return Door.Invisible;
+			}
 			else
 			{
 				throw new ArgumentException(key + " is not a door type");
@@ -105,6 +112,10 @@ namespace Sprint0.DoorClass
 			else if (key.Contains("bottom"))
 			{
 				return Side.Bottom;
+			}
+			else if (key.Contains("ceiling"))
+			{
+				return Side.Ceiling;
 			}
 			else
 			{
@@ -141,6 +152,8 @@ namespace Sprint0.DoorClass
 					return new DoorHole(doorSheet, batch, doorSide, roomConnection);
 				case Door.WeakWall:
 					return new WeakWall(doorSheet, batch, doorSide, roomConnection);
+				case Door.Invisible:
+					return new DoorInvisible(doorSheet, batch, doorSide, roomConnection);
 				default:
 					return new DoorWall(doorSheet, batch, doorSide);
 			}
