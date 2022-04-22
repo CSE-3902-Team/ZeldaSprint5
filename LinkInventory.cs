@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.ItemClass;
 
@@ -40,6 +41,12 @@ namespace Sprint0
         private Boolean compass;
         private Boolean boomerang;
         private Boolean clock;
+
+        private Rectangle currentB_slot;
+        private Rectangle currentB_slot_HUD;
+
+        private Items[,] itemPositionIndex;
+        private Items selectedItem;
 
         public int LevelNumber
         {
@@ -164,7 +171,7 @@ namespace Sprint0
             get { return boomerang; }
             set { boomerang = value; }
         }
-        
+
         public Boolean Clock
         {
             get { return clock; }
@@ -193,6 +200,23 @@ namespace Sprint0
             set { mapSquareY = value; }
         }
 
+        public Items[,] ItemPositionIndex
+        {
+            get { return itemPositionIndex; }
+        }
+        public Items Selected_Item
+        {
+            get { return selectedItem; }
+            set { selectedItem = value; }
+        }
+
+        public enum Items
+        {
+            Boomerang,
+            Bomb,
+            BowAndArrow,
+            None
+        }
         public LinkInventory(Player player)
         {
             this.player = player;
@@ -200,9 +224,9 @@ namespace Sprint0
             rupeeCount = 0;
             keyCount = 0;
             bombCount = 0;
-            arrowCount = 0;
+            arrowCount = 10;
             heartCount = player.PlayerHp;
-            heartContainerCount = (player.MaxHp)/2;
+            heartContainerCount = (player.MaxHp) / 2;
             levelNumber = 1;
             locationSquareX = 135;
             locationSquareY = 921;
@@ -211,7 +235,7 @@ namespace Sprint0
 
 
             firstRupee = true;
-            firstKey = true; 
+            firstKey = true;
             firstBomb = true;
             firstBoomerang = true;
             firstBow = true;
@@ -228,6 +252,9 @@ namespace Sprint0
             boomerang = false;
             clock = false;
 
+            selectedItem = Items.None;
+
+            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.None }, { Items.None, Items.None, Items.None, Items.None } };
         }
 
         public void Update()
