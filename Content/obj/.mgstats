@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/10717/source/repos/CSE-3902-Team/ZeldaSprint5/Content/dragon.png","C:/Users/10717/source/repos/CSE-3902-Team/ZeldaSprint5/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",42429,2339669,0.3261379
 "C:/Users/tingy/source/repos/ZeldaSprint5/Content/1Player.png","C:/Users/tingy/source/repos/ZeldaSprint5/Content/bin/1Player.xnb","TextureProcessor","Texture2DContent",2670,89941,0.1148769
 "C:/Users/tingy/source/repos/ZeldaSprint5/Content/2Player.png","C:/Users/tingy/source/repos/ZeldaSprint5/Content/bin/2Player.xnb","TextureProcessor","Texture2DContent",2619,89941,0.0035938
 "C:/Users/tingy/source/repos/ZeldaSprint5/Content/ball.png","C:/Users/tingy/source/repos/ZeldaSprint5/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.0017382

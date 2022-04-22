@@ -249,8 +249,8 @@ namespace Sprint0.LevelClass
 
 
         public Room StartRoom() {
-            currentRoom = 17;
-            return roomList[17];
+            currentRoom = 18;
+            return roomList[18];
         }
 
         public int currentRoomNum {
