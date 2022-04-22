@@ -83,25 +83,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\10717\\.nuget\\packages\\": {},
+    "C:\\Users\\austi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaSprint5\\Sprint0.csproj",
+      "projectUniqueName": "C:\\Users\\austi\\Source\\Repos\\ZeldaSprint5\\Sprint0.csproj",
       "projectName": "Sprint0",
-      "projectPath": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaSprint5\\Sprint0.csproj",
-      "packagesPath": "C:\\Users\\10717\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\10717\\Source\\Repos\\CSE-3902-Team\\ZeldaSprint5\\obj\\",
+      "projectPath": "C:\\Users\\austi\\Source\\Repos\\ZeldaSprint5\\Sprint0.csproj",
+      "packagesPath": "C:\\Users\\austi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\austi\\Source\\Repos\\ZeldaSprint5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\10717\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\austi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
