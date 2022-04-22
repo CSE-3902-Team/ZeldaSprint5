@@ -156,6 +156,27 @@ namespace Sprint0 {
 			inventory = new LinkInventory(this);
 		}
 
+		public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile, Vector2 p, Texture2D colT, ICommand c, LinkInventory i)
+		{
+			_state = new PlayerUpIdle(this);
+			_spriteBatch = batch;
+			this.texture = texture;
+			position = p;
+			speed = MOVE_SPEED;
+			attackFrames = 18;
+			scale = 0.35f;
+			topLeft = new TopLeft((int)(position.X - (src.Width * scale) / 2), (int)((position.Y - (src.Height * scale) / 2)), this);
+			bottomRight = new BottomRight(((int)(position.X + (src.Width * scale) / 2)), (int)((position.Y + (src.Height * scale) / 2)), this);
+			this.colT = colT;
+			col = Color.White;
+			addProjectileCommand = c;
+			collisionOffsetX = new Vector2(0, 0);
+			collisionOffsetY = new Vector2(0, 0);
+			playerHp = maxHp;
+			isDead = false;
+			inventory = i;
+		}
+
 		public void ChangeDirection(Directions dir)
 		{
 			//Checks movement state transitions
