@@ -79,7 +79,7 @@ namespace Sprint0.enemy
         public void Update()
 
         {
-            if (projectilePos.X <= 0|| projectilePos.X >=800|| projectilePos.Y <= 0 || projectilePos.Y >=800)
+            if (projectilePos.X <= 0)
             {
                 projectilePos.X = Direction.X-32;
                 projectilePos.Y = Direction.Y+64;
@@ -93,7 +93,7 @@ namespace Sprint0.enemy
             {
 
                 if (rateX > 1)
-                    projectilePos.X -= diffX/900;
+                    projectilePos.X -= diffX/300;
 
                 /*else if (rateX > 1 && rateX < 1.2 )
                     projectilePos.X -= 1;
@@ -101,21 +101,21 @@ namespace Sprint0.enemy
                     projectilePos.X += 1;*/
                 else
                 {
-                    projectilePos.X += diffX / 900;
+                    projectilePos.X += diffX / 300;
                 }
 
              
 
 
                 if (rateY >= 1)
-                    projectilePos.Y -= diffY / 900;
+                    projectilePos.Y -= diffY / 300;
                /* else if (rateY > 1 && rateY < 1.2)
                     projectilePos.Y -= 0;
                 else if (rateY < 1 && rateY > 0.8)
                     projectilePos.Y += 0;*/
                 else
                 {
-                    projectilePos.Y += diffY / 900;
+                    projectilePos.Y += diffY / 300;
                 }
             }
             else
