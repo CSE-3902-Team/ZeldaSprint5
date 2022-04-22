@@ -174,7 +174,6 @@ namespace Sprint0
         public void Draw()
         {
             Update();
-            Console.WriteLine(inventory.Selected_Item.ToString());
             spriteBatch.Begin();
             spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
             spriteBatch.Draw(headsUpDisplay, rupeeNumberDestRect, timesSymbolSourceRect, Color.White);
