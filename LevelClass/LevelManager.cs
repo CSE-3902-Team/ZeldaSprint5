@@ -113,7 +113,7 @@ namespace Sprint0.LevelClass
             _player1 = new Player(player1Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200+OFFSET), new Vector2(1, 0)), new Vector2(515, 500+OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
             if (_2player)
             {
-                _player2 = new Player(player2Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200 + OFFSET), new Vector2(1, 0)), new Vector2(515, 500 + OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
+                _player2 = new Player(player2Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200 + OFFSET), new Vector2(1, 0)), new Vector2(515, 500 + OFFSET), Content.Load<Texture2D>("solid navy tile"), command,_player1.Inventory);
             }
             
 
