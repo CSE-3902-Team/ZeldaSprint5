@@ -104,14 +104,6 @@ namespace Sprint0.Collision
                     }
 
                 }
-                else if (door.DoorSide == DoorFactory.Side.Ceiling)
-                {
-                    LevelManager.Instance.Player1.Position = new Vector2(474, 609);
-                    if (LevelManager.Instance.TwoPlayer)
-                    {
-                        LevelManager.Instance.Player2.Position = new Vector2(474, 609);
-                    }
-                }
 
             }
             else if (door is DoorLocked)

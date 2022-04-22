@@ -21,8 +21,11 @@ namespace Sprint0.StateClass
         private Texture2D fadeEffect;
         private DoorClass.DoorFactory.Side exitSide;
         bool fadeOut;
+        bool linkMoved;
+        bool darkEffect;
         private static int screenWidth = 1024;
-        private static int screenHeight = 960-256;
+        private static int heightOffset = 256;
+        private static int screenHeight = 960-heightOffset;
 
         public GameState(Game1 game, ContentManager content) : base(game, content)
         {
@@ -140,39 +143,65 @@ namespace Sprint0.StateClass
             }
             else if (exitSide == DoorClass.DoorFactory.Side.Floor || exitSide == DoorClass.DoorFactory.Side.Ceiling) 
             {
-                if (fadeOut)
+                if (exitSide == DoorClass.DoorFactory.Side.Floor)
                 {
-                    levelManager.RoomList[previousRoom].drawRoom(0, 0, isTransitioning);
-                    offset = offset + 8;
-                    if (offset >= 255) {
-                        offset = 255;
-                        fadeOut = false;
-                    }
+                    fadeTransition(new Vector2(227, 300));                    
+                } else {
+                    fadeTransition(new Vector2(474, 609));
                 }
-                else {
-                    levelManager.RoomList[nextRoom].drawRoom(0, 0, isTransitioning);
-                    offset = offset - 8;
-                    if (offset <= 0)
-                    {
-                        offset = 0;
-                    }
+            }
+        }
 
-                }
-                _game.SpriteBatch.Begin();
-                _game.SpriteBatch.Draw(fadeEffect, new Vector2(0, 0), null, new Color(0, 0, 0, offset), 0f, Vector2.Zero, new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth, _game.GraphicsDeviceManager.PreferredBackBufferHeight), SpriteEffects.None, 0);
-                _game.SpriteBatch.End();
-                if (offset <= 0 && fadeOut == false)
+        private void fadeTransition(Vector2 linkSpawnLocation) {
+            if (fadeOut)
+            {
+                linkMoved = false;
+                levelManager.RoomList[previousRoom].drawRoom(0, 0, isTransitioning);
+                offset = offset + 8;
+                if (offset >= 255)
                 {
-                    isTransitioning = false;
+                    offset = 255;
+                    fadeOut = false;
+                }
+            }
+            else
+            {
+                if (linkMoved == false) {
+                    LevelManager.Instance.Player1.Position = linkSpawnLocation;
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Position = linkSpawnLocation;
+                    }
+                    if (roomNum == 1)
+                    {
+                        darkEffect = true;
+                    }
+                    else {
+                        darkEffect = false;
+                    }
+                }
+                linkMoved = true;
+                levelManager.RoomList[nextRoom].drawRoom(0, 0, isTransitioning);
+                offset = offset - 8;
+                if (offset <= 0)
+                {
                     offset = 0;
                 }
+
+            }
+            _game.SpriteBatch.Begin();
+            _game.SpriteBatch.Draw(fadeEffect, new Vector2(0, 0), null, new Color(0, 0, 0, offset), 0f, Vector2.Zero, new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth, _game.GraphicsDeviceManager.PreferredBackBufferHeight), SpriteEffects.None, 0);
+            _game.SpriteBatch.End();
+            if (offset <= 0 && fadeOut == false)
+            {
+                isTransitioning = false;
+                offset = 0;
             }
         }
 
 
         public override void Draw(GameTime gameTime)
         {
-
             if (isTransitioning)
             {
                 transitionRoom();
@@ -180,7 +209,54 @@ namespace Sprint0.StateClass
             else {
                 _currentRoom.drawRoom();
             }
+            _game.SpriteBatch.Begin();
+            if(darkEffect) {
+                _game.SpriteBatch.Draw(generateDarkRoom(), new Vector2(0, heightOffset), Color.White);
+            }
+            _game.SpriteBatch.End();
             headsUpDisplay.Draw();
+        }
+
+        public Texture2D generateDarkRoom() {
+            //initialize a texture
+            Texture2D texture = new Texture2D(_game.GraphicsDevice, screenWidth, screenHeight);
+
+            //the array holds the color for each pixel in the texture
+            Color[] data = new Color[screenWidth * screenHeight];
+            Vector2 pixelVector = new Vector2(0,0);
+            Vector2 linkPosition1 = LevelManager.Instance.Player1.Position;
+            Vector2 linkPosition2 = new Vector2(5000, 5000);
+            if (_game.TwoPlayer == true) {
+                linkPosition2 = LevelManager.Instance.Player2.Position;
+                linkPosition2.Y = linkPosition2.Y - heightOffset;
+            }
+            linkPosition1.Y = linkPosition1.Y - heightOffset;
+            float distance1 = 0;
+            float distance2 = 500;
+            for (int pixel = 0; pixel < data.Length; pixel++)
+            {
+                pixelVector = new Vector2(pixel % screenWidth, (int)(pixel/screenWidth));
+                //the function applies the color according to the specified pixel
+                distance1 = Vector2.Distance(pixelVector, linkPosition1);
+                if (_game.TwoPlayer == true)
+                {
+                    distance2 = Vector2.Distance(pixelVector, linkPosition2);
+                }
+                if ( distance1 < 128 || distance2 < 128) {
+
+                    data[pixel] = new Color((byte)0, (byte)0, (byte)0, (byte)((Math.Min(distance1, distance2)) * 2));
+                }
+                else 
+                {
+                    data[pixel] = new Color((byte)0, (byte)0, (byte)0, (byte)255);
+                    //data[pixel] = Color.Black;
+                }
+            }
+
+            //set the color
+            texture.SetData(data);
+
+            return texture;
         }
     }
 }
