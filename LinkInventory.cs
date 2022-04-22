@@ -42,16 +42,13 @@ namespace Sprint0
         private Boolean boomerang;
         private Boolean clock;
 
-        private Rectangle currentB_slot;
-        private Rectangle currentB_slot_HUD;
-
         private Items[,] itemPositionIndex;
         private Items selectedItem;
 
         public int LevelNumber
         {
             get { return levelNumber; }
-            set { rupeeCount = value; }
+            set { levelNumber = value; }
         }
         public int RupeeCount
         {
@@ -228,7 +225,7 @@ namespace Sprint0
             heartCount = player.PlayerHp;
             heartContainerCount = (player.MaxHp) / 2;
             levelNumber = 1;
-            locationSquareX = 135;
+            locationSquareX = 180;
             locationSquareY = 921;
             mapSquareX = 623;
             mapSquareY = 578;
