@@ -81,8 +81,6 @@ namespace Sprint0.StateClass
 
         const int slotWidth = 46;
         const int slotHeight = 85;
-        const int spaceBetweenSlots = 10;
-
         const int colorBoxesWidth = 80;
         const int colorBoxesHeight = 82;
 

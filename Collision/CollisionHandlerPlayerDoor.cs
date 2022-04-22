@@ -18,7 +18,7 @@ namespace Sprint0.Collision
         int overlap;
         const int locationSquareOffsetX = 45;
         const int locationSquareOffsetY = 28;
-        const int mapSquareOffset = 40;
+        const int mapSquareOffset = 38;
         public CollisionHandlerPlayerDoor(Player p, ADoor d, CollisionDirections dir, int o)
         {
             Player1 = p;

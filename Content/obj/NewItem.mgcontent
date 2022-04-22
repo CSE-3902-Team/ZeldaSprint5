@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/NewItem.wav</SourceFile>
   <SourceTime>2022-04-21T20:08:12.4627427-04:00</SourceTime>
   <DestFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/NewItem.xnb</DestFile>
-  <DestTime>2022-04-22T16:29:31.7192028-04:00</DestTime>
+  <DestTime>2022-04-22T17:00:13.5858495-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

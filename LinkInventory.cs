@@ -227,8 +227,8 @@ namespace Sprint0
             levelNumber = 1;
             locationSquareX = 180;
             locationSquareY = 921;
-            mapSquareX = 623;
-            mapSquareY = 578;
+            mapSquareX = 659;
+            mapSquareY = 581;
 
 
             firstRupee = true;
@@ -244,7 +244,7 @@ namespace Sprint0
             firstFairy = true;
 
             bow = false;
-            map = false;
+            map = true;
             compass = false;
             boomerang = false;
             clock = false;
