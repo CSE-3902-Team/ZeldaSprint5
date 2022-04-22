@@ -13,19 +13,21 @@ namespace Sprint0.DoorClass
         private static Vector2 leftDoorLocation = new Vector2(0, 288+ OFFSET);
         private static Vector2 rightDoorLocation = new Vector2(896, 288+OFFSET);
         private static Vector2 bottomDoorLocation = new Vector2(448, 576+OFFSET);
+        private static Vector2 ladderDoorLocation = new Vector2(192, 0 + OFFSET);
+        private static int shrink = 30; //constant to shrink the collision box of the door to make walking into it less abrupt
 
         public Vector2 myPos;
-        private static LevelManager levelManager = LevelManager.Instance;
-        protected Texture2D mySheet;
-        protected SpriteBatch myBatch;
-        protected Rectangle sourceRect;
-        protected DoorFactory.Side side;
-        protected readonly TopLeft topLeft;
-        protected readonly BottomRight bottomRight;
-        protected static int height = 132;
-        protected static int width = 132;
-        protected bool isRunning;
-        protected int roomConnection;
+        internal static LevelManager levelManager = LevelManager.Instance;
+        internal Texture2D mySheet;
+        internal SpriteBatch myBatch;
+        internal Rectangle sourceRect;
+        internal DoorFactory.Side side;
+        internal TopLeft topLeft;
+        internal BottomRight bottomRight;
+        internal static int height = 132;
+        internal static int width = 132;
+        internal bool isRunning;
+        internal int roomConnection;
 
         public TopLeft TopLeft
         {
@@ -66,12 +68,29 @@ namespace Sprint0.DoorClass
                 case DoorFactory.Side.Bottom:
                     myPos = bottomDoorLocation;
                     break;
+                case DoorFactory.Side.Ceiling:
+                    myPos = ladderDoorLocation;
+                    break;
                 default:
                     myPos = topDoorLocation;
                     break;
             }
-            topLeft = new TopLeft((int)myPos.X, (int)myPos.Y, this);
-            bottomRight = new BottomRight((int)myPos.X + width, (int)myPos.Y + height, this);
+
+            if (this.GetType() == typeof(DoorOpen))
+            {
+                topLeft = new TopLeft((int)myPos.X + shrink, (int)myPos.Y + shrink, this);
+                bottomRight = new BottomRight((int)myPos.X + width - shrink, (int)myPos.Y + height - shrink, this);
+            }
+            else if (this.GetType() == typeof(DoorInvisible))
+            {
+                topLeft = new TopLeft((int)myPos.X, (int)myPos.Y, this);
+                bottomRight = new BottomRight((int)myPos.X + 64, (int)myPos.Y + 10, this);
+            }
+            else {
+                topLeft = new TopLeft((int)myPos.X, (int)myPos.Y, this);
+                bottomRight = new BottomRight((int)myPos.X + width, (int)myPos.Y + height, this);
+            }
+            
             sourceRect = new Rectangle(spriteColumn * width, (int)side * height, 127, 127);
             isRunning = true;
             this.roomConnection = roomConnection;
@@ -83,19 +102,22 @@ namespace Sprint0.DoorClass
 
         public void draw(int xOffset, int yOffset)
         {
-            Rectangle destinationRectangle = new Rectangle((int)myPos.X+xOffset, (int)myPos.Y + yOffset, 128, 128);
-            myBatch.Begin();
-            myBatch.Draw(
-                 mySheet,
-                 destinationRectangle,
-                 sourceRect,
-                Color.White
-                );
-            myBatch.End();
+            if (this.GetType() != typeof(DoorInvisible))
+            {
+                Rectangle destinationRectangle = new Rectangle((int)myPos.X + xOffset, (int)myPos.Y + yOffset, 128, 128);
+                myBatch.Begin();
+                myBatch.Draw(
+                     mySheet,
+                     destinationRectangle,
+                     sourceRect,
+                    Color.White
+                    );
+                myBatch.End();
+            }
         }
 
         public void ChangeRoom() {
-            levelManager.RoomTransition(roomConnection);
+            levelManager.RoomTransition(roomConnection, side);
         }
 
         public int connection {

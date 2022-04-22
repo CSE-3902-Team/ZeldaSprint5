@@ -34,7 +34,7 @@ namespace Sprint0.Collision
             {
                 MovePlayerAwayFromDoor();
             }
-            else if (door is DoorOpen || door is DoorHole)
+            else if (door is DoorOpen || door is DoorHole || door is DoorInvisible)
             {
                 door.ChangeRoom();
                 if (door.DoorSide == DoorFactory.Side.Top)
@@ -103,6 +103,14 @@ namespace Sprint0.Collision
                         LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
                     }
 
+                }
+                else if (door.DoorSide == DoorFactory.Side.Ceiling)
+                {
+                    LevelManager.Instance.Player1.Position = new Vector2(474, 609);
+                    if (LevelManager.Instance.TwoPlayer)
+                    {
+                        LevelManager.Instance.Player2.Position = new Vector2(474, 609);
+                    }
                 }
 
             }

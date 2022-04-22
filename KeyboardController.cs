@@ -73,6 +73,40 @@ namespace Sprint0 {
 
 			}else if (myGame.CurrentState.IsInventory)
             {
+
+				if (HasBeenPressed(Keys.W) || HasBeenPressed(Keys.Up))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(0, -1, Keys.Up);
+
+				}
+
+				if (HasBeenPressed(Keys.A) || HasBeenPressed(Keys.Left))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(-1, 0, Keys.Left);
+
+				}
+
+				if (HasBeenPressed(Keys.S) || HasBeenPressed(Keys.Down))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(0, 1, Keys.Down);
+
+				}
+
+				if (HasBeenPressed(Keys.D) || HasBeenPressed(Keys.Right))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(1, 0, Keys.Right);
+
+				}
+				if (HasBeenPressed(Keys.Enter))
+				{
+					(myGame.CurrentState as GameInventoryState).Select((myGame.CurrentState as GameInventoryState).CurrentB_Slot_Item);
+				}
+
+
 				if (HasBeenPressed(Keys.I))
 				{
 
@@ -90,7 +124,6 @@ namespace Sprint0 {
 						inventoryOpen = true;
 					
 				}
-
 
 				if (kstate.IsKeyDown(Keys.W))
 				{

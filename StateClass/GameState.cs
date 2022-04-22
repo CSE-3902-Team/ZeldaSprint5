@@ -18,6 +18,9 @@ namespace Sprint0.StateClass
         private int previousRoom;
         private int nextRoom;
         private int offset;
+        private Texture2D fadeEffect;
+        private DoorClass.DoorFactory.Side exitSide;
+        bool fadeOut;
         private static int screenWidth = 1024;
         private static int screenHeight = 960-256;
 
@@ -26,6 +29,7 @@ namespace Sprint0.StateClass
             _game = game;
             _content = content;
             levelManager = LevelManager.Instance;
+            levelManager.gameState = this;
         }
             
         public override void loadContent()
@@ -36,22 +40,27 @@ namespace Sprint0.StateClass
             _currentRoom = levelManager.StartRoom();
             roomNum = levelManager.currentRoomNum;
             headsUpDisplay = new HUD(levelManager.Player1, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
+            fadeEffect = new Texture2D(_game.GraphicsDevice, 1, 1);
+            fadeEffect.SetData<Color>(new Color[] { Color.Black });
             //headsUpDisplay = new HUD(levelManager.Player2, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
             isTransitioning = false;
             isGameState = true;
         }
 
+        public void startTransition(DoorClass.DoorFactory.Side side, int next, Room currentRoomObj) 
+        {
+            exitSide = side;
+            previousRoom = roomNum;
+            nextRoom = next;
+            isTransitioning = true;
+            roomNum = next;
+            _currentRoom = currentRoomObj;
+            fadeOut = true;
+        }
+
         public override void update(GameTime gameTime)
         {
             if (!isTransitioning) { 
-                if (roomNum != levelManager.currentRoomNum)
-                {
-                    previousRoom = roomNum;
-                    nextRoom = levelManager.currentRoomNum;
-                    isTransitioning = true;
-                    roomNum = levelManager.currentRoomNum;
-                    _currentRoom = levelManager.CurrentRoom;
-                }
 
                 _game.MouseController.handleInput();
                 _game.KeyboardController.handleInput();
@@ -85,7 +94,7 @@ namespace Sprint0.StateClass
 
         public void transitionRoom()
         {
-            if (nextRoom == previousRoom - 1)//left room
+            if (exitSide == DoorClass.DoorFactory.Side.Left)//left room
             {
                 levelManager.RoomList[previousRoom].drawRoom(offset, 0, isTransitioning);
                 levelManager.RoomList[nextRoom].drawRoom(offset - screenWidth, 0, isTransitioning);
@@ -96,7 +105,7 @@ namespace Sprint0.StateClass
                     offset = 0;
                 }
             }
-            else if (nextRoom == previousRoom + 1)//right room
+            else if (exitSide == DoorClass.DoorFactory.Side.Right)//right room
             {
                 levelManager.RoomList[previousRoom].drawRoom(offset, 0, isTransitioning);
                 levelManager.RoomList[nextRoom].drawRoom(offset + screenWidth, 0, isTransitioning);
@@ -107,7 +116,7 @@ namespace Sprint0.StateClass
                     offset = 0;
                 }
             }
-            else if (nextRoom < previousRoom - 1)//top room
+            else if (exitSide == DoorClass.DoorFactory.Side.Top)//top room
             {
                 levelManager.RoomList[previousRoom].drawRoom(0, offset, isTransitioning);
                 levelManager.RoomList[nextRoom].drawRoom(0, offset - screenHeight, isTransitioning);
@@ -118,11 +127,41 @@ namespace Sprint0.StateClass
                     offset = 0;
                 }
             }
-            else if (nextRoom > previousRoom + 1) {
+            else if (exitSide == DoorClass.DoorFactory.Side.Bottom)
+            {
                 levelManager.RoomList[previousRoom].drawRoom(0, offset, isTransitioning);
                 levelManager.RoomList[nextRoom].drawRoom(0, offset + screenHeight, isTransitioning);
                 offset = offset - 8;
                 if (offset <= -screenHeight)
+                {
+                    isTransitioning = false;
+                    offset = 0;
+                }
+            }
+            else if (exitSide == DoorClass.DoorFactory.Side.Floor || exitSide == DoorClass.DoorFactory.Side.Ceiling) 
+            {
+                if (fadeOut)
+                {
+                    levelManager.RoomList[previousRoom].drawRoom(0, 0, isTransitioning);
+                    offset = offset + 8;
+                    if (offset >= 255) {
+                        offset = 255;
+                        fadeOut = false;
+                    }
+                }
+                else {
+                    levelManager.RoomList[nextRoom].drawRoom(0, 0, isTransitioning);
+                    offset = offset - 8;
+                    if (offset <= 0)
+                    {
+                        offset = 0;
+                    }
+
+                }
+                _game.SpriteBatch.Begin();
+                _game.SpriteBatch.Draw(fadeEffect, new Vector2(0, 0), null, new Color(0, 0, 0, offset), 0f, Vector2.Zero, new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth, _game.GraphicsDeviceManager.PreferredBackBufferHeight), SpriteEffects.None, 0);
+                _game.SpriteBatch.End();
+                if (offset <= 0 && fadeOut == false)
                 {
                     isTransitioning = false;
                     offset = 0;
