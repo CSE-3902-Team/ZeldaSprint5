@@ -19,7 +19,11 @@ Game Controls:
 "z" - green link attack with sword
 "n" - red link attack with sword
 
-"1,2,3,4,5,6" - Have all links shoot different projectiles
+"v" - green link use item
+"m" - red link use item
+[Note: Each arrow uses a rupee, if you have zero rupees you can't shoot]
+
+"p" - Gives you 10 bombs and 10 rupees
 
 "mouse controls" - manually switches rooms
 "esc" - force quits game
@@ -29,29 +33,11 @@ GameOver/GameVictory Controls:
 "r" - resets game
 
 Known Bugs:
--Hitboxes are off
--Manually switching rooms will bug the HUD
--Throwing the boomerang(3) left does not work
--Boomerang(3) sometimes bugs out or doesnt shoot
--Link can throw multiple boomerangs(3 and 6)
--Link can use bombs without having any.
--Link's projectiles do not go over the water, but enemy projectiles do
--If you hold down a and then press d you go right. But if you hold down d and press a you don't go left
--If you hold down s and then press w you go up. But if you hold down w and press s you don't go down
--Text in the oldman room disappeared
--There may be too many key drops
--Can spamming attack and use item state
--Some enemies can clip through some walls in edge cases.
--Fairies don't heal
--Fairies aren't animated
+-Only one player can use a boomerang at once [due to inventory sharing]
 
 Features:
--Sounds implemented
--Death and Victory animations finished.(BEWARE YOUR EYES WHEN TESTING DEATHS)
--Game states created [death, victory, gamestate]
--Level Transitions
--Weak walls implemented
--HUD
+-Inventory is fully functional
+-Every arrow shot takes one rupee (picking up one rupee gives you 15 rupees to compensate)
 
 
 Unimplemented:

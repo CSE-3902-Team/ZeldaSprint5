@@ -88,15 +88,11 @@ namespace Sprint0.PlayerClass
 			}
 		}
 
-		public void UseItem(IProjectile proj)
+		public void UseItem()
 		{
-			proj.Direction = new Vector2(1, 0);
-			proj.Position = new Vector2(player.Position.X + 40, player.Position.Y);
-			player.AddProjectileCommand.LoadCommand(proj);
-			player.AddProjectileCommand.Execute();
+			player.ProjectilePosition = new Vector2(player.Position.X + 40, player.Position.Y);
+			player.ProjectileDirection = new Vector2(1, 0);
 			player.State = new PlayerRightUseItem(player);
-
-
 		}
 	}
 }

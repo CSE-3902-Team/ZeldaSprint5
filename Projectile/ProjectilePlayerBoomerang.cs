@@ -15,7 +15,7 @@ namespace Sprint0
         private Rectangle sourceRect;
         private Rectangle destinationRect;
         private const int RETURN_FRAMES = 15;
-
+        private Player pInstance;
         private int frame;
         private float rotation;
         private Boolean isReturning;
@@ -28,7 +28,11 @@ namespace Sprint0
         public Boolean IsRunning
         {
             get { return isRunning; }
-            set { isRunning = value; }
+            set 
+            { 
+                isRunning = value;
+                if (!value) { pInstance.Inventory.Boomerang = true; } 
+            }
         }
 
         public Boolean IsReturning
@@ -58,13 +62,13 @@ namespace Sprint0
             get { return bottomRight; }
         }
 
-        public ProjectilePlayerBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
+        public ProjectilePlayerBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction, Player p)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
             this.direction = direction;
-
+            pInstance = p;
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
             bottomRight = new BottomRight((int)position.X + 25, (int)position.Y + 25, this);
             isReturning = false;
@@ -73,6 +77,7 @@ namespace Sprint0
             isRunning = true;
             rotation = 0f;
             frame = 0;
+            p.Inventory.Boomerang = false;
         }
 
         public int GetSign(int distance)
@@ -104,16 +109,9 @@ namespace Sprint0
         public void Update()
         {
             GetRotation(direction);
-            Console.WriteLine("Projectile: "+position.X + " player:" + LevelManager.Instance.Player1.Position.X);
-            int PlayerProjectileDistanceX = (int) (LevelManager.Instance.Player1.Position.X - position.X);
-            int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player1.Position.Y - position.Y);
+            int PlayerProjectileDistanceX = (int) (pInstance.Position.X - position.X);
+            int PlayerProjectileDistanceY = (int)(pInstance.Position.Y - position.Y);
 
-            /*
-             * player2 boomerang
-            Console.WriteLine("Projectile: "+position.X + " player:" + LevelManager.Instance.Player2.Position.X);
-            int PlayerProjectileDistanceX = (int) (LevelManager.Instance.Player2.Position.X - position.X);
-            int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player2.Position.Y - position.Y);
-            */
 
             if (IsRunning)
             {

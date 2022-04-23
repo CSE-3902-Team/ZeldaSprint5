@@ -2,6 +2,7 @@
 using System;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.LevelClass;
+using Sprint0.StateClass;
 
 public class MouseController : IController
 {
@@ -28,13 +29,13 @@ public class MouseController : IController
 		previousState = mState;
 		mState = Mouse.GetState();
 
-		if (LeftButtonHasBeenPressed())
+		if (LeftButtonHasBeenPressed() && game.CurrentState.IsGameState)
 			{
 				game.CurrentState.CurrentRoom = levelManger.SwitchRoom();
 			}
 	}
 
-	void Exit()
+	private void Exit()
 	{
 		this.game.Exit();
 	}

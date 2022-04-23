@@ -16,6 +16,7 @@ using System.IO;
 using System;
 using Sprint0.Command;
 using Sprint0.StateClass;
+using Sprint0.Projectile;
 
 namespace Sprint0.LevelClass
 {
@@ -34,6 +35,7 @@ namespace Sprint0.LevelClass
 		private DoorFactory doorFactory;
         private EnemyFactory enemyFactory;
         private TileFactory tileFactory;
+        private ProjectileFactory projectileFactory;
 		private Player _player1;
         private Player _player2;
         private Vector2 center;
@@ -60,6 +62,11 @@ namespace Sprint0.LevelClass
         public List<Room> RoomList
         {
             get { return roomList; }
+        }
+
+        public ProjectileFactory ProjectileFactory
+        {
+            get { return projectileFactory; }
         }
 
         public Player Player1
@@ -103,11 +110,9 @@ namespace Sprint0.LevelClass
             currentRoom = 0;
             numRooms = 5;
             roomList = new List<Room>();
-
             player1Texture = Content.Load<Texture2D>("playerSheetV4.png");
             player2Texture = Content.Load<Texture2D>("player2SheetV4");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
-
             _2player = twoPlayer;
             
             _player1 = new Player(player1Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200+OFFSET), new Vector2(1, 0)), new Vector2(515, 500+OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
@@ -126,9 +131,11 @@ namespace Sprint0.LevelClass
             enemyFactory.initialize(batch, _player1);
             tileFactory.LoadAllTextures(Content);
             tileFactory.setBatch(batch);
+            projectileFactory = new ProjectileFactory(projectileTexture, batch, this);
+
         }
 
-		public static LevelManager Instance
+        public static LevelManager Instance
 		{
 			get
 			{
@@ -263,7 +270,7 @@ namespace Sprint0.LevelClass
         public int currentRoomNum {
             get { return currentRoom; }
         }
-
+        
 
     public Room SwitchRoom()
 		{
