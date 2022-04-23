@@ -24,6 +24,7 @@ Game Controls:
 [Note: Each arrow uses a rupee, if you have zero rupees you can't shoot]
 
 "p" - Gives you 10 bombs and 10 rupees
+"o" - Gives Debug information such as current room number
 
 "mouse controls" - manually switches rooms
 "esc" - force quits game

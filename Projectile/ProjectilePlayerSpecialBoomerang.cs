@@ -5,6 +5,7 @@ using Sprint0.LevelClass;
 
 namespace Sprint0
 {
+    //TODO: CP normal boomerang code into here
     public class ProjectilePlayerSpecialBoomerang : IProjectile, IBoxCollider
     {
         private Vector2 position;

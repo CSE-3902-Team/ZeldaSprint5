@@ -15,6 +15,8 @@ namespace Sprint0
         private Rectangle sourceRect;
         private Rectangle destinationRect;
         private const int RETURN_FRAMES = 15;
+        private const int HITBOX_WIDTH = 25;
+        private const int HITBOX_HEIGHT = 25;
         private Player pInstance;
         private int frame;
         private float rotation;
@@ -38,7 +40,11 @@ namespace Sprint0
         public Boolean IsReturning
         {
             get { return isReturning; }
-            set { if (value) { frame = 35; } else { frame = 0; } }
+            set { 
+                isReturning = value;
+                if (value) { frame = 35; } 
+                else { frame = 0; } 
+            }
         }
 
         public Vector2 Position
@@ -70,7 +76,7 @@ namespace Sprint0
             this.direction = direction;
             pInstance = p;
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
-            bottomRight = new BottomRight((int)position.X + 25, (int)position.Y + 25, this);
+            bottomRight = new BottomRight((int)position.X + HITBOX_WIDTH, (int)position.Y + HITBOX_HEIGHT, this);
             isReturning = false;
             sourceRect = new Rectangle(97, 280, 12, 19);
 
@@ -203,8 +209,8 @@ namespace Sprint0
         {
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
-            bottomRight.X = (int)position.X + 24;
-            BottomRight.Y = (int)position.Y + 28;
+            bottomRight.X = (int)position.X + HITBOX_WIDTH;
+            BottomRight.Y = (int)position.Y + HITBOX_HEIGHT;
         }
 
     }

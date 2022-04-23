@@ -307,7 +307,7 @@ namespace Sprint0 {
 			if (item == LinkInventory.Items.Boomerang && inventory.Boomerang) { return ProjectileFactory.PNames.PBoomerang; }
 			if (item == LinkInventory.Items.Bomb && inventory.BombCount > 0) {
 				inventory.BombCount--;
-				return ProjectileFactory.PNames.Bomb; 
+				return ProjectileFactory.PNames.PBomb; 
 			}
 			if (item == LinkInventory.Items.BowAndArrow && inventory.RupeeCount > 0) 
 			{ 
