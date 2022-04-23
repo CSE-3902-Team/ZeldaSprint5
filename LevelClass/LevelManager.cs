@@ -254,7 +254,7 @@ namespace Sprint0.LevelClass
             }
         }
 
-        public void RoomTransition(int destination, DoorClass.DoorFactory.Side side)
+        public void RoomTransition(int destination, DoorFactory.Side side)
         {
             currentRoom = destination;
             _gameState.startTransition(side, destination, roomList[currentRoom]);
@@ -263,8 +263,8 @@ namespace Sprint0.LevelClass
 
 
         public Room StartRoom() {
-            currentRoom = 17;
-            return roomList[17];
+            currentRoom = 18;
+            return roomList[18];
         }
 
         public int currentRoomNum {
@@ -277,10 +277,12 @@ namespace Sprint0.LevelClass
             if (currentRoom < roomList.Count-1) 
             {
                 currentRoom++;
+                _gameState.startTransition(DoorFactory.Side.Ceiling, currentRoom, roomList[currentRoom]);
             }
             else 
             {
                 currentRoom = 0;
+                _gameState.startTransition(DoorFactory.Side.Ceiling, currentRoom, roomList[currentRoom]);
             }
             return roomList[currentRoom];
 		}
