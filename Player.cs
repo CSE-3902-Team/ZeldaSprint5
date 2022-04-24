@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Sprint0.Command;
 using Sprint0.LevelClass;
+using Sprint0.Projectile;
 
 namespace Sprint0 { 
 
@@ -35,8 +36,20 @@ namespace Sprint0 {
 		private bool isDead;
 		private bool hasTriforce = false;
 		private LinkInventory inventory;
-		
+		private Vector2 projectilePosition;
+		private Vector2 projectileDirection;
 
+
+		public Vector2 ProjectilePosition
+		{ 
+			get { return projectilePosition; }
+			set { projectilePosition = value; }
+		}
+		public Vector2 ProjectileDirection
+		{
+			get { return projectileDirection; }
+			set { projectileDirection = value; }
+		}
 		public ProjectilePlayerSword SwordProjectile
 		{
 			get { return swordProjectile; }
@@ -156,6 +169,27 @@ namespace Sprint0 {
 			inventory = new LinkInventory(this);
 		}
 
+		public Player(Texture2D texture, SpriteBatch batch, IProjectile projectile, Vector2 p, Texture2D colT, ICommand c, LinkInventory i)
+		{
+			_state = new PlayerUpIdle(this);
+			_spriteBatch = batch;
+			this.texture = texture;
+			position = p;
+			speed = MOVE_SPEED;
+			attackFrames = 18;
+			scale = 0.35f;
+			topLeft = new TopLeft((int)(position.X - (src.Width * scale) / 2), (int)((position.Y - (src.Height * scale) / 2)), this);
+			bottomRight = new BottomRight(((int)(position.X + (src.Width * scale) / 2)), (int)((position.Y + (src.Height * scale) / 2)), this);
+			this.colT = colT;
+			col = Color.White;
+			addProjectileCommand = c;
+			collisionOffsetX = new Vector2(0, 0);
+			collisionOffsetY = new Vector2(0, 0);
+			playerHp = maxHp;
+			isDead = false;
+			inventory = i;
+		}
+
 		public void ChangeDirection(Directions dir)
 		{
 			//Checks movement state transitions
@@ -183,9 +217,20 @@ namespace Sprint0 {
 			_state.DamageLink(dir);
 		}
 
-		public void UseItem(IProjectile proj)
+		public void UseItem()
 		{
-			_state.UseItem(proj);
+			ProjectileFactory.PNames projectile = MapItemToProjectile(inventory.Selected_Item);
+			if (projectile == ProjectileFactory.PNames.None) { return; }
+			if (projectile == ProjectileFactory.PNames.PBoomerang) 
+			{
+				_state.UseItem();
+				LevelManager.Instance.ProjectileFactory.LauchPlayerBoomerang(this, projectilePosition, projectileDirection);
+			}
+			else
+			{
+				_state.UseItem();
+				LevelManager.Instance.ProjectileFactory.LauchProjectile(projectile, projectilePosition, projectileDirection);
+			}
 		}
 
 		private void UpdateCollisionBox() {
@@ -257,5 +302,24 @@ namespace Sprint0 {
 		
 		}
 
-}
+		public ProjectileFactory.PNames MapItemToProjectile(LinkInventory.Items item)
+		{
+			if (item == LinkInventory.Items.Boomerang && inventory.Boomerang) { return ProjectileFactory.PNames.PBoomerang; }
+			if (item == LinkInventory.Items.Bomb && inventory.BombCount > 0) {
+				inventory.BombCount--;
+				return ProjectileFactory.PNames.PBomb; 
+			}
+			if (item == LinkInventory.Items.BowAndArrow && inventory.RupeeCount > 0) 
+			{ 
+				inventory.RupeeCount--;
+				return ProjectileFactory.PNames.PNormalArrow; 
+			}
+			else 
+			{
+				return ProjectileFactory.PNames.None;
+			}
+		}
+
+
+	}
 }

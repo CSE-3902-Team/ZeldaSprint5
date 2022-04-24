@@ -73,6 +73,40 @@ namespace Sprint0 {
 
 			}else if (myGame.CurrentState.IsInventory)
             {
+
+				if (HasBeenPressed(Keys.W) || HasBeenPressed(Keys.Up))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(0, -1, Keys.Up);
+
+				}
+
+				if (HasBeenPressed(Keys.A) || HasBeenPressed(Keys.Left))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(-1, 0, Keys.Left);
+
+				}
+
+				if (HasBeenPressed(Keys.S) || HasBeenPressed(Keys.Down))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(0, 1, Keys.Down);
+
+				}
+
+				if (HasBeenPressed(Keys.D) || HasBeenPressed(Keys.Right))
+				{
+
+					(myGame.CurrentState as GameInventoryState).MoveBox(1, 0, Keys.Right);
+
+				}
+				if (HasBeenPressed(Keys.Enter))
+				{
+					(myGame.CurrentState as GameInventoryState).Select((myGame.CurrentState as GameInventoryState).CurrentB_Slot_Item);
+				}
+
+
 				if (HasBeenPressed(Keys.I))
 				{
 
@@ -85,13 +119,20 @@ namespace Sprint0 {
 			{
 				if (HasBeenPressed(Keys.I))
 				{
-					
 						myGame.ChangeState(2);
 						inventoryOpen = true;
-					
 				}
-
-
+				if (HasBeenPressed(Keys.P))
+				{
+					levelManager.Player1.Inventory.RupeeCount += 10;
+					levelManager.Player1.Inventory.BombCount += 10;
+					levelManager.Player1.Inventory.Boomerang = true;
+					levelManager.Player1.Inventory.Bow = true;
+				}
+				if (HasBeenPressed(Keys.O)) 
+				{
+					Console.WriteLine(levelManager.currentRoomNum);
+				}
 				if (kstate.IsKeyDown(Keys.W))
 				{
 					levelManager.Player1.ChangeDirection(Player.Directions.Up);
@@ -119,6 +160,7 @@ namespace Sprint0 {
 
 				}
 
+				//Remove attack + projectiles
 				if (myGame.TwoPlayer == true)
 				{
 					if (kstate.IsKeyDown(Keys.Up))
@@ -153,70 +195,17 @@ namespace Sprint0 {
 
 
 				//player1 projectile controls
-				if (HasBeenPressed(Keys.D1))
+				if (HasBeenPressed(Keys.V))
 				{
-					levelManager.Player1.UseItem(new ProjectilePlayerFireball(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-					SoundManager.Instance.Play(SoundManager.Sound.DoMagic);
+					levelManager.Player1.UseItem();
 				}
-				else if (HasBeenPressed(Keys.D2))
-				{
-					levelManager.Player1.UseItem(new ProjectilePlayerBomb(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-					SoundManager.Instance.Play(SoundManager.Sound.BombDrop);
-				}
-				else if (HasBeenPressed(Keys.D3))
-				{
-					levelManager.Player1.UseItem(new ProjectilePlayerNormalArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-					SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-				}
-				else if (HasBeenPressed(Keys.D4))
-				{
-					levelManager.Player1.UseItem(new ProjectilePlayerBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-					SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-				}
-				else if (HasBeenPressed(Keys.D5))
-				{
-					levelManager.Player1.UseItem(new ProjectilePlayerSpecialArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-					SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-				}
-				else if (HasBeenPressed(Keys.D6))
-				{
-					levelManager.Player1.UseItem(new ProjectilePlayerSpecialBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-					SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-				}
-
-
+				
 				//player2 projectile controls
 				if (myGame.TwoPlayer == true)
 				{
-					if (HasBeenPressed(Keys.D1))
+					if (HasBeenPressed(Keys.M))
 					{
-						levelManager.Player2.UseItem(new ProjectilePlayerFireball(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-						SoundManager.Instance.Play(SoundManager.Sound.DoMagic);
-					}
-					else if (HasBeenPressed(Keys.D2))
-					{
-						levelManager.Player2.UseItem(new ProjectilePlayerBomb(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-						SoundManager.Instance.Play(SoundManager.Sound.BombDrop);
-					}
-					else if (HasBeenPressed(Keys.D3))
-					{
-						levelManager.Player2.UseItem(new ProjectilePlayerNormalArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-						SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-					}
-					else if (HasBeenPressed(Keys.D4))
-					{
-						levelManager.Player2.UseItem(new ProjectilePlayerBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-						SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-					}
-					else if (HasBeenPressed(Keys.D5))
-					{
-						levelManager.Player2.UseItem(new ProjectilePlayerSpecialArrow(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-						SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-					}
-					else if (HasBeenPressed(Keys.D6))
-					{
-						levelManager.Player2.UseItem(new ProjectilePlayerSpecialBoomerang(levelManager.ProjectileTexture, myGame.SpriteBatch, Vector2.Zero, Vector2.Zero));
-						SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
+						levelManager.Player2.UseItem();
 					}
 				}
 			}

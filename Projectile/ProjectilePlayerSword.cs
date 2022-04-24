@@ -8,16 +8,15 @@ namespace Sprint0
     public class ProjectilePlayerSword : IProjectile, IBoxCollider
     {
         private Vector2 position;
-        private Vector2 direction;
-
+        Player.Directions orientation;
         private Rectangle sourceRect;
         private Rectangle destinationRect;
         private Texture2D texture;
         private SpriteBatch batch;
         private readonly TopLeft topLeft;
         private readonly BottomRight bottomRight;
-        private const int SWORD_THICKNESS = 28;
-        private const int SWORD_LENGTH = 33;
+        private const int SWORD_THICKNESS = 30;
+        private const int SWORD_LENGTH = 50;
 
         private int frame;
         private float rotation;
@@ -32,8 +31,8 @@ namespace Sprint0
         }
         public Vector2 Direction
         {
-            get { return direction; }
-            set { direction = value; }
+            get { return new Vector2(2, 2); }
+            set { return; }
         }
         public Boolean IsRunning
         {
@@ -53,6 +52,7 @@ namespace Sprint0
             texture = null;
             batch = null;
             this.position = position;
+            orientation = dir;
 
             switch (dir)
             {
@@ -97,10 +97,40 @@ namespace Sprint0
 
         private void UpdateCollisionBox()
         {
+            switch (orientation)
+            {
+                case Player.Directions.Down:
+                    topLeft.X = (int)position.X - SWORD_THICKNESS / 2;
+                    topLeft.Y = (int)position.Y;
+                    bottomRight.X = (int)position.X + SWORD_THICKNESS / 2;
+                    bottomRight.Y = (int)position.Y + SWORD_LENGTH;
+                    break;
+                case Player.Directions.Up:
+                    topLeft.X = (int)position.X - SWORD_THICKNESS / 2;
+                    topLeft.Y = (int)position.Y - SWORD_LENGTH;
+                    bottomRight.X = (int)position.X + SWORD_THICKNESS / 2;
+                    bottomRight.Y = (int)position.Y;
+                    break;
+                case Player.Directions.Left:
+                    topLeft.X = (int)position.X - SWORD_LENGTH;
+                    topLeft.Y = (int)position.Y - SWORD_THICKNESS / 2;
+                    bottomRight.X = (int)position.X;
+                    bottomRight.Y = (int)position.Y + SWORD_THICKNESS / 2;
+                    break;
+                case Player.Directions.Right:
+                    topLeft.X = (int)position.X;
+                    topLeft.Y = (int)position.Y - SWORD_THICKNESS / 2;
+                    bottomRight.X = (int)position.X + SWORD_LENGTH;
+                    bottomRight.Y = (int)position.Y + SWORD_THICKNESS / 2;
+                    break;
+            }
+
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
             bottomRight.X = (int)position.X + 45;
             bottomRight.Y = (int)position.Y + 45;
+
+
         }
     }
 }

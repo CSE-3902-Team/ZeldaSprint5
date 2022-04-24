@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using Sprint0.TileClass;
+using Sprint0.LevelClass;
 
 namespace Sprint0.Collision
 {
@@ -24,7 +25,9 @@ namespace Sprint0.Collision
         {
             float xDirection;
             float yDirection;
-
+            if (block.GetType() == typeof(StairsTile)) {
+                LevelManager.Instance.RoomTransition(1, DoorClass.DoorFactory.Side.Floor);
+            }
             switch (collisionDirections)
             {
                 case CollisionDirections.North:

@@ -12,16 +12,18 @@ namespace Sprint0.PlayerClass
         private static Dictionary<ItemType, Rectangle> dict = new Dictionary<ItemType, Rectangle>
         {
             {ItemType.Rupee, new Rectangle(2894,2444,134,298) },
-            {ItemType.Key,new Rectangle(2894,2444,134,298)}, //TODO: replace with key texture
+            {ItemType.Key,new Rectangle(751,2444,134,298)}, //TODO: replace with key texture
             {ItemType.Bomb,new Rectangle(2268,2449,134,294)},
             {ItemType.Boomerang,new Rectangle(1109,2483,131,266) },
             {ItemType.Arrow,new Rectangle(1682,2449,134,294)},
-            {ItemType.Heart,new Rectangle(2429,2473,134,294)}, //TODO: replace with actual heart texture
+            {ItemType.Heart,new Rectangle(568,2493,134,248)}, //TODO: replace with actual heart texture
             {ItemType.HeartCountainer,new Rectangle(2429,2473,134,294)},
             {ItemType.Compass,new Rectangle(2579,2482,134,294)},
             {ItemType.Fairy,new Rectangle(1462,2452,134,294)},
             {ItemType.Map,new Rectangle(927,2451,131,293)},
-            {ItemType.Clock,new Rectangle(1301,2452,133,294)}
+            {ItemType.Clock,new Rectangle(1301,2452,133,294)},
+            {ItemType.Bow, new Rectangle(2744,2447,133,290) },
+            {ItemType.SpecialBoomerang, new Rectangle(1890,2507,133,240)},
         };
 
         public PlayerFirstItem(Player instance, ItemType heldItem)
@@ -45,6 +47,7 @@ namespace Sprint0.PlayerClass
             Compass,
             Fairy,
             Map,
+            SpecialBoomerang,
         }
 
         public void ChangeDirection(Player.Directions dir)

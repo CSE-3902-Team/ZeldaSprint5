@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.ItemClass;
 
@@ -31,9 +32,10 @@ namespace Sprint0
         private Boolean firstArrow;
         private Boolean firstHeart;
         private Boolean firstHeartContainer;
-        private Boolean firstCompass;
         private Boolean firstFairy;
         private Boolean firstMap;
+        private Boolean firstCompass;
+        private Boolean firstSpecialBoomerang;
 
         private Boolean bow;
         private Boolean map;
@@ -41,10 +43,13 @@ namespace Sprint0
         private Boolean boomerang;
         private Boolean clock;
 
+        private Items[,] itemPositionIndex;
+        private Items selectedItem;
+
         public int LevelNumber
         {
             get { return levelNumber; }
-            set { rupeeCount = value; }
+            set { levelNumber = value; }
         }
         public int RupeeCount
         {
@@ -96,6 +101,18 @@ namespace Sprint0
             get { return firstBoomerang; }
             set { firstBoomerang = value; }
         }
+
+        public Boolean FirstSpecialBomerang
+        {
+            get { return firstSpecialBoomerang; }
+            set { firstSpecialBoomerang = value; }
+        }
+
+        public Boolean FirstCompass
+        {
+            get { return firstCompass; }
+            set { firstCompass = value; }
+        }
         public Boolean FirstBow
         {
             get { return firstBow; }
@@ -106,11 +123,7 @@ namespace Sprint0
             get { return firstClock; }
             set { firstClock = value; }
         }
-        public Boolean FirstCompass
-        {
-            get { return firstCompass; }
-            set { firstCompass = value; }
-        }
+       
         public Boolean FirstFairy
         {
             get { return firstFairy; }
@@ -164,7 +177,7 @@ namespace Sprint0
             get { return boomerang; }
             set { boomerang = value; }
         }
-        
+
         public Boolean Clock
         {
             get { return clock; }
@@ -193,6 +206,23 @@ namespace Sprint0
             set { mapSquareY = value; }
         }
 
+        public Items[,] ItemPositionIndex
+        {
+            get { return itemPositionIndex; }
+        }
+        public Items Selected_Item
+        {
+            get { return selectedItem; }
+            set { selectedItem = value; }
+        }
+
+        public enum Items
+        {
+            Boomerang,
+            Bomb,
+            BowAndArrow,
+            None
+        }
         public LinkInventory(Player player)
         {
             this.player = player;
@@ -200,18 +230,18 @@ namespace Sprint0
             rupeeCount = 0;
             keyCount = 0;
             bombCount = 0;
-            arrowCount = 0;
+            arrowCount = 10;
             heartCount = player.PlayerHp;
-            heartContainerCount = (player.MaxHp)/2;
+            heartContainerCount = (player.MaxHp) / 2;
             levelNumber = 1;
-            locationSquareX = 135;
+            locationSquareX = 180;
             locationSquareY = 921;
-            mapSquareX = 623;
-            mapSquareY = 578;
+            mapSquareX = 659;
+            mapSquareY = 581;
 
 
             firstRupee = true;
-            firstKey = true; 
+            firstKey = true;
             firstBomb = true;
             firstBoomerang = true;
             firstBow = true;
@@ -221,13 +251,18 @@ namespace Sprint0
             firstHeartContainer = true;
             firstMap = true;
             firstFairy = true;
+            firstCompass = true;
+            firstSpecialBoomerang = true;
 
             bow = false;
-            map = false;
+            map = true;
             compass = false;
             boomerang = false;
             clock = false;
 
+            selectedItem = Items.None;
+
+            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.None }, { Items.None, Items.None, Items.None, Items.None } };
         }
 
         public void Update()

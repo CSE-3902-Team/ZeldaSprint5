@@ -45,7 +45,7 @@ namespace Sprint0.PlayerClass
 			return;
 		}
 
-		public void UseItem(IProjectile proj)
+		public void UseItem()
 		{
 			return;
 		}

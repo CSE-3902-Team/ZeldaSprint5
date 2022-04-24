@@ -18,7 +18,7 @@ namespace Sprint0.Collision
         int overlap;
         const int locationSquareOffsetX = 45;
         const int locationSquareOffsetY = 28;
-        const int mapSquareOffset = 40;
+        const int mapSquareOffset = 38;
         public CollisionHandlerPlayerDoor(Player p, ADoor d, CollisionDirections dir, int o)
         {
             Player1 = p;
@@ -30,11 +30,11 @@ namespace Sprint0.Collision
 
         public void HandleCollision()
         {
-            if (door is DoorClosed || door is DoorWall)
+            if (door is DoorClosed || door is DoorWall || door is WeakWall)
             {
                 MovePlayerAwayFromDoor();
             }
-            else if (door is DoorOpen || door is DoorHole)
+            else if (door is DoorOpen || door is DoorHole || door is DoorInvisible)
             {
                 door.ChangeRoom();
                 if (door.DoorSide == DoorFactory.Side.Top)
