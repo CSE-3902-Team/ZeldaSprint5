@@ -127,7 +127,7 @@ namespace Sprint0.Collision
                 if (player.Inventory.FirstBow)
                 {
                     SoundManager.Instance.Play(SoundManager.Sound.NewItem);
-                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Arrow);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Bow);
                     inventory.FirstBow = false;
                 }
                 else
@@ -155,7 +155,7 @@ namespace Sprint0.Collision
                 if (player.Inventory.FirstCompass)
                 {
                     SoundManager.Instance.Play(SoundManager.Sound.NewItem);
-                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Clock);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Compass);
                     inventory.FirstCompass = false;
                 }
                 else
@@ -171,6 +171,20 @@ namespace Sprint0.Collision
                     SoundManager.Instance.Play(SoundManager.Sound.NewItem);
                     player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Fairy);
                     inventory.FirstFairy = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
+                SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+            }
+            else if (item is ItemSpecialBoomerang)
+            {
+                if (player.Inventory.FirstSpecialBomerang)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.SpecialBoomerang);
+                    inventory.FirstSpecialBomerang = false;
                 }
                 else
                 {

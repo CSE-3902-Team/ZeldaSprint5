@@ -43,7 +43,7 @@ solid blue tile,128,320,,arrow
 solid blue tile,192,320,,bomb
 solid blue tile,256,320,,fairy
 solid blue tile,320,320,,clock
-solid blue tile,384,320,
+solid blue tile,384,320,,special
 solid blue tile,448,320,
 solid blue tile,512,320,
 solid blue tile,576,320,

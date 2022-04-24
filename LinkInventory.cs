@@ -32,9 +32,10 @@ namespace Sprint0
         private Boolean firstArrow;
         private Boolean firstHeart;
         private Boolean firstHeartContainer;
-        private Boolean firstCompass;
         private Boolean firstFairy;
         private Boolean firstMap;
+        private Boolean firstCompass;
+        private Boolean firstSpecialBoomerang;
 
         private Boolean bow;
         private Boolean map;
@@ -100,6 +101,18 @@ namespace Sprint0
             get { return firstBoomerang; }
             set { firstBoomerang = value; }
         }
+
+        public Boolean FirstSpecialBomerang
+        {
+            get { return firstSpecialBoomerang; }
+            set { firstSpecialBoomerang = value; }
+        }
+
+        public Boolean FirstCompass
+        {
+            get { return firstCompass; }
+            set { firstCompass = value; }
+        }
         public Boolean FirstBow
         {
             get { return firstBow; }
@@ -110,11 +123,7 @@ namespace Sprint0
             get { return firstClock; }
             set { firstClock = value; }
         }
-        public Boolean FirstCompass
-        {
-            get { return firstCompass; }
-            set { firstCompass = value; }
-        }
+       
         public Boolean FirstFairy
         {
             get { return firstFairy; }
@@ -242,6 +251,8 @@ namespace Sprint0
             firstHeartContainer = true;
             firstMap = true;
             firstFairy = true;
+            firstCompass = true;
+            firstSpecialBoomerang = true;
 
             bow = false;
             map = true;
