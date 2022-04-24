@@ -11,8 +11,10 @@ using Sprint0.enemy;
 namespace Sprint0.Collision
 {
     public enum CollisionDirections {North,South,East,West,None}
+
     class SortSweep : ICollision
     {
+        private int repeat;
         private List<List<Object>> targets;
         private List<CollisionPoint> collisionPoints;
         public List<CollisionPoint> CollisionPoints { get { return collisionPoints; } }
@@ -70,6 +72,7 @@ namespace Sprint0.Collision
 
         private void ProcessCollisions()
         {
+            repeat++;
             //Go through list of objects intersecting on x-axis
             for (int listInd = 0; listInd < targets.Count; listInd++)
             {
@@ -219,6 +222,7 @@ namespace Sprint0.Collision
         private void AssignEnemyHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
         {
            // Console.Write("enemy" + enemy.GetType() + " other=" + other.GetType());
+           
             ICollisionHandler handler;
             if (other is ITile)
             {
@@ -239,7 +243,7 @@ namespace Sprint0.Collision
             else if (other is IProjectile)
             {
 
-                handler = new CollisionHandlerEnemyProjectile(enemy, other as IProjectile , dir, magnitude);
+                handler = new CollisionHandlerEnemyProjectile(enemy, other as IProjectile , dir, magnitude,repeat);
          
                 handler.HandleCollision();
             }
@@ -274,7 +278,7 @@ namespace Sprint0.Collision
             }
             else if (other is IEnemySprite)
             {
-                ICollisionHandler handler = new CollisionHandlerEnemyProjectile(other as IEnemySprite, projectile, dir, magnitude);
+                ICollisionHandler handler = new CollisionHandlerEnemyProjectile(other as IEnemySprite, projectile, dir, magnitude,repeat);
 
                 handler.HandleCollision();
             }
@@ -403,6 +407,7 @@ namespace Sprint0.Collision
                 Console.Write("]");
                 Console.WriteLine();
                 Console.WriteLine();
+
             }
         }
 

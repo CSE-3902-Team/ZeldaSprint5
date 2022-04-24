@@ -15,6 +15,8 @@ namespace Sprint0.enemy
         private SpriteBatch batch;
         private bool fire;
         ManhandlaFire Fireball1;
+        ManhandlaFire1 Fireball2;
+        ManhandlaFire2 Fireball3;
         private Vector2 FireballCurrent1;
         DragonFireBall dragonBreath1;
         ICommand command;
@@ -44,6 +46,11 @@ namespace Sprint0.enemy
         private int spriteYpos=181;
         private int desRecX=210;
         private int desRecY=210;
+        private int spriteWidthBegin = 106;
+        private bool topHeadDead=false;
+        private bool bottomHeadDead = false;
+        private bool leftHeadDead = false;
+        private bool rightHeadDead = false;
         public int deathCount
         {
             get { return DeathCount; }
@@ -103,7 +110,9 @@ namespace Sprint0.enemy
             FireballCurrent1.X = currentPos.X-64;
             FireballCurrent1.Y = currentPos.Y+64;
             Fireball1 = new ManhandlaFire(Texture, batch, FireballCurrent1, direction, destination, FireBallCurrentFrame, frame1, currentPos, true, link);
-     
+            Fireball2 = new ManhandlaFire1(Texture, batch, FireballCurrent1, direction, destination, FireBallCurrentFrame, frame1, currentPos, true, link);
+            Fireball3 = new ManhandlaFire2(Texture, batch, FireballCurrent1, direction, destination, FireBallCurrentFrame, frame1, currentPos, true, link);
+
 
         }
 
@@ -116,22 +125,42 @@ namespace Sprint0.enemy
                 {
                   
                     Fireball1.Direction = currentPos;
+
+                    Fireball2.Direction = currentPos;
+
+                    Fireball3.Direction = currentPos;
                     FrameChaningforEnemy action = new FrameChaningforEnemy(currentPos, direction, destination, currentFrame);
                     MoveEnemy move = new MoveEnemy(direction, currentPos, destination);
                     NewDestination makeNextMove = new NewDestination(direction, currentPos, destination);
                     Fireball1.Update();
+                    Fireball2.Update();
+                    Fireball3.Update();
                     if (frame == 5)
                     {
                         currentFrame = action.frameReturn();
                         FireBallCurrentFrame =Fireball1.ProjectileFrameChange();
+                        Fireball2.ProjectileFrameChange();
+                        Fireball3.ProjectileFrameChange();
                         frame = 0;
                     }
                 
                     if (frame1 % 7== 0)
                     {
-                        command.LoadCommand(Fireball1);
-                        Console.WriteLine(frame2);
-                        command.Execute();
+                        if (!leftHeadDead)
+                        {
+                            command.LoadCommand(Fireball1);
+                            command.Execute();
+                        }
+                        if (!rightHeadDead)
+                        {
+                            command.LoadCommand(Fireball2);
+                            command.Execute();
+                        }
+                        if (!bottomHeadDead)
+                        {
+                            command.LoadCommand(Fireball3);
+                            command.Execute();
+                        }
                   
                     }
 
@@ -182,7 +211,7 @@ namespace Sprint0.enemy
             Vector2 temp = new Vector2();
             int row = currentFrame;
 
-            Rectangle sourceRectangle = new Rectangle(spriteWidth * row + spriteXpos, spriteYpos, spriteWidth,spriteHeight);
+            Rectangle sourceRectangle = new Rectangle(spriteWidthBegin * row + spriteXpos, spriteYpos, spriteWidth,spriteHeight);
 
             Rectangle destinationRectangle = new Rectangle((int)currentPos.X + xOffset, (int)currentPos.Y + yOffset, desRecX, desRecY);
         
@@ -190,7 +219,7 @@ namespace Sprint0.enemy
             batch.Begin();
             if (isAlive)
             {
-                if (cloudAppear < 300)
+                if (cloudAppear < 150)
                 {
                     batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset + 50, (int)currentPos.Y + yOffset + 75), new Rectangle(33 * row2 + 624, 304, 33, 34), Color.White, 0.01f, new Vector2(0, 0), 3f, SpriteEffects.None, 1);
                     cloudAppear++;
@@ -201,6 +230,14 @@ namespace Sprint0.enemy
                 }
                 else
                 {
+                    if (topHeadDead && bottomHeadDead && leftHeadDead && rightHeadDead)
+                    {
+                        deathCount = 10;
+                    }
+                    else {
+                        if(deathCount>2)
+                        deathCount = 1;
+                    }
                     if (deathCount < 10)
                     {
                         if (rect == null)
@@ -208,20 +245,20 @@ namespace Sprint0.enemy
                             rect = new Texture2D(batch.GraphicsDevice, 1, 1);
                             rect.SetData(new[] { Color.White });
                         }
-
-                        if (trigger != deathCount && hit < 50)
-                        {
-                            switch (destination.X)
+                        batch.Draw(rect, new Rectangle(topLeft.X, topLeft.Y, 20, 20), Color.Chocolate);
+                        batch.Draw(rect, new Rectangle(botRight.X, botRight.Y, 20, 20),Color.Chocolate);
+                        switch (destination.X)
                             {
                                 case 0:
-                                    if (destination.Y == 0)
+                                    if (destination.Y == 0&& !topHeadDead)
                                     {
-                                        spriteYpos += 32;
-                                    
 
+                                        spriteYpos += 35;
+                                        spriteHeight -= 34;
+                                        desRecY -= 64;
+                                    topHeadDead = true;
 
-
-
+                        
 
 
 
@@ -234,10 +271,40 @@ namespace Sprint0.enemy
 
 
                                     }
+                                   else if (destination.Y == 1&& !bottomHeadDead)
+                                    {
+                                        spriteYpos -=7;
+                                        spriteHeight -= 34;
+                                        desRecY -= 64;
+                                    bottomHeadDead = true;
+                                    }
                                     break;
                                 case 1:
+                                    if (destination.Y == 1&& !leftHeadDead)
+                                    {
+                                        spriteXpos += 40;
+                                   
+                                        spriteWidth -= 34;
+                                    
+                                        desRecX -=75;
+                                   leftHeadDead = true;
+                                }
+                                   else if (destination.Y == 0&&!rightHeadDead)
+                                    {
+                                 
+                                    spriteWidth -= 40;
+                                    desRecX -=75;
+                                    rightHeadDead = true;
+                                }
                                     break;
                             }
+
+                    
+
+                        if (trigger != deathCount && hit < 50)
+                        {
+                            
+                      
 
                             if (hit % 2 == 0)
                             {
@@ -309,10 +376,18 @@ namespace Sprint0.enemy
 
         private void UpdateCollisionBox()
         {
-            topLeft.X = (int)currentPos.X + 10;
-            topLeft.Y = (int)currentPos.Y + 30;
-            botRight.X = (int)currentPos.X + 160;
+            topLeft.X = (int)currentPos.X ;
+            topLeft.Y = (int)currentPos.Y ;
+            botRight.X = (int)currentPos.X + 180;
             botRight.Y = (int)currentPos.Y + 180;
+            if(rightHeadDead)
+                botRight.X = (int)currentPos.X + 150;
+            if(leftHeadDead)
+                topLeft.X = (int)currentPos.X + 20;
+            if(topHeadDead)
+                topLeft.Y = (int)currentPos.Y + 20;
+            if(bottomHeadDead)
+                botRight.Y = (int)currentPos.Y + 120;
 
         }
 

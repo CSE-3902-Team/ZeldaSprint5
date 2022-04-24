@@ -17,7 +17,7 @@ namespace Sprint0.Collision
         Random coinFlipForDirection = new Random((int)DateTime.Now.Ticks);
 
 
-        public CollisionHandlerEnemyProjectile(IEnemySprite enemy, IProjectile projectile, CollisionDirections collisionDirections, int overlap)
+        public CollisionHandlerEnemyProjectile(IEnemySprite enemy, IProjectile projectile, CollisionDirections collisionDirections, int overlap,int repeat)
         {
             this.enemy = enemy;
             this.projectile = projectile;
@@ -27,42 +27,48 @@ namespace Sprint0.Collision
         }
         public void HandleCollision()
         {
-            if (this.projectile is Sprint0.enemy.ManhandlaFire|| this.projectile is Sprint0.enemy.DragonFireBall|| this.projectile is Sprint0.enemy.DragonFireBall1|| this.projectile is Sprint0.enemy.DragonFireBall2||this.projectile is Sprint0.enemy.EnemyProjectile)
+            if (this.projectile is Sprint0.enemy.ManhandlaFire || this.projectile is Sprint0.enemy.ManhandlaFire1 || this.projectile is Sprint0.enemy.ManhandlaFire2 || this.projectile is Sprint0.enemy.DragonFireBall || this.projectile is Sprint0.enemy.DragonFireBall1 || this.projectile is Sprint0.enemy.DragonFireBall2 || this.projectile is Sprint0.enemy.EnemyProjectile)
             {
                 return;
             }
             else
             {
-                enemy.deathCount++;
+                if (overlap % 2 == 0)
+                {
+                    enemy.deathCount++;
 
-                if(this.enemy is Sprint0.enemy.bossManhandla)
-            {
-
-                    switch (collisionDirections)
+                    if (this.enemy is Sprint0.enemy.bossManhandla)
                     {
-                        case CollisionDirections.North:
-                            enemy.Destination = new Vector2(0, 0);
 
-                            break;
-                        case CollisionDirections.East:
-                            enemy.Destination = new Vector2(1, 0);
+                        switch (collisionDirections)
+                        {
+                            case CollisionDirections.North:
+                                enemy.Destination = new Vector2(0, 0);
 
-                            break;
-                        case CollisionDirections.South:
-                            enemy.Destination = new Vector2(0, 1);
-                            break;
-                        case CollisionDirections.West:
-                            enemy.Destination = new Vector2(1, 1);
-                            break;
-                        default:
-                            break;
+                                break;
+                            case CollisionDirections.East:
+                                enemy.Destination = new Vector2(1, 0);
+
+                                break;
+                            case CollisionDirections.South:
+                                enemy.Destination = new Vector2(0, 1);
+                                break;
+                            case CollisionDirections.West:
+                                enemy.Destination = new Vector2(1, 1);
+                                break;
+                            default:
+                                break;
+                        }
                     }
+
+
+
+                    projectile.IsRunning = false;
                 }
+                overlap++;
 
-
-
-                projectile.IsRunning = false;
             }
+
 
         }
 

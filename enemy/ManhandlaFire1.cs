@@ -27,7 +27,8 @@ namespace Sprint0.enemy
         private Player link;
         private float rateX;
         private float rateY;
-
+        private float diffX;
+        private float diffY;
         public TopLeft TopLeft
         {
             get { return topLeft; }
@@ -67,6 +68,8 @@ namespace Sprint0.enemy
             projectilePos.Y += 64;
             topLeft = new TopLeft(400, 200, this);
             botRight = new BottomRight(440, 240, this);
+            diffX = Math.Abs(currentPos.X - link.Position.X);
+            diffY = Math.Abs(currentPos.Y - link.Position.Y);
             rateX = currentPos.X / link.Position.X;
             rateY = currentPos.Y / link.Position.Y;
         }
@@ -74,31 +77,44 @@ namespace Sprint0.enemy
         public void Update()
 
         {
-            if (projectilePos.X <= 0|| projectilePos.X >=800|| projectilePos.Y <= 0 || projectilePos.Y >=800)
+            if (projectilePos.X <= 0)
             {
-                projectilePos.X = Direction.X-32;
+                projectilePos.X = Direction.X+128;
                 projectilePos.Y = Direction.Y+64;
                 isRunning = true;
-            }
-            if(isRunning)
-            {
-                Console.WriteLine(rateX);
           
-                if (rateX >= 1)
-                    projectilePos.X -= (1 * (rateX));
+                rateX = currentPos.X / link.Position.X;
+                rateY = currentPos.Y / link.Position.Y;
+                diffX = Math.Abs(currentPos.X - link.Position.X);
+                diffY = Math.Abs(currentPos.Y - link.Position.Y);
+            }
+            if (isRunning)
+            {
+
+                if (rateX > 1)
+                    projectilePos.X -= diffX / 600;
+
+                /*else if (rateX > 1 && rateX < 1.2 )
+                    projectilePos.X -= 1;
+                else if (rateX <1 && rateX > 0.8)
+                    projectilePos.X += 1;*/
                 else
                 {
-                    projectilePos.X += (1* (rateX));
+                    projectilePos.X += diffX / 600;
                 }
 
 
 
 
                 if (rateY >= 1)
-                    projectilePos.Y -= (1 * (rateY));
+                    projectilePos.Y -= diffY / 600;
+                /* else if (rateY > 1 && rateY < 1.2)
+                     projectilePos.Y -= 0;
+                 else if (rateY < 1 && rateY > 0.8)
+                     projectilePos.Y += 0;*/
                 else
                 {
-                    projectilePos.Y += (1 * (rateY));
+                    projectilePos.Y += diffY / 600;
                 }
             }
             else
@@ -109,7 +125,6 @@ namespace Sprint0.enemy
             UpdateCollisionBox();
             return;
         }
-
         public void Draw()
         {
             Draw(0, 0);
