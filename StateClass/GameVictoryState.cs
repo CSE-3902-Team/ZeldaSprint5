@@ -78,7 +78,7 @@ namespace Sprint0.StateClass
             if (animate)
             {
 
-                if (count > 500)
+                if (count > 80)
                 {
                     animate = false;
                 }
@@ -94,17 +94,17 @@ namespace Sprint0.StateClass
             
             Rectangle screenDestRect = new Rectangle(0, 0, WIDTH, HEIGHT);
             Rectangle screenSrcRect = new Rectangle(0, 0, WIDTH, HEIGHT);
-            Rectangle victoryTextDestRect = new Rectangle(XCENTER - VICTORYX / 2, YCENTER - 48 * 1, VICTORYX, VICTORYY);
+            Rectangle victoryTextDestRect = new Rectangle(XCENTER - VICTORYX / 2, YCENTER - 48 * 5, VICTORYX, VICTORYY);
             Rectangle victoryTextSrcRect = new Rectangle(0, 0, VICTORYX, VICTORYY);
-            Rectangle replayTextDestRect = new Rectangle(XCENTER - REPLAYX / 2, YCENTER + 48, REPLAYX, REPLAYY);
+            Rectangle replayTextDestRect = new Rectangle(XCENTER - REPLAYX / 2, YCENTER -48 * 3, REPLAYX, REPLAYY);
             Rectangle replayTextSrcRect = new Rectangle(0, 0, REPLAYX, REPLAYY);
-            Rectangle exitTextDestRect = new Rectangle(XCENTER - EXITX / 2, YCENTER + 48 * 3, EXITX, EXITY);
+            Rectangle exitTextDestRect = new Rectangle(XCENTER - EXITX / 2, YCENTER - 48, EXITX, EXITY);
             Rectangle exitTextSrcRect = new Rectangle(0, 0, EXITX, EXITY);
             Rectangle creditsSrcRect = new Rectangle(0, 0, CREDITSX, CREDITSY);
-
+            Rectangle creditsDestRect = new Rectangle(XCENTER - CREDITSX / 2, YCENTER + 48, CREDITSX, CREDITSY);
+            
             Rectangle lAnimationDestRect = new Rectangle(leftStart, 0, ANIMATIONX, HEIGHT);
             Rectangle rAnimationDestRect = new Rectangle(rightStart, 0, ANIMATIONX, HEIGHT);
-            Rectangle scrollAnimationDestRect = new Rectangle(XCENTER - CREDITSX/2, HEIGHT, CREDITSX, CREDITSY);
             Rectangle AimationSrcRect = new Rectangle(0, 0, ANIMATIONX, HEIGHT);
 
             _game.SpriteBatch.Begin();
@@ -116,15 +116,13 @@ namespace Sprint0.StateClass
 
                     lAnimationDestRect = new Rectangle(leftStart, 0, ANIMATIONX, HEIGHT);
                     rAnimationDestRect = new Rectangle(rightStart, 0, ANIMATIONX, HEIGHT);
-                    scrollAnimationDestRect = new Rectangle(XCENTER - CREDITSX / 2, bottomeStart, CREDITSX, CREDITSY);
-                    bottomeStart -= 26;
+                    
                     leftStart += 64;
                     rightStart -= 64;
 
                 }
             
-                if (leftStart < 512 || rightStart > 512)
-                {
+                
                     _game.SpriteBatch.Draw(
                          lAnimation,
                          lAnimationDestRect,
@@ -146,22 +144,12 @@ namespace Sprint0.StateClass
                         SpriteEffects.None,
                         0f
                         );
-                }
-                else
-                {
-                    //_game.GraphicsDevice.Clear(Color.Black);
+                
+                
+                    
 
-                    _game.SpriteBatch.Draw(
-                         credits,
-                         scrollAnimationDestRect,
-                         creditsSrcRect,
-                        Color.White,
-                        0f,
-                        new Vector2(0, 0),
-                        SpriteEffects.None,
-                        0f
-                        );
-                }
+
+                
                 
             }
             else
@@ -210,6 +198,17 @@ namespace Sprint0.StateClass
                     SpriteEffects.None,
                     0f
                     );
+
+                _game.SpriteBatch.Draw(
+                         credits,
+                         creditsDestRect,
+                         creditsSrcRect,
+                        Color.White,
+                        0f,
+                        new Vector2(0, 0),
+                        SpriteEffects.None,
+                        0f
+                        );
             }
 
             _game.SpriteBatch.End();
