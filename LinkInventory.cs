@@ -32,9 +32,10 @@ namespace Sprint0
         private Boolean firstArrow;
         private Boolean firstHeart;
         private Boolean firstHeartContainer;
-        private Boolean firstCompass;
         private Boolean firstFairy;
         private Boolean firstMap;
+        private Boolean firstCompass;
+        private Boolean firstSpecialBoomerang;
 
         private Boolean bow;
         private Boolean map;
@@ -42,16 +43,13 @@ namespace Sprint0
         private Boolean boomerang;
         private Boolean clock;
 
-        private Rectangle currentB_slot;
-        private Rectangle currentB_slot_HUD;
-
         private Items[,] itemPositionIndex;
         private Items selectedItem;
 
         public int LevelNumber
         {
             get { return levelNumber; }
-            set { rupeeCount = value; }
+            set { levelNumber = value; }
         }
         public int RupeeCount
         {
@@ -103,6 +101,18 @@ namespace Sprint0
             get { return firstBoomerang; }
             set { firstBoomerang = value; }
         }
+
+        public Boolean FirstSpecialBomerang
+        {
+            get { return firstSpecialBoomerang; }
+            set { firstSpecialBoomerang = value; }
+        }
+
+        public Boolean FirstCompass
+        {
+            get { return firstCompass; }
+            set { firstCompass = value; }
+        }
         public Boolean FirstBow
         {
             get { return firstBow; }
@@ -113,11 +123,7 @@ namespace Sprint0
             get { return firstClock; }
             set { firstClock = value; }
         }
-        public Boolean FirstCompass
-        {
-            get { return firstCompass; }
-            set { firstCompass = value; }
-        }
+       
         public Boolean FirstFairy
         {
             get { return firstFairy; }
@@ -228,10 +234,10 @@ namespace Sprint0
             heartCount = player.PlayerHp;
             heartContainerCount = (player.MaxHp) / 2;
             levelNumber = 1;
-            locationSquareX = 135;
+            locationSquareX = 180;
             locationSquareY = 921;
-            mapSquareX = 623;
-            mapSquareY = 578;
+            mapSquareX = 659;
+            mapSquareY = 581;
 
 
             firstRupee = true;
@@ -245,9 +251,11 @@ namespace Sprint0
             firstHeartContainer = true;
             firstMap = true;
             firstFairy = true;
+            firstCompass = true;
+            firstSpecialBoomerang = true;
 
             bow = false;
-            map = false;
+            map = true;
             compass = false;
             boomerang = false;
             clock = false;

@@ -5,9 +5,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.LevelClass;
 
+
 namespace Sprint0.Projectile
 {
-    class ProjectileFactory
+    public class ProjectileFactory
     {
         Texture2D projectileTexture;
         SpriteBatch batch;
@@ -19,6 +20,9 @@ namespace Sprint0.Projectile
             batch = s;
             manager = m;
         }
+
+        
+
         public enum PNames{
             PBomb,
             PBoomerang,
@@ -28,6 +32,14 @@ namespace Sprint0.Projectile
             PFireball,
             PSword,
             Bomb,
+            None,
+        }
+
+        public void LauchPlayerBoomerang(Player p, Vector2 startPosition, Vector2 direction)
+        {
+            IProjectile stagedProjectile = new ProjectilePlayerBoomerang(projectileTexture, batch, startPosition, direction, p);
+            SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
+            AddProjectileToLevel(stagedProjectile);
         }
 
         public void LauchProjectile(PNames projectileName, Vector2 startPosition,Vector2 direction) 
@@ -36,34 +48,39 @@ namespace Sprint0.Projectile
             switch (projectileName) {
                 case PNames.PBomb:
                     stagedProjectile = new ProjectilePlayerBomb(projectileTexture, batch, startPosition, direction);
+                    SoundManager.Instance.Play(SoundManager.Sound.BombDrop);
                     break;
                 case PNames.Bomb:
                     stagedProjectile = new ProjectileBomb(projectileTexture, batch, startPosition, direction);
-                    break;
-                case PNames.PBoomerang:
-                    stagedProjectile = new ProjectilePlayerBoomerang(projectileTexture, batch, startPosition, direction);
+                    SoundManager.Instance.Play(SoundManager.Sound.BombDrop);
                     break;
                 case PNames.PFireball:
                     stagedProjectile = new ProjectilePlayerFireball(projectileTexture, batch, startPosition, direction);
+                    SoundManager.Instance.Play(SoundManager.Sound.DoMagic);
                     break;
                 case PNames.PNormalArrow:
                     stagedProjectile = new ProjectilePlayerNormalArrow(projectileTexture, batch, startPosition, direction);
+                    SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
                     break;
                 case PNames.PSpecialArrow:
                     stagedProjectile = new ProjectilePlayerSpecialArrow(projectileTexture, batch, startPosition, direction);
+                    SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
                     break;
                 case PNames.PSpecialBoomerang:
                     stagedProjectile = new ProjectilePlayerSpecialBoomerang(projectileTexture, batch, startPosition, direction);
+                    SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
                     break;
                 case PNames.PSword:
                     stagedProjectile = new ProjectilePlayerSword(startPosition, ConvertToPlayerDirection(direction));
+                    SoundManager.Instance.Play(SoundManager.Sound.SwordSlash);
                     break;
                 default:
-                    stagedProjectile = new ProjectilePlayerSword(startPosition, ConvertToPlayerDirection(direction));
-                    break;
+                    return;
             }
             AddProjectileToLevel(stagedProjectile);
         }
+
+
 
         private Player.Directions ConvertToPlayerDirection(Vector2 dir) 
         {
@@ -79,5 +96,10 @@ namespace Sprint0.Projectile
             manager.CurrentRoom.ProjectileList.Add(stagedProjectile);
             manager.CurrentRoom.ColliderDetector.AddToList(stagedProjectile as IBoxCollider);
         }
+
+        
+
+        
+
     }
 }

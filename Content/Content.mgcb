@@ -427,6 +427,18 @@
 /processorParam:TextureFormat=Color
 /build:oldman1.png
 
+#begin player1SheetV5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:player1SheetV5.png
+
 #begin player2SheetV4.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -438,6 +450,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:player2SheetV4.png
+
+#begin player2SheetV5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:player2SheetV5.png
 
 #begin playerSheetV3.png
 /importer:TextureImporter
@@ -624,6 +648,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sprint-2-items.png
+
+#begin sprint-5-items.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprint-5-items.png
+
+#begin sprint-5-items.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprint-5-items.png
 
 #begin stairs.png
 /importer:TextureImporter

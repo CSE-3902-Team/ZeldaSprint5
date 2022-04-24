@@ -135,7 +135,6 @@ namespace Sprint0.LevelClass
             {
                 if (!currentTile.Walkable)
                 {
-                    //Console.Write(currentTile.GetType());
                     colliderDetector.AddToList(currentTile as IBoxCollider);
                 }
             }
@@ -150,8 +149,6 @@ namespace Sprint0.LevelClass
         }
 
         public void drawRoom(int xOffset, int yOffset, bool transition) {
-           // Console.WriteLine("number of items that not hold by enemy"+itemList.Length);
-          //  Console.WriteLine("number of items that hold by enemy" + enemyHoldItem.Count) ;
             for (int x = 0; x < tileList.Length; x++)
             {
                 tileList[x].draw(xOffset, yOffset);
@@ -279,11 +276,11 @@ namespace Sprint0.LevelClass
         {
             Array.Sort(tileList, delegate (ITile a, ITile b)
             {
-                if (a.GetType() == typeof(PushableTile) || a.GetType() == typeof(RightFire) || a.GetType() == typeof(LeftFire))
+                if (a.GetType() == typeof(PushableTile) || a.GetType() == typeof(RightFire) || a.GetType() == typeof(LeftFire) || a.GetType() == typeof(Text))
                 {
                     return 1;
                 }
-                else if (b.GetType() == typeof(PushableTile)|| b.GetType() == typeof(RightFire) || b.GetType() == typeof(LeftFire))
+                else if (b.GetType() == typeof(PushableTile)|| b.GetType() == typeof(RightFire) || b.GetType() == typeof(LeftFire) || b.GetType() == typeof(Text))
                 {
                     return -1;
                 }

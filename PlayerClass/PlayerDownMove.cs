@@ -69,12 +69,10 @@ namespace Sprint0.PlayerClass
 			player.State = new PlayerDownAttack(player);
 		}
 
-		public void UseItem(IProjectile proj)
+		public void UseItem()
 		{
-			proj.Direction = new Vector2(0, 1);
-			proj.Position = new Vector2(player.Position.X, player.Position.Y + 40);
-			player.AddProjectileCommand.LoadCommand(proj);
-			player.AddProjectileCommand.Execute();
+			player.ProjectilePosition = new Vector2(player.Position.X, player.Position.Y + 40);
+			player.ProjectileDirection = new Vector2(0, 1);
 			player.State = new PlayerDownUseItem(player);
 		}
 

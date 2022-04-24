@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Sprint0.Command;
 using Sprint0.LevelClass;
+using Sprint0.Projectile;
 
 namespace Sprint0 { 
 
@@ -35,8 +36,20 @@ namespace Sprint0 {
 		private bool isDead;
 		private bool hasTriforce = false;
 		private LinkInventory inventory;
-		
+		private Vector2 projectilePosition;
+		private Vector2 projectileDirection;
 
+
+		public Vector2 ProjectilePosition
+		{ 
+			get { return projectilePosition; }
+			set { projectilePosition = value; }
+		}
+		public Vector2 ProjectileDirection
+		{
+			get { return projectileDirection; }
+			set { projectileDirection = value; }
+		}
 		public ProjectilePlayerSword SwordProjectile
 		{
 			get { return swordProjectile; }
@@ -204,9 +217,20 @@ namespace Sprint0 {
 			_state.DamageLink(dir);
 		}
 
-		public void UseItem(IProjectile proj)
+		public void UseItem()
 		{
-			_state.UseItem(proj);
+			ProjectileFactory.PNames projectile = MapItemToProjectile(inventory.Selected_Item);
+			if (projectile == ProjectileFactory.PNames.None) { return; }
+			if (projectile == ProjectileFactory.PNames.PBoomerang) 
+			{
+				_state.UseItem();
+				LevelManager.Instance.ProjectileFactory.LauchPlayerBoomerang(this, projectilePosition, projectileDirection);
+			}
+			else
+			{
+				_state.UseItem();
+				LevelManager.Instance.ProjectileFactory.LauchProjectile(projectile, projectilePosition, projectileDirection);
+			}
 		}
 
 		private void UpdateCollisionBox() {
@@ -278,5 +302,24 @@ namespace Sprint0 {
 		
 		}
 
-}
+		public ProjectileFactory.PNames MapItemToProjectile(LinkInventory.Items item)
+		{
+			if (item == LinkInventory.Items.Boomerang && inventory.Boomerang) { return ProjectileFactory.PNames.PBoomerang; }
+			if (item == LinkInventory.Items.Bomb && inventory.BombCount > 0) {
+				inventory.BombCount--;
+				return ProjectileFactory.PNames.PBomb; 
+			}
+			if (item == LinkInventory.Items.BowAndArrow && inventory.RupeeCount > 0) 
+			{ 
+				inventory.RupeeCount--;
+				return ProjectileFactory.PNames.PNormalArrow; 
+			}
+			else 
+			{
+				return ProjectileFactory.PNames.None;
+			}
+		}
+
+
+	}
 }

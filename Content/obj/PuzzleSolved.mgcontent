@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tingy/source/repos/ZeldaSprint5/Content/PuzzleSolved.wav</SourceFile>
-  <SourceTime>2022-04-19T13:36:12.7732246-04:00</SourceTime>
-  <DestFile>C:/Users/tingy/source/repos/ZeldaSprint5/Content/bin/PuzzleSolved.xnb</DestFile>
-  <DestTime>2022-04-19T17:53:48.1138571-04:00</DestTime>
+  <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/PuzzleSolved.wav</SourceFile>
+  <SourceTime>2022-04-19T20:18:09.1714542-04:00</SourceTime>
+  <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/PuzzleSolved.xnb</DestFile>
+  <DestTime>2022-04-23T20:44:17.3545228-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

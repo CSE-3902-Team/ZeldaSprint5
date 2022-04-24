@@ -27,11 +27,6 @@ namespace Sprint0.Collision
             float yDirection;
             if (block.GetType() == typeof(StairsTile)) {
                 LevelManager.Instance.RoomTransition(1, DoorClass.DoorFactory.Side.Floor);
-                LevelManager.Instance.Player1.Position = new Vector2(227, 300);
-                if (LevelManager.Instance.TwoPlayer)
-                {
-                    LevelManager.Instance.Player2.Position = new Vector2(227, 300);
-                }
             }
             switch (collisionDirections)
             {
