@@ -42,6 +42,8 @@ namespace Sprint0.enemy
         private int spriteHeight=105;
         private int spriteXpos=171;
         private int spriteYpos=181;
+        private int desRecX=210;
+        private int desRecY=210;
         public int deathCount
         {
             get { return DeathCount; }
@@ -182,7 +184,7 @@ namespace Sprint0.enemy
 
             Rectangle sourceRectangle = new Rectangle(spriteWidth * row + spriteXpos, spriteYpos, spriteWidth,spriteHeight);
 
-            Rectangle destinationRectangle = new Rectangle((int)currentPos.X + xOffset, (int)currentPos.Y + yOffset, 210, 210);
+            Rectangle destinationRectangle = new Rectangle((int)currentPos.X + xOffset, (int)currentPos.Y + yOffset, desRecX, desRecY);
         
           
             batch.Begin();
@@ -209,7 +211,33 @@ namespace Sprint0.enemy
 
                         if (trigger != deathCount && hit < 50)
                         {
-                          
+                            switch (destination.X)
+                            {
+                                case 0:
+                                    if (destination.Y == 0)
+                                    {
+                                        spriteYpos += 32;
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    }
+                                    break;
+                                case 1:
+                                    break;
+                            }
 
                             if (hit % 2 == 0)
                             {

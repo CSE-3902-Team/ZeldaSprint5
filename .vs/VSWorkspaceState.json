@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\enemy"
   ],
-  "SelectedNode": "\\Sprint0.sln",
+  "SelectedNode": "\\enemy\\ManhandlaFire.cs",
   "PreviewInSolutionExplorer": false
 }
