@@ -86,12 +86,6 @@ namespace Sprint0
             set { heartCountPlayer2 = value; }
         }
 
-        public int HeartContainerCount
-        {
-            get { return heartContainerCount; }
-            set { heartContainerCount = value; }
-        }
-
         public Boolean FirstArrow
         {
             get { return firstArrow; }
@@ -302,7 +296,6 @@ namespace Sprint0
 
         public void Update()
         {
-            heartContainerCount = (player.MaxHp) / 2;
             heartCountPlayer1 = player.PlayerHp;
         }
 

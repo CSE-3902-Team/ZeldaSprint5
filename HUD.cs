@@ -44,12 +44,10 @@ namespace Sprint0
         private Rectangle candleDestRect;
 
         private int healthPlayer1;
-        private int heartContainerCount;
         private int rupeeCount;
         private int levelNumber;
         private int keyCount;
         private int bombCount;
-        private int arrow;
         private int locationSquareX;
         private int locationSquareY;
 
@@ -143,7 +141,6 @@ namespace Sprint0
             inventory = player.Inventory;
 
             healthPlayer1 = player.PlayerHp;
-            heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;
@@ -246,12 +243,15 @@ namespace Sprint0
         public void DrawHearts()
         {
             int remainingHalfHearts = inventory.HeartCountPlayer1;
+            int heartContainerCountPlayer1 = player.MaxHp / 2;
             if (levelManager.TwoPlayer)
             {
                 int remainingHalfHeartsPlayer2 = levelManager.Player2.PlayerHp;
+                int heartContainerCountPlayer2 = levelManager.Player2.MaxHp/2;
+
                 for (int i = 0; i < maxHeartCount; i++)
                 {
-                    if (i < inventory.HeartContainerCount)
+                    if (i < heartContainerCountPlayer2)
                     {
                         if (remainingHalfHeartsPlayer2 >= 2)
                         {
@@ -277,7 +277,7 @@ namespace Sprint0
 
                 for (int i = 0; i < maxHeartCount; i++)
                 {
-                    if (i < inventory.HeartContainerCount)
+                    if (i < heartContainerCountPlayer1)
                     {
                         if (remainingHalfHearts >= 2)
                         {
@@ -305,7 +305,7 @@ namespace Sprint0
             {
                 for (int i = 0; i < maxHeartCount; i++)
                 {
-                    if (i < inventory.HeartContainerCount)
+                    if (i < heartContainerCountPlayer1)
                     {
                         if (remainingHalfHearts >= 2)
                         {
@@ -335,7 +335,6 @@ namespace Sprint0
         {
             inventory.Update();
             healthPlayer1 = player.PlayerHp;
-            heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;

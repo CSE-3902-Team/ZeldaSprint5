@@ -388,12 +388,14 @@ namespace Sprint0.StateClass
         public void DrawHearts()
         {
             int remainingHalfHearts = _inventory.HeartCountPlayer1;
+            int heartContainerCountPlayer1 = _levelManager.Player1.MaxHp / 2;
             if (_levelManager.TwoPlayer)
             {
                 int remainingHalfHeartsPlayer2 = _levelManager.Player2.PlayerHp;
+                int heartContainerCountPlayer2 = _levelManager.Player2.MaxHp / 2;
                 for (int i = 0; i < MAX_HEART_COUNT; i++)
                 {
-                    if (i < _inventory.HeartContainerCount)
+                    if (i < heartContainerCountPlayer2)
                     {
                         if (remainingHalfHeartsPlayer2 >= 2)
                         {
@@ -419,7 +421,7 @@ namespace Sprint0.StateClass
 
                 for (int i = 0; i < MAX_HEART_COUNT; i++)
                 {
-                    if (i < _inventory.HeartContainerCount)
+                    if (i < heartContainerCountPlayer1)
                     {
                         if (remainingHalfHearts >= 2)
                         {
@@ -447,7 +449,7 @@ namespace Sprint0.StateClass
             {
                 for (int i = 0; i < MAX_HEART_COUNT; i++)
                 {
-                    if (i < _inventory.HeartContainerCount)
+                    if (i < heartContainerCountPlayer1)
                     {
                         if (remainingHalfHearts >= 2)
                         {
