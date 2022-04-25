@@ -42,7 +42,7 @@ namespace Sprint0.Collision
                     break;
             }
            SoundManager.Instance.Play(SoundManager.Sound.LinkHurt);
-
+            
             //Console.WriteLine("yDirection=" + yDirection);
         }
     }
