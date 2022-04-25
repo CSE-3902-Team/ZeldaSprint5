@@ -62,6 +62,8 @@ namespace Sprint0.StateClass
         private Rectangle arrowDestRect;
         private Rectangle bowDestRect;
         private Rectangle selectedItem;
+        private Rectangle triforceSquareDestLocation;
+        private Rectangle triforceMiniMapSquareDestLocation;
         private Vector2 boxPosition;
 
 
@@ -127,6 +129,11 @@ namespace Sprint0.StateClass
         const int specialArrowXSourceLocation = 520;
         const int bowXSourceLocation = 556;
         const int boomerangYSourceLocation = 972;
+        const int triforceLocationX = 733;
+        const int triforceLocationY = 428;
+        const int triforceMiniMapLocationX = 269;
+        const int triforceMiniMapLocationY = 809;
+
 
         const int itemsInventoryXDestLocation = 505;
         const int itemsInventoryYDestLocation = 180;
@@ -204,9 +211,12 @@ namespace Sprint0.StateClass
             slotBDestRect = new Rectangle(slotB_XDestLocation, slotsYDestLocation, slotWidth, slotHeight);
             mapDestRect = new Rectangle(mapAndCompassXDestLocation, mapYDestLocation, mapWidth, mapAndCompassHeight);
             mapDesignDestRect = new Rectangle(mapDesignXDestLocation, mapDesignYDestLocation, mapDesignHeightAndWidth, mapDesignHeightAndWidth);
-            compassDestRect = new Rectangle(mapAndCompassXDestLocation, compassYDestLocation, compassWidth, mapAndCompassHeight);
+            //-8 to help center compass 
+            compassDestRect = new Rectangle(mapAndCompassXDestLocation - 8, compassYDestLocation, compassWidth, mapAndCompassHeight);
             otherMapDestRect = new Rectangle(otherMapXDestLocation, otherMapYDestLocation, otherMapWidth, otherMapHeight);
             locationSquareDestRect = new Rectangle(locationSquareX, locationSquareY, locationSquareSize, locationSquareSize);
+            triforceSquareDestLocation = new Rectangle(triforceLocationX, triforceLocationY, locationSquareSize, locationSquareSize);
+            triforceSquareDestLocation = new Rectangle(triforceMiniMapLocationX, triforceMiniMapLocationY, locationSquareSize, locationSquareSize);
             boxDestRect = new Rectangle((int)InventoryBoxPosition.X, (int)InventoryBoxPosition.Y, inventorySlotsWidth, inventorySlotsHeight);
 
             //The +20 is to center it within its slot in the inventory
@@ -528,17 +538,7 @@ namespace Sprint0.StateClass
             DrawItemCounts();
             DrawHearts();
             DrawInventoryItems();
-            DrawCurrentSlotItem();
-
-            
-
-            
-
-            if (_inventory.Compass == true)
-            {
-                _game.SpriteBatch.Draw(screen, compassDestRect, compassSourceRect, Color.White);
-
-            }
+            DrawCurrentSlotItem(); 
 
             if (_inventory.Map == true)
             {
@@ -548,7 +548,16 @@ namespace Sprint0.StateClass
                 _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapLocationX, _inventory.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapSquareLocationX, _inventory.MapSquareLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             }
-           
+
+            if (_inventory.Compass == true)
+            {
+                _game.SpriteBatch.Draw(screen, compassDestRect, compassSourceRect, Color.White);
+                if (frame % 50 > 20)
+                {
+                    _game.SpriteBatch.Draw(screen, triforceSquareDestLocation, locationSquareSourceRect, Color.Red);
+                    _game.SpriteBatch.Draw(screen, triforceMiniMapSquareDestLocation, locationSquareSourceRect, Color.Red);
+                }
+            }
 
             _game.SpriteBatch.End();
         }
