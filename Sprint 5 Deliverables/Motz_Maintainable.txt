@@ -1,0 +1,20 @@
+﻿Author of the code review: Austin Motz
+
+Date of the code review: 4/24/2022
+
+Sprint number: 5
+
+Name of the .cs file being reviewed: CollisionHandlerPlayerDoor
+
+Author of the .cs file being reviewed: Luke Wingert, Craig Cerno, Austin Motz (contributions in order of number of lines added)
+
+Number of minutes taken to complete the review: 13 minutes
+
+Specific comments on what is maintainable and what is not:
+	-Lines 48-55: The relative movement of the player location on the map is quite fragile. Changing the starting room will break this, using the left click room change will break it, and bugs are prone to hiding in it
+					A better way of doing this would be to make absolute positions for the location of the player on the map and store them somewhere, then load these on room changes.
+
+	-Lines 42-46: the player movement being hardcoded into the room change makes for unneeded code. If this was done in the room transition code it would remove the need for the if statements when paired with the suggestion above.
+
+Proposed change: Store the player position to move to and the location of the player on the map to be passed through function and set inside of the room transition code. This would be a more logical location for it
+					and would help to reduce the number of lines in this file.
