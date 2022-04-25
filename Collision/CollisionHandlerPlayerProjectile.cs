@@ -19,6 +19,11 @@ namespace Sprint0.Collision
             float xDirection;
             float yDirection;
 
+            if (player.PlayerHp == 0)
+            {
+                return;
+            }
+
             //Check for Friendly fire 
             if (projectile is ProjectilePlayerBoomerang)
             {

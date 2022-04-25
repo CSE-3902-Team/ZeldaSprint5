@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
+using Sprint0.LevelClass;
 
 namespace Sprint0.PlayerClass
 {
@@ -35,8 +36,7 @@ namespace Sprint0.PlayerClass
             spinCount = 0;
             grayStar = new Rectangle(1861, 1523, 368, 399);
             yellowStar = new Rectangle(2326, 1500, 368, 425);
-            nothing = new Rectangle(129, 281, 1, 1); 
-
+            nothing = new Rectangle(129, 281, 1, 1);
         }
 
         public void ChangeDirection(Player.Directions dir)
@@ -48,7 +48,6 @@ namespace Sprint0.PlayerClass
 
         public void Update()
         {
-            Console.WriteLine("waittime=" + currentFrame);
             //Link spins four times around, waits, and is replaced with a star and then fades to blackness.
             if (spinCount < MAX_SPINS)
             {
@@ -165,6 +164,19 @@ namespace Sprint0.PlayerClass
             {
                 player.SourceRectangle = nothing;
                 star1IsDone = true;
+                player.IsDead = true;
+                if (LevelManager.Instance.TwoPlayer && (!LevelManager.Instance.Player2.IsDead || !LevelManager.Instance.Player1.IsDead))
+                {
+                    SoundManager.instance.PauseAllSounds();
+                    if (LevelManager.Instance.currentRoomNum == 19 || LevelManager.Instance.currentRoomNum == 5)
+                    {
+                        SoundManager.instance.Play(SoundManager.Sound.Boss);
+                    }
+                    else
+                    {
+                        SoundManager.instance.Play(SoundManager.Sound.BG_MUSIC);
+                    }
+                }
             }
            
         }

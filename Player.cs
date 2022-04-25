@@ -117,11 +117,9 @@ namespace Sprint0 {
 				}
 				else if (playerHp == 0)
 				{
-					SoundManager.Instance.Stop(SoundManager.Sound.LowHp);
-					SoundManager.Instance.Stop(SoundManager.Sound.BG_MUSIC);
+					SoundManager.instance.PauseAllSounds();
 					SoundManager.Instance.Play(SoundManager.Sound.GameOver);
 					//Change to playerDeadState: isDead will be changed within the state.
-					isDead = true;
 				}
 			}
 		}
