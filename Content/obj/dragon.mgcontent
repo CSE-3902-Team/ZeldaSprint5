@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaSprint5/Content/dragon.png</SourceFile>
-  <SourceTime>2022-04-24T01:07:51.2460973-04:00</SourceTime>
-  <DestFile>C:/Users/10717/source/repos/CSE-3902-Team/ZeldaSprint5/Content/bin/dragon.xnb</DestFile>
-  <DestTime>2022-04-24T01:08:52.1995473-04:00</DestTime>
+  <SourceFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/dragon.png</SourceFile>
+  <SourceTime>2022-04-24T18:58:47.6921979-04:00</SourceTime>
+  <DestFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/dragon.xnb</DestFile>
+  <DestTime>2022-04-24T20:42:50.2572053-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

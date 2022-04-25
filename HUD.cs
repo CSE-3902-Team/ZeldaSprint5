@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using Sprint0.LevelClass;
 
 namespace Sprint0
 {
     public class HUD
     {
         private Player player;
+        private Player player2;
         private LinkInventory inventory;
         private SpriteBatch spriteBatch;
         private Texture2D headsUpDisplay;
+        private LevelManager levelManager;
 
         private Rectangle hudRectangle;
         private Rectangle heartSourceRect;
@@ -31,6 +33,7 @@ namespace Sprint0
         private Rectangle locationSquareDestRect;
         private Rectangle swordSourceRect;
         private Rectangle boomerangSourceRect;
+        private Rectangle specialBoomerangSourceRect;
         private Rectangle bombSourceRect;
         private Rectangle arrowSourceRect;
         private Rectangle bowSourceRect;
@@ -38,7 +41,7 @@ namespace Sprint0
         private Rectangle slotBDestRect;
         private Rectangle currentB_SlotItem;
 
-        private int health;
+        private int healthPlayer1;
         private int heartContainerCount;
         private int rupeeCount;
         private int levelNumber;
@@ -47,6 +50,9 @@ namespace Sprint0
         private int arrowCount;
         private int locationSquareX;
         private int locationSquareY;
+
+        const int HUDoffsetX = 16;
+        const int HUDoffsetY = 712;
 
         const int heartWidth = 64;
         const int heartHeight = 73;
@@ -73,12 +79,17 @@ namespace Sprint0
         const int slotA_XDestLocation = 600;
         const int slotB_XDestLocation = 504;
         const int slotsYDestLocation = 106;
+        const int heartsYSourceLocation = 255;
+        const int specialBoomerangXSourceLocation = 360;
+
 
         const int mapYSourceLocation = 518;
         const int mapWidth = 295;
         const int mapHeight = 200;
         const int mapXDestLocation = 30;
         const int mapYDestLocation = 37;
+        const int heartXDestLocation = 680;
+        const int heartYDestLocation = 146;
 
         const int locationSquareSize = 20;
         const int locationSquareXSourceLocation = 120;
@@ -114,14 +125,15 @@ namespace Sprint0
             set { locationSquareY = value; }
         }
 
-        public HUD(Player player, SpriteBatch spritebatch, Texture2D headsUpDisplay)
+        public HUD(SpriteBatch spritebatch, Texture2D headsUpDisplay)
         {
-            this.player = player;
+            levelManager = LevelManager.Instance;
+            player = levelManager.Player1;
             this.spriteBatch = spritebatch;
             this.headsUpDisplay = headsUpDisplay;
             inventory = player.Inventory;
 
-            health = player.Inventory.HeartCount;
+            healthPlayer1 = player.PlayerHp;
             heartContainerCount = player.Inventory.HeartContainerCount;
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
@@ -129,13 +141,13 @@ namespace Sprint0
             arrowCount = player.Inventory.ArrowCount;
 
             levelNumber = player.Inventory.LevelNumber;
-            locationSquareX = player.Inventory.MapLocationX + 16;
-            locationSquareY = player.Inventory.MapLocationY - 712;
+            locationSquareX = player.Inventory.MapLocationX + HUDoffsetX;
+            locationSquareY = player.Inventory.MapLocationY - HUDoffsetY;
 
             hudRectangle = new Rectangle(0, 0, 1024, 255);
-            emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts * 0), 255, heartWidth, heartHeight);
-            halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 255, heartWidth, heartHeight);
-            heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 255, heartWidth, heartHeight);
+            emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts * 0), heartsYSourceLocation, heartWidth, heartHeight);
+            halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), heartsYSourceLocation, heartWidth, heartHeight);
+            heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), heartsYSourceLocation, heartWidth, heartHeight);
             numberSourceRect = new Rectangle(numberXSourceLocation, heartAndNumberYSourceLocation, numberWidth, numberHeight);
             timesSymbolSourceRect = new Rectangle(numberXSourceLocation, (heartAndNumberYSourceLocation + numberHeight), numberWidth, numberHeight);
             mapSourceRect = new Rectangle(0, mapYSourceLocation, mapWidth, mapHeight);
@@ -144,6 +156,8 @@ namespace Sprint0
             bombSourceRect = new Rectangle(bombXSourceLocation, itemsRowYSourceLocation, bombWidth, bombHeight);
             arrowSourceRect = new Rectangle(arrowXSourceLocation, itemsRowYSourceLocation, arrowWidth, arrowHeight);
             bowSourceRect = new Rectangle(bowXSourceLocation, itemsRowYSourceLocation, bowWidth, bowHeight);
+            specialBoomerangSourceRect = new Rectangle(specialBoomerangXSourceLocation, itemsRowYSourceLocation, boomerangWidth, boomerangHeight);
+
 
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
@@ -158,30 +172,8 @@ namespace Sprint0
 
         }
 
-        public void Update()
+        public void DrawSelectedItem()
         {
-            inventory.Update();
-            health = player.Inventory.HeartCount;
-            heartContainerCount = player.Inventory.HeartContainerCount;
-            rupeeCount = player.Inventory.RupeeCount;
-            keyCount = player.Inventory.KeyCount;
-            bombCount = player.Inventory.BombCount;
-            arrowCount = player.Inventory.ArrowCount;
-            levelNumber = player.Inventory.LevelNumber;
-            locationSquareX = player.Inventory.MapLocationX + 16;
-            locationSquareY = player.Inventory.MapLocationY - 712;
-        }
-        public void Draw()
-        {
-            Update();
-            spriteBatch.Begin();
-            spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
-            spriteBatch.Draw(headsUpDisplay, rupeeNumberDestRect, timesSymbolSourceRect, Color.White);
-            spriteBatch.Draw(headsUpDisplay, bombNumberDestRect, timesSymbolSourceRect, Color.White);
-            spriteBatch.Draw(headsUpDisplay, keyNumberDestRect, timesSymbolSourceRect, Color.White);
-            spriteBatch.Draw(headsUpDisplay, levelNumberDestRect, new Rectangle(numberXSourceLocation + (levelNumber * numberWidth) + (levelNumber * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-            spriteBatch.Draw(headsUpDisplay, slotADestRect, swordSourceRect, Color.White);
-
             if (inventory.Selected_Item is LinkInventory.Items.Bomb)
             {
                 currentB_SlotItem = bombSourceRect;
@@ -195,65 +187,172 @@ namespace Sprint0
             {
                 currentB_SlotItem = bowSourceRect;
             }
+            else if (inventory.Selected_Item is LinkInventory.Items.SpecialBoomerang)
+            {
+                currentB_SlotItem = specialBoomerangSourceRect;
+            }
             else if (inventory.Selected_Item is LinkInventory.Items.None)
             {
                 currentB_SlotItem = new Rectangle(0, 0, 0, 0);
             }
             spriteBatch.Draw(headsUpDisplay, slotBDestRect, currentB_SlotItem, Color.White);
-
-
-            int remainingNumberSpaces = 2;
-            for (int i = 1; i <= remainingNumberSpaces; i++)
+        }
+        public void DrawItemCounts()
+        {
+            if (inventory.RupeeCount >= 100)
             {
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((rupeeCount / 10) * numberWidth) + ((rupeeCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((rupeeCount % 10) * numberWidth) + ((rupeeCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + (10 * numberWidth) + (10 * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.RupeeCount / 10) * numberWidth) + ((inventory.RupeeCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * 2), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.RupeeCount % 10) * numberWidth) + ((inventory.RupeeCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
-            for (int i = 1; i <= remainingNumberSpaces; i++)
+            if (inventory.KeyCount >= 100)
             {
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount / 10) * numberWidth) + ((keyCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount % 10) * numberWidth) + ((keyCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + (10 * numberWidth) + (10 * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.KeyCount / 10) * numberWidth) + ((inventory.KeyCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * 2), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.KeyCount % 10) * numberWidth) + ((inventory.KeyCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
-            for (int i = 1; i <= remainingNumberSpaces; i++)
+            if (inventory.BombCount >= 100)
             {
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((bombCount / 10) * numberWidth) + ((bombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((bombCount % 10) * numberWidth) + ((bombCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + (10 * numberWidth) + (10 * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
-
-            int remainingHalfHearts = health;
-            for (int i = 0; i < maxHeartCount; i++)
+            else
             {
-                if (i < heartContainerCount)
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.BombCount / 10) * numberWidth) + ((inventory.BombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * 2), bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.BombCount % 10) * numberWidth) + ((inventory.BombCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+        }
+        public void DrawHearts()
+        {
+            int remainingHalfHearts = inventory.HeartCountPlayer1;
+            if (levelManager.TwoPlayer)
+            {
+                int remainingHalfHeartsPlayer2 = levelManager.Player2.PlayerHp;
+                for (int i = 0; i < maxHeartCount; i++)
                 {
-                    if (remainingHalfHearts >= 2)
+                    if (i < inventory.HeartContainerCount)
                     {
-                        currentHeartNeeded = heartSourceRect;
-                        remainingHalfHearts -= 2;
-                    }
-                    else if (remainingHalfHearts == 1)
-                    {
-                        currentHeartNeeded = halfHeartSourceRect;
-                        remainingHalfHearts -= 1;
+                        if (remainingHalfHeartsPlayer2 >= 2)
+                        {
+                            currentHeartNeeded = heartSourceRect;
+                            remainingHalfHeartsPlayer2 -= 2;
+                        }
+                        else if (remainingHalfHeartsPlayer2 == 1)
+                        {
+                            currentHeartNeeded = halfHeartSourceRect;
+                            remainingHalfHeartsPlayer2 -= 1;
+                        }
+                        else
+                        {
+                            currentHeartNeeded = emptyHeartSourceRect;
+                        }
+                        spriteBatch.Draw(headsUpDisplay, new Rectangle(heartXDestLocation + (heartWidth * i/2), heartYDestLocation+(heartHeight/2), heartWidth/2, heartHeight/2), currentHeartNeeded, Color.White);
                     }
                     else
                     {
-                        currentHeartNeeded = emptyHeartSourceRect;
+                        spriteBatch.Draw(headsUpDisplay, new Rectangle(heartXDestLocation + (heartWidth * i/2), heartYDestLocation+(heartHeight/2), heartWidth/2, heartHeight/2), new Rectangle(heartWidth, 0, heartWidth, heartHeight), Color.Black);
                     }
-                    spriteBatch.Draw(headsUpDisplay, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), currentHeartNeeded, Color.White);
                 }
-                else
+
+                for (int i = 0; i < maxHeartCount; i++)
                 {
-                    spriteBatch.Draw(headsUpDisplay, new Rectangle(680 + (heartWidth * i), 146, heartWidth, heartHeight), new Rectangle(heartWidth, 0, heartWidth, heartHeight), Color.Black);
+                    if (i < inventory.HeartContainerCount)
+                    {
+                        if (remainingHalfHearts >= 2)
+                        {
+                            currentHeartNeeded = heartSourceRect;
+                            remainingHalfHearts -= 2;
+                        }
+                        else if (remainingHalfHearts == 1)
+                        {
+                            currentHeartNeeded = halfHeartSourceRect;
+                            remainingHalfHearts -= 1;
+                        }
+                        else
+                        {
+                            currentHeartNeeded = emptyHeartSourceRect;
+                        }
+                        spriteBatch.Draw(headsUpDisplay, new Rectangle(heartXDestLocation + (heartWidth / 2 * i), heartYDestLocation, heartWidth / 2, heartHeight / 2), currentHeartNeeded, Color.White);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(headsUpDisplay, new Rectangle(heartXDestLocation + (heartWidth / 2 * i), heartYDestLocation, heartWidth / 2, heartHeight / 2), new Rectangle(heartWidth, 0, heartWidth / 2, heartHeight / 2), Color.Black);
+                    }
                 }
             }
+            else
+            {
+                for (int i = 0; i < maxHeartCount; i++)
+                {
+                    if (i < inventory.HeartContainerCount)
+                    {
+                        if (remainingHalfHearts >= 2)
+                        {
+                            currentHeartNeeded = heartSourceRect;
+                            remainingHalfHearts -= 2;
+                        }
+                        else if (remainingHalfHearts == 1)
+                        {
+                            currentHeartNeeded = halfHeartSourceRect;
+                            remainingHalfHearts -= 1;
+                        }
+                        else
+                        {
+                            currentHeartNeeded = emptyHeartSourceRect;
+                        }
+                        spriteBatch.Draw(headsUpDisplay, new Rectangle(heartXDestLocation + (heartWidth * i), heartYDestLocation, heartWidth, heartHeight), currentHeartNeeded, Color.White);
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(headsUpDisplay, new Rectangle(heartXDestLocation + (heartWidth * i), heartYDestLocation, heartWidth, heartHeight), new Rectangle(heartWidth, 0, heartWidth, heartHeight), Color.Black);
+                    }
+                }
+
+            }
+        }
+        public void Update()
+        {
+            inventory.Update();
+            healthPlayer1 = player.PlayerHp;
+            heartContainerCount = player.Inventory.HeartContainerCount;
+            rupeeCount = player.Inventory.RupeeCount;
+            keyCount = player.Inventory.KeyCount;
+            bombCount = player.Inventory.BombCount;
+            arrowCount = player.Inventory.ArrowCount;
+            levelNumber = player.Inventory.LevelNumber;
+            locationSquareX = player.Inventory.MapLocationX + HUDoffsetX;
+            locationSquareY = player.Inventory.MapLocationY - HUDoffsetY;
+        }
+        public void Draw()
+        {
+            Update();
+            spriteBatch.Begin();
+            spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
+            spriteBatch.Draw(headsUpDisplay, rupeeNumberDestRect, timesSymbolSourceRect, Color.White);
+            spriteBatch.Draw(headsUpDisplay, bombNumberDestRect, timesSymbolSourceRect, Color.White);
+            spriteBatch.Draw(headsUpDisplay, keyNumberDestRect, timesSymbolSourceRect, Color.White);
+            spriteBatch.Draw(headsUpDisplay, levelNumberDestRect, new Rectangle(numberXSourceLocation + (levelNumber * numberWidth) + (levelNumber * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            spriteBatch.Draw(headsUpDisplay, slotADestRect, swordSourceRect, Color.White);
+
+            DrawSelectedItem();
+
+            DrawItemCounts();
+
+            DrawHearts();
 
             if (player.Inventory.Map == true)
             {
                 spriteBatch.Draw(headsUpDisplay, mapDestRect, mapSourceRect, Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             }
 
-            spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             spriteBatch.End();
         }
     }

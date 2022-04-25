@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/EnemyDie.wav</SourceFile>
-  <SourceTime>2022-04-19T20:18:09.1425327-04:00</SourceTime>
-  <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/EnemyDie.xnb</DestFile>
-  <DestTime>2022-04-23T20:43:56.3236663-04:00</DestTime>
+  <SourceFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/EnemyDie.wav</SourceFile>
+  <SourceTime>2022-04-21T20:08:12.431846-04:00</SourceTime>
+  <DestFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/EnemyDie.xnb</DestFile>
+  <DestTime>2022-04-24T20:42:50.5101605-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

@@ -45,6 +45,7 @@ namespace Sprint0.ItemClass
 			Fairy				= 11,
 			Clock				= 12,
 			SpecialBoomerang	= 13,
+			SpecialArrow		= 14
 		}
 
 		private static ItemSpriteFactory instance = new ItemSpriteFactory();
@@ -115,6 +116,8 @@ namespace Sprint0.ItemClass
 					return new ItemClock(itemSheet, batch, position);
 				case Item.SpecialBoomerang:
 					return new ItemSpecialBoomerang(itemSheet, batch, position);
+				case Item.SpecialArrow:
+					return new ItemSpecialArrow(itemSheet, batch, position);
 				default:
 					return new ItemCompass(itemSheet, batch, position);
 			}

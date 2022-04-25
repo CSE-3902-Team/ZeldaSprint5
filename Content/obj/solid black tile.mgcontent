@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/solid black tile.png</SourceFile>
-  <SourceTime>2022-04-19T20:18:09.9005061-04:00</SourceTime>
-  <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/solid black tile.xnb</DestFile>
-  <DestTime>2022-04-23T20:44:17.5616309-04:00</DestTime>
+  <SourceFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/solid black tile.png</SourceFile>
+  <SourceTime>2022-04-21T20:08:13.5281379-04:00</SourceTime>
+  <DestFile>C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/solid black tile.xnb</DestFile>
+  <DestTime>2022-04-24T20:42:58.5117264-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
