@@ -258,7 +258,6 @@ namespace Sprint0
             keyCount = 0;
             bombCount = 0;
             heartCountPlayer1 = player.PlayerHp;
-            heartContainerCount = (player.MaxHp) / 2;
             levelNumber = 1;
             locationSquareX = 135;
             locationSquareY = 921;
