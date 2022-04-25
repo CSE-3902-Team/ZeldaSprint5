@@ -10,7 +10,6 @@ namespace Sprint0
     public class HUD
     {
         private Player player;
-        private Player player2;
         private LinkInventory inventory;
         private SpriteBatch spriteBatch;
         private Texture2D headsUpDisplay;
@@ -41,6 +40,8 @@ namespace Sprint0
         private Rectangle slotBDestRect;
         private Rectangle currentB_SlotItem;
         private Rectangle triforceSquareDestLocation;
+        private Rectangle candleSourceRect;
+        private Rectangle candleDestRect;
 
         private int healthPlayer1;
         private int heartContainerCount;
@@ -48,7 +49,7 @@ namespace Sprint0
         private int levelNumber;
         private int keyCount;
         private int bombCount;
-        private int arrowCount;
+        private int arrow;
         private int locationSquareX;
         private int locationSquareY;
 
@@ -84,6 +85,8 @@ namespace Sprint0
         const int specialBoomerangXSourceLocation = 360;
         const int triforceLocationX = 287;
         const int triforceLocationY = 97;
+        const int candleSourceLocationX = 662;
+        const int candleSourceLocationY = 328;
 
         const int mapYSourceLocation = 518;
         const int mapWidth = 295;
@@ -115,6 +118,9 @@ namespace Sprint0
         const int bowWidth = 50;
         const int bowHeight = 90;
 
+        const int candleWidth = 44;
+        const int candleHeight = 88;
+
         private int frame;
         public int MapLocationX
         {
@@ -141,7 +147,6 @@ namespace Sprint0
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;
-            arrowCount = player.Inventory.ArrowCount;
 
             levelNumber = player.Inventory.LevelNumber;
             locationSquareX = player.Inventory.MapLocationX + HUDoffsetX;
@@ -160,6 +165,7 @@ namespace Sprint0
             arrowSourceRect = new Rectangle(arrowXSourceLocation, itemsRowYSourceLocation, arrowWidth, arrowHeight);
             bowSourceRect = new Rectangle(bowXSourceLocation, itemsRowYSourceLocation, bowWidth, bowHeight);
             specialBoomerangSourceRect = new Rectangle(specialBoomerangXSourceLocation, itemsRowYSourceLocation, boomerangWidth, boomerangHeight);
+            candleSourceRect = new Rectangle(candleSourceLocationX, candleSourceLocationY, candleWidth, candleHeight);
 
             triforceSquareDestLocation = new Rectangle(triforceLocationX, triforceLocationY, locationSquareSize, locationSquareSize);
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
@@ -194,6 +200,10 @@ namespace Sprint0
             else if (inventory.Selected_Item is LinkInventory.Items.SpecialBoomerang)
             {
                 currentB_SlotItem = specialBoomerangSourceRect;
+            }
+            else if (inventory.Selected_Item is LinkInventory.Items.Candle)
+            {
+                currentB_SlotItem = candleSourceRect;
             }
             else if (inventory.Selected_Item is LinkInventory.Items.None)
             {
@@ -329,7 +339,6 @@ namespace Sprint0
             rupeeCount = player.Inventory.RupeeCount;
             keyCount = player.Inventory.KeyCount;
             bombCount = player.Inventory.BombCount;
-            arrowCount = player.Inventory.ArrowCount;
             levelNumber = player.Inventory.LevelNumber;
             locationSquareX = player.Inventory.MapLocationX + HUDoffsetX;
             locationSquareY = player.Inventory.MapLocationY - HUDoffsetY;

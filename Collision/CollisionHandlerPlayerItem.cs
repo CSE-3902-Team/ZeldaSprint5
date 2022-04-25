@@ -108,7 +108,7 @@ namespace Sprint0.Collision
                 {
                     SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
                 }
-                inventory.ArrowCount++;
+                inventory.Arrow = true;
             }
             else if (item is ItemSpecialArrow)
             {
@@ -122,7 +122,7 @@ namespace Sprint0.Collision
                 {
                     SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
                 }
-                inventory.SpecialArrowCount++;
+                inventory.SpecialArrow = true;
             }
             else if (item is ItemBomb)
             {
