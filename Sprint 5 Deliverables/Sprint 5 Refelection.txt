@@ -1,0 +1,6 @@
+﻿Reflection: This sprint was not as hard as Sprint 3, but there were a lot of bugs that needed to be fixed, which required refactoring through out the entire sprint. We
+fixed most if not all bugs that we had documented in Sprint 4. For this sprint, we added a 2 player mode, the darkroom effect, and a new boss. The most challenging part of implementation this sprint
+was most likely the 2 player implementation, because we had to refactor a lot of our code to have a 2 player conditional. It also created a lot of bugs with collision and the inventory, which we had to fix
+as well. The most straightforward thing to do was to create a new boss because all we had to do was add a new room, sprite, and some logic that was basically the same from the previous boss. 
+One thing we will probably work on next sprint is to set deadlines for completion because we had to rush a lot more to finish our tasks. All we did was just assign tasks and told everyone to get it done before it was due, which brought up a lot of bugs when everyone
+started test the game near the end of the sprint. This could have been easily avoided if the work was done sooner so we had more time to fix bugs. 
