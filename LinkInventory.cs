@@ -17,8 +17,6 @@ namespace Sprint0
         private int rupeeCount;
         private int keyCount;
         private int bombCount;
-        private int arrowCount;
-        private int specialArrowCount;
         private int heartCountPlayer1;
         private int heartCountPlayer2;
         private int heartContainerCount;
@@ -48,6 +46,9 @@ namespace Sprint0
         private Boolean boomerang;
         private Boolean specialBoomerang;
         private Boolean clock;
+        private Boolean arrow;
+        private Boolean specialArrow;
+        private Boolean candle;
 
         private Items[,] itemPositionIndex;
         private Items selectedItem;
@@ -74,18 +75,6 @@ namespace Sprint0
             set { bombCount = value; }
         }
 
-        public int ArrowCount
-        {
-            get { return arrowCount; }
-            set { arrowCount = value; }
-        }
-
-        public int SpecialArrowCount
-        {
-            get { return specialArrowCount; }
-            set { specialArrowCount = value; }
-        }
-
         public int HeartCountPlayer1
         {
             get { return heartCountPlayer1; }
@@ -95,12 +84,6 @@ namespace Sprint0
         {
             get { return heartCountPlayer2; }
             set { heartCountPlayer2 = value; }
-        }
-
-        public int HeartContainerCount
-        {
-            get { return heartContainerCount; }
-            set { heartContainerCount = value; }
         }
 
         public Boolean FirstArrow
@@ -187,7 +170,16 @@ namespace Sprint0
             get { return map; }
             set { map = value; }
         }
-
+        public Boolean SpecialArrow
+        {
+            get { return specialArrow; }
+            set { specialArrow = value; }
+        }
+        public Boolean Arrow
+        {
+            get { return arrow; }
+            set { arrow = value; }
+        }
         public Boolean Compass
         {
             get { return compass; }
@@ -210,6 +202,11 @@ namespace Sprint0
         {
             get { return clock; }
             set { clock = value; }
+        }
+        public Boolean Candle
+        {
+            get { return candle; }
+            set { candle = value; }
         }
         public int MapLocationX
         {
@@ -250,6 +247,7 @@ namespace Sprint0
             Bomb,
             BowAndArrow,
             SpecialBoomerang,
+            Candle,
             None
         }
         public LinkInventory(Player player)
@@ -259,8 +257,6 @@ namespace Sprint0
             rupeeCount = 0;
             keyCount = 0;
             bombCount = 0;
-            arrowCount = 10;
-            specialArrowCount = 0;
             heartCountPlayer1 = player.PlayerHp;
             heartContainerCount = (player.MaxHp) / 2;
             levelNumber = 1;
@@ -289,15 +285,17 @@ namespace Sprint0
             boomerang = false;
             specialBoomerang = false;
             clock = false;
+            arrow = false;
+            specialArrow = false;
+            candle = false;
 
             selectedItem = Items.None;
 
-            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.SpecialBoomerang }, { Items.None, Items.None, Items.None, Items.None } };
+            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.SpecialBoomerang }, { Items.Candle, Items.None, Items.None, Items.None } };
         }
 
         public void Update()
         {
-            heartContainerCount = (player.MaxHp) / 2;
             heartCountPlayer1 = player.PlayerHp;
         }
 
