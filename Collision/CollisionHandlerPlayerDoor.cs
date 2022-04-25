@@ -48,11 +48,7 @@ namespace Sprint0.Collision
                     LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY - locationSquareOffsetY);
                     LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY - mapSquareOffset);
 
-                    if (LevelManager.Instance.TwoPlayer)
-                    {
-                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
-                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
-                    }
+                   
                 }
                 else if (door.DoorSide == DoorFactory.Side.Left)
                 {
@@ -63,11 +59,7 @@ namespace Sprint0.Collision
                     }
                     LevelManager.Instance.Player1.Inventory.MapLocationX = (LevelManager.Instance.Player1.Inventory.MapLocationX - locationSquareOffsetX);
                     LevelManager.Instance.Player1.Inventory.MapSquareLocationX = (LevelManager.Instance.Player1.Inventory.MapSquareLocationX - mapSquareOffset);
-                    if (LevelManager.Instance.TwoPlayer)
-                    {
-                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
-                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
-                    }
+                    
                 }
                 else if (door.DoorSide == DoorFactory.Side.Right)
                 {
@@ -80,11 +72,7 @@ namespace Sprint0.Collision
                     LevelManager.Instance.Player1.Inventory.MapLocationX = (LevelManager.Instance.Player1.Inventory.MapLocationX + locationSquareOffsetX);
                     LevelManager.Instance.Player1.Inventory.MapSquareLocationX = (LevelManager.Instance.Player1.Inventory.MapSquareLocationX + mapSquareOffset);
 
-                    if (LevelManager.Instance.TwoPlayer)
-                    {
-                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
-                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
-                    }
+                   
                 }
                 else if (door.DoorSide == DoorFactory.Side.Bottom)
                 {
@@ -97,11 +85,6 @@ namespace Sprint0.Collision
                     LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY + locationSquareOffsetY);
                     LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY + mapSquareOffset);
 
-                    if (LevelManager.Instance.TwoPlayer)
-                    {
-                        LevelManager.Instance.Player2.Inventory.MapLocationY = (LevelManager.Instance.Player2.Inventory.MapLocationY - locationSquareOffsetY);
-                        LevelManager.Instance.Player2.Inventory.MapSquareLocationY = (LevelManager.Instance.Player2.Inventory.MapSquareLocationY - mapSquareOffset);
-                    }
 
                 }
 

@@ -23,7 +23,7 @@ namespace Sprint0.ItemClass
 			{"bow", Item.Bow},
 			{"heart", Item.Heart},
 			{"rupee", Item.Rupee},
-			{"arrow", Item.Arrow},
+			{"arrow", Item.SpecialArrow},
 			{"bomb", Item.Bomb},
 			{"fairy", Item.Fairy},
 			{"clock", Item.Clock},

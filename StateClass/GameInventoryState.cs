@@ -124,7 +124,7 @@ namespace Sprint0.StateClass
         const int specialBoomerangXSourceLocation = 360;
         const int bombXSourceLocation = 415;
         const int arrowXSourceLocation = 475;
-        const int specialArrowXSourceLocation = 517;
+        const int specialArrowXSourceLocation = 520;
         const int bowXSourceLocation = 556;
         const int boomerangYSourceLocation = 972;
 
