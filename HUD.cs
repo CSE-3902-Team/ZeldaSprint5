@@ -172,6 +172,63 @@ namespace Sprint0
 
         }
 
+        public void DrawSelectedItem()
+        {
+            if (inventory.Selected_Item is LinkInventory.Items.Bomb)
+            {
+                currentB_SlotItem = bombSourceRect;
+
+            }
+            else if (inventory.Selected_Item is LinkInventory.Items.Boomerang)
+            {
+                currentB_SlotItem = boomerangSourceRect;
+            }
+            else if (inventory.Selected_Item is LinkInventory.Items.BowAndArrow)
+            {
+                currentB_SlotItem = bowSourceRect;
+            }
+            else if (inventory.Selected_Item is LinkInventory.Items.SpecialBoomerang)
+            {
+                currentB_SlotItem = specialBoomerangSourceRect;
+            }
+            else if (inventory.Selected_Item is LinkInventory.Items.None)
+            {
+                currentB_SlotItem = new Rectangle(0, 0, 0, 0);
+            }
+            spriteBatch.Draw(headsUpDisplay, slotBDestRect, currentB_SlotItem, Color.White);
+        }
+        public void DrawItemCounts()
+        {
+            if (inventory.RupeeCount >= 100)
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + (10 * numberWidth) + (10 * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.RupeeCount / 10) * numberWidth) + ((inventory.RupeeCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * 2), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.RupeeCount % 10) * numberWidth) + ((inventory.RupeeCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+
+            if (inventory.KeyCount >= 100)
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + (10 * numberWidth) + (10 * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.KeyCount / 10) * numberWidth) + ((inventory.KeyCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * 2), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.KeyCount % 10) * numberWidth) + ((inventory.KeyCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+
+            if (inventory.BombCount >= 100)
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + (10 * numberWidth) + (10 * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+            else
+            {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.BombCount / 10) * numberWidth) + ((inventory.BombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * 2), bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((inventory.BombCount % 10) * numberWidth) + ((inventory.BombCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
+            }
+        }
         public void DrawHearts()
         {
             int remainingHalfHearts = inventory.HeartCountPlayer1;
@@ -270,8 +327,8 @@ namespace Sprint0
             bombCount = player.Inventory.BombCount;
             arrowCount = player.Inventory.ArrowCount;
             levelNumber = player.Inventory.LevelNumber;
-            locationSquareX = player.Inventory.MapLocationX + 16;
-            locationSquareY = player.Inventory.MapLocationY - 712;
+            locationSquareX = player.Inventory.MapLocationX + HUDoffsetX;
+            locationSquareY = player.Inventory.MapLocationY - HUDoffsetY;
         }
         public void Draw()
         {
@@ -284,57 +341,18 @@ namespace Sprint0
             spriteBatch.Draw(headsUpDisplay, levelNumberDestRect, new Rectangle(numberXSourceLocation + (levelNumber * numberWidth) + (levelNumber * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             spriteBatch.Draw(headsUpDisplay, slotADestRect, swordSourceRect, Color.White);
 
-            if (inventory.Selected_Item is LinkInventory.Items.Bomb)
-            {
-                currentB_SlotItem = bombSourceRect;
+            DrawSelectedItem();
 
-            }
-            else if (inventory.Selected_Item is LinkInventory.Items.Boomerang)
-            {
-                currentB_SlotItem = boomerangSourceRect;
-            }
-            else if (inventory.Selected_Item is LinkInventory.Items.BowAndArrow)
-            {
-                currentB_SlotItem = bowSourceRect;
-            }
-            else if (inventory.Selected_Item is LinkInventory.Items.SpecialBoomerang)
-            {
-                currentB_SlotItem = specialBoomerangSourceRect;
-            }
-            else if (inventory.Selected_Item is LinkInventory.Items.None)
-            {
-                currentB_SlotItem = new Rectangle(0, 0, 0, 0);
-            }
-            spriteBatch.Draw(headsUpDisplay, slotBDestRect, currentB_SlotItem, Color.White);
-
-
-            int remainingNumberSpaces = 2;
-            for (int i = 1; i <= remainingNumberSpaces; i++)
-            {
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((rupeeCount / 10) * numberWidth) + ((rupeeCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), rupeeYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((rupeeCount % 10) * numberWidth) + ((rupeeCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-            }
-
-            for (int i = 1; i <= remainingNumberSpaces; i++)
-            {
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount / 10) * numberWidth) + ((keyCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), keyYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((keyCount % 10) * numberWidth) + ((keyCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-            }
-
-            for (int i = 1; i <= remainingNumberSpaces; i++)
-            {
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + numberWidth, bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((bombCount / 10) * numberWidth) + ((bombCount / 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((bombCount % 10) * numberWidth) + ((bombCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
-            }
+            DrawItemCounts();
 
             DrawHearts();
 
             if (player.Inventory.Map == true)
             {
                 spriteBatch.Draw(headsUpDisplay, mapDestRect, mapSourceRect, Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             }
 
-            spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             spriteBatch.End();
         }
     }
