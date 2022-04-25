@@ -270,8 +270,8 @@ namespace Sprint0
             bombCount = player.Inventory.BombCount;
             arrowCount = player.Inventory.ArrowCount;
             levelNumber = player.Inventory.LevelNumber;
-            locationSquareX = player.Inventory.MapLocationX + 16;
-            locationSquareY = player.Inventory.MapLocationY - 712;
+            locationSquareX = player.Inventory.MapLocationX + HUDoffsetX;
+            locationSquareY = player.Inventory.MapLocationY - HUDoffsetY;
         }
         public void Draw()
         {
@@ -342,9 +342,9 @@ namespace Sprint0
             if (player.Inventory.Map == true)
             {
                 spriteBatch.Draw(headsUpDisplay, mapDestRect, mapSourceRect, Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             }
 
-            spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
             spriteBatch.End();
         }
     }
