@@ -220,20 +220,60 @@ namespace Sprint0.StateClass
         public Texture2D generateDarkRoom() {
             //initialize a texture
             Texture2D texture = new Texture2D(_game.GraphicsDevice, screenWidth, screenHeight);
-
+            int radius = 128;
             //the array holds the color for each pixel in the texture
             Color[] data = new Color[screenWidth * screenHeight];
+            Array.Fill(data, Color.Black);
             Vector2 pixelVector = new Vector2(0,0);
             Vector2 linkPosition1 = LevelManager.Instance.Player1.Position;
             Vector2 linkPosition2 = new Vector2(5000, 5000);
-            if (_game.TwoPlayer == true) {
-                linkPosition2 = LevelManager.Instance.Player2.Position;
-                linkPosition2.Y = linkPosition2.Y - heightOffset;
-            }
+            
             linkPosition1.Y = linkPosition1.Y - heightOffset;
             float distance1 = 0;
-            float distance2 = 500;
-            for (int pixel = 0; pixel < data.Length; pixel++)
+            int pixelSequence = 0;
+            if (!LevelManager.Instance.Player1.IsDead)
+            {
+                for (int x = (int)linkPosition1.X - radius; x < (int)linkPosition1.X + radius; x++)
+                {
+                    for (int y = (int)linkPosition1.Y - radius; y < (int)linkPosition1.Y + radius; y++)
+                    {
+                        pixelSequence = y * screenWidth + x;
+                        distance1 = Vector2.Distance(new Vector2(x, y), linkPosition1);
+                        if (distance1 < radius)
+                        {
+                            if (pixelSequence < data.Length - 1 && pixelSequence >= 0) {
+                                data[pixelSequence] = new Color((byte)0, (byte)0, (byte)0, (byte)(distance1) * 2);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (_game.TwoPlayer == true && !LevelManager.Instance.Player2.IsDead)
+            {
+                linkPosition2 = LevelManager.Instance.Player2.Position;
+                linkPosition2.Y = linkPosition2.Y - heightOffset;
+                float distance2 = 500;
+                for (int x = (int)linkPosition2.X - radius; x < (int)linkPosition2.X + radius; x++)
+                {
+                    for (int y = (int)linkPosition2.Y - radius; y < (int)linkPosition2.Y + radius; y++)
+                    {
+                        pixelSequence = y * screenWidth + x;
+                        distance2 = Vector2.Distance(new Vector2(x, y), linkPosition2);
+                        if (distance2 < radius)
+                        {
+                            if (pixelSequence < data.Length - 1 && pixelSequence >= 0)
+                            {
+                                if (data[pixelSequence].A > distance2 * 2) {
+                                    data[pixelSequence] = new Color((byte)0, (byte)0, (byte)0, (byte)(distance2) * 2);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            /*for (int pixel = 0; pixel < data.Length; pixel++)
             {
                 pixelVector = new Vector2(pixel % screenWidth, (int)(pixel/screenWidth));
                 //the function applies the color according to the specified pixel
@@ -246,12 +286,7 @@ namespace Sprint0.StateClass
 
                     data[pixel] = new Color((byte)0, (byte)0, (byte)0, (byte)((Math.Min(distance1, distance2)) * 2));
                 }
-                else 
-                {
-                    data[pixel] = new Color((byte)0, (byte)0, (byte)0, (byte)255);
-                    //data[pixel] = Color.Black;
-                }
-            }
+            }*/
 
             //set the color
             texture.SetData(data);
