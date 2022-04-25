@@ -287,7 +287,7 @@ namespace Sprint0
             clock = false;
             arrow = false;
             specialArrow = false;
-            candle = false;
+            candle = true;
 
             selectedItem = Items.None;
 
