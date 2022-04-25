@@ -355,11 +355,11 @@ namespace Sprint0
             if (player.Inventory.Map)
             {
                 spriteBatch.Draw(headsUpDisplay, mapDestRect, mapSourceRect, Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
             }
 
             if (player.Inventory.Compass)
             {
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
                 if (frame % 50 > 20)
                 {
                     spriteBatch.Draw(headsUpDisplay, triforceSquareDestLocation, locationSquareSourceRect, Color.Red);

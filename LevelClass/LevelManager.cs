@@ -250,7 +250,6 @@ namespace Sprint0.LevelClass
                     roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player1, enemyHoldItem));
                 }
 
-                //roomList.Add(new Room(doorList.ToArray(), enemyList, itemList.ToArray(), tileList.ToArray(), _player2, enemyHoldItem));
             }
         }
 

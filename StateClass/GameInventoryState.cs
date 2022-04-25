@@ -545,13 +545,14 @@ namespace Sprint0.StateClass
                 _game.SpriteBatch.Draw(screen, mapDestRect, mapSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, mapDesignDestRect, mapDesignSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, otherMapDestRect, otherMapSourceRect, Color.White);
-                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapLocationX, _inventory.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
-                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapSquareLocationX, _inventory.MapSquareLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
+                
             }
 
             if (_inventory.Compass == true)
             {
                 _game.SpriteBatch.Draw(screen, compassDestRect, compassSourceRect, Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapLocationX, _inventory.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
+                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapSquareLocationX, _inventory.MapSquareLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
                 if (frame % 50 > 20)
                 {
                     _game.SpriteBatch.Draw(screen, triforceSquareDestLocation, locationSquareSourceRect, Color.Red);
