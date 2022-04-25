@@ -1,4 +1,4 @@
-﻿In the plaintext file for a readability review, include the following information:
+﻿In the plaintext file for a code quality review, include the following information:
 
 Author of the code review: Craig Cirino
 Date of the code review: 4/25/2022
