@@ -23,6 +23,10 @@ namespace Sprint0.Collision
         }
         public void HandleCollision()
         {
+            if (player.PlayerHp == 0)
+            {
+                return;
+            }
             float xDirection;
             float yDirection;
             if (block.GetType() == typeof(StairsTile)) {

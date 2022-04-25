@@ -21,6 +21,10 @@ namespace Sprint0.Collision
         }
         public void HandleCollision()
         {
+            if (player.PlayerHp == 0)
+            {
+                return;
+            }
             if (item is ItemHeartContainer)
             {
                 if (player.Inventory.FirstHeartContainer)

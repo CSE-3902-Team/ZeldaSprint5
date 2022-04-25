@@ -20,8 +20,11 @@ namespace Sprint0.Collision
         }
         public void HandleCollision()
         {
+            if (player.PlayerHp == 0)
+            {
+                return;
+            }
 
-            
             switch (collisionDirections)
             {
                 case CollisionDirections.North:
