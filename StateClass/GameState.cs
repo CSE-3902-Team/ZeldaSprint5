@@ -42,7 +42,7 @@ namespace Sprint0.StateClass
             levelManager.LoadRooms();
             _currentRoom = levelManager.StartRoom();
             roomNum = levelManager.currentRoomNum;
-            headsUpDisplay = new HUD(levelManager.Player1, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
+            headsUpDisplay = new HUD(_game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));
             fadeEffect = new Texture2D(_game.GraphicsDevice, 1, 1);
             fadeEffect.SetData<Color>(new Color[] { Color.Black });
             //headsUpDisplay = new HUD(levelManager.Player2, _game.SpriteBatch, _content.Load<Texture2D>("HUDandInventory"));

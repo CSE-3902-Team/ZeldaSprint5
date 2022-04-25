@@ -265,6 +265,93 @@ namespace Sprint0.StateClass
             }
         }
 
+        public void DrawHearts()
+        {
+            int remainingHalfHearts = _inventory.HeartCountPlayer1;
+            if (_levelManager.TwoPlayer)
+            {
+                int remainingHalfHeartsPlayer2 = _levelManager.Player2.PlayerHp;
+                for (int i = 0; i < MAX_HEART_COUNT; i++)
+                {
+                    if (i < _inventory.HeartContainerCount)
+                    {
+                        if (remainingHalfHeartsPlayer2 >= 2)
+                        {
+                            currentHeartNeeded = heartSourceRect;
+                            remainingHalfHeartsPlayer2 -= 2;
+                        }
+                        else if (remainingHalfHeartsPlayer2 == 1)
+                        {
+                            currentHeartNeeded = halfHeartSourceRect;
+                            remainingHalfHeartsPlayer2 -= 1;
+                        }
+                        else
+                        {
+                            currentHeartNeeded = emptyHeartSourceRect;
+                        }
+                        _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth/2 * i), heartYDestLocation+(heartHeight/2), heartWidth/2, heartHeight/2), currentHeartNeeded, Color.White);
+                    }
+                    else
+                    {
+                        _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth/2 * i), heartYDestLocation, heartWidth/2, heartHeight/2), new Rectangle(heartWidth, 0, heartWidth/2, heartHeight/2), Color.Black);
+                    }
+                }
+
+                for (int i = 0; i < MAX_HEART_COUNT; i++)
+                {
+                    if (i < _inventory.HeartContainerCount)
+                    {
+                        if (remainingHalfHearts >= 2)
+                        {
+                            currentHeartNeeded = heartSourceRect;
+                            remainingHalfHearts -= 2;
+                        }
+                        else if (remainingHalfHearts == 1)
+                        {
+                            currentHeartNeeded = halfHeartSourceRect;
+                            remainingHalfHearts -= 1;
+                        }
+                        else
+                        {
+                            currentHeartNeeded = emptyHeartSourceRect;
+                        }
+                        _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth/2 * i), heartYDestLocation, heartWidth / 2, heartHeight / 2), currentHeartNeeded, Color.White);
+                    }
+                    else
+                    {
+                        _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth/2 * i), heartYDestLocation, heartWidth / 2, heartHeight / 2), new Rectangle(heartWidth, 0, heartWidth / 2, heartHeight / 2), Color.Black);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < MAX_HEART_COUNT; i++)
+                {
+                    if (i < _inventory.HeartContainerCount)
+                    {
+                        if (remainingHalfHearts >= 2)
+                        {
+                            currentHeartNeeded = heartSourceRect;
+                            remainingHalfHearts -= 2;
+                        }
+                        else if (remainingHalfHearts == 1)
+                        {
+                            currentHeartNeeded = halfHeartSourceRect;
+                            remainingHalfHearts -= 1;
+                        }
+                        else
+                        {
+                            currentHeartNeeded = emptyHeartSourceRect;
+                        }
+                        _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth * i), heartYDestLocation, heartWidth, heartHeight), currentHeartNeeded, Color.White);
+                    }
+                    else
+                    {
+                        _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth * i), heartYDestLocation, heartWidth, heartHeight), new Rectangle(heartWidth, 0, heartWidth, heartHeight), Color.Black);
+                    }
+                }
+            }
+        }
         public void Select(LinkInventory.Items item)
         {
             if (item is LinkInventory.Items.Boomerang && _inventory.Boomerang)
@@ -398,32 +485,7 @@ namespace Sprint0.StateClass
                 _game.SpriteBatch.Draw(screen, new Rectangle(numberXDestLocation + (numberWidth * remainingNumberSpaces), bombYDestLocation, numberWidth, numberHeight), new Rectangle(numberXSourceLocation + ((_inventory.BombCount % 10) * numberWidth) + ((_inventory.BombCount % 10) * spaceBetweenNumbers), heartAndNumberYSourceLocation, numberWidth, numberHeight), Color.White);
             }
 
-            int remainingHalfHearts = _inventory.HeartCount;
-            for (int i = 0; i < MAX_HEART_COUNT; i++)
-            {
-                if (i < _inventory.HeartContainerCount)
-                {
-                    if (remainingHalfHearts >= 2)
-                    {
-                        currentHeartNeeded = heartSourceRect;
-                        remainingHalfHearts -= 2;
-                    }
-                    else if (remainingHalfHearts == 1)
-                    {
-                        currentHeartNeeded = halfHeartSourceRect;
-                        remainingHalfHearts -= 1;
-                    }
-                    else
-                    {
-                        currentHeartNeeded = emptyHeartSourceRect;
-                    }
-                    _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth * i), heartYDestLocation, heartWidth, heartHeight), currentHeartNeeded, Color.White);
-                }
-                else
-                {
-                    _game.SpriteBatch.Draw(screen, new Rectangle(heartXDestLocation + (heartWidth * i), heartYDestLocation, heartWidth, heartHeight), new Rectangle(heartWidth, 0, heartWidth, heartHeight), Color.Black);
-                }
-            }
+            DrawHearts();
 
             if (_inventory.Compass == true)
             {

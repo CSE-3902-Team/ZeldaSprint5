@@ -4,18 +4,24 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.ItemClass;
+using Sprint0.LevelClass;
 
 namespace Sprint0
 {
     public class LinkInventory
     {
         private Player player;
+        private Player player2;
+        LevelManager levelManager;
+
 
         private int rupeeCount;
         private int keyCount;
         private int bombCount;
         private int arrowCount;
-        private int heartCount;
+        private int specialArrowCount;
+        private int heartCountPlayer1;
+        private int heartCountPlayer2;
         private int heartContainerCount;
         private int levelNumber;
         private int locationSquareX;
@@ -41,6 +47,7 @@ namespace Sprint0
         private Boolean map;
         private Boolean compass;
         private Boolean boomerang;
+        private Boolean specialBoomerang;
         private Boolean clock;
 
         private Items[,] itemPositionIndex;
@@ -74,10 +81,21 @@ namespace Sprint0
             set { arrowCount = value; }
         }
 
-        public int HeartCount
+        public int SpecialArrowCount
         {
-            get { return heartCount; }
-            set { heartCount = value; }
+            get { return specialArrowCount; }
+            set { specialArrowCount = value; }
+        }
+
+        public int HeartCountPlayer1
+        {
+            get { return heartCountPlayer1; }
+            set { heartCountPlayer1 = value; }
+        }
+        public int HeartCountPlayer2
+        {
+            get { return heartCountPlayer2; }
+            set { heartCountPlayer2 = value; }
         }
 
         public int HeartContainerCount
@@ -178,6 +196,12 @@ namespace Sprint0
             set { boomerang = value; }
         }
 
+        public Boolean SpecialBoomerang
+        {
+            get { return specialBoomerang; }
+            set { specialBoomerang = value; }
+        }
+
         public Boolean Clock
         {
             get { return clock; }
@@ -221,22 +245,30 @@ namespace Sprint0
             Boomerang,
             Bomb,
             BowAndArrow,
+            SpecialBoomerang,
+            SpecialBowAndArrow,
             None
         }
         public LinkInventory(Player player)
         {
+            levelManager = LevelManager.Instance;
             this.player = player;
-
+            if (levelManager.TwoPlayer)
+            {
+                player2 = levelManager.Player2;
+             //   heartCountPlayer2 = player2.PlayerHp;
+            }
             rupeeCount = 0;
             keyCount = 0;
             bombCount = 0;
             arrowCount = 10;
-            heartCount = player.PlayerHp;
+            specialArrowCount = 0;
+            heartCountPlayer1 = player.PlayerHp;
             heartContainerCount = (player.MaxHp) / 2;
             levelNumber = 1;
-            locationSquareX = 180;
+            locationSquareX = 135;
             locationSquareY = 921;
-            mapSquareX = 659;
+            mapSquareX = 621;
             mapSquareY = 581;
 
 
@@ -255,20 +287,25 @@ namespace Sprint0
             firstSpecialBoomerang = true;
 
             bow = false;
-            map = true;
+            map = false;
             compass = false;
             boomerang = false;
+            specialBoomerang = false;
             clock = false;
 
             selectedItem = Items.None;
 
-            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.None }, { Items.None, Items.None, Items.None, Items.None } };
+            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.SpecialBoomerang }, { Items.SpecialBowAndArrow, Items.None, Items.None, Items.None } };
         }
 
         public void Update()
         {
             heartContainerCount = (player.MaxHp) / 2;
-            heartCount = player.PlayerHp;
+            heartCountPlayer1 = player.PlayerHp;
+            if (levelManager.TwoPlayer)
+            {
+            //    heartCountPlayer2 = player2.PlayerHp;
+            }
         }
 
     }
