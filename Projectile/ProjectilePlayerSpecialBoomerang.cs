@@ -5,31 +5,49 @@ using Sprint0.LevelClass;
 
 namespace Sprint0
 {
-    //TODO: CP normal boomerang code into here
     public class ProjectilePlayerSpecialBoomerang : IProjectile, IBoxCollider
     {
         private Vector2 position;
         private Vector2 direction;
 
-        private Rectangle sourceRect;
-        private Rectangle destinationRect;
-        private readonly TopLeft topLeft;
-        private readonly BottomRight bottomRight;
         private Texture2D texture;
         private SpriteBatch batch;
-        private Boolean isReturning;
-
+        private Rectangle sourceRect;
+        private Rectangle destinationRect;
+        private const int RETURN_FRAMES = 15;
+        private const int HITBOX_WIDTH = 25;
+        private const int HITBOX_HEIGHT = 25;
+        private Player pInstance;
         private int frame;
         private float rotation;
-
+        private Boolean isReturning;
         // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
+        private readonly TopLeft topLeft;
+        private readonly BottomRight bottomRight;
+
 
         public Boolean IsRunning
         {
             get { return isRunning; }
-            set { isRunning = value; }
+            set
+            {
+                isRunning = value;
+                if (!value) { pInstance.Inventory.SpecialBoomerang = true; }
+            }
         }
+
+        public Boolean IsReturning
+        {
+            get { return isReturning; }
+            set
+            {
+                isReturning = value;
+                if (value) { frame = 35; }
+                else { frame = 0; }
+            }
+        }
+
         public Vector2 Position
         {
             get { return position; }
@@ -39,11 +57,6 @@ namespace Sprint0
         {
             get { return direction; }
             set { direction = value; }
-        }
-        public Boolean IsReturning
-        {
-            get { return isReturning; }
-            set { if (value) { frame = 35; } else { frame = 0; } }
         }
 
 
@@ -55,31 +68,45 @@ namespace Sprint0
         {
             get { return bottomRight; }
         }
-        public ProjectilePlayerSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
+
+        public Player PInstance
+        {
+            get { return pInstance; }
+        }
+
+        public ProjectilePlayerSpecialBoomerang(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction, Player p)
         {
             this.texture = texture;
             this.batch = batch;
             this.position = position;
             this.direction = direction;
-
-            sourceRect = new Rectangle(137, 280, 12, 19);
+            pInstance = p;
             topLeft = new TopLeft((int)position.X, (int)position.Y, this);
-            bottomRight = new BottomRight((int)position.X + 25, (int)position.Y + 25, this);
+            bottomRight = new BottomRight((int)position.X + HITBOX_WIDTH, (int)position.Y + HITBOX_HEIGHT, this);
             isReturning = false;
-            frame = 0;
+            sourceRect = new Rectangle(137, 280, 12, 19);
+
             isRunning = true;
             rotation = 0f;
+            frame = 0;
+            p.Inventory.SpecialBoomerang = false;
+        }
+
+        public int GetSign(int distance)
+        {
+            if (distance < 0) return 1;
+            return -1;
         }
 
         public void GetRotation(Vector2 direction)
         {
             if (direction.X == 0 && direction.Y > 0)
             {
-                rotation = (float)Math.PI * 3f / 2f;
+                rotation = (float)Math.PI / 2f;
             }
             else if (direction.X == 0 && direction.Y < 0)
             {
-                rotation = (float)Math.PI / 2f;
+                rotation = (float)Math.PI * 3f / 2f;
             }
             else if (direction.X > 0 && direction.Y == 0)
             {
@@ -91,24 +118,14 @@ namespace Sprint0
             }
         }
 
-        public int GetSign(int distance)
-        {
-            if (distance < 0) return 1;
-            return -1;
-        }
         public void Update()
         {
             GetRotation(direction);
-            int PlayerProjectileDistanceX = (int)(LevelManager.Instance.Player1.Position.X - position.X);
-            int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player1.Position.Y - position.Y);
+            int PlayerProjectileDistanceX = (int)(pInstance.Position.X - position.X);
+            int PlayerProjectileDistanceY = (int)(pInstance.Position.Y - position.Y);
 
-            /*
-             * player2
-             * int PlayerProjectileDistanceX = (int)(LevelManager.Instance.Player2.Position.X - position.X);
-                int PlayerProjectileDistanceY = (int)(LevelManager.Instance.Player2.Position.Y - position.Y);
-             * 
-             */
-            if (IsRunning == true)
+
+            if (IsRunning)
             {
                 destinationRect = new Rectangle((int)position.X, (int)position.Y, 24, 38);
                 frame++;
@@ -116,19 +133,19 @@ namespace Sprint0
                 if (frame < 10)
                 {
                     IsRunning = true;
-                    position.X += direction.X * 10f;
-                    position.Y += direction.Y * 10f;
+                    position.X += direction.X * 5f;
+                    position.Y += direction.Y * 5f;
                 }
                 else if (frame >= 10 && frame < 20)
                 {
-                    position.X += direction.X * 10f;
-                    position.Y += direction.Y * 10f;
+                    position.X += direction.X * 5f;
+                    position.Y += direction.Y * 5f;
                     sourceRect = new Rectangle(147, 280, 12, 19);
                 }
                 else if (frame >= 20 && frame < 30)
                 {
-                    position.X += direction.X * 5f;
-                    position.Y += direction.Y * 5f;
+                    position.X += direction.X * 3f;
+                    position.Y += direction.Y * 3f;
                     sourceRect = new Rectangle(161, 280, 12, 19);
                 }
                 else if (frame >= 30 && frame < 35)
@@ -148,9 +165,8 @@ namespace Sprint0
                     position.X += GetSign(PlayerProjectileDistanceX) * -5f;
                     position.Y += GetSign(PlayerProjectileDistanceY) * -5f;
                     sourceRect = new Rectangle(161, 280, 12, 19);
-
                 }
-                else if (frame >= 55 && frame < 65)
+                else if (frame > 55 & frame < 65)
                 {
                     position.X += GetSign(PlayerProjectileDistanceX) * -5f;
                     position.Y += GetSign(PlayerProjectileDistanceY) * -5f;
@@ -199,9 +215,14 @@ namespace Sprint0
         {
             topLeft.X = (int)position.X;
             topLeft.Y = (int)position.Y;
-            bottomRight.X = (int)position.X + 24;
-            BottomRight.Y = (int)position.Y + 28;
+            bottomRight.X = (int)position.X + HITBOX_WIDTH;
+            BottomRight.Y = (int)position.Y + HITBOX_HEIGHT;
         }
 
     }
+
+
+
 }
+
+

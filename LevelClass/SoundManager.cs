@@ -10,20 +10,20 @@ namespace Sprint0.LevelClass
     public class SoundManager : IDisposable
     {
         public static SoundManager instance;
-       
-        static SoundManager(){
-            SoundEffect.MasterVolume = 0f;
+
+        static SoundManager() {
+            SoundEffect.MasterVolume = .5f;
         }
-        
+
         public static SoundManager Instance { get { return instance; } }
 
         public SoundManager()
         {
             instance = this;
         }
-        
+
         public enum Sound
-        { 
+        {
             SwordSlash,
             BombDrop,
             BombBlow,
@@ -43,13 +43,18 @@ namespace Sprint0.LevelClass
             UseArrowBoomerang,
             BG_MUSIC,
             Triforce,
-            GameOver
+            GameOver,
+            Credits,
+            MainMenu,
+            Boss,
+            BossLowHp,
+            BossDead,
         }
 
         //private SoundEffectInstance levelMusic;
         private static Dictionary<Sound, SoundEffectInstance> soundDict;
         public void Play(Sound s)
-        {   
+        {
             soundDict[s].Play();
         }
 
@@ -57,6 +62,15 @@ namespace Sprint0.LevelClass
         {
             soundDict[s].Stop();
         }
+
+        public void PauseAllSounds()
+        {
+            foreach (Sound key in Enum.GetValues(typeof(Sound)))
+            {
+                soundDict[key].Stop();
+            }
+        }
+
         public void LoadAllSounds(ContentManager content)
         {
             soundDict = new Dictionary<Sound, SoundEffectInstance>
@@ -78,14 +92,23 @@ namespace Sprint0.LevelClass
                 {Sound.PuzzleSolved, content.Load<SoundEffect>("PuzzleSolved").CreateInstance()},
                 {Sound.DoMagic, content.Load<SoundEffect>("LOZ_MagicalRod").CreateInstance() }, //Complete
                 {Sound.UseArrowBoomerang, content.Load<SoundEffect>("LOZ_Arrow_Boomerang").CreateInstance() }, //Complete
-                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSIC").CreateInstance() }, //Complete
+                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSICV2").CreateInstance() }, //Complete
                 {Sound.Triforce, content.Load<SoundEffect>("Triforce").CreateInstance() }, //Complete
                 {Sound.GameOver, content.Load<SoundEffect>("GameOver").CreateInstance() }, //Complete
+                {Sound.Credits, content.Load<SoundEffect>("GameOver").CreateInstance() }, 
+                {Sound.MainMenu, content.Load<SoundEffect>("MainMenu").CreateInstance() },
+                {Sound.Boss, content.Load<SoundEffect>("Boss").CreateInstance() },
+                {Sound.BossLowHp, content.Load<SoundEffect>("BossLowHp").CreateInstance() },
+                {Sound.BossDead, content.Load<SoundEffect>("Bossdeaad").CreateInstance() },
             };
             soundDict[Sound.LowHp].IsLooped = true;
             soundDict[Sound.BG_MUSIC].IsLooped = true;
             soundDict[Sound.GameOver].IsLooped = true;
-            Play(Sound.BG_MUSIC);
+            soundDict[Sound.Credits].IsLooped = true;
+            soundDict[Sound.MainMenu].IsLooped = true;
+            soundDict[Sound.Boss].IsLooped = true;
+            soundDict[Sound.BossLowHp].IsLooped = true;
+            soundDict[Sound.BossDead].IsLooped = false;
         }
 
 

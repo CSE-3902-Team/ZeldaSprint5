@@ -123,7 +123,6 @@ namespace Sprint0
         }
         public void ChangeState(int stateNumber)
         {
-           
             _currentState = stateList[stateNumber];
             
         }
@@ -181,6 +180,11 @@ namespace Sprint0
         public GraphicsDeviceManager GraphicsDeviceManager
         {
             get { return _graphics; }
+        }
+
+        public SoundManager SoundManager
+        {
+            get { return soundLibrary; }
         }
 
         public bool TwoPlayer

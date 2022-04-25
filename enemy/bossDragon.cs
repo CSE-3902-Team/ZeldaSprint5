@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Sprint0.LevelClass;
 
 namespace Sprint0.enemy
 {
@@ -38,16 +39,24 @@ namespace Sprint0.enemy
         private TopLeft topLeft;
         private BottomRight botRight;
         private bool isAlive;
+        private bool deathMusic;
         private int DeathCount;
         public int deathCount
         {
             get { return DeathCount; }
-            set { DeathCount = value; }
+            set 
+            { 
+                DeathCount = value;
+            }
         }
         public bool IsAlive
         {
             get { return isAlive; }
-            set { isAlive = value; }
+            set 
+            { 
+                isAlive = value;
+                
+            }
         }
 
         public TopLeft TopLeft
@@ -98,6 +107,8 @@ namespace Sprint0.enemy
        dragonBreath1 = new DragonFireBall(Texture, batch,FireballCurrent1, direction, destination, FireBallCurrentFrame, frame1, currentPos,isAlive);
           dragonBreath2 = new DragonFireBall1(Texture, batch,FireballCurrent2, direction, destination, FireBallCurrentFrame, frame1, currentPos);
              dragonBreath3 = new DragonFireBall2(Texture, batch,FireballCurrent3, direction, destination, FireBallCurrentFrame, frame1, currentPos);
+            deathMusic = false;
+
         }
 
         public void Update()
@@ -227,7 +238,12 @@ namespace Sprint0.enemy
                     }
                     if (deathCount >= 10)
                     {
-
+                        if (!deathMusic)
+                        {
+                            deathMusic = true;
+                            SoundManager.instance.PauseAllSounds();
+                            SoundManager.instance.Play(SoundManager.Sound.BossDead);
+                        }
                         topLeft.X = 0;
                         topLeft.Y = 0;
                         botRight.X = 0;
@@ -244,6 +260,7 @@ namespace Sprint0.enemy
                         }
                         else
                         {
+                            
                             isAlive = false;
                         }
                         row1++;

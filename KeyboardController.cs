@@ -58,12 +58,16 @@ namespace Sprint0 {
 					myGame.TwoPlayer = false;
 					myGame.LoadStates();
 					myGame.ChangeState(1);
+					myGame.SoundManager.PauseAllSounds();
+					myGame.SoundManager.Play(SoundManager.Sound.BG_MUSIC);
 				}
 				else if (HasBeenPressed(Keys.J))
 				{
 					myGame.TwoPlayer = true;
 					myGame.LoadStates();
 					myGame.ChangeState(1);
+					myGame.SoundManager.PauseAllSounds();
+					myGame.SoundManager.Play(SoundManager.Sound.BG_MUSIC);
 				}
 				else if (HasBeenPressed(Keys.E))
 				{
