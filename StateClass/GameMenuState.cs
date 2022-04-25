@@ -32,14 +32,6 @@ namespace Sprint0.StateClass
         private Texture2D onePlayer;
         private Texture2D twoPlayer;
 
-
-
-
-
-        //private KeyboardController kController;
-        //private MouseController mController;
-
-
         public GameMenuState(Game1 game, ContentManager content) : base(game, content)
         {
             _game = game;
