@@ -273,21 +273,6 @@ namespace Sprint0.StateClass
                 }
             }
 
-            /*for (int pixel = 0; pixel < data.Length; pixel++)
-            {
-                pixelVector = new Vector2(pixel % screenWidth, (int)(pixel/screenWidth));
-                //the function applies the color according to the specified pixel
-                distance1 = Vector2.Distance(pixelVector, linkPosition1);
-                if (_game.TwoPlayer == true)
-                {
-                    distance2 = Vector2.Distance(pixelVector, linkPosition2);
-                }
-                if ( distance1 < 128 || distance2 < 128) {
-
-                    data[pixel] = new Color((byte)0, (byte)0, (byte)0, (byte)((Math.Min(distance1, distance2)) * 2));
-                }
-            }*/
-
             //set the color
             texture.SetData(data);
 
