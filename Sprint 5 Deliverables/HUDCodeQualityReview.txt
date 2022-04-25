@@ -1,0 +1,15 @@
+﻿In the plaintext file for a code quality review, include the following information:
+
+Author of the code review: Ting Feng
+Date of the code review: 4/25/2022
+Sprint number: 5
+Name of the .cs file being reviewed: HUD.cs
+Author of the .cs file being reviewed: Craig Cirino
+
+Comments on code quality:
+
+I think the cohesion and coupling are good. The necessary data types are there and there is nothing extra.
+
+Hypothetical Change: 
+
+One change I might make would be to add the location offset numbers as constants as well(where you subtract 712 and add 16).
