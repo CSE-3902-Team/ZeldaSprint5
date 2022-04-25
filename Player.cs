@@ -313,7 +313,7 @@ namespace Sprint0 {
 			if (item == LinkInventory.Items.BowAndArrow && inventory.RupeeCount > 0) 
 			{
 				inventory.RupeeCount--;
-				if (inventory.SpecialArrowCount > 0) { return ProjectileFactory.PNames.PSpecialArrow; }
+				if (inventory.SpecialArrow) { return ProjectileFactory.PNames.PSpecialArrow; }
 				else { return ProjectileFactory.PNames.PNormalArrow; }
 			}
 			else 

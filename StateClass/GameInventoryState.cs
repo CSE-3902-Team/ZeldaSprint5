@@ -228,7 +228,7 @@ namespace Sprint0.StateClass
             boxDestRect = new Rectangle((int)InventoryBoxPosition.X, (int)InventoryBoxPosition.Y, inventorySlotsWidth, inventorySlotsHeight);
 
             //The +20 is to center it within its slot in the inventory
-            boomerangDestRect = new Rectangle(itemsInventoryXDestLocation + (inventorySlotsWidth + 20), itemsInventoryYDestLocation, boomerangWidth, boomerangHeight);
+            boomerangDestRect = new Rectangle(itemsInventoryXDestLocation + 20, itemsInventoryYDestLocation, boomerangWidth, boomerangHeight);
             bombDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 1)) + 20, itemsInventoryYDestLocation, bombWidth, inventorySlotsHeight);
             arrowDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 2)), itemsInventoryYDestLocation, arrowWidth, inventorySlotsHeight);
             bowDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 2) + arrowWidth), itemsInventoryYDestLocation, (inventorySlotsWidth - arrowWidth), inventorySlotsHeight);
