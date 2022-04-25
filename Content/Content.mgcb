@@ -79,6 +79,12 @@
 /processorParam:Quality=Best
 /build:BG_MUSIC.wav
 
+#begin BG_MUSICV2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BG_MUSICV2.wav
+
 #begin BlackBackground.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -115,6 +121,24 @@
 /processorParam:Quality=Best
 /build:BombDrop.wav
 
+#begin Boss.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Boss.wav
+
+#begin BossDeaad.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BossDeaad.wav
+
+#begin BossLowHp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BossLowHp.wav
+
 #begin bricks.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -138,6 +162,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Credits.png
+
+#begin Credits.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Credits.wav
 
 #begin creditsEdited.png
 /importer:TextureImporter
@@ -384,6 +414,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:LOZ_Sword_Slash.wav
+
+#begin MainMenu.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MainMenu.wav
 
 #begin NES - The Legend of Zelda - Dungeon Tileset.png
 /importer:TextureImporter

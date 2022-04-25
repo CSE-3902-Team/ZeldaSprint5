@@ -221,10 +221,10 @@ namespace Sprint0 {
 		{
 			ProjectileFactory.PNames projectile = MapItemToProjectile(inventory.Selected_Item);
 			if (projectile == ProjectileFactory.PNames.None) { return; }
-			if (projectile == ProjectileFactory.PNames.PBoomerang) 
+			if (projectile == ProjectileFactory.PNames.PBoomerang || projectile == ProjectileFactory.PNames.PSpecialBoomerang) 
 			{
 				_state.UseItem();
-				LevelManager.Instance.ProjectileFactory.LauchPlayerBoomerang(this, projectilePosition, projectileDirection);
+				LevelManager.Instance.ProjectileFactory.LauchPlayerBoomerang(projectile,this, projectilePosition, projectileDirection);
 			}
 			else
 			{
@@ -309,10 +309,12 @@ namespace Sprint0 {
 				inventory.BombCount--;
 				return ProjectileFactory.PNames.PBomb; 
 			}
+			if (item == LinkInventory.Items.SpecialBoomerang && inventory.SpecialBoomerang) { return ProjectileFactory.PNames.PSpecialBoomerang; }
 			if (item == LinkInventory.Items.BowAndArrow && inventory.RupeeCount > 0) 
-			{ 
+			{
 				inventory.RupeeCount--;
-				return ProjectileFactory.PNames.PNormalArrow; 
+				if (inventory.SpecialArrowCount > 0) { return ProjectileFactory.PNames.PSpecialArrow; }
+				else { return ProjectileFactory.PNames.PNormalArrow; }
 			}
 			else 
 			{

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Sprint0.LevelClass;
 
 namespace Sprint0.enemy
 {
@@ -51,6 +52,7 @@ namespace Sprint0.enemy
         private bool bottomHeadDead = false;
         private bool leftHeadDead = false;
         private bool rightHeadDead = false;
+        private bool deathMusic = false;
         public int deathCount
         {
             get { return DeathCount; }
@@ -232,6 +234,12 @@ namespace Sprint0.enemy
                 {
                     if (topHeadDead && bottomHeadDead && leftHeadDead && rightHeadDead)
                     {
+                        if (!deathMusic)
+                        {
+                            deathMusic = true;
+                            SoundManager.instance.PauseAllSounds();
+                            SoundManager.instance.Play(SoundManager.Sound.BossDead);
+                        }
                         deathCount = 10;
                     }
                     else {

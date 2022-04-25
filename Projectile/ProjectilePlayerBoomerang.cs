@@ -27,6 +27,11 @@ namespace Sprint0
         private readonly BottomRight bottomRight;
 
 
+        public Player PInstance 
+        {
+            get { return pInstance; }
+        }
+
         public Boolean IsRunning
         {
             get { return isRunning; }

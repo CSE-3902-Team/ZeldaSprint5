@@ -35,9 +35,17 @@ namespace Sprint0.Projectile
             None,
         }
 
-        public void LauchPlayerBoomerang(Player p, Vector2 startPosition, Vector2 direction)
+        public void LauchPlayerBoomerang(PNames projectileName, Player p, Vector2 startPosition, Vector2 direction)
         {
-            IProjectile stagedProjectile = new ProjectilePlayerBoomerang(projectileTexture, batch, startPosition, direction, p);
+            IProjectile stagedProjectile;
+            if (projectileName == PNames.PSpecialBoomerang)
+            {
+                stagedProjectile = new ProjectilePlayerSpecialBoomerang(projectileTexture, batch, startPosition, direction, p);
+            }
+            else
+            {
+                stagedProjectile = new ProjectilePlayerBoomerang(projectileTexture, batch, startPosition, direction, p);
+            }
             SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
             AddProjectileToLevel(stagedProjectile);
         }
@@ -64,10 +72,6 @@ namespace Sprint0.Projectile
                     break;
                 case PNames.PSpecialArrow:
                     stagedProjectile = new ProjectilePlayerSpecialArrow(projectileTexture, batch, startPosition, direction);
-                    SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
-                    break;
-                case PNames.PSpecialBoomerang:
-                    stagedProjectile = new ProjectilePlayerSpecialBoomerang(projectileTexture, batch, startPosition, direction);
                     SoundManager.Instance.Play(SoundManager.Sound.UseArrowBoomerang);
                     break;
                 case PNames.PSword:

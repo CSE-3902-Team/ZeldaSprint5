@@ -23,7 +23,6 @@ namespace Sprint0.LevelClass
 	public class LevelManager
 	{
         private HUD headsUpDisplay;
-
 		private SpriteBatch batch;
 		private List<Room> roomList;
         private int currentRoom;
@@ -114,7 +113,6 @@ namespace Sprint0.LevelClass
             player2Texture = Content.Load<Texture2D>("player2SheetV5");
             projectileTexture = Content.Load<Texture2D>("itemsAndWeapons1");
             _2player = twoPlayer;
-            
             _player1 = new Player(player1Texture, batch, new ProjectileBomb(projectileTexture, batch, new Vector2(140, 200+OFFSET), new Vector2(1, 0)), new Vector2(515, 500+OFFSET), Content.Load<Texture2D>("solid navy tile"), command);
             if (_2player)
             {
@@ -255,7 +253,18 @@ namespace Sprint0.LevelClass
 
         public void RoomTransition(int destination, DoorFactory.Side side)
         {
+            int previousRoom = currentRoom;
             currentRoom = destination;
+            if (previousRoom == 19 || previousRoom == 5)
+            {
+                SoundManager.instance.PauseAllSounds();
+                SoundManager.instance.Play(SoundManager.Sound.BG_MUSIC);
+            }
+            else if (currentRoom == 19 || currentRoom == 5)
+            {
+                SoundManager.instance.PauseAllSounds();
+                SoundManager.instance.Play(SoundManager.Sound.Boss);
+            }
             _gameState.startTransition(side, destination, roomList[currentRoom]);
         }
 
@@ -273,6 +282,7 @@ namespace Sprint0.LevelClass
 
     public Room SwitchRoom()
 		{
+            int previousRoom = currentRoom;
             if (currentRoom < roomList.Count-1) 
             {
                 currentRoom++;
@@ -283,6 +293,17 @@ namespace Sprint0.LevelClass
                 currentRoom = 0;
                 _gameState.startTransition(DoorFactory.Side.Ceiling, currentRoom, roomList[currentRoom]);
             }
+            if (previousRoom == 19 || previousRoom == 5)
+            {
+                SoundManager.instance.PauseAllSounds();
+                SoundManager.instance.Play(SoundManager.Sound.BG_MUSIC);
+            }
+            else if (currentRoom == 19 || currentRoom == 5)
+            {
+                SoundManager.instance.PauseAllSounds();
+                SoundManager.instance.Play(SoundManager.Sound.Boss);
+            }
+
             return roomList[currentRoom];
 		}
 	}

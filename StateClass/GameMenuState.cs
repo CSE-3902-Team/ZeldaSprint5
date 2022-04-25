@@ -44,7 +44,8 @@ namespace Sprint0.StateClass
         {
             _game = game;
             _content = content;
-
+            game.SoundManager.PauseAllSounds();
+            game.SoundManager.Play(SoundManager.Sound.MainMenu);
         }
         public override void loadContent()
         {
