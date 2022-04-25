@@ -34,7 +34,11 @@ namespace Sprint0.Collision
                     SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
                 }
                 player.MaxHp += 1;
-                player.PlayerHp += 1;
+
+                if ((player.PlayerHp + 1) <= player.MaxHp)
+                {
+                    player.PlayerHp++;
+                }
 
             }
             else if (item is ItemHeart)
