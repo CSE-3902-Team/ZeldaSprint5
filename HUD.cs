@@ -40,6 +40,7 @@ namespace Sprint0
         private Rectangle slotADestRect;
         private Rectangle slotBDestRect;
         private Rectangle currentB_SlotItem;
+        private Rectangle triforceSquareDestLocation;
 
         private int healthPlayer1;
         private int heartContainerCount;
@@ -81,7 +82,8 @@ namespace Sprint0
         const int slotsYDestLocation = 106;
         const int heartsYSourceLocation = 255;
         const int specialBoomerangXSourceLocation = 360;
-
+        const int triforceLocationX = 287;
+        const int triforceLocationY = 97;
 
         const int mapYSourceLocation = 518;
         const int mapWidth = 295;
@@ -113,6 +115,7 @@ namespace Sprint0
         const int bowWidth = 50;
         const int bowHeight = 90;
 
+        private int frame;
         public int MapLocationX
         {
             get { return locationSquareX; }
@@ -158,7 +161,7 @@ namespace Sprint0
             bowSourceRect = new Rectangle(bowXSourceLocation, itemsRowYSourceLocation, bowWidth, bowHeight);
             specialBoomerangSourceRect = new Rectangle(specialBoomerangXSourceLocation, itemsRowYSourceLocation, boomerangWidth, boomerangHeight);
 
-
+            triforceSquareDestLocation = new Rectangle(triforceLocationX, triforceLocationY, locationSquareSize, locationSquareSize);
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
             bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
@@ -170,6 +173,7 @@ namespace Sprint0
             slotBDestRect = new Rectangle(slotB_XDestLocation, slotsYDestLocation, slotWidth, slotHeight);
             currentB_SlotItem = new Rectangle(0, 0, 0, 0);
 
+            frame = 0;
         }
 
         public void DrawSelectedItem()
@@ -332,6 +336,7 @@ namespace Sprint0
         }
         public void Draw()
         {
+            frame++;
             Update();
             spriteBatch.Begin();
             spriteBatch.Draw(headsUpDisplay, hudRectangle, hudRectangle, Color.White);
@@ -347,12 +352,19 @@ namespace Sprint0
 
             DrawHearts();
 
-            if (player.Inventory.Map == true)
+            if (player.Inventory.Map)
             {
                 spriteBatch.Draw(headsUpDisplay, mapDestRect, mapSourceRect, Color.White);
-                spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
+                spriteBatch.Draw(headsUpDisplay, new Rectangle(MapLocationX, MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
             }
 
+            if (player.Inventory.Compass)
+            {
+                if (frame % 50 > 20)
+                {
+                    spriteBatch.Draw(headsUpDisplay, triforceSquareDestLocation, locationSquareSourceRect, Color.Red);
+                }
+            }
             spriteBatch.End();
         }
     }

@@ -216,7 +216,7 @@ namespace Sprint0.StateClass
             otherMapDestRect = new Rectangle(otherMapXDestLocation, otherMapYDestLocation, otherMapWidth, otherMapHeight);
             locationSquareDestRect = new Rectangle(locationSquareX, locationSquareY, locationSquareSize, locationSquareSize);
             triforceSquareDestLocation = new Rectangle(triforceLocationX, triforceLocationY, locationSquareSize, locationSquareSize);
-            triforceSquareDestLocation = new Rectangle(triforceMiniMapLocationX, triforceMiniMapLocationY, locationSquareSize, locationSquareSize);
+            triforceMiniMapSquareDestLocation = new Rectangle(triforceMiniMapLocationX, triforceMiniMapLocationY, locationSquareSize, locationSquareSize);
             boxDestRect = new Rectangle((int)InventoryBoxPosition.X, (int)InventoryBoxPosition.Y, inventorySlotsWidth, inventorySlotsHeight);
 
             //The +20 is to center it within its slot in the inventory
@@ -545,8 +545,8 @@ namespace Sprint0.StateClass
                 _game.SpriteBatch.Draw(screen, mapDestRect, mapSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, mapDesignDestRect, mapDesignSourceRect, Color.White);
                 _game.SpriteBatch.Draw(screen, otherMapDestRect, otherMapSourceRect, Color.White);
-                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapLocationX, _inventory.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
-                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapSquareLocationX, _inventory.MapSquareLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.White);
+                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapLocationX, _inventory.MapLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
+                _game.SpriteBatch.Draw(screen, new Rectangle(_inventory.MapSquareLocationX, _inventory.MapSquareLocationY, locationSquareSize, locationSquareSize), locationSquareSourceRect, Color.LimeGreen);
             }
 
             if (_inventory.Compass == true)

@@ -24,8 +24,8 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/cciri/source/repos/ZeldaSprint5/Content/GetHeartKey.wav","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/GetHeartKey.xnb","SoundEffectProcessor","SoundEffectContent",7248,7308,0.1554975
 "C:/Users/cciri/source/repos/ZeldaSprint5/Content/GetInventoryItem.wav","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/GetInventoryItem.xnb","SoundEffectProcessor","SoundEffectContent",27284,27345,0.1683141
 "C:/Users/cciri/source/repos/ZeldaSprint5/Content/GetRupee.wav","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/GetRupee.xnb","SoundEffectProcessor","SoundEffectContent",19814,19875,0.2005846
-"C:/Users/cciri/source/repos/ZeldaSprint5/Content/HUDandInventory.png","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/HUDandInventory.xnb","TextureProcessor","Texture2DContent",60189,8022741,0.459517
-"C:/Users/cciri/source/repos/ZeldaSprint5/Content/Inventory.png","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",63906,6467669,0.2200078
+"C:/Users/cciri/source/repos/ZeldaSprint5/Content/HUDandInventory.png","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/HUDandInventory.xnb","TextureProcessor","Texture2DContent",59886,8022741,0.3217341
+"C:/Users/cciri/source/repos/ZeldaSprint5/Content/Inventory.png","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",63816,6467669,0.1695941
 "C:/Users/cciri/source/repos/ZeldaSprint5/Content/itemsAndWeapons.png","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.057187
 "C:/Users/cciri/source/repos/ZeldaSprint5/Content/itemsAndWeapons1.png","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.0356656
 "C:/Users/cciri/source/repos/ZeldaSprint5/Content/KeyAppear.wav","C:/Users/cciri/source/repos/ZeldaSprint5/Content/bin/KeyAppear.xnb","SoundEffectProcessor","SoundEffectContent",35974,36035,0.173823

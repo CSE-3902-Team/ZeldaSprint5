@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Collision",
+    "\\StateClass"
   ],
-  "SelectedNode": "\\HUD.cs",
+  "SelectedNode": "\\StateClass\\GameInventoryState.cs",
   "PreviewInSolutionExplorer": false
 }
