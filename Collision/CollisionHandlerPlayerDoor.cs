@@ -44,11 +44,12 @@ namespace Sprint0.Collision
                     {
                         LevelManager.Instance.Player2.Position = new Vector2(512, 796);
                     }
+                    if (LevelManager.Instance.currentRoomNum != 17)
+                    {
+                        LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY - locationSquareOffsetY);
+                        LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY - mapSquareOffset);
+                    }
 
-                    LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY - locationSquareOffsetY);
-                    LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY - mapSquareOffset);
-
-                   
                 }
                 else if (door.DoorSide == DoorFactory.Side.Left)
                 {
@@ -81,9 +82,12 @@ namespace Sprint0.Collision
                     {
                         LevelManager.Instance.Player2.Position = new Vector2(512, 427);
                     }
-
-                    LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY + locationSquareOffsetY);
-                    LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY + mapSquareOffset);
+                    if(LevelManager.Instance.currentRoomNum != 0)
+                    {
+                        LevelManager.Instance.Player1.Inventory.MapLocationY = (LevelManager.Instance.Player1.Inventory.MapLocationY + locationSquareOffsetY);
+                        LevelManager.Instance.Player1.Inventory.MapSquareLocationY = (LevelManager.Instance.Player1.Inventory.MapSquareLocationY + mapSquareOffset);
+                    }
+                   
 
 
                 }
