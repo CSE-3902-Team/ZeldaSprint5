@@ -11,7 +11,6 @@ namespace Sprint0
     public class LinkInventory
     {
         private Player player;
-        private Player player2;
         LevelManager levelManager;
 
 
@@ -105,6 +104,11 @@ namespace Sprint0
         }
 
         public Boolean FirstArrow
+        {
+            get { return firstArrow; }
+            set { firstArrow = value; }
+        }
+        public Boolean FirstSpecialArrow
         {
             get { return firstArrow; }
             set { firstArrow = value; }
@@ -246,18 +250,12 @@ namespace Sprint0
             Bomb,
             BowAndArrow,
             SpecialBoomerang,
-            SpecialBowAndArrow,
             None
         }
         public LinkInventory(Player player)
         {
             levelManager = LevelManager.Instance;
             this.player = player;
-            if (levelManager.TwoPlayer)
-            {
-                player2 = levelManager.Player2;
-             //   heartCountPlayer2 = player2.PlayerHp;
-            }
             rupeeCount = 0;
             keyCount = 0;
             bombCount = 0;
@@ -270,7 +268,6 @@ namespace Sprint0
             locationSquareY = 921;
             mapSquareX = 621;
             mapSquareY = 581;
-
 
             firstRupee = true;
             firstKey = true;
@@ -295,17 +292,13 @@ namespace Sprint0
 
             selectedItem = Items.None;
 
-            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.SpecialBoomerang }, { Items.SpecialBowAndArrow, Items.None, Items.None, Items.None } };
+            itemPositionIndex = new Items[2, 4] { { Items.Boomerang, Items.Bomb, Items.BowAndArrow, Items.SpecialBoomerang }, { Items.None, Items.None, Items.None, Items.None } };
         }
 
         public void Update()
         {
             heartContainerCount = (player.MaxHp) / 2;
             heartCountPlayer1 = player.PlayerHp;
-            if (levelManager.TwoPlayer)
-            {
-            //    heartCountPlayer2 = player2.PlayerHp;
-            }
         }
 
     }

@@ -33,8 +33,10 @@ namespace Sprint0.StateClass
         private Rectangle blueBoxSourceRect;
         private Rectangle swordSourceRect;
         private Rectangle boomerangSourceRect;
+        private Rectangle specialBoomerangSourceRect;
         private Rectangle bombSourceRect;
-        private Rectangle arrowSourceRect;
+        private Rectangle arrowSourceRect; 
+        private Rectangle specialArrowSourceRect;
         private Rectangle bowSourceRect;
 
         private Rectangle currentHeartNeeded;
@@ -55,6 +57,7 @@ namespace Sprint0.StateClass
         private Rectangle currentB_SlotItemSourceRect;
         private Rectangle itemSelectionSlot;
         private Rectangle boomerangDestRect;
+        private Rectangle specialBoomerangDestRect;
         private Rectangle bombDestRect;
         private Rectangle arrowDestRect;
         private Rectangle bowDestRect;
@@ -118,8 +121,10 @@ namespace Sprint0.StateClass
         const int swordXSourceLocation = 173;
         const int blueSquareXSourceLocation = 82;
         const int boomerangXSourceLocation = 315;
+        const int specialBoomerangXSourceLocation = 360;
         const int bombXSourceLocation = 415;
         const int arrowXSourceLocation = 475;
+        const int specialArrowXSourceLocation = 517;
         const int bowXSourceLocation = 556;
         const int boomerangYSourceLocation = 972;
 
@@ -187,7 +192,9 @@ namespace Sprint0.StateClass
             boomerangSourceRect = new Rectangle(boomerangXSourceLocation, boomerangYSourceLocation, boomerangWidth, boomerangHeight);
             bombSourceRect = new Rectangle(bombXSourceLocation, itemsRowYSourceLocation, bombWidth, bombHeight);
             arrowSourceRect = new Rectangle(arrowXSourceLocation, itemsRowYSourceLocation, arrowWidth, arrowHeight);
+            specialArrowSourceRect = new Rectangle(specialArrowXSourceLocation, itemsRowYSourceLocation, arrowWidth, arrowHeight);
             bowSourceRect = new Rectangle(bowXSourceLocation, itemsRowYSourceLocation, bowWidth, bowHeight);
+            specialBoomerangSourceRect = new Rectangle(specialBoomerangXSourceLocation, boomerangYSourceLocation, boomerangWidth, boomerangHeight);
 
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
             bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
@@ -207,6 +214,8 @@ namespace Sprint0.StateClass
             bombDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 1)) + 20, itemsInventoryYDestLocation, bombWidth, inventorySlotsHeight);
             arrowDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 2)), itemsInventoryYDestLocation, arrowWidth, inventorySlotsHeight);
             bowDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 2) + arrowWidth), itemsInventoryYDestLocation, (inventorySlotsWidth - arrowWidth), inventorySlotsHeight);
+            specialBoomerangDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 3) + 20), itemsInventoryYDestLocation, boomerangWidth, boomerangHeight);
+
             currentB_SlotItemSourceRect = new Rectangle(10, 10, 0, 0);
             itemSelectionSlot = new Rectangle(itemSelectionSlotXDestLocation, itemSelectionSlotYDestLocation, itemSelectionSlotSize, itemSelectionSlotSize);
             selectedItem = new Rectangle(10, 10, 0, 0);
@@ -369,6 +378,11 @@ namespace Sprint0.StateClass
                 selectedItem = bowSourceRect;
                 _inventory.Selected_Item = item;
             }
+            else if (item is LinkInventory.Items.SpecialBoomerang && _inventory.SpecialBoomerang)
+            {
+                selectedItem = specialBoomerangSourceRect;
+                _inventory.Selected_Item = item;
+            }
             else if (item is LinkInventory.Items.None)
             {
                 selectedItem = new Rectangle(10, 10, 0, 0);
@@ -436,11 +450,17 @@ namespace Sprint0.StateClass
             {
                 _game.SpriteBatch.Draw(screen, bombDestRect, bombSourceRect, Color.White);
             }
-
+            if (_inventory.SpecialBoomerang)
+            {
+                _game.SpriteBatch.Draw(screen, specialBoomerangDestRect, specialBoomerangSourceRect, Color.White);
+            }
             if (_inventory.Bow)
             {
                 _game.SpriteBatch.Draw(screen, bowDestRect, bowSourceRect, Color.White);
-                if (_inventory.ArrowCount > 0)
+                if (_inventory.SpecialArrowCount > 0)
+                {
+                    _game.SpriteBatch.Draw(screen, arrowDestRect, specialArrowSourceRect, Color.White);
+                }else if(_inventory.ArrowCount > 0)
                 {
                     _game.SpriteBatch.Draw(screen, arrowDestRect, arrowSourceRect, Color.White);
                 }
@@ -457,6 +477,10 @@ namespace Sprint0.StateClass
             else if ((CurrentB_Slot_Item is LinkInventory.Items.Boomerang) && _inventory.Boomerang)
             {
                 currentB_SlotItemSourceRect = boomerangSourceRect;
+            }
+            else if ((CurrentB_Slot_Item is LinkInventory.Items.SpecialBoomerang) && _inventory.SpecialBoomerang)
+            {
+                currentB_SlotItemSourceRect = specialBoomerangSourceRect;
             }
             else
             {

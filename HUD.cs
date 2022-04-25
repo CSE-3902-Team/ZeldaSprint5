@@ -33,6 +33,7 @@ namespace Sprint0
         private Rectangle locationSquareDestRect;
         private Rectangle swordSourceRect;
         private Rectangle boomerangSourceRect;
+        private Rectangle specialBoomerangSourceRect;
         private Rectangle bombSourceRect;
         private Rectangle arrowSourceRect;
         private Rectangle bowSourceRect;
@@ -49,6 +50,9 @@ namespace Sprint0
         private int arrowCount;
         private int locationSquareX;
         private int locationSquareY;
+
+        const int HUDoffsetX = 16;
+        const int HUDoffsetY = 712;
 
         const int heartWidth = 64;
         const int heartHeight = 73;
@@ -75,6 +79,9 @@ namespace Sprint0
         const int slotA_XDestLocation = 600;
         const int slotB_XDestLocation = 504;
         const int slotsYDestLocation = 106;
+        const int heartsYSourceLocation = 255;
+        const int specialBoomerangXSourceLocation = 360;
+
 
         const int mapYSourceLocation = 518;
         const int mapWidth = 295;
@@ -134,13 +141,13 @@ namespace Sprint0
             arrowCount = player.Inventory.ArrowCount;
 
             levelNumber = player.Inventory.LevelNumber;
-            locationSquareX = player.Inventory.MapLocationX + 16;
-            locationSquareY = player.Inventory.MapLocationY - 712;
+            locationSquareX = player.Inventory.MapLocationX + HUDoffsetX;
+            locationSquareY = player.Inventory.MapLocationY - HUDoffsetY;
 
             hudRectangle = new Rectangle(0, 0, 1024, 255);
-            emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts * 0), 255, heartWidth, heartHeight);
-            halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), 255, heartWidth, heartHeight);
-            heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), 255, heartWidth, heartHeight);
+            emptyHeartSourceRect = new Rectangle((heartWidth * 0) + (spaceBetweenHearts * 0), heartsYSourceLocation, heartWidth, heartHeight);
+            halfHeartSourceRect = new Rectangle((heartWidth * 1) + (spaceBetweenHearts * 1), heartsYSourceLocation, heartWidth, heartHeight);
+            heartSourceRect = new Rectangle((heartWidth * 2) + (spaceBetweenHearts * 2), heartsYSourceLocation, heartWidth, heartHeight);
             numberSourceRect = new Rectangle(numberXSourceLocation, heartAndNumberYSourceLocation, numberWidth, numberHeight);
             timesSymbolSourceRect = new Rectangle(numberXSourceLocation, (heartAndNumberYSourceLocation + numberHeight), numberWidth, numberHeight);
             mapSourceRect = new Rectangle(0, mapYSourceLocation, mapWidth, mapHeight);
@@ -149,6 +156,8 @@ namespace Sprint0
             bombSourceRect = new Rectangle(bombXSourceLocation, itemsRowYSourceLocation, bombWidth, bombHeight);
             arrowSourceRect = new Rectangle(arrowXSourceLocation, itemsRowYSourceLocation, arrowWidth, arrowHeight);
             bowSourceRect = new Rectangle(bowXSourceLocation, itemsRowYSourceLocation, bowWidth, bowHeight);
+            specialBoomerangSourceRect = new Rectangle(specialBoomerangXSourceLocation, itemsRowYSourceLocation, boomerangWidth, boomerangHeight);
+
 
             levelNumberDestRect = new Rectangle(levelNumberXDestLocation, 0, numberWidth, numberHeight);
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
@@ -287,6 +296,10 @@ namespace Sprint0
             else if (inventory.Selected_Item is LinkInventory.Items.BowAndArrow)
             {
                 currentB_SlotItem = bowSourceRect;
+            }
+            else if (inventory.Selected_Item is LinkInventory.Items.SpecialBoomerang)
+            {
+                currentB_SlotItem = specialBoomerangSourceRect;
             }
             else if (inventory.Selected_Item is LinkInventory.Items.None)
             {
