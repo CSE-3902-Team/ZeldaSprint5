@@ -91,7 +91,7 @@ namespace Sprint0.Collision
             }
             else if (item is ItemTriforcePiece)
             {
-               //player.State = new PlayerTriforce(player);
+               player.State = new PlayerTriforce(player);
                SoundManager.Instance.PauseAllSounds();
                SoundManager.Instance.Play(SoundManager.Sound.Triforce);
             }
