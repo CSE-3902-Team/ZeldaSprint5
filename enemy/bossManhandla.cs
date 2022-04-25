@@ -253,30 +253,47 @@ namespace Sprint0.enemy
                                     if (destination.Y == 0&& !topHeadDead)
                                     {
 
-                                        spriteYpos += 35;
-                                        spriteHeight -= 34;
+                                       
+                                    
                                         desRecY -= 64;
                                     topHeadDead = true;
 
-                        
-
-
-
-
-
-
-
-
-
-
-
+                                    if (bottomHeadDead)
+                                    {
+                                        spriteYpos += 36;
+                                        spriteHeight -= 35;
                                     }
+                                    else
+                                    {
+                                        spriteYpos += 34;
+                                        spriteHeight -= 34;
+                                    }
+
+
+
+
+
+
+
+
+
+
+                                }
                                    else if (destination.Y == 1&& !bottomHeadDead)
                                     {
-                                        spriteYpos -=7;
-                                        spriteHeight -= 34;
-                                        desRecY -= 64;
+                                    desRecY -= 64;
                                     bottomHeadDead = true;
+                                    if (topHeadDead)
+                                    {
+
+                                        spriteYpos -= 5;
+                                        spriteHeight -= 36;
+                                    }
+                                    else
+                                    {
+                                        spriteYpos -= 7;
+                                        spriteHeight -= 34;
+                                    }
                                     }
                                     break;
                                 case 1:

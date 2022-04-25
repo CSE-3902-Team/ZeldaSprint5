@@ -33,7 +33,9 @@ namespace Sprint0.Collision
                 {
                     SoundManager.Instance.Play(SoundManager.Sound.GetHeartKey);
                 }
-                player.MaxHp += 2;
+                player.MaxHp += 1;
+                player.PlayerHp += 1;
+
             }
             else if (item is ItemHeart)
             {
@@ -107,6 +109,20 @@ namespace Sprint0.Collision
                     SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
                 }
                 inventory.ArrowCount++;
+            }
+            else if (item is ItemSpecialArrow)
+            {
+                if (player.Inventory.FirstSpecialArrow)
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.NewItem);
+                    player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Arrow);
+                    inventory.FirstSpecialArrow = false;
+                }
+                else
+                {
+                    SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                }
+                inventory.SpecialArrowCount++;
             }
             else if (item is ItemBomb)
             {
@@ -191,6 +207,7 @@ namespace Sprint0.Collision
                     SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
                 }
                 SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
+                inventory.SpecialBoomerang = true;
             }
             else if (item is ItemMap)
             {
