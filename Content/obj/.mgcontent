@@ -17,7 +17,6 @@
     <File>C:/Users/lukes/ZeldaSprint5/Content/BossDeaad.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/BossLowHp.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/bricks.png</File>
-    <File>C:/Users/lukes/ZeldaSprint5/Content/CreditsBGM.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/creditsEdited.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/CreditsM.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/Creditsv2.png</File>
@@ -54,8 +53,10 @@
     <File>C:/Users/lukes/ZeldaSprint5/Content/oldman.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/oldman1.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/player1SheetV5.png</File>
+    <File>C:/Users/lukes/ZeldaSprint5/Content/player1SheetV6.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/player2SheetV4.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/player2SheetV5.png</File>
+    <File>C:/Users/lukes/ZeldaSprint5/Content/player2SheetV6.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/playerSheetV3.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/playerSheetV4.png.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/PuzzleSolved.wav</File>
@@ -85,6 +86,7 @@
     <File>C:/Users/lukes/ZeldaSprint5/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

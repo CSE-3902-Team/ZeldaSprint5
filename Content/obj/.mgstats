@@ -12,7 +12,6 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/lukes/ZeldaSprint5/Content/BossDeaad.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BossDeaad.xnb","SoundEffectProcessor","SoundEffectContent",1764986,1764969,1.2100283
 "C:/Users/lukes/ZeldaSprint5/Content/BossLowHp.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BossLowHp.xnb","SoundEffectProcessor","SoundEffectContent",8386682,8386665,1.3004583
 "C:/Users/lukes/ZeldaSprint5/Content/bricks.png","C:/Users/lukes/ZeldaSprint5/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",392,16469,0.0022433
-"C:/Users/lukes/ZeldaSprint5/Content/CreditsBGM.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/CreditsBGM.xnb","SoundEffectProcessor","SoundEffectContent",15690362,15690345,1.4476295
 "C:/Users/lukes/ZeldaSprint5/Content/creditsEdited.png","C:/Users/lukes/ZeldaSprint5/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0147509
 "C:/Users/lukes/ZeldaSprint5/Content/CreditsM.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/CreditsM.xnb","SoundEffectProcessor","SoundEffectContent",15690362,15690345,1.3487157
 "C:/Users/lukes/ZeldaSprint5/Content/Creditsv2.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Creditsv2.xnb","TextureProcessor","Texture2DContent",72303,810741,0.0225536
@@ -49,8 +48,10 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/lukes/ZeldaSprint5/Content/oldman.png","C:/Users/lukes/ZeldaSprint5/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.0389537
 "C:/Users/lukes/ZeldaSprint5/Content/oldman1.png","C:/Users/lukes/ZeldaSprint5/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.016757
 "C:/Users/lukes/ZeldaSprint5/Content/player1SheetV5.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player1SheetV5.xnb","TextureProcessor","Texture2DContent",403959,37263325,0.9055824
+"C:/Users/lukes/ZeldaSprint5/Content/player1SheetV6.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player1SheetV6.xnb","TextureProcessor","Texture2DContent",405795,37263325,1.247002
 "C:/Users/lukes/ZeldaSprint5/Content/player2SheetV4.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player2SheetV4.xnb","TextureProcessor","Texture2DContent",399660,37263325,1.1069087
 "C:/Users/lukes/ZeldaSprint5/Content/player2SheetV5.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player2SheetV5.xnb","TextureProcessor","Texture2DContent",404112,37263325,1.14418
+"C:/Users/lukes/ZeldaSprint5/Content/player2SheetV6.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player2SheetV6.xnb","TextureProcessor","Texture2DContent",405939,37263325,1.0602932
 "C:/Users/lukes/ZeldaSprint5/Content/playerSheetV3.png","C:/Users/lukes/ZeldaSprint5/Content/bin/playerSheetV3.xnb","TextureProcessor","Texture2DContent",373197,37263325,1.1407583
 "C:/Users/lukes/ZeldaSprint5/Content/playerSheetV4.png.png","C:/Users/lukes/ZeldaSprint5/Content/bin/playerSheetV4.png.xnb","TextureProcessor","Texture2DContent",399495,37263325,1.229223
 "C:/Users/lukes/ZeldaSprint5/Content/PuzzleSolved.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/PuzzleSolved.xnb","SoundEffectProcessor","SoundEffectContent",20920,20980,1.3898093

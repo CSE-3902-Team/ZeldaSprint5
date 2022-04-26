@@ -24,6 +24,7 @@ namespace Sprint0.PlayerClass
             {ItemType.Clock,new Rectangle(1301,2452,133,294)},
             {ItemType.Bow, new Rectangle(2744,2447,133,290) },
             {ItemType.SpecialBoomerang, new Rectangle(1890,2507,133,240)},
+            {ItemType.Candle,new Rectangle(3040,2459,133,240) }
         };
 
         public PlayerFirstItem(Player instance, ItemType heldItem)
@@ -48,6 +49,7 @@ namespace Sprint0.PlayerClass
             Fairy,
             Map,
             SpecialBoomerang,
+            Candle,
         }
 
         public void ChangeDirection(Player.Directions dir)

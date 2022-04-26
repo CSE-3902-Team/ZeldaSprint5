@@ -151,12 +151,6 @@
 /processorParam:TextureFormat=Color
 /build:bricks.png
 
-#begin CreditsBGM.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:CreditsBGM.wav
-
 #begin creditsEdited.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -493,6 +487,18 @@
 /processorParam:TextureFormat=Color
 /build:player1SheetV5.png
 
+#begin player1SheetV6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:player1SheetV6.png
+
 #begin player2SheetV4.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -516,6 +522,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:player2SheetV5.png
+
+#begin player2SheetV6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:player2SheetV6.png
 
 #begin playerSheetV3.png
 /importer:TextureImporter

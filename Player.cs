@@ -308,13 +308,14 @@ namespace Sprint0 {
 				return ProjectileFactory.PNames.PBomb; 
 			}
 			if (item == LinkInventory.Items.SpecialBoomerang && inventory.SpecialBoomerang) { return ProjectileFactory.PNames.PSpecialBoomerang; }
+			if (item == LinkInventory.Items.Candle && inventory.Candle) { return ProjectileFactory.PNames.PFireball; }
 			if (item == LinkInventory.Items.BowAndArrow && inventory.RupeeCount > 0) 
 			{
 				inventory.RupeeCount--;
 				if (inventory.SpecialArrow) { return ProjectileFactory.PNames.PSpecialArrow; }
 				else { return ProjectileFactory.PNames.PNormalArrow; }
 			}
-			else 
+			else
 			{
 				return ProjectileFactory.PNames.None;
 			}
