@@ -34,7 +34,7 @@ solid blue tile,320,256,,
 solid blue tile,384,256,,
 solid blue tile,448,256,,
 solid blue tile,512,256,,
-solid blue tile,576,256,skeleton,
+solid blue tile,576,256,skeleton,arrow
 solid blue tile,640,256,,
 tile with square in middle,704,256,,
 solid blue tile,768,256,,

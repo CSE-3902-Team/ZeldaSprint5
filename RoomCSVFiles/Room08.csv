@@ -6,7 +6,7 @@ bottomDoorNormal,488,576,,,12
 solid blue tile,128,128,
 solid blue tile,192,128,
 solid blue tile,256,128,
-solid blue tile,320,128,gel
+solid blue tile,320,128,gel,rupee
 solid blue tile,384,128,
 solid blue tile,448,128,
 solid blue tile,512,128,
@@ -16,7 +16,7 @@ solid blue tile,704,128,
 solid blue tile,768,128,
 solid blue tile,832,128,
 solid blue tile,128,192,
-solid blue tile,192,192,gel
+solid blue tile,192,192,gel,rupee
 solid blue tile,256,192,
 solid blue tile,320,192,
 solid blue tile,384,192,

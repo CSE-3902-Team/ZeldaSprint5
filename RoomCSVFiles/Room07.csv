@@ -58,7 +58,7 @@ solid black tile,192,384
 solid black tile,256,384
 solid black tile,320,384
 solid black tile,384,384
-solid black tile,448,384
+solid black tile,448,384,,key
 solid black tile,512,384
 solid black tile,576,384
 solid black tile,640,384
@@ -88,7 +88,7 @@ solid black tile,576,512
 solid black tile,640,512
 solid black tile,704,512
 solid black tile,768,512
-solid black tile,832,512
+solid black tile,832,512,,candle
 textsprite,200,150
 leftWallTop,0,128
 leftWallBot,0,416
