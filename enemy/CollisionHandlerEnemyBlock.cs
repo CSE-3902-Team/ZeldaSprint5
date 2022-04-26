@@ -59,7 +59,7 @@ namespace Sprint0.Collision
             }
 
             //Console.WriteLine("a"+ yDirection);
-            enemy.Destination = new Vector2(enemy.position.X + 5*(xDirection * (float)overlap), enemy.position.Y + 5*(yDirection * (float)overlap));
+            enemy.Destination = new Vector2(enemy.position.X +8*(xDirection * (float)overlap), enemy.position.Y + 8*(yDirection * (float)overlap));
 
         }
     

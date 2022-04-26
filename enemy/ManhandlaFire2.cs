@@ -105,14 +105,14 @@ namespace Sprint0.enemy
 
 
                 if (rateY >= 1)
-                    projectilePos.Y -= diffY / 600;
+                    projectilePos.Y -= diffY / 900;
                 /* else if (rateY > 1 && rateY < 1.2)
                      projectilePos.Y -= 0;
                  else if (rateY < 1 && rateY > 0.8)
                      projectilePos.Y += 0;*/
                 else
                 {
-                    projectilePos.Y += diffY / 600;
+                    projectilePos.Y += diffY / 900;
                 }
             }
             else

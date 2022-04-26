@@ -1,0 +1,11 @@
+Author of the code review: Zening Teng
+Date of the code review: 4/25/2022
+Sprint number: 5
+Name of the .cs file being reviewed: GameState.cs
+Author of the .cs file being reviewed:Austin Motz
+Number of minutes taken to complete the review: 15
+
+Overall, the code got high cohesion and good coupling. The transitionroom method seems effcient and clean. Pretty good job on this one
+Possible change:
+
+I think this method can give us every function we need now for the game. Currently, I believe there's nothing need to change in this code.

@@ -12,14 +12,14 @@ namespace Sprint0.enemy
         private static Texture2D rect;
         private int currentFrame;
         private int FireBallCurrentFrame;
-        private int total;
+
         private SpriteBatch batch;
         private bool fire;
         ManhandlaFire Fireball1;
         ManhandlaFire1 Fireball2;
         ManhandlaFire2 Fireball3;
         private Vector2 FireballCurrent1;
-        DragonFireBall dragonBreath1;
+
         ICommand command;
         private int currentFrameHurt;
         private Vector2 direction;
@@ -33,7 +33,7 @@ namespace Sprint0.enemy
         public int explosionFrame;
         private int frame;
         private int frame1 = 200;
-        private int frame2=200;
+
         private int cloudAppear;
         private int row2 = 4;
         private TopLeft topLeft;
@@ -223,7 +223,7 @@ namespace Sprint0.enemy
             {
                 if (cloudAppear < 150)
                 {
-                    batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset + 50, (int)currentPos.Y + yOffset + 75), new Rectangle(33 * row2 + 624, 304, 33, 34), Color.White, 0.01f, new Vector2(0, 0), 3f, SpriteEffects.None, 1);
+                    batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset + 50, (int)currentPos.Y + yOffset + 75), new Rectangle(34 * row2 + 624, 304, 34, 37), Color.White, 0.01f, new Vector2(0, 0), 3f, SpriteEffects.None, 1);
                     cloudAppear++;
                     if (cloudAppear % 60 == 0)
                         row2--;
@@ -253,8 +253,7 @@ namespace Sprint0.enemy
                             rect = new Texture2D(batch.GraphicsDevice, 1, 1);
                             rect.SetData(new[] { Color.White });
                         }
-                        batch.Draw(rect, new Rectangle(topLeft.X, topLeft.Y, 20, 20), Color.Chocolate);
-                        batch.Draw(rect, new Rectangle(botRight.X, botRight.Y, 20, 20),Color.Chocolate);
+                  
                         switch (destination.X)
                             {
                                 case 0:
@@ -406,7 +405,7 @@ namespace Sprint0.enemy
             botRight.X = (int)currentPos.X + 180;
             botRight.Y = (int)currentPos.Y + 180;
             if(rightHeadDead)
-                botRight.X = (int)currentPos.X + 150;
+                botRight.X = (int)currentPos.X + 130;
             if(leftHeadDead)
                 topLeft.X = (int)currentPos.X + 20;
             if(topHeadDead)

@@ -1,0 +1,14 @@
+
+
+Author of the code review: Zening Teng
+Date of the code review: 4/25/2022
+Sprint number: 5
+Name of the .cs file being reviewed: PlayerDead.cs
+Author of the .cs file being reviewed: Luke Wingert
+Number of minutes taken to complete the review: 10
+
+ 
+
+This one is interesting, I can easily see that player death is seperate into different phases. First link will spin, then a start will show and blink. I think every part in 
+this class is good, like undertandable variable and method names, flawless strucutre. There also some comments (like the comment at the bottom of SpinLink 
+method) that can help readers understand what's happening here.
