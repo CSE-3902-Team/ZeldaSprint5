@@ -104,7 +104,7 @@ namespace Sprint0.Collision
             {
                player.State = new PlayerTriforce(player);
                SoundManager.Instance.PauseAllSounds();
-               SoundManager.Instance.Play(SoundManager.Sound.Triforce);
+               SoundManager.instance.Play(SoundManager.Sound.Credits);
             }
             else if (item is ItemArrow)
             {

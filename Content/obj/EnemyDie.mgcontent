@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/EnemyDie.wav</SourceFile>
   <SourceTime>2022-04-19T20:18:09.1425327-04:00</SourceTime>
   <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/EnemyDie.xnb</DestFile>
-  <DestTime>2022-04-25T16:56:46.0725508-04:00</DestTime>
+  <DestTime>2022-04-25T19:56:10.9293537-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

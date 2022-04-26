@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/LOZ_MagicalRod.wav</SourceFile>
   <SourceTime>2022-04-19T20:18:09.1674648-04:00</SourceTime>
   <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_MagicalRod.xnb</DestFile>
-  <DestTime>2022-04-25T16:56:59.4972643-04:00</DestTime>
+  <DestTime>2022-04-25T19:56:23.4519894-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

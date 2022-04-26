@@ -17,9 +17,10 @@
     <File>C:/Users/lukes/ZeldaSprint5/Content/BossDeaad.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/BossLowHp.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/bricks.png</File>
-    <File>C:/Users/lukes/ZeldaSprint5/Content/Credits.png</File>
-    <File>C:/Users/lukes/ZeldaSprint5/Content/Credits.wav</File>
+    <File>C:/Users/lukes/ZeldaSprint5/Content/CreditsBGM.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/creditsEdited.png</File>
+    <File>C:/Users/lukes/ZeldaSprint5/Content/CreditsM.wav</File>
+    <File>C:/Users/lukes/ZeldaSprint5/Content/Creditsv2.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/doors.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/DoorUnlock.wav</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/dragon.png</File>
@@ -72,6 +73,7 @@
     <File>C:/Users/lukes/ZeldaSprint5/Content/Sprint 2 Tiles.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/sprint-2-items.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/sprint-5-items.png</File>
+    <File>C:/Users/lukes/ZeldaSprint5/Content/sprint-5-itemsV2.png.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/stairs.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/statue1.png</File>
     <File>C:/Users/lukes/ZeldaSprint5/Content/statue2.png</File>
@@ -83,6 +85,8 @@
     <File>C:/Users/lukes/ZeldaSprint5/Content/zelda.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

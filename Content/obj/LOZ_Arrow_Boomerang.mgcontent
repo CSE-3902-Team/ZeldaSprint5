@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/LOZ_Arrow_Boomerang.wav</SourceFile>
   <SourceTime>2022-04-19T20:18:09.1664681-04:00</SourceTime>
   <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_Arrow_Boomerang.xnb</DestFile>
-  <DestTime>2022-04-25T16:56:58.2586092-04:00</DestTime>
+  <DestTime>2022-04-25T19:56:22.2383406-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

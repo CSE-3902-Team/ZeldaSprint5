@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/LOZ_Sword_Slash.wav</SourceFile>
   <SourceTime>2022-04-19T20:18:09.1674648-04:00</SourceTime>
   <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_Sword_Slash.xnb</DestFile>
-  <DestTime>2022-04-25T16:57:00.7014078-04:00</DestTime>
+  <DestTime>2022-04-25T19:56:24.6641655-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

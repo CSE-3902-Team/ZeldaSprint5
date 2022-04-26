@@ -28,6 +28,7 @@ namespace Sprint0.ItemClass
 			{"fairy", Item.Fairy},
 			{"clock", Item.Clock},
 			{"special", Item.SpecialBoomerang },
+			{"candle", Item.Candle }
 		};
 
 		public enum Item{
@@ -45,7 +46,8 @@ namespace Sprint0.ItemClass
 			Fairy				= 11,
 			Clock				= 12,
 			SpecialBoomerang	= 13,
-			SpecialArrow		= 14
+			SpecialArrow		= 14,
+			Candle				= 15
 		}
 
 		private static ItemSpriteFactory instance = new ItemSpriteFactory();
@@ -68,7 +70,7 @@ namespace Sprint0.ItemClass
 
 		public void LoadAllTextures(ContentManager content)
 		{
-			itemSheet = content.Load<Texture2D>("sprint-5-items");
+			itemSheet = content.Load<Texture2D>("sprint-5-itemsV2.png");
 
 		}
 
@@ -118,6 +120,8 @@ namespace Sprint0.ItemClass
 					return new ItemSpecialBoomerang(itemSheet, batch, position);
 				case Item.SpecialArrow:
 					return new ItemSpecialArrow(itemSheet, batch, position);
+				case Item.Candle:
+					return new ItemCandle(itemSheet, batch, position);
 				default:
 					return new ItemCompass(itemSheet, batch, position);
 			}
