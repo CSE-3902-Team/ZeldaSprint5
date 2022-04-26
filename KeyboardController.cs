@@ -12,8 +12,6 @@ namespace Sprint0 {
 		Game1 myGame;
 		Vector2 center;
 		LevelManager levelManager;
-		//int count = 0;
-		//int enemyCount = 3;
 
 
 	
@@ -71,7 +69,6 @@ namespace Sprint0 {
 				}
 				else if (HasBeenPressed(Keys.E))
 				{
-					//return val of 0, exit the game
 					myGame.Exit();
 				}
 
@@ -166,7 +163,6 @@ namespace Sprint0 {
 
 				}
 
-				//Remove attack + projectiles
 				if (myGame.TwoPlayer == true)
 				{
 					if (kstate.IsKeyDown(Keys.Up))
@@ -200,13 +196,11 @@ namespace Sprint0 {
 
 
 
-				//player1 projectile controls
 				if (HasBeenPressed(Keys.V))
 				{
 					levelManager.Player1.UseItem();
 				}
 				
-				//player2 projectile controls
 				if (myGame.TwoPlayer == true)
 				{
 					if (HasBeenPressed(Keys.M))
@@ -219,7 +213,6 @@ namespace Sprint0 {
 			{
 				if (HasBeenPressed(Keys.E))
 				{
-					//return val of 0, exit the game
 					myGame.Exit();
 				}
 				else if (HasBeenPressed(Keys.R))
@@ -231,7 +224,6 @@ namespace Sprint0 {
 			{
 				if (HasBeenPressed(Keys.E))
 				{
-					//return val of 0, exit the game
 					myGame.Exit();
 				}
 				else if (HasBeenPressed(Keys.R))

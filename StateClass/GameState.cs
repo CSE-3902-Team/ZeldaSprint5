@@ -96,7 +96,7 @@ namespace Sprint0.StateClass
 
         public void transitionRoom()
         {
-            if (exitSide == DoorClass.DoorFactory.Side.Left)//left room
+            if (exitSide == DoorClass.DoorFactory.Side.Left)
             {
                 levelManager.RoomList[previousRoom].drawRoom(offset, 0, isTransitioning);
                 levelManager.RoomList[nextRoom].drawRoom(offset - screenWidth, 0, isTransitioning);
@@ -107,7 +107,7 @@ namespace Sprint0.StateClass
                     offset = 0;
                 }
             }
-            else if (exitSide == DoorClass.DoorFactory.Side.Right)//right room
+            else if (exitSide == DoorClass.DoorFactory.Side.Right)
             {
                 levelManager.RoomList[previousRoom].drawRoom(offset, 0, isTransitioning);
                 levelManager.RoomList[nextRoom].drawRoom(offset + screenWidth, 0, isTransitioning);
@@ -118,7 +118,7 @@ namespace Sprint0.StateClass
                     offset = 0;
                 }
             }
-            else if (exitSide == DoorClass.DoorFactory.Side.Top)//top room
+            else if (exitSide == DoorClass.DoorFactory.Side.Top)
             {
                 levelManager.RoomList[previousRoom].drawRoom(0, offset, isTransitioning);
                 levelManager.RoomList[nextRoom].drawRoom(0, offset - screenHeight, isTransitioning);
@@ -217,10 +217,8 @@ namespace Sprint0.StateClass
         }
 
         public Texture2D generateDarkRoom() {
-            //initialize a texture
             Texture2D texture = new Texture2D(_game.GraphicsDevice, screenWidth, screenHeight);
             int radius = 128;
-            //the array holds the color for each pixel in the texture
             Color[] data = new Color[screenWidth * screenHeight];
             Array.Fill(data, Color.Black);
             Vector2 pixelVector = new Vector2(0,0);
@@ -272,7 +270,6 @@ namespace Sprint0.StateClass
                 }
             }
 
-            //set the color
             texture.SetData(data);
 
             return texture;

@@ -51,7 +51,6 @@ namespace Sprint0.LevelClass
             BossDead,
         }
 
-        //private SoundEffectInstance levelMusic;
         private static Dictionary<Sound, SoundEffectInstance> soundDict;
         public void Play(Sound s)
         {
@@ -75,26 +74,26 @@ namespace Sprint0.LevelClass
         {
             soundDict = new Dictionary<Sound, SoundEffectInstance>
             {
-                {Sound.SwordSlash,content.Load<SoundEffect>("LOZ_Sword_Slash").CreateInstance()}, //Complete
-                {Sound.BombDrop, content.Load<SoundEffect>("BombDrop").CreateInstance()},     //Complete
-                {Sound.BombBlow, content.Load<SoundEffect>("BombBlow").CreateInstance()},    //Complete
+                {Sound.SwordSlash,content.Load<SoundEffect>("LOZ_Sword_Slash").CreateInstance()}, 
+                {Sound.BombDrop, content.Load<SoundEffect>("BombDrop").CreateInstance()},     
+                {Sound.BombBlow, content.Load<SoundEffect>("BombBlow").CreateInstance()},    
                 {Sound.EnemyHit, content.Load<SoundEffect>("EnemyHit").CreateInstance()},
                 {Sound.EnemyDie, content.Load<SoundEffect>("EnemyDie").CreateInstance()},
-                {Sound.LinkHurt, content.Load<SoundEffect>("LinkHurt").CreateInstance()},    //Complete
+                {Sound.LinkHurt, content.Load<SoundEffect>("LinkHurt").CreateInstance()},    
                 {Sound.LowHp,    content.Load<SoundEffect>("LowHp").CreateInstance()}, 
                 {Sound.LinkDie,  content.Load<SoundEffect>("LinkDie").CreateInstance()},
                 {Sound.NewItem,  content.Load<SoundEffect>("NewItem").CreateInstance()},
-                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem").CreateInstance()}, //Complete,
-                {Sound.GetHeartKey, content.Load<SoundEffect>("GetHeartKey").CreateInstance()}, //Complete
-                {Sound.GetRupee,   content.Load<SoundEffect>("GetRupee").CreateInstance()}, //Complete
+                {Sound.GetInventoryItem,content.Load<SoundEffect>("GetInventoryItem").CreateInstance()}, 
+                {Sound.GetHeartKey, content.Load<SoundEffect>("GetHeartKey").CreateInstance()}, 
+                {Sound.GetRupee,   content.Load<SoundEffect>("GetRupee").CreateInstance()}, 
                 {Sound.KeyAppear,  content.Load<SoundEffect>("KeyAppear").CreateInstance()}, 
                 {Sound.WalkStairs, content.Load<SoundEffect>("WalkStairs").CreateInstance()},
                 {Sound.PuzzleSolved, content.Load<SoundEffect>("PuzzleSolved").CreateInstance()},
-                {Sound.DoMagic, content.Load<SoundEffect>("LOZ_MagicalRod").CreateInstance() }, //Complete
-                {Sound.UseArrowBoomerang, content.Load<SoundEffect>("LOZ_Arrow_Boomerang").CreateInstance() }, //Complete
-                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSICV2").CreateInstance() }, //Complete
-                {Sound.Triforce, content.Load<SoundEffect>("Triforce").CreateInstance() }, //Complete
-                {Sound.GameOver, content.Load<SoundEffect>("GameOver").CreateInstance() }, //Complete
+                {Sound.DoMagic, content.Load<SoundEffect>("LOZ_MagicalRod").CreateInstance() }, 
+                {Sound.UseArrowBoomerang, content.Load<SoundEffect>("LOZ_Arrow_Boomerang").CreateInstance() }, 
+                {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSICV2").CreateInstance() }, 
+                {Sound.Triforce, content.Load<SoundEffect>("Triforce").CreateInstance() }, 
+                {Sound.GameOver, content.Load<SoundEffect>("GameOver").CreateInstance() }, 
                 {Sound.Credits, content.Load<SoundEffect>("CreditsBGM").CreateInstance() }, 
                 {Sound.MainMenu, content.Load<SoundEffect>("MainMenu").CreateInstance() },
                 {Sound.Boss, content.Load<SoundEffect>("Boss").CreateInstance() },

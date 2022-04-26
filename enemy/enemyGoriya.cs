@@ -106,7 +106,6 @@ namespace Sprint0.enemy
             {
                 if (isAlive && deathCount < 3)
                 {
-                    // the goriya will fire every 210 frames, and reset frame counts
                     if (frame1 == fireCount)
                     {
                         fire = true;

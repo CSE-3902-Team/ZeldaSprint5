@@ -119,7 +119,6 @@ namespace Sprint0 {
 				{
 					SoundManager.instance.PauseAllSounds();
 					SoundManager.Instance.Play(SoundManager.Sound.GameOver);
-					//Change to playerDeadState: isDead will be changed within the state.
 				}
 			}
 		}
@@ -190,13 +189,11 @@ namespace Sprint0 {
 
 		public void ChangeDirection(Directions dir)
 		{
-			//Checks movement state transitions
 			_state.ChangeDirection(dir);
 		}
 
 		public void Update()
 		{
-			//Updates relevant variables in player class, calls draw in player
 			if (playerHp == 0 && _state.GetType() != typeof(PlayerDead))
             {
 				_state = new PlayerDead(this);
@@ -240,7 +237,6 @@ namespace Sprint0 {
 		}
 		public void Move(int x, int y)
 		{
-			//x and y are directional vectors and should only be 0, 1, or -1
 			position.X += x * speed;
 			position.Y += y * speed;
 		}
@@ -285,7 +281,6 @@ namespace Sprint0 {
 		Rectangle CollisionSrc = new Rectangle(src.X + 22, src.Y + 22, 15, 15);
             float xOffset = drawOffset.X;
             float yOffset = drawOffset.Y;
-			//Console.WriteLine(playerHp);
 
 
 
@@ -293,8 +288,6 @@ namespace Sprint0 {
 			Rectangle destRect = new Rectangle((int)position.X+xScrollOffset, (int)position.Y+yScrollOffset, (int)(src.Width * scale), (int)(src.Height * scale));
 			_spriteBatch.Begin();
 			_spriteBatch.Draw(texture, destRect, src, col, 0f, new Vector2(src.Width / 2 - xOffset +xScrollOffset, src.Height / 2 - yOffset + yScrollOffset), SpriteEffects.None, 0f);
-			//_spriteBatch.Draw(colT, CollisionRectTL, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
-			//_spriteBatch.Draw(colT, CollisionRectBR, new Rectangle(0, 0, 64, 64), col,0f, new Vector2(0,0), SpriteEffects.None, 0f);
 			_spriteBatch.End();
 
 		

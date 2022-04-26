@@ -174,7 +174,7 @@ namespace Sprint0.LevelClass
             {
                 enemyHoldItem.ElementAt(x).Key.draw(xOffset, yOffset);
                 if (!enemyHoldItem.ElementAt(x).Key.IsAlive)
-                {//if enemy dies, update position and collision box of items they hold, and draw it
+                {
                     enemyHoldItem.ElementAt(x).Value.myPos.X = enemyHoldItem.ElementAt(x).Key.position.X;
                     enemyHoldItem.ElementAt(x).Value.myPos.Y = enemyHoldItem.ElementAt(x).Key.position.Y;
                     enemyHoldItem.ElementAt(x).Value.TopLeft.X = (int)enemyHoldItem.ElementAt(x).Key.position.X;
@@ -186,7 +186,7 @@ namespace Sprint0.LevelClass
 
                 }
                 else
-                {//else, hide the items until the enemy who holds it dies
+                {
                     enemyHoldItem.ElementAt(x).Value.TopLeft.X = 0;
                     enemyHoldItem.ElementAt(x).Value.TopLeft.Y =0;
                     enemyHoldItem.ElementAt(x).Value.BottomRight.X =0;

@@ -21,7 +21,7 @@ namespace Sprint0.enemy
         public int frameReturn()
         {
             switch (movement.X)
-            {//make the enemies move in a random route.
+            {
 
                 case 0:
                     if (Pos.Y < destinationY)
@@ -68,7 +68,7 @@ namespace Sprint0.enemy
         public int goriya()
         {
             switch (movement.X)
-            {//make the enemies move in a random route.
+            {
 
                 case 0:
                     if (Pos.Y< destinationY)
@@ -86,7 +86,7 @@ namespace Sprint0.enemy
 
                     }
                     break;
-                //moving to up down left and right
+                
                 case 1:
                     if (Pos.X< destinationX)
                     {

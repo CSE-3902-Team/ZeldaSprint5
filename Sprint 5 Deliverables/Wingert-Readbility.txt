@@ -1,0 +1,19 @@
+﻿Author of the code review: Luke Wingert
+
+Date of the code review: 4/25/2022
+
+Sprint number: 5
+
+Name of the .cs file being reviewed: GameVictoryState
+
+Author of the .cs file being reviewed: Ting Feng
+
+Number of minutes taken to complete the review: 5 minutes
+
+Specific comments on what is maintainable and what is not:
+	The constants in this code are great. Changing the code without these 13 constants would be a nightmare.
+	I would suggest moving the rectangles in line 95 to be constants initalized with the class. It gives the rectangles
+	better meaning.
+
+Proposed change: Move the destinations rectangles in the draw loop to be constants. This would be a simple copy
+paste and improve long term readability.

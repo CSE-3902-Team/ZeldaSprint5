@@ -19,7 +19,6 @@ namespace Sprint0
         private int frame;
         private float rotation;
 
-        // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
 
         public Boolean IsRunning
@@ -46,7 +45,6 @@ namespace Sprint0
             get { return bottomRight; }
         }
 
-        //Vector direction should only use 0, 1, -1
         public ProjectilePlayerFireball(Texture2D texture, SpriteBatch batch, Vector2 position, Vector2 direction)
         {
             this.texture = texture;

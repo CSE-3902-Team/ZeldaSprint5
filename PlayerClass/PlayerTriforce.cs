@@ -25,7 +25,6 @@ namespace Sprint0.PlayerClass
         public void Update()
         {
 
-            //make texture the triforce, play the music, then set some boolean for the state change
             if (currentFrame > TOTAL_FRAMES)
             {
                 player.HasTriforce = true;

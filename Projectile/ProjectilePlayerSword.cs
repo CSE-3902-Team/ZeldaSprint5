@@ -21,7 +21,6 @@ namespace Sprint0
         private int frame;
         private float rotation;
 
-        // Used by the Player class to know if the projectile is still in animation
         private Boolean isRunning;
 
         public Vector2 Position
@@ -85,8 +84,6 @@ namespace Sprint0
         }
         public void Draw()
         {
-            // destinationRect = new Rectangle(topLeft.X, TopLeft.Y, bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
-            //Rectangle sourceRect = new Rectangle(0, 0, 300, 300);
 
         }
 
