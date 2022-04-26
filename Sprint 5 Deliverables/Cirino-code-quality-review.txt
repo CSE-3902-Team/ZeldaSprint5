@@ -9,7 +9,11 @@ Number of minutes taken to complete the review: 15
 
 Comments on Code Quality: 
 
-Coupling is rather high because the Player is passed 7 or 8 different types, but it may be necessary because the player interacts with mostly everything in the game. For that reason I would say the Cohesion is still high because the player only recieves what is necessary and nothing you would not expect the player to have.
+Coupling is rather high because the Player is passed 7 or 8 different types, but it may be necessary because the player interacts with mostly everything in the game.
+For that reason I would say the Cohesion is still high because the player only recieves what is necessary and nothing you would not expect the player to have.
+Creating another player constructor that takes in an inventory is a smart solution to implementing a second player that shares an inventory with the first player.
+This way the vast majority of the player class' functionality/logic was able to remain the same. Also with this 2nd constructor, it would make it easier to have
+even more than two players implemented in to the game if we wanted to.
 
 Hypothetical Change: 
 
