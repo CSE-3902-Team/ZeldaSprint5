@@ -223,7 +223,7 @@ namespace Sprint0.enemy
             {
                 if (cloudAppear < 150)
                 {
-                    batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset + 50, (int)currentPos.Y + yOffset + 75), new Rectangle(33 * row2 + 624, 304, 33, 34), Color.White, 0.01f, new Vector2(0, 0), 3f, SpriteEffects.None, 1);
+                    batch.Draw(Texture, new Vector2((int)currentPos.X + xOffset + 50, (int)currentPos.Y + yOffset + 75), new Rectangle(34 * row2 + 624, 304, 34, 37), Color.White, 0.01f, new Vector2(0, 0), 3f, SpriteEffects.None, 1);
                     cloudAppear++;
                     if (cloudAppear % 60 == 0)
                         row2--;
