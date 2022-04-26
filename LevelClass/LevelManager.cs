@@ -27,7 +27,7 @@ namespace Sprint0.LevelClass
 		private List<Room> roomList;
         private int currentRoom;
         private int numRooms;
-        private const int OFFSET = 256; //used in sprint4 because we need to push the level down to have the inventory/map on the top of the screen
+        private const int OFFSET = 256; 
         private bool _2player;
 
 		private ItemSpriteFactory itemFactory;
@@ -88,7 +88,7 @@ namespace Sprint0.LevelClass
         }
         
 
-        //these need to be gotten rid of
+        
 
         private Texture2D player1Texture;
         private Texture2D player2Texture;
@@ -120,7 +120,7 @@ namespace Sprint0.LevelClass
             }
             
 
-            //load everything with the items shown on screen
+            
             itemFactory.LoadAllTextures(Content);
             itemFactory.setBatch(batch);
             doorFactory.LoadAllTextures(Content);

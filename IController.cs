@@ -3,7 +3,6 @@
 
     interface IController
     {
-        //Store the keyboard state
         void handleInput();
     }
 }

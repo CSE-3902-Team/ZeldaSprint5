@@ -12,11 +12,11 @@ namespace Sprint0.PlayerClass
         private static Dictionary<ItemType, Rectangle> dict = new Dictionary<ItemType, Rectangle>
         {
             {ItemType.Rupee, new Rectangle(2894,2444,134,298) },
-            {ItemType.Key,new Rectangle(751,2444,134,298)}, //TODO: replace with key texture
+            {ItemType.Key,new Rectangle(751,2444,134,298)}, 
             {ItemType.Bomb,new Rectangle(2268,2449,134,294)},
             {ItemType.Boomerang,new Rectangle(1109,2483,131,266) },
             {ItemType.Arrow,new Rectangle(1682,2449,134,294)},
-            {ItemType.Heart,new Rectangle(568,2493,134,248)}, //TODO: replace with actual heart texture
+            {ItemType.Heart,new Rectangle(568,2493,134,248)}, 
             {ItemType.HeartCountainer,new Rectangle(2429,2473,134,294)},
             {ItemType.Compass,new Rectangle(2579,2482,134,294)},
             {ItemType.Fairy,new Rectangle(1462,2452,134,294)},
@@ -60,7 +60,6 @@ namespace Sprint0.PlayerClass
         public void Update()
         {
 
-            //make texture the triforce, play the music, then set some boolean for the state change
             if (currentFrame > TOTAL_FRAMES)
             {
                 player.State = new PlayerDownIdle(player);

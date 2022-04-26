@@ -89,7 +89,6 @@ namespace Sprint0.enemy
                             break;
                     }
                 }
-                //after the boomerang reaches the destination, it will fly back, similar logic as above, but the projectile's y and x are decreasing this time
                 else if (FrameCount >= 100)
                 {
                     switch (movement.X)

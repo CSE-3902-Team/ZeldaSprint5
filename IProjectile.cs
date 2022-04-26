@@ -10,7 +10,6 @@ namespace Sprint0
         public void Draw(int xOffset, int yOffset);
         public void Update();
 
-        // Used by the Player class to know if the projectile is still in animation
         public Boolean IsRunning { get; set; }
         public Vector2 Direction { get; set; }
         public Vector2 Position { get; set; }

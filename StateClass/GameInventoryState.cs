@@ -217,7 +217,6 @@ namespace Sprint0.StateClass
             slotBDestRect = new Rectangle(slotB_XDestLocation, slotsYDestLocation, slotWidth, slotHeight);
             mapDestRect = new Rectangle(mapAndCompassXDestLocation, mapYDestLocation, mapWidth, mapAndCompassHeight);
             mapDesignDestRect = new Rectangle(mapDesignXDestLocation, mapDesignYDestLocation, mapDesignHeightAndWidth, mapDesignHeightAndWidth);
-            //-8 to help center compass 
             compassDestRect = new Rectangle(mapAndCompassXDestLocation - 8, compassYDestLocation, compassWidth, mapAndCompassHeight);
             otherMapDestRect = new Rectangle(otherMapXDestLocation, otherMapYDestLocation, otherMapWidth, otherMapHeight);
             locationSquareDestRect = new Rectangle(locationSquareX, locationSquareY, locationSquareSize, locationSquareSize);
@@ -225,7 +224,6 @@ namespace Sprint0.StateClass
             triforceMiniMapSquareDestLocation = new Rectangle(triforceMiniMapLocationX, triforceMiniMapLocationY, locationSquareSize, locationSquareSize);
             boxDestRect = new Rectangle((int)InventoryBoxPosition.X, (int)InventoryBoxPosition.Y, inventorySlotsWidth, inventorySlotsHeight);
 
-            //The +20 is to center it within its slot in the inventory
             boomerangDestRect = new Rectangle(itemsInventoryXDestLocation + 20, itemsInventoryYDestLocation, boomerangWidth, boomerangHeight);
             bombDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 1)) + 20, itemsInventoryYDestLocation, bombWidth, inventorySlotsHeight);
             arrowDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 2)), itemsInventoryYDestLocation, arrowWidth, inventorySlotsHeight);
@@ -248,7 +246,6 @@ namespace Sprint0.StateClass
 
         public void MoveBox(int x, int y, Keys key)
         {
-            //x and y are directional vectors and should only be 0, 1, or -1
             int topOfInventory = 180;
             int bottomOfInventory = 245;
             int leftMostOfInventory = 505;

@@ -26,8 +26,6 @@ namespace Sprint0
         
         private AState menuState;
 
-        //private AState _nextState;
-        //private AState _previousState;
 
         private SoundManager soundLibrary;
 
@@ -53,7 +51,6 @@ namespace Sprint0
             _graphics.PreferredBackBufferHeight = 960; 
             _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
-            // TODO: Add your initialization logic here
             kController = new KeyboardController(this, new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             mController = new MouseController(this);
             soundLibrary = new SoundManager();
@@ -74,7 +71,6 @@ namespace Sprint0
 
             stateList.Add(menuState);
             _currentState = stateList[0];
-            //add main menu state to choose 1 or 2 player
 
         }
 
@@ -115,7 +111,6 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             _currentState.Draw(gameTime);
-            //_currentRoom.drawRoom();
 
             base.Draw(gameTime);
 
@@ -133,12 +128,7 @@ namespace Sprint0
             get { return _spriteBatch; } 
         }
         
-        /*
-        public AState NextState
-        {
-            get { return _nextState; }
-        }
-        */
+        
 
         public AState CurrentState
         {

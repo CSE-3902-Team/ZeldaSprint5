@@ -48,7 +48,6 @@ namespace Sprint0.PlayerClass
 
         public void Update()
         {
-            //Link spins four times around, waits, and is replaced with a star and then fades to blackness.
             if (spinCount < MAX_SPINS)
             {
                 currentFrame++;
@@ -110,7 +109,6 @@ namespace Sprint0.PlayerClass
             }
             else
             {
-                //One Spin Completed
                 currentFrame = 1;
                 spinCount++;
 
@@ -122,7 +120,6 @@ namespace Sprint0.PlayerClass
             switch (stage)
             {
                 case SpinDirections.Down:
-                    //Link faces down
                     player.SourceRectangle = new Rectangle(6, 94, 141, 152);
                     break;
                 case SpinDirections.Right:

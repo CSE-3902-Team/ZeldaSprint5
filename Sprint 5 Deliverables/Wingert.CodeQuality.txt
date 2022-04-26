@@ -1,0 +1,16 @@
+﻿In the plaintext file for a code quality review, include the following information:
+
+Author of the code review: Luke Wingert
+Date of the code review: 4/25/2022
+Sprint number: 5
+Name of the .cs file being reviewed: Inventory.cs
+Author of the .cs file being reviewed: Craig Cirino
+
+Comments on code quality:
+	This is essentially just a container class that holds values from all parts of the game. From a user standpoint
+	I think it would be easier to use the class if the class grouped the firstItem, itemInInventory, and Count variables into
+	dictionaries that paired using enums.
+
+Hypothetical Change: 
+	What I said above would take a good amount of work and require refactoring over 30 lines of code elsewhere.
+	At the end of the day it's more of a preference and doesn't really increase code quality too much, but it would cut down the size by half

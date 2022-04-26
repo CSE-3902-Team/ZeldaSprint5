@@ -37,16 +37,12 @@ namespace Sprint0.StateClass
 
         
 
-        //private KeyboardController kController;
-        //private MouseController mController;
 
 
         public GameOverState(Game1 game, ContentManager content) : base(game, content)
         {
             _game = game;
             _content = content;
-            //kController = new KeyboardController(_game, new Vector2(_game.GraphicsDeviceManager.PreferredBackBufferWidth / 2, _game.GraphicsDeviceManager.PreferredBackBufferHeight / 2));
-            //mController = new MouseController(_game);
         }
         public override void loadContent()
         {
