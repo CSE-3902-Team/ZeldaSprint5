@@ -31,6 +31,7 @@ Features/Bugs:
 		-A seperate count and inventory slot for special arrows.
 		-Item animations
 		-A more robust 2 player implementation
+		-More code clean up [removing magic numbers + making helper methods]
 		
 		
 
@@ -50,7 +51,7 @@ Game Controls:
 "m" - red link use item
 [Note: Each arrow uses a rupee, if you have zero rupees you can't shoot]
 
-"p" - Gives you 10 bombs and 10 rupees (testing purposes)
+"p" - Gives you 10 bombs,10 rupees and 10 keys (testing purposes)
 "o" - Gives Debug information such as current room number (testing purposes)
 
 "mouse controls" - manually switches rooms (testing purposes)
