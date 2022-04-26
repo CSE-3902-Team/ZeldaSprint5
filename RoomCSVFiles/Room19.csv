@@ -18,7 +18,7 @@ solid blue tile,832,128,,
 solid blue tile,128,192,,
 solid blue tile,192,192,,
 solid blue tile,256,192,,
-solid blue tile,320,192,MANHAN,
+solid blue tile,320,192,MANHAN,heartContainer
 solid blue tile,384,192,,
 solid blue tile,448,192,,
 solid blue tile,512,192,,
