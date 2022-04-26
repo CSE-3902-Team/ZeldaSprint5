@@ -1,0 +1,21 @@
+﻿In the plaintext file for a code quality review, include the following information:
+
+Author of the code review: Craig Cirino
+Date of the code review: 4/25/2022
+Sprint number: 5
+Name of the .cs file being reviewed: Player.cs
+Author of the .cs file being reviewed: Luke Wingert
+Number of minutes taken to complete the review: 15
+
+Comments on Code Quality: 
+
+Coupling is rather high because the Player is passed 7 or 8 different types, but it may be necessary because the player interacts with mostly everything in the game. For that reason I would say the Cohesion is still high because the player only recieves what is necessary and nothing you would not expect the player to have.
+
+Hypothetical Change: 
+
+One change I might make would be to have the LinkLowHpColor() method increase HPFRAMES and in the if statements use the % operator for the logic instead of having to reset HPFRAMES in several times.
+
+
+
+
+

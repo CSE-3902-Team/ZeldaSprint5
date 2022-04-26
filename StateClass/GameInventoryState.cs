@@ -138,9 +138,7 @@ namespace Sprint0.StateClass
         const int triforceLocationY = 428;
         const int triforceMiniMapLocationX = 269;
         const int triforceMiniMapLocationY = 809;
-        const int candleSourceLocationX = 662;
-        const int candleSourceLocationY = 328;
-
+        const int candleSourceLocationX = 660;
 
         const int itemsInventoryXDestLocation = 505;
         const int itemsInventoryYDestLocation = 180;
@@ -209,7 +207,7 @@ namespace Sprint0.StateClass
             specialArrowSourceRect = new Rectangle(specialArrowXSourceLocation, itemsRowYSourceLocation, arrowWidth, arrowHeight);
             bowSourceRect = new Rectangle(bowXSourceLocation, itemsRowYSourceLocation, bowWidth, bowHeight);
             specialBoomerangSourceRect = new Rectangle(specialBoomerangXSourceLocation, boomerangYSourceLocation, boomerangWidth, boomerangHeight);
-            candleSourceRect = new Rectangle(candleSourceLocationX, candleSourceLocationY, candleWidth, candleHeight);
+            candleSourceRect = new Rectangle(candleSourceLocationX, itemsRowYSourceLocation, candleWidth, candleHeight);
 
             rupeeNumberDestRect = new Rectangle(numberXDestLocation, rupeeYDestLocation, numberWidth, numberHeight);
             bombNumberDestRect = new Rectangle(numberXDestLocation, bombYDestLocation, numberWidth, numberHeight);
@@ -233,7 +231,7 @@ namespace Sprint0.StateClass
             arrowDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 2)), itemsInventoryYDestLocation, arrowWidth, inventorySlotsHeight);
             bowDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 2) + arrowWidth), itemsInventoryYDestLocation, (inventorySlotsWidth - arrowWidth), inventorySlotsHeight);
             specialBoomerangDestRect = new Rectangle((itemsInventoryXDestLocation + (inventorySlotsWidth * 3) + 20), itemsInventoryYDestLocation, boomerangWidth, boomerangHeight);
-            candleDestRect = new Rectangle(itemsInventoryXDestLocation, itemsInventoryYDestLocation + inventorySlotsHeight, candleWidth, inventorySlotsHeight);
+            candleDestRect = new Rectangle(itemsInventoryXDestLocation + 20, itemsInventoryYDestLocation + inventorySlotsHeight, candleWidth, inventorySlotsHeight);
 
             currentB_SlotItemSourceRect = new Rectangle(10, 10, 0, 0);
             itemSelectionSlot = new Rectangle(itemSelectionSlotXDestLocation, itemSelectionSlotYDestLocation, itemSelectionSlotSize, itemSelectionSlotSize);
@@ -311,14 +309,18 @@ namespace Sprint0.StateClass
             {
                 _game.SpriteBatch.Draw(screen, specialBoomerangDestRect, specialBoomerangSourceRect, Color.White);
             }
+            if (_inventory.Candle)
+            {
+                _game.SpriteBatch.Draw(screen, candleDestRect, candleSourceRect, Color.White);
+            }
             if (_inventory.Bow)
             {
                 _game.SpriteBatch.Draw(screen, bowDestRect, bowSourceRect, Color.White);
-                if (_inventory.SpecialArrow)
+                if (_inventory.RupeeCount > 0 && _inventory.SpecialArrow)
                 {
                     _game.SpriteBatch.Draw(screen, arrowDestRect, specialArrowSourceRect, Color.White);
                 }
-                else if (_inventory.Arrow)
+                else if (_inventory.RupeeCount > 0)
                 {
                     _game.SpriteBatch.Draw(screen, arrowDestRect, arrowSourceRect, Color.White);
                 }
