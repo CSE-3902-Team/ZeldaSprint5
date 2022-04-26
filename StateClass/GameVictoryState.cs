@@ -37,7 +37,8 @@ namespace Sprint0.StateClass
         private int count;
         private int rightStart;
         private int leftStart;
-        private int bottomeStart;
+        private int musicStart = 0;
+        private bool startCredits = false;
 
         
 
@@ -59,7 +60,7 @@ namespace Sprint0.StateClass
             exitText = _content.Load<Texture2D>("ExitText");
             lAnimation = _content.Load<Texture2D>("blackColumn");
             rAnimation = _content.Load<Texture2D>("blackColumn");
-            credits = _content.Load<Texture2D>("Credits");
+            credits = _content.Load<Texture2D>("Creditsv2");
             isVictory = true;
 
             animate = true;
@@ -67,7 +68,6 @@ namespace Sprint0.StateClass
             count = 0;
             rightStart = WIDTH - 64;
             leftStart = 0;
-            bottomeStart = HEIGHT;
     }
 
         public override void update(GameTime gameTime)
@@ -154,7 +154,7 @@ namespace Sprint0.StateClass
             }
             else
             {
-                
+                    
                 _game.SpriteBatch.Draw(
                      screen,
                      screenDestRect,

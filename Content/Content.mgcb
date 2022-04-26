@@ -151,23 +151,11 @@
 /processorParam:TextureFormat=Color
 /build:bricks.png
 
-#begin Credits.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Credits.png
-
-#begin Credits.wav
+#begin CreditsBGM.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Credits.wav
+/build:CreditsBGM.wav
 
 #begin creditsEdited.png
 /importer:TextureImporter
@@ -180,6 +168,24 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:creditsEdited.png
+
+#begin CreditsM.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:CreditsM.wav
+
+#begin Creditsv2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Creditsv2.png
 
 #begin doors.png
 /importer:TextureImporter
@@ -708,6 +714,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sprint-5-items.png
+
+#begin sprint-5-itemsV2.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:sprint-5-itemsV2.png.png
 
 #begin stairs.png
 /importer:TextureImporter

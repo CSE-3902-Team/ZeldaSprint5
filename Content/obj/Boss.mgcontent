@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/lukes/ZeldaSprint5/Content/Boss.wav</SourceFile>
   <SourceTime>2022-04-25T17:03:04.6993174-04:00</SourceTime>
   <DestFile>C:/Users/lukes/ZeldaSprint5/Content/bin/Boss.xnb</DestFile>
-  <DestTime>2022-04-25T17:20:26.7043468-04:00</DestTime>
+  <DestTime>2022-04-25T19:56:04.439798-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T12:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

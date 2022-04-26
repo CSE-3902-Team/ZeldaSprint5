@@ -1,78 +1,80 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/lukes/ZeldaSprint5/Content/1Player.png","C:/Users/lukes/ZeldaSprint5/Content/bin/1Player.xnb","TextureProcessor","Texture2DContent",2670,89941,0.3458654
-"C:/Users/lukes/ZeldaSprint5/Content/2Player.png","C:/Users/lukes/ZeldaSprint5/Content/bin/2Player.xnb","TextureProcessor","Texture2DContent",2619,89941,0.0038433
-"C:/Users/lukes/ZeldaSprint5/Content/ball.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.002144
-"C:/Users/lukes/ZeldaSprint5/Content/BG_MUSIC.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BG_MUSIC.xnb","SoundEffectProcessor","SoundEffectContent",6002120,6002025,1.5952142
-"C:/Users/lukes/ZeldaSprint5/Content/BG_MUSICV2.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BG_MUSICV2.xnb","SoundEffectProcessor","SoundEffectContent",31223930,31223913,1.768192
-"C:/Users/lukes/ZeldaSprint5/Content/BlackBackground.png","C:/Users/lukes/ZeldaSprint5/Content/bin/BlackBackground.xnb","TextureProcessor","Texture2DContent",19266,3932245,0.1167451
-"C:/Users/lukes/ZeldaSprint5/Content/blackColumn.png","C:/Users/lukes/ZeldaSprint5/Content/bin/blackColumn.xnb","TextureProcessor","Texture2DContent",1564,245845,0.0113742
-"C:/Users/lukes/ZeldaSprint5/Content/BombBlow.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BombBlow.xnb","SoundEffectProcessor","SoundEffectContent",16126,16186,1.2590054
-"C:/Users/lukes/ZeldaSprint5/Content/BombDrop.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BombDrop.xnb","SoundEffectProcessor","SoundEffectContent",6740,6800,1.2499385
-"C:/Users/lukes/ZeldaSprint5/Content/Boss.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/Boss.xnb","SoundEffectProcessor","SoundEffectContent",16515194,16515177,1.4712725
-"C:/Users/lukes/ZeldaSprint5/Content/BossDeaad.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BossDeaad.xnb","SoundEffectProcessor","SoundEffectContent",1764986,1764969,1.2217487
-"C:/Users/lukes/ZeldaSprint5/Content/BossLowHp.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BossLowHp.xnb","SoundEffectProcessor","SoundEffectContent",8386682,8386665,1.272998
-"C:/Users/lukes/ZeldaSprint5/Content/bricks.png","C:/Users/lukes/ZeldaSprint5/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",392,16469,0.0044064
-"C:/Users/lukes/ZeldaSprint5/Content/Credits.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Credits.xnb","TextureProcessor","Texture2DContent",75045,810741,0.026736
-"C:/Users/lukes/ZeldaSprint5/Content/Credits.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/Credits.xnb","SoundEffectProcessor","SoundEffectContent",15690362,15690345,1.345498
-"C:/Users/lukes/ZeldaSprint5/Content/creditsEdited.png","C:/Users/lukes/ZeldaSprint5/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0166313
-"C:/Users/lukes/ZeldaSprint5/Content/doors.png","C:/Users/lukes/ZeldaSprint5/Content/bin/doors.xnb","TextureProcessor","Texture2DContent",24583,1375061,0.0505167
-"C:/Users/lukes/ZeldaSprint5/Content/DoorUnlock.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/DoorUnlock.xnb","SoundEffectProcessor","SoundEffectContent",55154,55214,1.2388734
-"C:/Users/lukes/ZeldaSprint5/Content/dragon.png","C:/Users/lukes/ZeldaSprint5/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",43877,2339669,0.0602235
-"C:/Users/lukes/ZeldaSprint5/Content/DungeonEnemy.png","C:/Users/lukes/ZeldaSprint5/Content/bin/DungeonEnemy.xnb","TextureProcessor","Texture2DContent",19899,416869,0.0146457
-"C:/Users/lukes/ZeldaSprint5/Content/enemy.png","C:/Users/lukes/ZeldaSprint5/Content/bin/enemy.xnb","TextureProcessor","Texture2DContent",88793,2062069,0.0510429
-"C:/Users/lukes/ZeldaSprint5/Content/EnemyDie.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/EnemyDie.xnb","SoundEffectProcessor","SoundEffectContent",9282,9343,1.2898769
-"C:/Users/lukes/ZeldaSprint5/Content/EnemyHit.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/EnemyHit.xnb","SoundEffectProcessor","SoundEffectContent",10984,11044,1.2866832
-"C:/Users/lukes/ZeldaSprint5/Content/ExitText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ExitText.xnb","TextureProcessor","Texture2DContent",2657,54421,0.0031244
-"C:/Users/lukes/ZeldaSprint5/Content/ExitTextBlack.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ExitTextBlack.xnb","TextureProcessor","Texture2DContent",1473,54421,0.0026489
-"C:/Users/lukes/ZeldaSprint5/Content/GameOverText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/GameOverText.xnb","TextureProcessor","Texture2DContent",15702,359509,0.0105565
-"C:/Users/lukes/ZeldaSprint5/Content/GameOverText2.png","C:/Users/lukes/ZeldaSprint5/Content/bin/GameOverText2.xnb","TextureProcessor","Texture2DContent",11280,89941,0.0047592
-"C:/Users/lukes/ZeldaSprint5/Content/GetHeartKey.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/GetHeartKey.xnb","SoundEffectProcessor","SoundEffectContent",7248,7308,1.4760687
-"C:/Users/lukes/ZeldaSprint5/Content/GetInventoryItem.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/GetInventoryItem.xnb","SoundEffectProcessor","SoundEffectContent",27284,27345,1.37969
-"C:/Users/lukes/ZeldaSprint5/Content/GetRupee.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/GetRupee.xnb","SoundEffectProcessor","SoundEffectContent",19814,19875,1.3634938
-"C:/Users/lukes/ZeldaSprint5/Content/HUDandInventory.png","C:/Users/lukes/ZeldaSprint5/Content/bin/HUDandInventory.xnb","TextureProcessor","Texture2DContent",60189,8022741,0.216102
-"C:/Users/lukes/ZeldaSprint5/Content/Inventory.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",63906,6467669,0.1701752
-"C:/Users/lukes/ZeldaSprint5/Content/itemsAndWeapons.png","C:/Users/lukes/ZeldaSprint5/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0633824
-"C:/Users/lukes/ZeldaSprint5/Content/itemsAndWeapons1.png","C:/Users/lukes/ZeldaSprint5/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.0367212
-"C:/Users/lukes/ZeldaSprint5/Content/KeyAppear.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/KeyAppear.xnb","SoundEffectProcessor","SoundEffectContent",35974,36035,1.2388966
-"C:/Users/lukes/ZeldaSprint5/Content/LeftFire.png","C:/Users/lukes/ZeldaSprint5/Content/bin/LeftFire.xnb","TextureProcessor","Texture2DContent",627,16469,0.0022655
-"C:/Users/lukes/ZeldaSprint5/Content/LinkDie.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LinkDie.xnb","SoundEffectProcessor","SoundEffectContent",83992,84052,1.1885029
-"C:/Users/lukes/ZeldaSprint5/Content/LinkHurt.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LinkHurt.xnb","SoundEffectProcessor","SoundEffectContent",5416,5477,1.1869721
-"C:/Users/lukes/ZeldaSprint5/Content/LowHp.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LowHp.xnb","SoundEffectProcessor","SoundEffectContent",10160,10220,1.2134173
-"C:/Users/lukes/ZeldaSprint5/Content/LOZ_Arrow_Boomerang.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_Arrow_Boomerang.xnb","SoundEffectProcessor","SoundEffectContent",5388,5449,1.2531564
-"C:/Users/lukes/ZeldaSprint5/Content/LOZ_MagicalRod.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_MagicalRod.xnb","SoundEffectProcessor","SoundEffectContent",16832,16892,1.2336166
-"C:/Users/lukes/ZeldaSprint5/Content/LOZ_Sword_Slash.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_Sword_Slash.xnb","SoundEffectProcessor","SoundEffectContent",8598,8658,1.1987785
-"C:/Users/lukes/ZeldaSprint5/Content/MainMenu.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/MainMenu.xnb","SoundEffectProcessor","SoundEffectContent",30463610,30463593,1.5048877
-"C:/Users/lukes/ZeldaSprint5/Content/NES - The Legend of Zelda - Dungeon Tileset.png","C:/Users/lukes/ZeldaSprint5/Content/bin/NES - The Legend of Zelda - Dungeon Tileset.xnb","TextureProcessor","Texture2DContent",74652,5826381,0.1517905
-"C:/Users/lukes/ZeldaSprint5/Content/NES - The Legend of Zelda - HUD & Pause Screen.png","C:/Users/lukes/ZeldaSprint5/Content/bin/NES - The Legend of Zelda - HUD & Pause Screen.xnb","TextureProcessor","Texture2DContent",9615,625749,0.0229956
-"C:/Users/lukes/ZeldaSprint5/Content/NewItem.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/NewItem.xnb","SoundEffectProcessor","SoundEffectContent",49082,49143,1.1963305
-"C:/Users/lukes/ZeldaSprint5/Content/oldman.png","C:/Users/lukes/ZeldaSprint5/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.0161142
-"C:/Users/lukes/ZeldaSprint5/Content/oldman1.png","C:/Users/lukes/ZeldaSprint5/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.0114049
-"C:/Users/lukes/ZeldaSprint5/Content/player1SheetV5.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player1SheetV5.xnb","TextureProcessor","Texture2DContent",403959,37263325,0.9313177
-"C:/Users/lukes/ZeldaSprint5/Content/player2SheetV4.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player2SheetV4.xnb","TextureProcessor","Texture2DContent",399660,37263325,0.9983812
-"C:/Users/lukes/ZeldaSprint5/Content/player2SheetV5.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player2SheetV5.xnb","TextureProcessor","Texture2DContent",404112,37263325,1.1018848
-"C:/Users/lukes/ZeldaSprint5/Content/playerSheetV3.png","C:/Users/lukes/ZeldaSprint5/Content/bin/playerSheetV3.xnb","TextureProcessor","Texture2DContent",373197,37263325,0.9741572
-"C:/Users/lukes/ZeldaSprint5/Content/playerSheetV4.png.png","C:/Users/lukes/ZeldaSprint5/Content/bin/playerSheetV4.png.xnb","TextureProcessor","Texture2DContent",399495,37263325,1.0212106
-"C:/Users/lukes/ZeldaSprint5/Content/PuzzleSolved.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/PuzzleSolved.xnb","SoundEffectProcessor","SoundEffectContent",20920,20980,1.2633827
-"C:/Users/lukes/ZeldaSprint5/Content/ReplayText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ReplayText.xnb","TextureProcessor","Texture2DContent",4132,79957,0.0041819
-"C:/Users/lukes/ZeldaSprint5/Content/RightFire.png","C:/Users/lukes/ZeldaSprint5/Content/bin/RightFire.xnb","TextureProcessor","Texture2DContent",646,16469,0.0020977
-"C:/Users/lukes/ZeldaSprint5/Content/roomwalls original.png","C:/Users/lukes/ZeldaSprint5/Content/bin/roomwalls original.xnb","TextureProcessor","Texture2DContent",12394,198913,0.0197897
-"C:/Users/lukes/ZeldaSprint5/Content/roomwalls.png","C:/Users/lukes/ZeldaSprint5/Content/bin/roomwalls.xnb","TextureProcessor","Texture2DContent",13166,2883669,0.0853231
-"C:/Users/lukes/ZeldaSprint5/Content/sandtile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/sandtile.xnb","TextureProcessor","Texture2DContent",490,16469,0.0015271
-"C:/Users/lukes/ZeldaSprint5/Content/silverlines.png","C:/Users/lukes/ZeldaSprint5/Content/bin/silverlines.xnb","TextureProcessor","Texture2DContent",253,16469,0.0018005
-"C:/Users/lukes/ZeldaSprint5/Content/Skull.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Skull.xnb","TextureProcessor","Texture2DContent",4467,325285,0.0119315
-"C:/Users/lukes/ZeldaSprint5/Content/SkullResized.png","C:/Users/lukes/ZeldaSprint5/Content/bin/SkullResized.xnb","TextureProcessor","Texture2DContent",39324,3932245,0.1255909
-"C:/Users/lukes/ZeldaSprint5/Content/solid black tile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/solid black tile.xnb","TextureProcessor","Texture2DContent",219,16469,0.0022903
-"C:/Users/lukes/ZeldaSprint5/Content/solid blue tile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/solid blue tile.xnb","TextureProcessor","Texture2DContent",325,16469,0.0026555
-"C:/Users/lukes/ZeldaSprint5/Content/solid navy tile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/solid navy tile.xnb","TextureProcessor","Texture2DContent",224,16469,0.0022162
-"C:/Users/lukes/ZeldaSprint5/Content/Sprint 2 Tiles.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Sprint 2 Tiles.xnb","TextureProcessor","Texture2DContent",45523,478485,0.0132848
-"C:/Users/lukes/ZeldaSprint5/Content/sprint-2-items.png","C:/Users/lukes/ZeldaSprint5/Content/bin/sprint-2-items.xnb","TextureProcessor","Texture2DContent",1927,247637,0.0135967
-"C:/Users/lukes/ZeldaSprint5/Content/sprint-5-items.png","C:/Users/lukes/ZeldaSprint5/Content/bin/sprint-5-items.xnb","TextureProcessor","Texture2DContent",4902,247637,0.0111718
-"C:/Users/lukes/ZeldaSprint5/Content/stairs.png","C:/Users/lukes/ZeldaSprint5/Content/bin/stairs.xnb","TextureProcessor","Texture2DContent",397,16469,0.002031
-"C:/Users/lukes/ZeldaSprint5/Content/statue1.png","C:/Users/lukes/ZeldaSprint5/Content/bin/statue1.xnb","TextureProcessor","Texture2DContent",695,16469,0.0016326
-"C:/Users/lukes/ZeldaSprint5/Content/statue2.png","C:/Users/lukes/ZeldaSprint5/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",660,16469,0.0014692
-"C:/Users/lukes/ZeldaSprint5/Content/textsprite.png","C:/Users/lukes/ZeldaSprint5/Content/bin/textsprite.xnb","TextureProcessor","Texture2DContent",30099,154837,0.0055712
-"C:/Users/lukes/ZeldaSprint5/Content/tile with square in middle.png","C:/Users/lukes/ZeldaSprint5/Content/bin/tile with square in middle.xnb","TextureProcessor","Texture2DContent",450,16469,0.0018142
-"C:/Users/lukes/ZeldaSprint5/Content/TitleScreen.png","C:/Users/lukes/ZeldaSprint5/Content/bin/TitleScreen.xnb","TextureProcessor","Texture2DContent",407868,3932245,0.1602145
-"C:/Users/lukes/ZeldaSprint5/Content/VictoryText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/VictoryText.xnb","TextureProcessor","Texture2DContent",4929,89941,0.0037622
-"C:/Users/lukes/ZeldaSprint5/Content/WalkStairs.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/WalkStairs.xnb","SoundEffectProcessor","SoundEffectContent",30134,30195,1.2385685
-"C:/Users/lukes/ZeldaSprint5/Content/zelda.png","C:/Users/lukes/ZeldaSprint5/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0030609
+"C:/Users/lukes/ZeldaSprint5/Content/1Player.png","C:/Users/lukes/ZeldaSprint5/Content/bin/1Player.xnb","TextureProcessor","Texture2DContent",2670,89941,0.1169365
+"C:/Users/lukes/ZeldaSprint5/Content/2Player.png","C:/Users/lukes/ZeldaSprint5/Content/bin/2Player.xnb","TextureProcessor","Texture2DContent",2619,89941,0.0035433
+"C:/Users/lukes/ZeldaSprint5/Content/ball.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.0018915
+"C:/Users/lukes/ZeldaSprint5/Content/BG_MUSIC.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BG_MUSIC.xnb","SoundEffectProcessor","SoundEffectContent",6002120,6002025,1.2945755
+"C:/Users/lukes/ZeldaSprint5/Content/BG_MUSICV2.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BG_MUSICV2.xnb","SoundEffectProcessor","SoundEffectContent",31223930,31223913,1.5480663
+"C:/Users/lukes/ZeldaSprint5/Content/BlackBackground.png","C:/Users/lukes/ZeldaSprint5/Content/bin/BlackBackground.xnb","TextureProcessor","Texture2DContent",19266,3932245,0.0980096
+"C:/Users/lukes/ZeldaSprint5/Content/blackColumn.png","C:/Users/lukes/ZeldaSprint5/Content/bin/blackColumn.xnb","TextureProcessor","Texture2DContent",1564,245845,0.0093833
+"C:/Users/lukes/ZeldaSprint5/Content/BombBlow.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BombBlow.xnb","SoundEffectProcessor","SoundEffectContent",16126,16186,1.182331
+"C:/Users/lukes/ZeldaSprint5/Content/BombDrop.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BombDrop.xnb","SoundEffectProcessor","SoundEffectContent",6740,6800,1.1793209
+"C:/Users/lukes/ZeldaSprint5/Content/Boss.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/Boss.xnb","SoundEffectProcessor","SoundEffectContent",16515194,16515177,1.3417124
+"C:/Users/lukes/ZeldaSprint5/Content/BossDeaad.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BossDeaad.xnb","SoundEffectProcessor","SoundEffectContent",1764986,1764969,1.2100283
+"C:/Users/lukes/ZeldaSprint5/Content/BossLowHp.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/BossLowHp.xnb","SoundEffectProcessor","SoundEffectContent",8386682,8386665,1.3004583
+"C:/Users/lukes/ZeldaSprint5/Content/bricks.png","C:/Users/lukes/ZeldaSprint5/Content/bin/bricks.xnb","TextureProcessor","Texture2DContent",392,16469,0.0022433
+"C:/Users/lukes/ZeldaSprint5/Content/CreditsBGM.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/CreditsBGM.xnb","SoundEffectProcessor","SoundEffectContent",15690362,15690345,1.4476295
+"C:/Users/lukes/ZeldaSprint5/Content/creditsEdited.png","C:/Users/lukes/ZeldaSprint5/Content/bin/creditsEdited.xnb","TextureProcessor","Texture2DContent",18396,568489,0.0147509
+"C:/Users/lukes/ZeldaSprint5/Content/CreditsM.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/CreditsM.xnb","SoundEffectProcessor","SoundEffectContent",15690362,15690345,1.3487157
+"C:/Users/lukes/ZeldaSprint5/Content/Creditsv2.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Creditsv2.xnb","TextureProcessor","Texture2DContent",72303,810741,0.0225536
+"C:/Users/lukes/ZeldaSprint5/Content/doors.png","C:/Users/lukes/ZeldaSprint5/Content/bin/doors.xnb","TextureProcessor","Texture2DContent",24583,1375061,0.0826503
+"C:/Users/lukes/ZeldaSprint5/Content/DoorUnlock.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/DoorUnlock.xnb","SoundEffectProcessor","SoundEffectContent",55154,55214,1.1802169
+"C:/Users/lukes/ZeldaSprint5/Content/dragon.png","C:/Users/lukes/ZeldaSprint5/Content/bin/dragon.xnb","TextureProcessor","Texture2DContent",43877,2339669,0.0587043
+"C:/Users/lukes/ZeldaSprint5/Content/DungeonEnemy.png","C:/Users/lukes/ZeldaSprint5/Content/bin/DungeonEnemy.xnb","TextureProcessor","Texture2DContent",19899,416869,0.01008
+"C:/Users/lukes/ZeldaSprint5/Content/enemy.png","C:/Users/lukes/ZeldaSprint5/Content/bin/enemy.xnb","TextureProcessor","Texture2DContent",88793,2062069,0.0431002
+"C:/Users/lukes/ZeldaSprint5/Content/EnemyDie.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/EnemyDie.xnb","SoundEffectProcessor","SoundEffectContent",9282,9343,1.208899
+"C:/Users/lukes/ZeldaSprint5/Content/EnemyHit.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/EnemyHit.xnb","SoundEffectProcessor","SoundEffectContent",10984,11044,1.179942
+"C:/Users/lukes/ZeldaSprint5/Content/ExitText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ExitText.xnb","TextureProcessor","Texture2DContent",2657,54421,0.0036018
+"C:/Users/lukes/ZeldaSprint5/Content/ExitTextBlack.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ExitTextBlack.xnb","TextureProcessor","Texture2DContent",1473,54421,0.0040371
+"C:/Users/lukes/ZeldaSprint5/Content/GameOverText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/GameOverText.xnb","TextureProcessor","Texture2DContent",15702,359509,0.0095575
+"C:/Users/lukes/ZeldaSprint5/Content/GameOverText2.png","C:/Users/lukes/ZeldaSprint5/Content/bin/GameOverText2.xnb","TextureProcessor","Texture2DContent",11280,89941,0.0041406
+"C:/Users/lukes/ZeldaSprint5/Content/GetHeartKey.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/GetHeartKey.xnb","SoundEffectProcessor","SoundEffectContent",7248,7308,1.2303141
+"C:/Users/lukes/ZeldaSprint5/Content/GetInventoryItem.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/GetInventoryItem.xnb","SoundEffectProcessor","SoundEffectContent",27284,27345,1.2118386
+"C:/Users/lukes/ZeldaSprint5/Content/GetRupee.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/GetRupee.xnb","SoundEffectProcessor","SoundEffectContent",19814,19875,1.2052487
+"C:/Users/lukes/ZeldaSprint5/Content/HUDandInventory.png","C:/Users/lukes/ZeldaSprint5/Content/bin/HUDandInventory.xnb","TextureProcessor","Texture2DContent",59886,8022741,0.1869187
+"C:/Users/lukes/ZeldaSprint5/Content/Inventory.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Inventory.xnb","TextureProcessor","Texture2DContent",63816,6467669,0.1569396
+"C:/Users/lukes/ZeldaSprint5/Content/itemsAndWeapons.png","C:/Users/lukes/ZeldaSprint5/Content/bin/itemsAndWeapons.xnb","TextureProcessor","Texture2DContent",237043,2403157,0.0460695
+"C:/Users/lukes/ZeldaSprint5/Content/itemsAndWeapons1.png","C:/Users/lukes/ZeldaSprint5/Content/bin/itemsAndWeapons1.xnb","TextureProcessor","Texture2DContent",214044,1034245,0.026499
+"C:/Users/lukes/ZeldaSprint5/Content/KeyAppear.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/KeyAppear.xnb","SoundEffectProcessor","SoundEffectContent",35974,36035,1.2082696
+"C:/Users/lukes/ZeldaSprint5/Content/LeftFire.png","C:/Users/lukes/ZeldaSprint5/Content/bin/LeftFire.xnb","TextureProcessor","Texture2DContent",627,16469,0.0021888
+"C:/Users/lukes/ZeldaSprint5/Content/LinkDie.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LinkDie.xnb","SoundEffectProcessor","SoundEffectContent",83992,84052,1.1911746
+"C:/Users/lukes/ZeldaSprint5/Content/LinkHurt.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LinkHurt.xnb","SoundEffectProcessor","SoundEffectContent",5416,5477,1.2112147
+"C:/Users/lukes/ZeldaSprint5/Content/LowHp.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LowHp.xnb","SoundEffectProcessor","SoundEffectContent",10160,10220,1.2038363
+"C:/Users/lukes/ZeldaSprint5/Content/LOZ_Arrow_Boomerang.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_Arrow_Boomerang.xnb","SoundEffectProcessor","SoundEffectContent",5388,5449,1.2194833
+"C:/Users/lukes/ZeldaSprint5/Content/LOZ_MagicalRod.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_MagicalRod.xnb","SoundEffectProcessor","SoundEffectContent",16832,16892,1.2130133
+"C:/Users/lukes/ZeldaSprint5/Content/LOZ_Sword_Slash.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/LOZ_Sword_Slash.xnb","SoundEffectProcessor","SoundEffectContent",8598,8658,1.2113833
+"C:/Users/lukes/ZeldaSprint5/Content/MainMenu.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/MainMenu.xnb","SoundEffectProcessor","SoundEffectContent",30463610,30463593,1.562411
+"C:/Users/lukes/ZeldaSprint5/Content/NES - The Legend of Zelda - Dungeon Tileset.png","C:/Users/lukes/ZeldaSprint5/Content/bin/NES - The Legend of Zelda - Dungeon Tileset.xnb","TextureProcessor","Texture2DContent",74652,5826381,0.1360585
+"C:/Users/lukes/ZeldaSprint5/Content/NES - The Legend of Zelda - HUD & Pause Screen.png","C:/Users/lukes/ZeldaSprint5/Content/bin/NES - The Legend of Zelda - HUD & Pause Screen.xnb","TextureProcessor","Texture2DContent",9615,625749,0.0151589
+"C:/Users/lukes/ZeldaSprint5/Content/NewItem.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/NewItem.xnb","SoundEffectProcessor","SoundEffectContent",49082,49143,1.2066804
+"C:/Users/lukes/ZeldaSprint5/Content/oldman.png","C:/Users/lukes/ZeldaSprint5/Content/bin/oldman.xnb","TextureProcessor","Texture2DContent",11758,614485,0.0389537
+"C:/Users/lukes/ZeldaSprint5/Content/oldman1.png","C:/Users/lukes/ZeldaSprint5/Content/bin/oldman1.xnb","TextureProcessor","Texture2DContent",24025,614485,0.016757
+"C:/Users/lukes/ZeldaSprint5/Content/player1SheetV5.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player1SheetV5.xnb","TextureProcessor","Texture2DContent",403959,37263325,0.9055824
+"C:/Users/lukes/ZeldaSprint5/Content/player2SheetV4.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player2SheetV4.xnb","TextureProcessor","Texture2DContent",399660,37263325,1.1069087
+"C:/Users/lukes/ZeldaSprint5/Content/player2SheetV5.png","C:/Users/lukes/ZeldaSprint5/Content/bin/player2SheetV5.xnb","TextureProcessor","Texture2DContent",404112,37263325,1.14418
+"C:/Users/lukes/ZeldaSprint5/Content/playerSheetV3.png","C:/Users/lukes/ZeldaSprint5/Content/bin/playerSheetV3.xnb","TextureProcessor","Texture2DContent",373197,37263325,1.1407583
+"C:/Users/lukes/ZeldaSprint5/Content/playerSheetV4.png.png","C:/Users/lukes/ZeldaSprint5/Content/bin/playerSheetV4.png.xnb","TextureProcessor","Texture2DContent",399495,37263325,1.229223
+"C:/Users/lukes/ZeldaSprint5/Content/PuzzleSolved.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/PuzzleSolved.xnb","SoundEffectProcessor","SoundEffectContent",20920,20980,1.3898093
+"C:/Users/lukes/ZeldaSprint5/Content/ReplayText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/ReplayText.xnb","TextureProcessor","Texture2DContent",4132,79957,0.0031938
+"C:/Users/lukes/ZeldaSprint5/Content/RightFire.png","C:/Users/lukes/ZeldaSprint5/Content/bin/RightFire.xnb","TextureProcessor","Texture2DContent",646,16469,0.0017696
+"C:/Users/lukes/ZeldaSprint5/Content/roomwalls original.png","C:/Users/lukes/ZeldaSprint5/Content/bin/roomwalls original.xnb","TextureProcessor","Texture2DContent",12394,198913,0.0069804
+"C:/Users/lukes/ZeldaSprint5/Content/roomwalls.png","C:/Users/lukes/ZeldaSprint5/Content/bin/roomwalls.xnb","TextureProcessor","Texture2DContent",13166,2883669,0.066494
+"C:/Users/lukes/ZeldaSprint5/Content/sandtile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/sandtile.xnb","TextureProcessor","Texture2DContent",490,16469,0.0014539
+"C:/Users/lukes/ZeldaSprint5/Content/silverlines.png","C:/Users/lukes/ZeldaSprint5/Content/bin/silverlines.xnb","TextureProcessor","Texture2DContent",253,16469,0.0019508
+"C:/Users/lukes/ZeldaSprint5/Content/Skull.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Skull.xnb","TextureProcessor","Texture2DContent",4467,325285,0.0086747
+"C:/Users/lukes/ZeldaSprint5/Content/SkullResized.png","C:/Users/lukes/ZeldaSprint5/Content/bin/SkullResized.xnb","TextureProcessor","Texture2DContent",39324,3932245,0.1254129
+"C:/Users/lukes/ZeldaSprint5/Content/solid black tile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/solid black tile.xnb","TextureProcessor","Texture2DContent",219,16469,0.0017487
+"C:/Users/lukes/ZeldaSprint5/Content/solid blue tile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/solid blue tile.xnb","TextureProcessor","Texture2DContent",325,16469,0.0022665
+"C:/Users/lukes/ZeldaSprint5/Content/solid navy tile.png","C:/Users/lukes/ZeldaSprint5/Content/bin/solid navy tile.xnb","TextureProcessor","Texture2DContent",224,16469,0.0556754
+"C:/Users/lukes/ZeldaSprint5/Content/Sprint 2 Tiles.png","C:/Users/lukes/ZeldaSprint5/Content/bin/Sprint 2 Tiles.xnb","TextureProcessor","Texture2DContent",45523,478485,0.0102982
+"C:/Users/lukes/ZeldaSprint5/Content/sprint-2-items.png","C:/Users/lukes/ZeldaSprint5/Content/bin/sprint-2-items.xnb","TextureProcessor","Texture2DContent",1927,247637,0.0239457
+"C:/Users/lukes/ZeldaSprint5/Content/sprint-5-items.png","C:/Users/lukes/ZeldaSprint5/Content/bin/sprint-5-items.xnb","TextureProcessor","Texture2DContent",4902,247637,0.0082845
+"C:/Users/lukes/ZeldaSprint5/Content/sprint-5-itemsV2.png.png","C:/Users/lukes/ZeldaSprint5/Content/bin/sprint-5-itemsV2.png.xnb","TextureProcessor","Texture2DContent",5091,247637,0.0065259
+"C:/Users/lukes/ZeldaSprint5/Content/stairs.png","C:/Users/lukes/ZeldaSprint5/Content/bin/stairs.xnb","TextureProcessor","Texture2DContent",397,16469,0.0022575
+"C:/Users/lukes/ZeldaSprint5/Content/statue1.png","C:/Users/lukes/ZeldaSprint5/Content/bin/statue1.xnb","TextureProcessor","Texture2DContent",695,16469,0.0020703
+"C:/Users/lukes/ZeldaSprint5/Content/statue2.png","C:/Users/lukes/ZeldaSprint5/Content/bin/statue2.xnb","TextureProcessor","Texture2DContent",660,16469,0.0022788
+"C:/Users/lukes/ZeldaSprint5/Content/textsprite.png","C:/Users/lukes/ZeldaSprint5/Content/bin/textsprite.xnb","TextureProcessor","Texture2DContent",30099,154837,0.0039841
+"C:/Users/lukes/ZeldaSprint5/Content/tile with square in middle.png","C:/Users/lukes/ZeldaSprint5/Content/bin/tile with square in middle.xnb","TextureProcessor","Texture2DContent",450,16469,0.0021393
+"C:/Users/lukes/ZeldaSprint5/Content/TitleScreen.png","C:/Users/lukes/ZeldaSprint5/Content/bin/TitleScreen.xnb","TextureProcessor","Texture2DContent",407868,3932245,0.1334537
+"C:/Users/lukes/ZeldaSprint5/Content/VictoryText.png","C:/Users/lukes/ZeldaSprint5/Content/bin/VictoryText.xnb","TextureProcessor","Texture2DContent",4929,89941,0.0025677
+"C:/Users/lukes/ZeldaSprint5/Content/WalkStairs.wav","C:/Users/lukes/ZeldaSprint5/Content/bin/WalkStairs.xnb","SoundEffectProcessor","SoundEffectContent",30134,30195,1.2715006
+"C:/Users/lukes/ZeldaSprint5/Content/zelda.png","C:/Users/lukes/ZeldaSprint5/Content/bin/zelda.xnb","TextureProcessor","Texture2DContent",738,6997,0.0017171

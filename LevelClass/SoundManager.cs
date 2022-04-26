@@ -95,7 +95,7 @@ namespace Sprint0.LevelClass
                 {Sound.BG_MUSIC, content.Load<SoundEffect>("BG_MUSICV2").CreateInstance() }, //Complete
                 {Sound.Triforce, content.Load<SoundEffect>("Triforce").CreateInstance() }, //Complete
                 {Sound.GameOver, content.Load<SoundEffect>("GameOver").CreateInstance() }, //Complete
-                {Sound.Credits, content.Load<SoundEffect>("GameOver").CreateInstance() }, 
+                {Sound.Credits, content.Load<SoundEffect>("CreditsBGM").CreateInstance() }, 
                 {Sound.MainMenu, content.Load<SoundEffect>("MainMenu").CreateInstance() },
                 {Sound.Boss, content.Load<SoundEffect>("Boss").CreateInstance() },
                 {Sound.BossLowHp, content.Load<SoundEffect>("BossLowHp").CreateInstance() },
