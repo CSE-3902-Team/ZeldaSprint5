@@ -316,11 +316,11 @@ namespace Sprint0.StateClass
             if (_inventory.Bow)
             {
                 _game.SpriteBatch.Draw(screen, bowDestRect, bowSourceRect, Color.White);
-                if (_inventory.SpecialArrow)
+                if (_inventory.RupeeCount > 0 && _inventory.SpecialArrow)
                 {
                     _game.SpriteBatch.Draw(screen, arrowDestRect, specialArrowSourceRect, Color.White);
                 }
-                else if (_inventory.Arrow)
+                else if (_inventory.RupeeCount > 0)
                 {
                     _game.SpriteBatch.Draw(screen, arrowDestRect, arrowSourceRect, Color.White);
                 }
