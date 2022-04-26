@@ -39,6 +39,7 @@ namespace Sprint0
         private Boolean firstMap;
         private Boolean firstCompass;
         private Boolean firstSpecialBoomerang;
+        private Boolean firstCandle;
 
         private Boolean bow;
         private Boolean map;
@@ -153,6 +154,11 @@ namespace Sprint0
         {
             get { return firstMap; }
             set { firstMap = value; }
+        }
+        public Boolean FirstCandle
+        {
+            get { return firstCandle; }
+            set { firstCandle = value; }
         }
         public Boolean FirstRupee
         {
@@ -277,6 +283,7 @@ namespace Sprint0
             firstFairy = true;
             firstCompass = true;
             firstSpecialBoomerang = true;
+            firstCandle = true;
 
             bow = false;
             map = false;

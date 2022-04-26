@@ -136,16 +136,17 @@ namespace Sprint0.Collision
             }
             else if (item is ItemCandle)
             {
-                if (player.Inventory.Candle)
+                if (player.Inventory.FirstCandle)
                 {
                     SoundManager.Instance.Play(SoundManager.Sound.NewItem);
                     player.State = new PlayerFirstItem(player, PlayerFirstItem.ItemType.Candle);
-                    inventory.Candle = true;
+                    inventory.FirstCandle = false;
                 }
                 else
                 {
                     SoundManager.Instance.Play(SoundManager.Sound.GetInventoryItem);
                 }
+                inventory.Candle = true;
             }
             else if (item is ItemBomb)
             {
