@@ -3,10 +3,12 @@
 Author of the code review: Craig Cirino
 Date of the code review: 4/25/2022
 Sprint number: 5
-Name of the .cs file being reviewed: 
-Author of the .cs file being reviewed: 
+Name of the .cs file being reviewed: GameMenuState.cs
+Author of the .cs file being reviewed: Ting Feng
 Number of minutes taken to complete the review: 10
 
 Comments on Readability: 
 
 Everything in this class is very readable. The names of variables, fields, and methods are understandable and make sense in the context of a menu state. 
+The logic for drawing the text on the screen is broken up nicely and is very simple. Also, having the constants in all caps made the code easier to read and understand.
+
