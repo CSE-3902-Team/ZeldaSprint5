@@ -10,5 +10,5 @@ Number of minutes taken to complete the review: 10
  
 
 This one is interesting, I can easily see that player death is seperate into different phases. First link will spin, then a start will show and blink. I think every part in 
-this class is good, like undertandable variable and method names, flawless strucutre. There also some comments (like the comment at the bottom SpinLink 
-method that can help readers understand what's happening here.
+this class is good, like undertandable variable and method names, flawless strucutre. There also some comments (like the comment at the bottom of SpinLink 
+method) that can help readers understand what's happening here.
