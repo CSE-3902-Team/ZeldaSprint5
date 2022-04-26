@@ -86,7 +86,6 @@ namespace Sprint0.Collision
                         {
                             List<Object> result = InspectCollision(targets[listInd][handlerTarget] as IBoxCollider, targets[listInd][x] as IBoxCollider);
                             CollisionDirections direction = (CollisionDirections)Enum.Parse(typeof(CollisionDirections), result[0].ToString());
-                            //Console.WriteLine("Result of inspecting " + targets[listInd][x].GetType() + " for collision:" + direction);
                             if (direction != CollisionDirections.None)
                             {
                                 AssignPlayerHandler(targets[listInd][handlerTarget] as Player, targets[listInd][x], direction, (int)result[1]);
@@ -142,7 +141,6 @@ namespace Sprint0.Collision
         //The first item in the list is direction, the second item is magnitude
         private List<Object> InspectCollision(IBoxCollider agiator, IBoxCollider origin)
         {
-            //Console.WriteLine("agiator botR: " + agiator.BottomRight.X + " agiator TL: " + agiator.TopLeft.X + " origin BR" + origin.BottomRight.X + " orgin TL: " + origin.TopLeft.X); ;
 
             int magY = 0;
             CollisionDirections yDir = CollisionDirections.None;
@@ -177,12 +175,10 @@ namespace Sprint0.Collision
 
             if (magY <= magX)
             {
-                //Console.WriteLine("D = " + yDir.ToString() + " magY = " + magY + " magX =" + magX);
                 return new List<Object> { yDir, magY };
             }
             else
             {
-                //Console.WriteLine("D = " + xDir.ToString() + " magY = " + magY + " magX =" + magX);
                 return new List<Object> { xDir, magX };
             }
         }
@@ -221,7 +217,6 @@ namespace Sprint0.Collision
 
         private void AssignEnemyHandler(IEnemySprite enemy, Object other, CollisionDirections dir, int magnitude)
         {
-           // Console.Write("enemy" + enemy.GetType() + " other=" + other.GetType());
            
             ICollisionHandler handler;
             if (other is ITile)
@@ -288,13 +283,11 @@ namespace Sprint0.Collision
             {
                 ICollisionHandler handler = new CollisionHandlerProjectileTile(projectile,other as ITile);
                 handler.HandleCollision();
-                //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }
             else
             {
                 ICollisionHandler handler = new CollisionHandlerUnknown(other);
                 handler.HandleCollision();
-                //Console.WriteLine("Projectile->" + handler.GetType() + " other=" + other.GetType());
             }
             
         }

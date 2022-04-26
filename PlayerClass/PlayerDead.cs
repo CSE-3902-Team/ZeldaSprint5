@@ -113,7 +113,6 @@ namespace Sprint0.PlayerClass
                 //One Spin Completed
                 currentFrame = 1;
                 spinCount++;
-                Console.WriteLine("Spin count =" + spinCount);
 
             }
         }

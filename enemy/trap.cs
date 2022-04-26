@@ -118,10 +118,6 @@ namespace Sprint0.enemy
                 currentPos = move.trapMove(frame,location);
                 frame++;
             }
-            Console.WriteLine("X:"+link.Position.X);
-            Console.WriteLine("Y:"+link.Position.Y);
-            Console.WriteLine("direction X" + direction.X);
-            Console.WriteLine("direction Y" + direction.Y);
 
 
 

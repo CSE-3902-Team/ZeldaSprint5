@@ -83,22 +83,7 @@ namespace Sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            /*
-            if(_nextState != null && !_nextState.IsGameState)
-            {
-                Console.WriteLine("loading again");
-                _currentState = _nextState;
-                _nextState = null;
-                _currentState.loadContent();
-            }
-            else if(_nextState != null)
-            {
-                _currentState = _nextState;
-                _nextState = null;
-            }
-            //kController.handleInput();
-            //mController.handleInput();
-            */
+            
 
             _currentState.update(gameTime);
             base.Update(gameTime);

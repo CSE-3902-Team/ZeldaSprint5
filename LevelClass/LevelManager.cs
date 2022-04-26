@@ -148,7 +148,6 @@ namespace Sprint0.LevelClass
 
         private void parseFields(string[] fields) 
         {
-            //Console.WriteLine(fields.ToString());
             string tileDoor;
             Vector2 position;
             string enemy;
@@ -231,7 +230,6 @@ namespace Sprint0.LevelClass
             string[] fields;
             
             foreach (string file in roomFiles) {
-                //Console.WriteLine(file);
                 parser = PrepareforNewRoom(file);
                 while (parser.PeekChars(1) != null) 
                 {
