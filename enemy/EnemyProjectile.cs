@@ -117,7 +117,7 @@ namespace Sprint0.enemy
                 }
 
             }
-            else
+            else if(FrameCount>=170)
             {
                 projectilePos.X = 0;
 
@@ -149,8 +149,8 @@ namespace Sprint0.enemy
         {
             topLeft.X = (int)projectilePos.X;
             topLeft.Y = (int)projectilePos.Y;
-            botRight.X = (int)projectilePos.X +40;
-            botRight.Y = (int)projectilePos.Y +40;
+            botRight.X = (int)projectilePos.X +30;
+            botRight.Y = (int)projectilePos.Y +30;
 
         }
     }

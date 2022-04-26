@@ -242,9 +242,9 @@ namespace Sprint0.enemy
         private void UpdateCollisionBox() {
 
             topLeft.X = (int)currentPos.X+20 ;
-                topLeft.Y = (int)currentPos.Y+20;
+                topLeft.Y = (int)currentPos.Y+30;
                 bottomRight.X = (int)currentPos.X +55;
-                bottomRight.Y = (int)currentPos.Y +55;
+                bottomRight.Y = (int)currentPos.Y +65;
             
         
         }

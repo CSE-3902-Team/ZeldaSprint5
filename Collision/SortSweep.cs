@@ -278,9 +278,11 @@ namespace Sprint0.Collision
             }
             else if (other is IEnemySprite)
             {
+                
                 ICollisionHandler handler = new CollisionHandlerEnemyProjectile(other as IEnemySprite, projectile, dir, magnitude,repeat);
 
                 handler.HandleCollision();
+
             }
             else if (other is ITile)
             {
