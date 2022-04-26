@@ -275,11 +275,11 @@ namespace Sprint0.LevelClass
         {
             Array.Sort(tileList, delegate (ITile a, ITile b)
             {
-                if (a.GetType() == typeof(PushableTile) || a.GetType() == typeof(RightFire) || a.GetType() == typeof(LeftFire) || a.GetType() == typeof(Text))
+                if (a.GetType() == typeof(PushableTile) || a.GetType() == typeof(RightFire) || a.GetType() == typeof(LeftFire) || a.GetType() == typeof(Text) || a.GetType() == typeof(SolidBlackTile))
                 {
                     return 1;
                 }
-                else if (b.GetType() == typeof(PushableTile)|| b.GetType() == typeof(RightFire) || b.GetType() == typeof(LeftFire) || b.GetType() == typeof(Text))
+                else if (b.GetType() == typeof(PushableTile)|| b.GetType() == typeof(RightFire) || b.GetType() == typeof(LeftFire) || b.GetType() == typeof(Text) || b.GetType() == typeof(SolidBlackTile))
                 {
                     return -1;
                 }
