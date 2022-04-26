@@ -131,7 +131,9 @@ namespace Sprint0 {
 					levelManager.Player1.Inventory.RupeeCount += 10;
 					levelManager.Player1.Inventory.BombCount += 10;
 					levelManager.Player1.Inventory.Boomerang = true;
+					levelManager.Player1.Inventory.KeyCount += 10;
 					levelManager.Player1.Inventory.Bow = true;
+
 				}
 				if (HasBeenPressed(Keys.O)) 
 				{
